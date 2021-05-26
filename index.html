@@ -200,7 +200,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <button :disabled="(newholiday.name.length === 0) || (newholiday.date === '')" @click="addHoliday" class="ui fluid button" type="button">
+                                <button :disabled="(newholiday.name === '') || (newholiday.date === '')" @click="addHoliday" class="ui fluid button" type="button">
                                     Add Holiday
                                 </button>
                             </form>
@@ -211,17 +211,18 @@
                             Make-up Classes
                         </div>
                         <div class="content">
-                            <table class="ui celled unstackable seconadry table">
+                            <table class="ui celled unstackable very basic table">
                                 <tbody v-for="h in makeups">
                                     <tr>
                                         <td>
-                                            {{ h.makeup_for }} ({{ days[new Date(h.makeup_for).getDay()] }})
+                                            {{ getFormattedDate(h.makeup_for) }} ({{ days[new Date(h.makeup_for).getDay()] }})
                                         </td>
                                         <td>
                                             <div class="ui form">
                                                 <input type="date" v-model="h.date"/>
                                             </div>
                                         </td>
+                                    	
                                     </tr>
                                 </tbody>
                             </table>
@@ -346,8 +347,11 @@
                                             - {{ days[ new Date(e.end_date).getDay() ] }}
                                         </span>
                                     </td>
-                                    <td v-html="e.name">
+                                    <td style="display: flex">
+                                    	<span  v-html="e.name" style="flex-grow: 1"></span>
+                                    	<a href="#" v-if="e.holiday" @click="removeHoliday(e)" style="width: 20px;"><i class="icon black delete"></i></a>
                                     </td>
+                                    
                                 </tr>
                             </tbody>
                         </table>
@@ -402,9 +406,7 @@
                     name: 'Final Assessment'
                 },
               ],
-              otherEvents: [
-                 
-              ],
+              otherEvents: [],
               newholiday: {
                 id: 0,
                 name: '',
@@ -431,7 +433,6 @@
           },
           methods: {
             getFormattedDate: function(d){
-
                 if (d != ''){
                     let date_format =  {  year: 'numeric', month: 'long', day: 'numeric' };
                     return new Date(d).toLocaleDateString("en-US", date_format);
@@ -474,10 +475,11 @@
                     
                 }
 
-                
-                let extra_makeup_count = this.makeups.filter((a)=> (a.type ==="extramakeup") && (new Date(a.makeup_for).getDay() === d)).length;
+            
+                let extra_makeup_count = this.makeups.filter((a)=> (a.type ==="extramakeup") && (new Date(a.makeup_for).getDay() === d) && (a.date != '')).length;
                 // console.log('Extra Makeup Count: ', extra_makeup_count);
                 count += extra_makeup_count;
+
                 
                 // diff = (y - x)/a_day;
                 // return isNaN(diff) ? 0 : diff;
@@ -511,6 +513,7 @@
                 // if (this.newholiday.requires_makeup)
                 //  this.makeups[this.newholiday.date] = '';
                 this.newholiday = {requires_makeup: true, single_day: true};
+
             },
             addEvent: function(){
                 if (this.otherEvents.filter((a)=> a.date === this.otherEvents.date).length > 0)
@@ -576,6 +579,11 @@
               this.holidays = [];
               this.otherEvents = [];
             },
+            removeHoliday: function(item){
+            	this.holidays = this.holidays.filter((a)=> a.id != item.id);
+            	this.makeups = this.makeups.filter((a) => a.type === "extramakeup").concat(this.makeups.filter((a)=> (a.type !== "extramakeup") && (a.makeup_for != item.date)));
+            }
+            ,
             saveState: function ()
             {
                 const item1 = JSON.stringify(this.academicEvents);
