@@ -349,7 +349,7 @@
                                     </td>
                                     <td style="display: flex">
                                     	<span  v-html="e.name" style="flex-grow: 1"></span>
-                                    	<a href="#" v-if="e.holiday" @click="removeHoliday(e)" style="width: 20px;"><i class="icon black delete"></i></a>
+                                    	<span v-if="e.holiday" @click="removeHoliday(e)" style="width: 20px; cursor: pointer;"><i class="icon black delete"></i></span>
                                     </td>
                                     
                                 </tr>
