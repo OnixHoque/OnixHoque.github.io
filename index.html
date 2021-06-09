@@ -333,8 +333,8 @@
                             
                         </center>
                         <table id="main-table" class="ui celled center aligned unstackable table">
-                            <tbody v-for="e in all_events">
-                                <tr :class="{warning: e.holiday}" v-if="e.date != ''">
+                            <tbody>
+                                <tr v-for="e in all_events" :class="{warning: e.holiday}" v-if="e.date != ''">
                                     <td>
                                         {{ getFormattedDate(e.date) }}
                                         <span v-if="e.end_date != ''">
@@ -349,7 +349,7 @@
                                     </td>
                                     <td style="display: flex">
                                     	<span  v-html="e.name" style="flex-grow: 1"></span>
-                                    	<span v-if="e.holiday" @click="removeHoliday(e)" style="width: 20px; cursor: pointer;"><i class="icon black delete"></i></span>
+                                    	<span v-if="e.holiday || e.type == 'event'" @click="removeHolidayOrEvent(e)" style="width: 20px; cursor: pointer;"><i class="icon black delete"></i></span>
                                     </td>
                                     
                                 </tr>
@@ -370,7 +370,7 @@
         <script src="https://cdn.jsdelivr.net/npm/fomantic-ui@2.8.7/dist/semantic.min.js">
         </script>
         <script type="text/javascript">
-            new Vue( {
+            let v = new Vue( {
             el: '#app',
             data: {
               days : ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
@@ -486,7 +486,9 @@
                 return count;
             },
             sortDate: function(a, b){
-                return new Date(a.date).getTime() - new Date(b.date).getTime();
+                p = new Date(a.date).getTime();
+                q = new Date(b.date).getTime();
+                return p - q;
             },
             addHoliday: function() {
                 if (this.holidays.filter((a)=> a.date === this.newholiday.date).length > 0)
@@ -579,9 +581,16 @@
               this.holidays = [];
               this.otherEvents = [];
             },
-            removeHoliday: function(item){
-            	this.holidays = this.holidays.filter((a)=> a.id != item.id);
-            	this.makeups = this.makeups.filter((a) => a.type === "extramakeup").concat(this.makeups.filter((a)=> (a.type !== "extramakeup") && (a.makeup_for != item.date)));
+            removeHolidayOrEvent: function(item){
+                if (item.holiday == true)
+                {
+                    this.holidays = this.holidays.filter((a)=> a.id != item.id);
+                    this.makeups = this.makeups.filter((a) => a.type === "extramakeup").concat(this.makeups.filter((a)=> (a.type !== "extramakeup") && (a.makeup_for != item.date)));    
+                }
+                else if (item.type == 'event') {
+                    this.otherEvents = this.otherEvents.filter(a => a.id != item.id);
+                }
+            	
             }
             ,
             saveState: function ()
@@ -645,7 +654,7 @@
           },
           computed: {
             all_events : function() {
-                let m = (this.academicEvents.concat(this.otherEvents).concat(this.holidays).concat(this.makeups)).sort(this.sortDate);
+                let m = (this.academicEvents.filter(a => a.date != '').concat(this.otherEvents).concat(this.holidays).concat(this.makeups)).sort(this.sortDate);
                 // console.log(m);
                 return m;
 
