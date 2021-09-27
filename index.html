@@ -7,9 +7,13 @@
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
         <link href="https://cdn.jsdelivr.net/npm/fomantic-ui@2.8.7/dist/semantic.min.css" rel="stylesheet" type="text/css">
         <style>
+            html {
+               scroll-padding-top: 100px;
+            }
             body, div, a {
                 font-family: Merriweather;
                 background-color: #FAFAFA;
+
             }
 
             #topbar {
@@ -17,9 +21,7 @@
                 padding: 10px;
                 height: 65px;
             }
-            #wall {
-                padding-top:  100px;
-            }
+            
             #topbar * {
                 color: white;
             }
@@ -35,12 +37,21 @@
             div .content {
                 font-family: PT Sans;
             }
+            .label, .card .meta {
+                font-family: PT Sans;
+                font-weight: normal;
+            }
+
+            .card * {
+                background-color: white;
+            }
+
 
         </style>
     </head>
     <body >
         <div class="ui top fixed  menu" id="topbar">
-          <a class="header item" href="#topbar">
+          <a class="header item" href="#wall">
             <h3>Md. Saidul Hoque Anik</h3>
           </a>
           <div class="ui right secondary menu">
@@ -54,6 +65,8 @@
                 Community
               </a>
             </div>
+        </div>
+        <div style="height: 100px;">
         </div>
         <div class="ui  container" id="wall">
             <div class="ui stackable two column grid basic segments">
@@ -84,7 +97,7 @@
                   <div class="content">
                     M.Sc (Ongoing)
                     <div class="sub header">
-                    <p>Dept of CSE, Bangladesh University of Engineeing and Technology</p>
+                    <p>Dept of CSE, Bangladesh University of Engineering and Technology</p>
                     </div>
                   </div>
                 </h3>
@@ -92,7 +105,7 @@
                   <div class="content">
                     B.Sc
                     <div class="sub header">
-                    <p>Dept of CSE, Bangladesh University of Engineeing and Technology</p>
+                    <p>Dept of CSE, Bangladesh University of Engineering and Technology</p>
                     </div>
                   </div>
                 </h3>
@@ -116,28 +129,209 @@
 
             </div>
 
-            <div class="ui basic segment" id="projects">
-                <h2 class="ui dividing header">
+            <div class="ui basic segment" >
+                <h2 class="ui dividing header" id="projects">
                   Projects
                 </h2>
-                Academic Calendar Maker (VueJS, Semantic UI)
-https://onixhoque.github.io/
-Quran App (Flask, Semantic UI)
-https://onixhoque.pythonanywhere.com/
-Automated Attendace Entry (Python,  Selenium)
-Copy-Checker (ElectronJS, VueJS, Semantic UI)
-DBMS Query Checker (Python)
-OBE – CO/PO attainment Tool (Google Sheets)
+                <div class="ui cards centered">
+                    <div class="ui card">
+                      <div class="content">
+                        <div class="right floated meta">
+                            <div class="ui green horizontal label">
+                                Commercial
+                            </div>
+                        </div>
+                        <strong>Bell-212 Training Module</strong>
+                        <div class="meta">
+                        PHP, Three.js, Semantic UI
+                        </div>
+                      </div>
+                      <div class="ui slide masked reveal image">
+                        <img src="images/projects/bell-1.png" class="visible content">
+                        <img src="images/projects/bell-2.png" class="hidden content">
+                      </div>
+                      <!-- <div class="image">
+                        <img  src="images/projects/bell-1.png">
+                      </div> -->
+                      <div class="content">
+                        <div class="description">
+                        An training website with interactive 3D models for learning about different components of Bell-212 Helicopter. Also has the options to take and set quiz.
+                      </div>
+                        
+                      </div>
+                      <div class="extra content">
+                        <span class="right floated">Jun'19 - Mar'20</span>
+                      </div>
+                    </div>
+
+                    <div class="ui card">
+                      <div class="content">
+                        <!-- <div class="right floated meta">
+                            <div class="ui green horizontal label">
+                                Commercial
+                            </div>
+                        </div> -->
+                        <strong>Aayatun</strong>
+                        <div class="meta">
+                        Flask, PWA, Whoosh, Semantic UI
+                        </div>
+                      </div>
+                      <div class="ui slide masked reveal image">
+                        <img src="images/projects/aayatun-1.jpg" class="visible content">
+                        <img src="images/projects/aayatun-2.jpg" class="hidden content">
+                      </div>
+                      <!-- <div class="image">
+                        <img  src="images/projects/bell-1.png">
+                      </div> -->
+                      <div class="content">
+                        <div class="description">
+                        A responsive, mobile-first Quran encyclopedia containing word-for-word meaning, word definition, two different recitations, and tafsir. It is hosted <a target="_blank" href="https://onixhoque.pythonanywhere.com/">here</a>.
+                      </div>
+                        
+                      </div>
+                      <div class="extra content">
+                        <span class="right floated">Aug'20 - Present</span>
+                      </div>
+                    </div>
+
+                    <div class="ui card">
+                      <div class="content">
+                        <!-- <div class="right floated meta">
+                            <div class="ui green horizontal label">
+                                Commercial
+                            </div>
+                        </div> -->
+                        <strong>Plagiarism Checker</strong>
+                        <div class="meta">
+                        ElectronJS, VueJS, Semantic UI
+                        </div>
+                      </div>
+                      <div class="ui slide masked reveal image">
+                        <img src="images/projects/plagiarism-1.png" class="visible content">
+                        <img src="images/projects/plagiarism-2.png" class="hidden content">
+                      </div>
+                      <!-- <div class="image">
+                        <img  src="images/projects/bell-1.png">
+                      </div> -->
+                      <div class="content">
+                        <div class="description">
+                        A desktop application for plagiarism checking. It generates a detailed report, marks possible plagiarism case based on statistics, and also shows side-by-side similarity between two submissions.
+                      </div>
+                        
+                      </div>
+                      <div class="extra content">
+                        <span class="right floated">Mar'21</span>
+                      </div>
+                    </div>
+
+                    <div class="ui card">
+                      <div class="content">
+                        <!-- <div class="right floated meta">
+                            <div class="ui green horizontal label">
+                                Commercial
+                            </div>
+                        </div> -->
+                        <strong>Automated Attendance Entry</strong>
+                        <div class="meta">
+                        Python, PyQT5, Selenium
+                        </div>
+                      </div>
+                      <div class="ui slide masked reveal image">
+                        <img src="images/projects/attendance-1.png" class="visible content">
+                        <img src="images/projects/attendance-2.png" class="hidden content">
+                      </div>
+                      <!-- <div class="image">
+                        <img  src="images/projects/bell-1.png">
+                      </div> -->
+                      <div class="content">
+                        <div class="description">
+                        A desktop application for automatically extracting the ids from the Google Meet chat-script. After extraction, it can open the university account and put attendance entry using Selenium.
+                      </div>
+                        
+                      </div>
+                      <div class="extra content">
+                        <span class="right floated">Jan'21</span>
+                      </div>
+                    </div>
+
+                    <div class="ui card">
+                      <div class="content">
+                        <!-- <div class="right floated meta">
+                            <div class="ui green horizontal label">
+                                Commercial
+                            </div>
+                        </div> -->
+                        <strong>Academic Calendar Generator for UIU</strong>
+                        <div class="meta">
+                        VueJS, Semantic UI
+                        </div>
+                      </div>
+                      <div class="ui slide masked reveal image">
+                        <img src="images/projects/calendar-1.png" class="visible content">
+                        <img src="images/projects/calendar-2.png" class="hidden content">
+                      </div>
+                      <!-- <div class="image">
+                        <img  src="images/projects/bell-1.png">
+                      </div> -->
+                      <div class="content">
+                        <div class="description">
+                        A single-page application for generating the academic calendar. It has the option to  show live-preview of the weekdays count during data entry as well as saving as pdf/excel. It can also handle single/multiple day holidays and makeup classes.
+                      </div>
+                        
+                      </div>
+                      <div class="extra content">
+                        <span class="right floated">Jan'21</span>
+                      </div>
+                    </div>
+
+                    <div class="ui card">
+                      <div class="content">
+                        <!-- <div class="right floated meta">
+                            <div class="ui green horizontal label">
+                                Commercial
+                            </div>
+                        </div> -->
+                        <strong>CO/PO attainment tool for MIST</strong>
+                        <div class="meta">
+                        Google Sheets
+                        </div>
+                      </div>
+                      <div class="ui slide masked reveal image">
+                        <img src="images/projects/copo-1.png" class="visible content">
+                        <img src="images/projects/copo-2.png" class="hidden content">
+                      </div>
+                      <!-- <div class="image">
+                        <img  src="images/projects/bell-1.png">
+                      </div> -->
+                      <div class="content">
+                        <div class="description">
+                        An interactive Google sheet for calculating CO/PO attainment score from given mark-sheet and CO/Assessment links. It can generate report on PO attainment, CO attainment, and individual assessment status for each student. 
+                      </div>
+                        
+                      </div>
+                      <div class="extra content">
+                        <span class="right floated">Oct'19</span>
+                      </div>
+                    </div>
+
+                </div>
+
+                
+
+
+
 Course Distributor for MIST (Java, Swing)
 Brac
-Bell-212
+
 Social Media
+AntiVirus
             </div>
 
             <div class="ui basic segment" id="community">
                 <h2 class="ui dividing header">
                   Community
                 </h2>
+
                 Youtube
                 java manual
                 android
