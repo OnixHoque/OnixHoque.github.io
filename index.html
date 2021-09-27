@@ -2,688 +2,148 @@
 <html lang="en">
     <head>
         <title>
-            Academic calender generator
+            Portfolio of Md. Saidul Hoque Anik
         </title>
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <link href="https://cdn.jsdelivr.net/npm/fomantic-ui@2.8.7/dist/semantic.min.css" rel="stylesheet" type="text/css">
+        <style>
+            body, div, a {
+                font-family: Merriweather;
+                background-color: #FAFAFA;
+            }
 
-            <script src="https://unpkg.com/vue">
-            </script>
-            <link href="https://cdn.jsdelivr.net/npm/fomantic-ui@2.8.7/dist/semantic.min.css" rel="stylesheet" type="text/css">
-                <link href="https://cdnjs.cloudflare.com/ajax/libs/fomantic-ui/2.8.7/components/icon.min.css" rel="stylesheet" type="text/css">
-        <style type="text/css">
-            * {
-                font-family: Open Sans;
+            #topbar {
+                background-color: #0072B5;
+                padding: 10px;
+                height: 65px;
             }
-            .menu[style]  .item {
-                color: white !important;
+            #wall {
+                padding-top:  100px;
             }
-            .field, .fields {
-                padding: 0 10px;
+            #topbar * {
+                color: white;
             }
-            body {
-                background: rgba(246, 139, 31, .01);
+
+            #topbar .item {
+                border-radius: 5px !important;
             }
-                    </style>
-                </link>
-            </link>
-        </meta>
+
+            #topbar .header.item h3{
+                font-family: Merriweather;
+            } 
+
+            div .content {
+                font-family: PT Sans;
+            }
+
+        </style>
     </head>
-    <body>
-        <div id="app">
-            <div class="ui stackable menu" style="padding: 10px; background: rgba(246, 139, 31, .8);">
-                <div class="header item" style="font-size: 1.5em;">
-                    Academic Calender Generator
-                </div>
-                <div class="right menu">
-                    <div class="item">
-                        Saturday: {{ saturdays }}
-                    </div>
-                    <div class="item">
-                        Sunday: {{ sundays }}
-                    </div>
-                    <div class="item">
-                        Tuesday: {{ tuesdays }}
-                    </div>
-                    <div class="item">
-                        Wednesday: {{ wednesdays }}
-                    </div>
-                    <a class="item" onclick="$('.ui.modal').modal('show');">
-                        About
-                    </a>
-                </div>
-            </div>
-
-            <div class="ui tiny modal" style="display: none">
-                <i class="close icon"></i>
-              <div class="content">
-                <center>
-                <h2>Md. Saidul Hoque Anik</h2>
-                <h4>Faculty, Dept of CSE, UIU</h4>
-                <p>This App is developed using Vue.JS and Semantic UI</p>
-                </center>
-              </div>
-            </div>
-            <div class="ui stackable grid" style="padding: 10px">
-                <div class="six wide column" id="sidebar">
-                    <div class="ui styled accordion">
-                        <div class="active title">
-                            <i class="dropdown icon">
-                            </i>
-                            Academic Events
-                        </div>
-                        <div class="active content">
-                            <form class="ui form">
-                                <h4>
-                                    Classes Begin
-                                </h4>
-                                <div class="field">
-                                    <label>
-                                        On
-                                    </label>
-                                    <input type="date" v-model="academicEvents[0].date">
-                                    </input>
-                                </div>
-                                <hr>
-                                    <h4>
-                                        Mid-term Assessment
-                                    </h4>
-                                    <div class="two fields">
-                                        <div class="field">
-                                            <label>
-                                                From
-                                            </label>
-                                            <input type="date" v-model="academicEvents[1].date">
-                                            </input>
-                                        </div>
-                                        <div class="field">
-                                            <label>
-                                                To
-                                            </label>
-                                            <input type="date" v-model="academicEvents[1].end_date">
-                                            </input>
-                                        </div>
-                                    </div>
-                                    <hr>
-                                        <h5>
-                                            Classes will remain suspended
-                                        </h5>
-                                        <div class="two fields">
-                                            <div class="field">
-                                                <label>
-                                                    From
-                                                </label>
-                                                <input type="date" v-model="academicEvents[2].date">
-                                                </input>
-                                            </div>
-                                            <div class="field">
-                                                <label>
-                                                    To
-                                                </label>
-                                                <input type="date" v-model="academicEvents[2].end_date">
-                                                </input>
-                                            </div>
-                                        </div>
-                                        <hr>
-                                            <h4>
-                                                Final Assessment
-                                            </h4>
-                                            <div class="two fields">
-                                                <div class="field">
-                                                    <label>
-                                                        From
-                                                    </label>
-                                                    <input type="date" v-model="academicEvents[3].date">
-                                                    </input>
-                                                </div>
-                                                <div class="field">
-                                                    <label>
-                                                        To
-                                                    </label>
-                                                    <input type="date" v-model="academicEvents[3].end_date">
-                                                    </input>
-                                                </div>
-                                            </div>
-                                        </hr>
-                                    </hr>
-                                </hr>
-                            </form>
-                        </div>
-                        <div class="title">
-                            <i class="dropdown icon">
-                            </i>
-                            Holidays
-                        </div>
-                        <div class="content">
-                            <form class="ui form">
-                                <div class="field">
-                                    <label>
-                                        Holiday Name
-                                    </label>
-                                    <input placeholder="E.g.: Independence Day" type="text" v-model="newholiday.name"/>
-                                </div>
-                                <div class="two fields">
-                                    <div class="field">
-                                        <label v-if="newholiday.single_day">
-                                            On
-                                        </label>
-                                        <label v-else="newholiday.single_day">
-                                            From
-                                        </label>
-                                        <input type="date" v-model="newholiday.date">
-                                        </input>
-                                    </div>
-                                    <div :hidden="newholiday.single_day" class="field">
-                                        <label>
-                                            To
-                                        </label>
-                                        <input type="date" v-model="newholiday.end_date">
-                                        </input>
-                                    </div>
-                                </div>
-                                <div class="two fields">
-                                    <div class="field" style="margin: 0">
-                                        <div class="ui checkbox" style="padding: 0">
-                                            <input class="hidden" tabindex="0" type="checkbox" v-model="newholiday.single_day">
-                                                <label>
-                                                    Single Day Event
-                                                </label>
-                                            </input>
-                                        </div>
-                                    </div>
-                                    <div :hidden="!newholiday.single_day" class="field" style="margin: 0">
-                                        <div class="ui checkbox" style="padding: 0">
-                                            <input class="hidden" tabindex="0" type="checkbox" v-model="newholiday.requires_makeup">
-                                                <label>
-                                                    Requires Make-up Class
-                                                </label>
-                                            </input>
-                                        </div>
-                                    </div>
-                                </div>
-                                <button :disabled="(newholiday.name === '') || (newholiday.date === '')" @click="addHoliday" class="ui fluid button" type="button">
-                                    Add Holiday
-                                </button>
-                            </form>
-                        </div>
-                        <div class="title">
-                            <i class="dropdown icon">
-                            </i>
-                            Make-up Classes
-                        </div>
-                        <div class="content">
-                            <table class="ui celled unstackable very basic table">
-                                <tbody v-for="h in makeups">
-                                    <tr>
-                                        <td>
-                                            {{ getFormattedDate(h.makeup_for) }} ({{ days[new Date(h.makeup_for).getDay()] }})
-                                        </td>
-                                        <td>
-                                            <div class="ui form">
-                                                <input type="date" v-model="h.date"/>
-                                            </div>
-                                        </td>
-                                    	
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <div class="title">
-                            <i class="dropdown icon">
-                            </i>
-                            Extra Make-up Classes
-                        </div>
-                        <div class="content">
-                            <form class="ui form">
-                                <div class="two fields">
-                                    <div class="field">
-                                        <label>
-                                            Make-up Class for
-                                        </label>
-                                        <input type="date" v-model="newextramakeup.makeup_for">
-                                        </input>
-                                    </div>
-                                    <div class="field">
-                                        <label>
-                                            Make-up Class Date
-                                        </label>
-                                        <input type="date" v-model="newextramakeup.date">
-                                        </input>
-                                    </div>
-                                </div>
-                                <button :disabled="(newextramakeup.date === '') || (newextramakeup.makeup_for === '')" @click="addExtraMakeup" class="ui fluid button" type="button">
-                                    Add Extra Makeup Class
-                                </button>
-                            </form>
-                        </div>
-                        <div class="title">
-                            <i class="dropdown icon">
-                            </i>
-                            Other Events
-                        </div>
-                        <div class="content">
-                            <form class="ui form">
-                                <div class="field">
-                                    <label>
-                                        Event Description
-                                    </label>
-                                    <textarea placeholder="E.g.: Last Day to Drop Course" type="text" v-model="newevent.name">
-                                    </textarea>
-                                </div>
-                                <div class="two fields">
-                                    <div class="field">
-                                        <label v-if="newevent.single_day">
-                                            On
-                                        </label>
-                                        <label v-else="newevent.single_day">
-                                            From
-                                        </label>
-                                        <input type="date" v-model="newevent.date">
-                                        </input>
-                                    </div>
-                                    <div :hidden="newevent.single_day" class="field">
-                                        <label>
-                                            To
-                                        </label>
-                                        <input type="date" v-model="newevent.end_date">
-                                        </input>
-                                    </div>
-                                </div>
-                                <div class="field">
-                                    <div class="ui checkbox">
-                                        <input checked="true" class="hidden" tabindex="0" type="checkbox" v-model="newevent.single_day">
-                                            <label>
-                                                Single Day Event
-                                            </label>
-                                        </input>
-                                    </div>
-                                </div>
-                                <button :disabled="(newevent.name === '') || (newevent.date === '')" @click="addEvent" class="ui fluid button" type="button">
-                                    Add Event
-                                </button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-                
-
-                <div class="ten wide column" id="calender">
-                    <div class="ui secondary menu">
-                        <div class="right menu">
-                            <a class="item" @click="exportTable"><i class="download icon"></i>Save as XLS</a>
-                            <a class="item" onclick="$('#printarea').printThis();"><i class="print icon"></i>Print</a>
-                            <a class="item" @click="saveState"><i class="save icon"></i>Save</a>
-                            <a class="item" @click="loadState"><i class="upload icon"></i>Load</a>
-                            <a class="item" @click="clearState"><i class="trash icon"></i>Clear</a>
-                            <a class="item" onclick="$('#sidebar').toggle(); $('#calender').toggleClass('ten wide column').toggleClass('sixteen wide column'); $('#fullscreen').toggleClass('expand icon').toggleClass('compress icon');"><i id="fullscreen" class="expand icon"></i>Full Screen</a>
-                        </div>
-                    </div>
-                    <div id="printarea">
-                        <center>
-                            <h2>
-                                United International University
-                            </h2>
-                            <h3>
-                                Academic Calender
-                            </h3>
-                            
-                                <h5>
-                                    {{ semester_name }} <i class="ui edit icon" @click="renameSemester" style="cursor: pointer;"></i>
-                                </h5>
-                            
-                            
-                        </center>
-                        <table id="main-table" class="ui celled center aligned unstackable table">
-                            <tbody>
-                                <tr v-for="e in all_events" :class="{warning: e.holiday}" v-if="e.date != ''">
-                                    <td>
-                                        {{ getFormattedDate(e.date) }}
-                                        <span v-if="e.end_date != ''">
-                                            - {{ getFormattedDate(e.end_date) }}
-                                        </span>
-                                    </td>
-                                    <td>
-                                        {{ days[ new Date(e.date).getDay() ] }}
-                                        <span v-if="e.end_date != ''">
-                                            - {{ days[ new Date(e.end_date).getDay() ] }}
-                                        </span>
-                                    </td>
-                                    <td style="display: flex">
-                                    	<span  v-html="e.name" style="flex-grow: 1"></span>
-                                    	<span v-if="e.holiday || e.type == 'event'" @click="removeHolidayOrEvent(e)" style="width: 20px; cursor: pointer;"><i class="icon black delete"></i></span>
-                                    </td>
-                                    
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
+    <body >
+        <div class="ui top fixed  menu" id="topbar">
+          <a class="header item" href="#topbar">
+            <h3>Md. Saidul Hoque Anik</h3>
+          </a>
+          <div class="ui right secondary menu">
+              <a class="item" href="#academic">
+                Academic
+              </a>
+              <a class="item" href="#projects">
+                Projects
+              </a>
+              <a class="item" href="#community">
+                Community
+              </a>
             </div>
         </div>
+        <div class="ui  container" id="wall">
+            <div class="ui stackable two column grid basic segments">
+              <div class="ui column center aligned ">
+                <img class="ui circular centered medium image" src="images/propic.jfif">
+              </div>
+              <div class="ui column">
+              <div class="ui basic padded segment" id="infosummary">
+                <h3 class="ui header">
+                  <div class="content">
+                    Faculty
+                    <div class="sub header">
+                    Dept of CSE, <a target="_blank" href="https://cse.uiu.ac.bd/profiles/anik-md-saidul-hoque/">United International University</a>
+                    </div>
+                  </div>
+                </h3>
 
+                <h3 class="ui disabled header">
+                  <div class="content">
+                    Former Faculty
+                    <div class="sub header">
+                    Dept of CSE, Military Institute of Science and Technology
+                    </div>
+                  </div>
+                </h3>
 
+                <h3 class="ui header">
+                  <div class="content">
+                    M.Sc (Ongoing)
+                    <div class="sub header">
+                    <p>Dept of CSE, Bangladesh University of Engineeing and Technology</p>
+                    </div>
+                  </div>
+                </h3>
+                <h3 class="ui header">
+                  <div class="content">
+                    B.Sc
+                    <div class="sub header">
+                    <p>Dept of CSE, Bangladesh University of Engineeing and Technology</p>
+                    </div>
+                  </div>
+                </h3>
 
-
-
-        <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
-        <script src="https://cdn.rawgit.com/rainabba/jquery-table2excel/1.1.0/dist/jquery.table2excel.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/printThis/1.15.0/printThis.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/fomantic-ui@2.8.7/dist/semantic.min.js">
-        </script>
-        <script type="text/javascript">
-            let v = new Vue( {
-            el: '#app',
-            data: {
-              days : ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
-             semester_name : 'Spring 2021 Trimester',
-              academicEvents : [
-                {
-                    id: 1,
-                    date: '',
-                    end_date: '',
-                    holiday: false,
-                    name: 'Classes Begin',
-
-                },
-                {
-                    id: 2,
-                    date: '',
-                    end_date: '',
-                    holiday: false,
-                    name: 'Mid Term Assessment'
-                },
-                {
-                    id: 3,
-                    date: '',
-                    end_date: '',
-                    holiday: false,
-                    name: 'Classes will remain suspended'
-                },
-                {
-                    id: 4,
-                    date: '',
-                    end_date: '',
-                    holiday: false,
-                    name: 'Final Assessment'
-                },
-              ],
-              otherEvents: [],
-              newholiday: {
-                id: 0,
-                name: '',
-                date: '',
-                end_date: '',
-                single_day: true,
-                requires_makeup: true
-              },
-              newevent: {
-                id: 0,
-                name: '',
-                date: '',
-                end_date: '',
-                single_day: true,
-              },
-              newextramakeup: {
-                makeup_for: '',
-                date: '',
-                name: '',
-                end_date: ''
-              },
-              holidays: [],
-              makeups: []
-          },
-          methods: {
-            getFormattedDate: function(d){
-                if (d != ''){
-                    let date_format =  {  year: 'numeric', month: 'long', day: 'numeric' };
-                    return new Date(d).toLocaleDateString("en-US", date_format);
-                }
-                else
-                    return '';
-            },
-            isDayOff: function(d) {
-                if (d >= new Date(this.academicEvents[1].date).getTime() && d <= new Date(this.academicEvents[1].end_date).getTime())
-                    return true;
-                else if (this.holidays.filter((a) => (d >= new Date(a.date).getTime() && d <= new Date(a.end_date).getTime())).length > 0)
-                        return true;
-                else if (this.holidays.filter((a) => new Date(a.date).getTime() == d).length > 0)
-                {
-                    let p = this.makeups.filter((a)=> a.type !== "extramakeup").filter((a) => new Date(a.makeup_for).getTime() == d);
-                    if (p.length > 0 && p[0].date === '')
-                        return true;
-                }
-                else
-                    return false;
-            },
-            getDateDiff: function(a, b){
-                x = new Date(a).getTime();
-                y = new Date(b).getTime();
-                return (y - x)/(1000 * 24 * 3600);
-            },
-            getDayCount: function(d){
-                let a_day = 1000 * 24 * 3600;
-                x = new Date(this.academicEvents[0].date).getTime();
-                y = new Date(this.academicEvents[2].date).getTime();
-
-                let count = 0;
-                if (x >= y) 
-                    return 0;
-                for (let j = x; j < y; j = j + a_day)
-                {
-
-                    if (new Date(j).getDay() === d && !this.isDayOff(j))
-                        count = count + 1;
-                    
-                }
-
+                <!-- <h3 class="ui header">
+                  <div class="content">
+                    H.Sc
+                    <div class="sub header">
+                    <p>Notre Dame College</p>
+                    </div>
+                  </div>
+                </h3> -->
+              </div>
+          </div>
+            </div>
             
-                let extra_makeup_count = this.makeups.filter((a)=> (a.type ==="extramakeup") && (new Date(a.makeup_for).getDay() === d) && (a.date != '')).length;
-                // console.log('Extra Makeup Count: ', extra_makeup_count);
-                count += extra_makeup_count;
+            <div class="ui basic segment" id="academic">
+                <h2 class="ui dividing header">
+                  Academic Activity & Research
+                </h2>
 
-                
-                // diff = (y - x)/a_day;
-                // return isNaN(diff) ? 0 : diff;
-                return count;
-            },
-            sortDate: function(a, b){
-                p = new Date(a.date).getTime();
-                q = new Date(b.date).getTime();
-                return p - q;
-            },
-            addHoliday: function() {
-                if (this.holidays.filter((a)=> a.date === this.newholiday.date).length > 0)
-                    return;
-                this.holidays.push({
-                    id: this.holidays.length + 1,
-                    type: 'holiday',
-                    date: this.newholiday.date,
-                    name: "Holiday: " + this.newholiday.name,
-                    end_date: this.newholiday.single_day? '' : this.newholiday.end_date,
-                    holiday: true,
-                    requires_makeup: this.newholiday.single_day ? this.newholiday.requires_makeup : false,
-                    single_day: this.newholiday.single_day
-                });
-                if (this.newholiday.single_day ? this.newholiday.requires_makeup : false)
-                    this.makeups.push({
-                        id: this.makeups.length + 1,
-                        type: 'makeup',
-                        makeup_for: this.newholiday.date,
-                        date: '',
-                        name: "Make-up Class: Regular " + this.days[new Date(this.newholiday.date).getDay()],
-                        end_date: ''
-                    });
-                // if (this.newholiday.requires_makeup)
-                //  this.makeups[this.newholiday.date] = '';
-                this.newholiday = {requires_makeup: true, single_day: true};
+            </div>
 
-            },
-            addEvent: function(){
-                if (this.otherEvents.filter((a)=> a.date === this.otherEvents.date).length > 0)
-                    return;
-                this.otherEvents.push({
-                    id: this.otherEvents.length + 1,
-                    type: 'event',
-                    date: this.newevent.date,
-                    name: this.newevent.name.replace('\n', '<br>'),
-                    end_date: this.newevent.single_day? '' : this.newevent.end_date,
-                    holiday: false
-                });
-                this.newevent = {single_day: true};
-            },
-            addExtraMakeup: function(){
-                // if (this.holidays.filter((a)=> a.date === this.newextramakeup.makeup_for).length > 0)
-                //  return;
-                // if (this.makeups.filter((a)=> a.date === this.newextramakeup.date).length > 0)
-                //  return;
-                this.makeups.push({
-                        id: this.makeups.length + 1,
-                        type: 'extramakeup',
-                        makeup_for: this.newextramakeup.makeup_for,
-                        date: this.newextramakeup.date,
-                        name: "Make-up Class: Regular " + this.days[new Date(this.newextramakeup.makeup_for).getDay()],
-                        end_date: ''
-                    });
-                this.newextramakeup = {};
-            },
-            clearState: function() {
-                this.academicEvents = [
-                {
-                    id: 1,
-                    date: '',
-                    end_date: '',
-                    holiday: false,
-                    name: 'Classes Begin',
+            <div class="ui basic segment" id="projects">
+                <h2 class="ui dividing header">
+                  Projects
+                </h2>
+                Academic Calendar Maker (VueJS, Semantic UI)
+https://onixhoque.github.io/
+Quran App (Flask, Semantic UI)
+https://onixhoque.pythonanywhere.com/
+Automated Attendace Entry (Python,  Selenium)
+Copy-Checker (ElectronJS, VueJS, Semantic UI)
+DBMS Query Checker (Python)
+OBE – CO/PO attainment Tool (Google Sheets)
+Course Distributor for MIST (Java, Swing)
+Brac
+Bell-212
+Social Media
+            </div>
 
-                },
-                {
-                    id: 2,
-                    date: '',
-                    end_date: '',
-                    holiday: false,
-                    name: 'Mid Term Assessment'
-                },
-                {
-                    id: 3,
-                    date: '',
-                    end_date: '',
-                    holiday: false,
-                    name: 'Classes will remain suspended'
-                },
-                {
-                    id: 4,
-                    date: '',
-                    end_date: '',
-                    holiday: false,
-                    name: 'Final Assessment'
-                },
-              ];
-              this.makeups = [];
-              this.holidays = [];
-              this.otherEvents = [];
-            },
-            removeHolidayOrEvent: function(item){
-                if (item.holiday == true)
-                {
-                    this.holidays = this.holidays.filter((a)=> a.id != item.id);
-                    this.makeups = this.makeups.filter((a) => a.type === "extramakeup").concat(this.makeups.filter((a)=> (a.type !== "extramakeup") && (a.makeup_for != item.date)));    
-                }
-                else if (item.type == 'event') {
-                    this.otherEvents = this.otherEvents.filter(a => a.id != item.id);
-                }
-            	
-            }
-            ,
-            saveState: function ()
-            {
-                const item1 = JSON.stringify(this.academicEvents);
-                const item2 = JSON.stringify(this.makeups);
-                const item3 = JSON.stringify(this.holidays);
-                const item4 = JSON.stringify(this.otherEvents);
-                const item5 = JSON.stringify(this.semester_name);
-                localStorage.setItem('academicEvents', item1);
-                localStorage.setItem('makeups', item2);
-                localStorage.setItem('holidays', item3);
-                localStorage.setItem('otherEvents', item4);
-                localStorage.setItem('semester_name', item5);
-                $('body').toast({message: 'Saved. Click the load button to load the instance.'});
-            },
-            loadState: function ()
-            {
-                if (localStorage.getItem('academicEvents')) {
-                  try {
-                    this.academicEvents = JSON.parse(localStorage.getItem('academicEvents'));
-                  } catch(e) {
-                    localStorage.removeItem('academicEvents');
-                  }
-                }
-                if (localStorage.getItem('makeups')) {
-                  try {
-                    this.makeups = JSON.parse(localStorage.getItem('makeups'));
-                  } catch(e) {
-                    localStorage.removeItem('makeups');
-                  }
-                }
-                if (localStorage.getItem('holidays')) {
-                  try {
-                    this.holidays = JSON.parse(localStorage.getItem('holidays'));
-                  } catch(e) {
-                    localStorage.removeItem('holidays');
-                  }
-                }
-                if (localStorage.getItem('otherEvents')) {
-                  try {
-                    this.otherEvents = JSON.parse(localStorage.getItem('otherEvents'));
-                  } catch(e) {
-                    localStorage.removeItem('otherEvents');
-                  }
-                }
-                if (localStorage.getItem('semester_name')) {
-                  try {
-                    this.semester_name = JSON.parse(localStorage.getItem('semester_name'));
-                  } catch(e) {
-                    localStorage.removeItem('semester_name');
-                  }
-                }
-            },
-            exportTable: function() {
-                $('#main-table').table2excel({filename: this.semester_name + '.xls'});
-            }, 
-            renameSemester: function(){
-                this.semester_name = prompt('Please enter the new name', this.semester_name);
-            }
-          },
-          computed: {
-            all_events : function() {
-                let m = (this.academicEvents.filter(a => a.date != '').concat(this.otherEvents).concat(this.holidays).concat(this.makeups)).sort(this.sortDate);
-                // console.log(m);
-                return m;
+            <div class="ui basic segment" id="community">
+                <h2 class="ui dividing header">
+                  Community
+                </h2>
+                Youtube
+                java manual
+                android
+                C programming class
+            </div>
 
-            },
-            saturdays : function() {
-                return this.getDayCount(6);
-            },
-            sundays : function() {
-                return this.getDayCount(0);
-            },
-            tuesdays : function() {
-                return this.getDayCount(2);
-            },
-            wednesdays : function() {
-                return this.getDayCount(3);
-            },
-          }
-        });
-
-            $('.ui.accordion')
-              .accordion()
-            ;
-
-            $('.selection.dropdown')
-              .dropdown()
-            ;
-            $('.ui.checkbox')
-              .checkbox()
-            ;
-        </script>
+        </div>
     </body>
 </html>
