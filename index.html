@@ -6,6 +6,11 @@
         </title>
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
         <link href="https://cdn.jsdelivr.net/npm/fomantic-ui@2.8.7/dist/semantic.min.css" rel="stylesheet" type="text/css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap" rel="stylesheet">
         <style>
             html {
                scroll-padding-top: 100px;
@@ -20,10 +25,16 @@
                 background-color: #0072B5;
                 padding: 10px;
                 height: 65px;
+                overflow-x: auto;
             }
             
+            #topbar menu {
+                background-color: #0072B5;
+            }
+
             #topbar * {
                 color: white;
+
             }
 
             #topbar .item {
@@ -50,11 +61,11 @@
         </style>
     </head>
     <body >
-        <div class="ui top fixed stackable menu" id="topbar">
+        <div class="ui top fixed menu" id="topbar">
           <a class="header item" href="#wall">
             <h3>Md. Saidul Hoque Anik</h3>
           </a>
-          <div class="ui right menu">
+          <div class="ui right secondary menu">
               <a class="item" href="#academic">
                 Academic
               </a>
@@ -311,6 +322,36 @@
                       </div>
                       <div class="extra content">
                         <span class="right floated">Oct'19</span>
+                      </div>
+                    </div>
+
+                    <div class="ui card">
+                      <div class="content">
+                        <!-- <div class="right floated meta">
+                            <div class="ui green horizontal label">
+                                Commercial
+                            </div>
+                        </div> -->
+                        <strong>UG Course Distributor for MIST</strong>
+                        <div class="meta">
+                        Java, Swing
+                        </div>
+                      </div>
+                      <div class="ui slide masked reveal image">
+                        <img src="images/projects/course-1.png" class="visible content">
+                        <img src="images/projects/course-2.png" class="hidden content">
+                      </div>
+                      <!-- <div class="image">
+                        <img  src="images/projects/bell-1.png">
+                      </div> -->
+                      <div class="content">
+                        <div class="description">
+                        An desktop application to distribute courses for a semester plan. It generates live preview of the total and distributed credits among different ranks of faculties for both theory and lab courses. A budgeting system was added later.
+                      </div>
+                        
+                      </div>
+                      <div class="extra content">
+                        <span class="right floated">May'17</span>
                       </div>
                     </div>
 
