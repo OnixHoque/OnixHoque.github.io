@@ -14,6 +14,7 @@
         <style>
             html {
                scroll-padding-top: 100px;
+               scroll-behavior: smooth;
             }
             body, div, a {
                 font-family: Merriweather;
@@ -26,8 +27,13 @@
                 padding: 10px;
                 height: 65px;
                 overflow-x: auto;
+                overflow-y: hidden;
             }
             
+            #topbar::-webkit-scrollbar {
+                display: none;
+            }
+
             #topbar menu {
                 background-color: #0072B5;
             }
@@ -55,6 +61,10 @@
 
             .card * {
                 background-color: white;
+            }
+
+            .card .image{
+                background-color: white !important;   
             }
 
 
@@ -135,9 +145,49 @@
             
             <div class="ui basic segment" id="academic">
                 <h2 class="ui dividing header">
-                  Academic Activity & Research
+                  Academic Activities & Research
                 </h2>
 
+                <div class="ui basic segment">
+                    <h3 class="ui header">
+                      Publications
+                    </h3>
+
+                    <ol>
+                        <li><strong>Towards achieving a delicate blending between rule-based translator and neural machine translator</strong><br>Neural Computing and Applications (2021): 1-27.
+                            <a target="_blank" href="https://drive.google.com/file/d/1e9EvMnBEqkXGDhRDVQ46OrOtrM0YaX3M/view?usp=sharing">[Read the Journal Article]</a>
+                        </li>
+                        
+                        <li><strong>An Approach Towards Multilingual Translation By SemanticBased Verb Identification And Root Word Analysis</strong><br> 5th International Conference on Networking, Systems and Security (NSysS). IEEE, 2018
+                            <a target="_blank" href="https://goo.gl/BXGfhX">[Read the Article]</a>
+                        </li>
+                        
+                        <li><strong>Polygot: An approach towards reliable translation by name identification and memory optimization using semantic analysis</strong><br> 4th International Conference on Networking, Systems and Security (NSysS). IEEE, 2017
+                            <a target="_blank" href="https://goo.gl/wVFU4A">[Read the Article]</a>
+                        </li>
+                    </ol>
+                    <h3 class="ui header">
+                      Class Works/Dissertation
+                    </h3>
+                    <ol>
+                        <li> <strong>A Fault Tolerant Neural Machine Translation System</strong><br> An attempt to improve translation accuracy by combining multiple seq2seq Neural Machine Translators and augmented dataset. Done as part of CSE6207 (Advanced Dependable and Fault-Tolerant Computer Systems) project work.
+                            <a target="_blank" href="https://goo.gl/GF71s6">[Midterm Presentation]</a>
+                            <a target="_blank" href="https://goo.gl/cGMt13">[Final Presentation]</a> 
+                        
+                        </li>
+                        <li><strong>Concurrency Study of Python 2.7</strong><br> A comparative study of multi-threaded programs written in various implementations of python. Done as part of CSE6305 (Programming Languages and Systems) project work. <a target="_blank" href="https://goo.gl/rLJUSS">[Read the Report]</a> </li>
+                        <li><strong>Towards Devising An Automated System for Determining The Length of A Traffic Jam in Dhaka City</strong><br>Undergraduate thesis work. A study on the sensing the road condition and traffic jam in Dhaka city using ultrasonic sensors. The sensors are connected to Arduino Nano devices and GSM modules. Collected data is transmitted to a central server and the processed to determine the road condition.<a target="_blank" href="https://goo.gl/fc6uxY">[Read the Dissertation]</a></li>
+                    </ol>
+
+                    <h3 class="ui header">
+                      Poster Presentation
+                    </h3>
+                    <ol>
+                        <li> <strong>Noise Suppression in Distance Measurements Using A Sonar Sensor Having Angular Orientation</strong><br>
+                        A heuristic for noise suppression in Sonar Sensor data was shown. Accepted for being presented in the Students’ Posters Session in NSysS 2017. <a target="_blank" href="https://goo.gl/3i5hU2">[Read the Poster]</a> </li></li>
+                        
+                    </ol>
+                </div>
             </div>
 
             <div class="ui basic segment" >
@@ -232,6 +282,36 @@
                       </div>
                       <div class="extra content">
                         <span class="right floated">Mar'21</span>
+                      </div>
+                    </div>
+
+                    <div class="ui card">
+                      <div class="content">
+                        <!-- <div class="right floated meta">
+                            <div class="ui green horizontal label">
+                                Commercial
+                            </div>
+                        </div> -->
+                        <strong>Social Media App</strong>
+                        <div class="meta">
+                        Django, PWA, VueJS
+                        </div>
+                      </div>
+                      <div class="ui slide masked reveal image">
+                        <img src="images/projects/facebook-1.png" class="visible content">
+                        <img src="images/projects/facebook-2.png" class="hidden content">
+                      </div>
+                      <!-- <div class="image">
+                        <img  src="images/projects/bell-1.png">
+                      </div> -->
+                      <div class="content">
+                        <div class="description">
+                        A social media web app created to demonstrate the features of Django including ORM and authentication. It was converted into MicroKarnel Architecture and the client-side rendering was implemented using VueJS.
+                      </div>
+                        
+                      </div>
+                      <div class="extra content">
+                        <span class="right floated">Aug'21 - Sept'21</span>
                       </div>
                     </div>
 
@@ -346,7 +426,7 @@
                       </div> -->
                       <div class="content">
                         <div class="description">
-                        An desktop application to distribute courses for a semester plan. It generates live preview of the total and distributed credits among different ranks of faculties for both theory and lab courses. A budgeting system was added later.
+                         A desktop application to distribute courses for a semester plan. It generates live preview of the total and distributed credits among different ranks of faculties for both theory and lab courses. A budgeting system was added later.
                       </div>
                         
                       </div>
@@ -355,17 +435,131 @@
                       </div>
                     </div>
 
+                    <div class="ui card">
+                      <div class="content">
+                        <div class="right floated meta">
+                            <div class="ui green horizontal label">
+                                Commercial
+                            </div>
+                        </div>
+                        <strong>FixMyStreet for Brac</strong>
+                        <div class="meta">
+                        Android, CodeIgniter
+                        </div>
+                      </div>
+                      <div class="ui centered image" style="padding: 60px;">
+                        <!-- <i class="huge exclamation icon"></i> -->
+                        <small><i class="triangle exclamation icon"></i> No preview available</small>
+                        
+                      </div>
+                      <!-- <div class="image">
+                        <img  src="images/projects/bell-1.png">
+                      </div> -->
+                      <div class="content">
+                        <div class="description">
+                        An Android application for the citizens of Dhaka City to report their urban problems on the road to the proper authority. The project was conducted as per supervision of Brac IT.
+                      </div>
+                        
+                      </div>
+                      <div class="extra content">
+                        <span class="right floated">Jan'15 - Dec'15</span>
+                      </div>
+                    </div>
+
+                    <div class="ui card">
+                      <div class="content">
+                        <!-- <div class="right floated meta">
+                            <div class="ui green horizontal label">
+                                Commercial
+                            </div>
+                        </div> -->
+                        <strong>Bus Route Digitizer</strong>
+                        <div class="meta">
+                        Android, Java, Swing
+                        </div>
+                      </div>
+                      <div class="ui slide masked reveal image">
+                        <img src="images/projects/bus-1.png" class="visible content">
+                        <img src="images/projects/bus-2.png" class="hidden content">
+                      </div>
+                      <!-- <div class="image">
+                        <img  src="images/projects/bell-1.png">
+                      </div> -->
+                      <div class="content">
+                        <div class="description">
+                        An Android app for seeing available bus routes between to places in Dhaka City along with fare and rating system. It also has the option to temporarily report a problem in a route. The server was implemented purly using Java Socket.
+                      </div>
+                        
+                      </div>
+                      <div class="extra content">
+                        <span class="right floated">June'15 - Dec'15</span>
+                      </div>
+                    </div>
+
+                    <div class="ui card">
+                      <div class="content">
+                        <!-- <div class="right floated meta">
+                            <div class="ui green horizontal label">
+                                Commercial
+                            </div>
+                        </div> -->
+                        <strong>Barcode Reader</strong>
+                        <div class="meta">
+                        Java, Swing, Tesseract
+                        </div>
+                      </div>
+                      <div class="ui slide masked reveal image">
+                        <img src="images/projects/barcode-1.png" class="visible content">
+                        <img src="images/projects/barcode-2.png" class="hidden content">
+                      </div>
+                      <!-- <div class="image">
+                        <img  src="images/projects/bell-1.png">
+                      </div> -->
+                      <div class="content">
+                        <div class="description">
+                        A desktop based barcode reader that is able to decode and identify items from
+                        given images of 1D barcode. It also uses an open-source OCR module named
+                        Tesseract OCR Engine 3.02.
+                      </div>
+                        
+                      </div>
+                      <div class="extra content">
+                        <span class="right floated">Jan'14 - Mar'14</span>
+                      </div>
+                    </div>
+
+                    <div class="ui card">
+                      <div class="content">
+                        <!-- <div class="right floated meta">
+                            <div class="ui green horizontal label">
+                                Commercial
+                            </div>
+                        </div> -->
+                        <strong>Onix AV</strong>
+                        <div class="meta">
+                        C++, ClamWin
+                        </div>
+                      </div>
+                      <div class="ui slide masked reveal image">
+                        <img src="images/projects/av-1.png" class="visible content">
+                        <img src="images/projects/av-2.png" class="hidden content">
+                      </div>
+                      <!-- <div class="image">
+                        <img  src="images/projects/bell-1.png">
+                      </div> -->
+                      <div class="content">
+                        <div class="description">
+                        A GUI implementation of ClamWin Virus Detection Engine. You can also download the latest signatures as well as delete the infected files from the GUI.
+                      </div>
+                        
+                      </div>
+                      <div class="extra content">
+                        <span class="right floated">Apr'13 - Nov'13</span>
+                      </div>
+                    </div>
+
                 </div>
 
-                
-
-
-
-Course Distributor for MIST (Java, Swing)
-Brac
-
-Social Media
-AntiVirus
             </div>
 
             <div class="ui basic segment" id="community">
@@ -373,12 +567,39 @@ AntiVirus
                   Community
                 </h2>
 
-                Youtube
-                java manual
-                android
-                C programming class
+                <div class="ui basic segment">
+                    <h3 class="ui header">
+                      Youtube Channel for Programming
+                    </h3>
+                    Produced video tutorials on various data-structures and algorithms for programming enthusiasts.
+                    <a target="_blank" href="https://www.youtube.com/user/onixhoque">[Visit Channel]</a>
+                </div>
+
+                <div class="ui basic segment">
+                    <h3 class="ui header">
+                      Java Reference Booklet
+                    </h3>
+                    A quick migration guide from C++ to Java. <a target="_blank" href="https://goo.gl/pd94PB">[Open PDF]</a>
+                </div>
+
+                <div class="ui basic segment">
+                    <h3 class="ui header">
+                      Android App Development Tutorial
+                    </h3>
+                    A 5-day workshop on Android arranged at Samsung R&D Lab of BUET. The full content is available here. <a target="_blank" href="https://sites.google.com/site/droidworkshop2016/home">[Visit Page]</a>
+                </div>
+
+                <div class="ui basic segment">
+                    <h3 class="ui header">
+                      C Programming Class Content
+                    </h3>
+                    Course content for advanced C programming Language. <a target="_blank" href="https://sites.google.com/view/cse105june18">[Visit Page]</a>
+                </div>
+
             </div>
 
         </div>
+        <!-- <script type="text/javascript" src="js/vanillajs-scrollspy.min.js"></script> -->
+
     </body>
 </html>
