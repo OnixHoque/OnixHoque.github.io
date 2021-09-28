@@ -15,12 +15,32 @@
             html {
                scroll-padding-top: 100px;
                scroll-behavior: smooth;
+               width: 100%;
             }
             body, div, a {
                 font-family: Merriweather;
-                background-color: #FAFAFA;
+                /*background-color: #FAFAFA;*/
 
             }
+
+            body::-webkit-scrollbar {
+                width: .1em;
+                /*opacity: .5;*/
+              }
+               
+              body::-webkit-scrollbar-track {
+                box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+                opacity: .1;
+                background-color: transparent;
+              }
+               
+              body::-webkit-scrollbar-thumb {
+                background-color: #0072B5;
+                /*outline: 1px solid slategrey;*/
+                border-radius: 20px;
+                
+                /*opacity: .2;*/
+              }
 
             #topbar {
                 background-color: #0072B5;
@@ -56,7 +76,8 @@
             }
             .label, .card .meta {
                 font-family: PT Sans;
-                font-weight: normal;
+                /*font-weight: normal;*/
+                /*text-decoration: none;*/
             }
 
             .card * {
@@ -66,7 +87,9 @@
             .card .image{
                 background-color: white !important;   
             }
-
+          ol {
+            line-height: 1.8em;
+          }
 
         </style>
     </head>
@@ -152,20 +175,47 @@
 
                 <div class="ui basic segment">
                     <h3 class="ui header">
-                      Publications
+                      Publications 
+                      
+                        <a target="_blank" href="https://dblp.org/pid/218/7815.html">
+                          <small class="ui link blue label">
+                            <i class="external inline icon"></i>
+                            DBLP
+                          </small>
+                        </a>
+                      
                     </h3>
 
                     <ol>
-                        <li><strong>Towards achieving a delicate blending between rule-based translator and neural machine translator</strong><br>Neural Computing and Applications (2021): 1-27.
-                            <a target="_blank" href="https://drive.google.com/file/d/1e9EvMnBEqkXGDhRDVQ46OrOtrM0YaX3M/view?usp=sharing">[Read the Journal Article]</a>
+                        <li>
+                          <strong>
+                          <a target="_blank" href="https://link.springer.com/article/10.1007%2Fs00521-021-05895-x">
+                            Towards achieving a delicate blending between rule-based translator and neural machine translator
+                          </a>
+                          </strong>
+                          <br>Neural Computing and Applications (2021): 1-27.
+                          <a target="_blank" href="https://drive.google.com/file/d/1e9EvMnBEqkXGDhRDVQ46OrOtrM0YaX3M/view?usp=sharing">[Read the Journal Article]</a>
                         </li>
                         
-                        <li><strong>An Approach Towards Multilingual Translation By Semantic-based Verb Identification And Root Word Analysis</strong><br> 5th International Conference on Networking, Systems and Security (NSysS). IEEE, 2018
-                            <a target="_blank" href="https://goo.gl/BXGfhX">[Read the Article]</a>
+                        <li>
+                          <strong>
+                          <a target="_blank" href="https://ieeexplore.ieee.org/document/8631383">
+                            An Approach Towards Multilingual Translation By Semantic-based Verb Identification And Root Word Analysis
+                          </a>
+                          </strong>
+                          <br> 
+                          5th International Conference on Networking, Systems and Security (NSysS). IEEE, 2018
+                          <a target="_blank" href="https://goo.gl/BXGfhX">[Read the Conference Paper]</a>
                         </li>
                         
-                        <li><strong>Polygot: An approach towards reliable translation by name identification and memory optimization using semantic analysis</strong><br> 4th International Conference on Networking, Systems and Security (NSysS). IEEE, 2017
-                            <a target="_blank" href="https://goo.gl/wVFU4A">[Read the Article]</a>
+                        <li>
+                          <strong>
+                          <a target="_blank" href="https://ieeexplore.ieee.org/document/8267795">
+                            Polygot: An approach towards reliable translation by name identification and memory optimization using semantic analysis
+                          </a>
+                          </strong>
+                          <br> 4th International Conference on Networking, Systems and Security (NSysS). IEEE, 2017
+                          <a target="_blank" href="https://goo.gl/wVFU4A">[Read the Conference Paper]</a>
                         </li>
                     </ol>
                     <h3 class="ui header">
@@ -573,7 +623,7 @@
                     <h3 class="ui header">
                       Youtube Channel for Programming
                     </h3>
-                    Produced video tutorials on various data-structures and algorithms for programming enthusiasts.
+                    Video tutorial on useful data-structures and algorithms.
                     <a target="_blank" href="https://www.youtube.com/user/onixhoque">[Visit Channel]</a>
                 </div>
 
@@ -588,12 +638,12 @@
                     <h3 class="ui header">
                       Android App Development Tutorial
                     </h3>
-                    A 5-day workshop on Android arranged at Samsung R&D Lab of BUET. The full content is available here. <a target="_blank" href="https://sites.google.com/site/droidworkshop2016/home">[Visit Page]</a>
+                    A 5-day workshop on Android arranged at Samsung R&D Lab of BUET for <a target="_blank" href="https://cse.buet.ac.bd/bsadd/#activities">BSADD</a>. The full content is available online for free. <a target="_blank" href="https://sites.google.com/site/droidworkshop2016/home">[Visit Page]</a>
                 </div>
 
                 <div class="ui basic segment">
                     <h3 class="ui header">
-                      C Programming Class Content
+                      C Programming Course - Class Content
                     </h3>
                     Course content for advanced C programming Language. <a target="_blank" href="https://sites.google.com/view/cse105june18">[Visit Page]</a>
                 </div>
