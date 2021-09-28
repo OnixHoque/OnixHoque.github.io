@@ -76,7 +76,7 @@
             }
             .label, .card .meta {
                 font-family: PT Sans;
-                /*font-weight: normal;*/
+                font-weight: normal !important;
                 /*text-decoration: none;*/
             }
 
@@ -89,6 +89,14 @@
             }
           ol {
             line-height: 1.8em;
+          }
+
+          a small.label {
+            opacity: .9;
+          }
+
+          a small.label:hover {
+            opacity: 1;
           }
 
         </style>
@@ -178,7 +186,7 @@
                       Publications 
                       
                         <a target="_blank" href="https://dblp.org/pid/218/7815.html">
-                          <small class="ui link blue label">
+                          <small class="ui small inline blue icon label">
                             <i class="external inline icon"></i>
                             DBLP
                           </small>
