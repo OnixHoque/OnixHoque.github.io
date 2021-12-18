@@ -49,7 +49,41 @@
                 
                 /*opacity: .2;*/
               }
+              #techs {
+                text-align: right;
+                display: flex;
+                align-items: center;
+                justify-content: flex-end;
+              }
 
+              #techs small {
+                font-family: PT Sans;
+                padding: 5px;
+                margin: 0 10px;
+                display: inline-block;
+              }
+              #techs small.button {
+                display: none;
+                /*margin: 0 20px;*/
+                padding: 4px;
+              }
+              #techs img {
+                box-sizing: content-box;
+                padding: 2px;
+                cursor: pointer;
+                opacity: .5;
+              }
+
+              #techs img:hover {
+                opacity: .8;
+              }
+
+              #techs img.active {
+                border:  1px solid skyblue;
+
+                opacity: 1;  
+                border-radius: 5px;
+              }
             #topbar {
                 background-color: #0072B5;
                 padding: 10px;
@@ -401,34 +435,39 @@
                 <h2 class="ui dividing header" id="projects">
                   Projects
                 </h2>
-                <p style="text-align: right; letter-spacing: 5px;">
-                  <img height="20px" src="images/icons/php.png">
-                  <img height="20px" src="images/icons/semanticui.png">
-                  <img height="20px" src="images/icons/python.jfif">
-                  <img height="20px" src="images/icons/nodejs.png">
-                  <img height="20px" src="images/icons/threejs.png">
-                  <img height="20px" src="images/icons/html5.png">
-                  <img height="20px" src="images/icons/flask.png">
-                  <img height="20px" src="images/icons/css3.png">
-                  <img height="20px" src="images/icons/js.png">
-                  <img height="20px" src="images/icons/pwa.png">
-                  <img height="20px" src="images/icons/electronjs.png">
-                  <img height="20px" src="images/icons/git.png">
-                  <img height="20px" src="images/icons/vuejs.png">
-                  <img height="20px" style="border-radius: 5px;" src="images/icons/django.png">
-                  <img height="20px" src="images/icons/qt.png">
-                  <img height="20px" src="images/icons/selenium.png">
-                  <img height="20px" src="images/icons/github.png">
-                  <img height="20px" src="images/icons/gsheets.png">
-                  <img height="20px" src="images/icons/java.png">
-                  <img height="20px" src="images/icons/android.png">
-                  <img height="20px" src="images/icons/c.png">
-                  <img height="20px" src="images/icons/tessract.png">
-                  <img height="20px" src="images/icons/clamwin.png">
-                  <img height="20px" src="images/icons/cpp.png">
+                
+                <p id="techs">
+                  <small>Filter by</small>
+                  <small class="ui tiny blue basic icon button" onclick="showAllProjects()"><i class="close link icon"></i>Reset</small>
+                  <img tag="php" height="20px" src="images/icons/php.png">
+                  <img tag="semantic" height="20px" src="images/icons/semanticui.png">
+                  <img tag="python" height="20px" src="images/icons/python.jfif">
+                  <img tag="nodejs" height="20px" src="images/icons/nodejs.png">
+                  <img tag="threejs" height="20px" src="images/icons/threejs.png">
+                  <img tag="html" height="20px" src="images/icons/html5.png">
+                  <img tag="flask" height="20px" src="images/icons/flask.png">
+                  <img tag="css" height="20px" src="images/icons/css3.png">
+                  <img tag="js" height="20px" src="images/icons/js.png">
+                  <img tag="pwa" height="20px" src="images/icons/pwa.png">
+                  <img tag="electronjs" height="20px" src="images/icons/electronjs.png">
+                  <img tag="git" height="20px" src="images/icons/git.png">
+                  <img tag="vuejs" height="20px" src="images/icons/vuejs.png">
+                  <img tag="django" height="20px" style="border-radius: 5px;" src="images/icons/django.png">
+                  <img tag="qt" height="20px" src="images/icons/qt.png">
+                  <img tag="selenium" height="20px" src="images/icons/selenium.png">
+                  <img tag="github" height="20px" src="images/icons/github.png">
+                  <img tag="gsheet" height="20px" src="images/icons/gsheets.png">
+                  <img tag="java" height="20px" src="images/icons/java.png">
+                  <img tag="android" height="20px" src="images/icons/android.png">
+                  <img tag="c" height="20px" src="images/icons/c.png">
+                  <img tag="tessract" height="20px" src="images/icons/tessract.png">
+                  <img tag="clamwin" height="20px" src="images/icons/clamwin.png">
+                  <img tag="cpp" height="20px" src="images/icons/cpp.png">
+
+                  
                 </p>
-                <div class="ui cards centered">
-                    <div class="ui card">
+                <div class="ui cards centered" id="project-cards">
+                    <div class="ui card" tags="php,semantic,css,html,git,github,threejs,js">
                       <div class="content">
                         <div class="right floated meta">
                             <div class="ui green horizontal label">
@@ -458,7 +497,7 @@
                       </div>
                     </div>
 
-                    <div class="ui card">
+                    <div class="ui card" tags="flask,semantic,css,html,python,git,github,pwa">
                       <div class="content">
                         <!-- <div class="right floated meta">
                             <div class="ui green horizontal label">
@@ -488,7 +527,7 @@
                       </div>
                     </div>
 
-                    <div class="ui card">
+                    <div class="ui card" tags="electronjs,html,css,vuejs,semantic,nodejs">
                       <div class="content">
                         <!-- <div class="right floated meta">
                             <div class="ui green horizontal label">
@@ -518,7 +557,7 @@
                       </div>
                     </div>
 
-                    <div class="ui card">
+                    <div class="ui card" tags="django,semantic,vuejs,pwa,css,html">
                       <div class="content">
                         <!-- <div class="right floated meta">
                             <div class="ui green horizontal label">
@@ -548,7 +587,7 @@
                       </div>
                     </div>
 
-                    <div class="ui card">
+                    <div class="ui card" tags="python,qt,selenium">
                       <div class="content">
                         <!-- <div class="right floated meta">
                             <div class="ui green horizontal label">
@@ -578,7 +617,7 @@
                       </div>
                     </div>
 
-                    <div class="ui card">
+                    <div class="ui card" tags="vuejs,semantic,css,html">
                       <div class="content">
                         <!-- <div class="right floated meta">
                             <div class="ui green horizontal label">
@@ -608,7 +647,7 @@
                       </div>
                     </div>
 
-                    <div class="ui card">
+                    <div class="ui card" tags="gsheet">
                       <div class="content">
                         <!-- <div class="right floated meta">
                             <div class="ui green horizontal label">
@@ -638,7 +677,7 @@
                       </div>
                     </div>
 
-                    <div class="ui card">
+                    <div class="ui card" tags="java">
                       <div class="content">
                         <!-- <div class="right floated meta">
                             <div class="ui green horizontal label">
@@ -668,7 +707,7 @@
                       </div>
                     </div>
 
-                    <div class="ui card">
+                    <div class="ui card" tags="php,android,css,html">
                       <div class="content">
                         <div class="right floated meta">
                             <div class="ui green horizontal label">
@@ -699,7 +738,7 @@
                       </div>
                     </div>
 
-                    <div class="ui card">
+                    <div class="ui card" tags="android,java">
                       <div class="content">
                         <!-- <div class="right floated meta">
                             <div class="ui green horizontal label">
@@ -729,7 +768,7 @@
                       </div>
                     </div>
 
-                    <div class="ui card">
+                    <div class="ui card" tags="java,tessract">
                       <div class="content">
                         <!-- <div class="right floated meta">
                             <div class="ui green horizontal label">
@@ -761,7 +800,7 @@
                       </div>
                     </div>
 
-                    <div class="ui card">
+                    <div class="ui card" tags="c,cpp,clamwin">
                       <div class="content">
                         <!-- <div class="right floated meta">
                             <div class="ui green horizontal label">
@@ -1002,6 +1041,25 @@
         <script>
           document.querySelectorAll('#courses tbody tr').forEach((arg, i) => arg.querySelector('td').innerHTML = i + 1);
 
+          function showAllProjects(){
+            document.querySelectorAll('#techs img').forEach(arg => arg.classList.remove('active'));
+            document.querySelectorAll('#project-cards > .card').forEach(arg => arg.style.display = "inline");
+            document.querySelector('#techs small').style.display = "inline";
+            document.querySelector('#techs small.button').style.display = "none";
+          }
+          document.querySelectorAll('#techs img').forEach(arg => {
+            arg.addEventListener('click', e => {
+              showAllProjects();
+              e.target.classList.add('active');
+              document.querySelector('#techs small').style.display = "none";
+              document.querySelector('#techs small.button').style.display = "inline";
+
+              document.querySelectorAll('#project-cards > .card').forEach(arg => {
+                if (!arg.getAttribute('tags').split(',').includes(e.target.getAttribute('tag')))
+                  arg.style.display = "none";
+              })
+            })
+          })
           $(document).ready(function() {
               $('#courses').DataTable({
               "bPaginate": true,
