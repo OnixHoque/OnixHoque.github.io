@@ -1,0 +1,37 @@
+[
+  {
+    "listing": "/projects/index.html",
+    "items": []
+  },
+  {
+    "listing": "/news/index.html",
+    "items": []
+  },
+  {
+    "listing": "/research/index.html",
+    "items": [
+      "/research/systems/graph-mp/index.html",
+      "/research/systems/gpu-tuner-amazon/index.html",
+      "/research/systems/sptransx/index.html",
+      "/research/systems/wmd/index.html",
+      "/research/systems/efficient-kge/index.html",
+      "/research/systems/isplib/index.html",
+      "/research/systems/kge-profile/index.html",
+      "/research/systems/fastgraph/index.html",
+      "/research/systems/gpu-code-gen-cpp/index.html",
+      "/research/systems/sp-mat-lib-c/index.html",
+      "/research/systems/concurrency-python/index.html",
+      "/research/nlp-deep-learning/gc-lstm/index.html",
+      "/research/nlp-deep-learning/workplace-bullying/index.html",
+      "/research/nlp-deep-learning/twitter-sentiment/index.html",
+      "/research/nlp-deep-learning/rbmt/index.html",
+      "/research/nlp-deep-learning/delicate/index.html",
+      "/research/nlp-deep-learning/mt-heuristic/index.html",
+      "/research/nlp-deep-learning/polyglot/index.html",
+      "/research/nlp-deep-learning/ft-nmt/index.html",
+      "/research/sensors/smoothing-time-series/index.html",
+      "/research/sensors/noise-supression/index.html",
+      "/research/sensors/automated-traffic-jam/index.html"
+    ]
+  }
+]

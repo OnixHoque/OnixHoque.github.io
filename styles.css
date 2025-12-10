@@ -1,1 +1,16 @@
 /* css styles */
+p {
+    font-family: "Charter";
+}
+
+figcaption {
+   text-align: center;
+}
+
+a.badge {
+    text-decoration: none;
+}
+
+.listing-date, .listing-categories {
+    white-space: nowrap;
+}

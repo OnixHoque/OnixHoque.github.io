@@ -1,0 +1,15 @@
+{
+  "listingMap": {
+    "test/news/index.qmd": [
+      "news.yaml"
+    ],
+    "test/projects/index.qmd": [
+      "projects.yaml"
+    ],
+    "test/research/index.qmd": [
+      "systems",
+      "nlp-deep-learning",
+      "sensors"
+    ]
+  }
+}

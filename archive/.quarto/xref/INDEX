@@ -1,0 +1,95 @@
+{
+  "about.qmd": {
+    "about.html": "ed979727"
+  },
+  "index.qmd": {
+    "index.html": "0c4cb82f"
+  },
+  "test/community/index.qmd": {
+    "index.html": "d8c5b2d9"
+  },
+  "test/index.qmd": {
+    "index.html": "9b505ab6"
+  },
+  "test/news/index.qmd": {
+    "index.html": "465ee06e"
+  },
+  "test/processor.ipynb": {
+    "processor.html": "a077b045"
+  },
+  "test/projects/index.qmd": {
+    "index.html": "dbcc43d5"
+  },
+  "test/research/index.qmd": {
+    "index.html": "a39b40b4"
+  },
+  "test/research/nlp-deep-learning/delicate/index.qmd": {
+    "index.html": "27a23e72"
+  },
+  "test/research/nlp-deep-learning/ft-nmt/index.qmd": {
+    "index.html": "1a31a619"
+  },
+  "test/research/nlp-deep-learning/gc-lstm/index.qmd": {
+    "index.html": "004db501"
+  },
+  "test/research/nlp-deep-learning/mt-heuristic/index.qmd": {
+    "index.html": "7e9ce295"
+  },
+  "test/research/nlp-deep-learning/polyglot/index.qmd": {
+    "index.html": "4e6d8d39"
+  },
+  "test/research/nlp-deep-learning/rbmt/index.qmd": {
+    "index.html": "f9cac5cf"
+  },
+  "test/research/nlp-deep-learning/twitter-sentiment/index.qmd": {
+    "index.html": "6e37b261"
+  },
+  "test/research/nlp-deep-learning/workplace-bullying/index.qmd": {
+    "index.html": "4826e277"
+  },
+  "test/research/sensors/automated-traffic-jam/index.qmd": {
+    "index.html": "b0f3e11f"
+  },
+  "test/research/sensors/noise-supression/index.qmd": {
+    "index.html": "76f485c9"
+  },
+  "test/research/sensors/smoothing-time-series/index.qmd": {
+    "index.html": "1fa7b067"
+  },
+  "test/research/systems/concurrency-python/index.qmd": {
+    "index.html": "768c427e"
+  },
+  "test/research/systems/efficient-kge/index.qmd": {
+    "index.html": "88b88cd7"
+  },
+  "test/research/systems/fastgraph/index.qmd": {
+    "index.html": "0aab64e0"
+  },
+  "test/research/systems/gpu-code-gen-cpp/index.qmd": {
+    "index.html": "20e125e5"
+  },
+  "test/research/systems/gpu-tuner-amazon/index.qmd": {
+    "index.html": "76194607"
+  },
+  "test/research/systems/graph-mp/index.qmd": {
+    "index.html": "67b2f586"
+  },
+  "test/research/systems/isplib/index.qmd": {
+    "index.html": "25455231"
+  },
+  "test/research/systems/kge-profile/index.qmd": {
+    "index.html": "01f6b8ff"
+  },
+  "test/research/systems/sp-mat-lib-c/index.qmd": {
+    "index.html": "e17d96c5"
+  },
+  "test/research/systems/sptransx/index.qmd": {
+    "index.html": "59fd7f81"
+  },
+  "test/research/systems/wmd/index.qmd": {
+    "index.html": "a7610d3b"
+  },
+  "test/teaching/index.qmd": {
+    "index.html": "43a445f6"
+  }
+}
