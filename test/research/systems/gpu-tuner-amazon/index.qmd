@@ -1,0 +1,24 @@
+---
+title: "Differentiable GPU kernel autotuner with Transfer Learning"
+categories: ["Autotuner", "CUDA", "Kernel", "Differentiable", "vLLM", "Transfer Learning", "Amazon Internship"]
+description: "Developed a robust, end-to-end differentiable GPU kernel autotuner for vLLM that requires very little (~1000) ground truth for tuning."
+date: "08/01/2025"
+image: amazon.jpg
+---
+
+
+::: {.callout-note appearance="minimal" title="Note" icon=false collapse=false}
+Amazon AWS Internship Summer 2025
+:::
+
+![Amazon intern workshop day! James Basa on the right.](amazon-workshop.jpg "Title: An elephant"){.lightbox}
+
+## Overview 
+
+Developed a robust, end-to-end differentiable GPU kernel autotuner for vLLM that works well with as low as 1% ground truth of the total search space. The solution also performs transfer learning and can leverage cheaper kernel tuning data to reduce new kernel tuning time from days to hours.
+
+## Findings
+
+- Across six datasets, our auto-tuner obtained an improvement in cross-validation accuracy of 0.85× − 1.60× compared to 16 other ML and tabular transformer models (commonly used for performance modeling) on 1% ground truth. Accuracy continued to improve and outperformed all baselines as the training data increased.
+
+-  In transfer learning, up to 12.7% accuracy improvement was observed when an expensive CUDA kernel was tuned using only 100 config-perf pairs and leveraged with similar and cheaper Triton kernel’s tuning data.

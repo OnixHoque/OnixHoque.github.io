@@ -1,0 +1,34 @@
+---
+title: "Noise Suppression in Distance Measurements Using A Sonar Sensor Having Angular Orientation"
+categories: ["Heuristic", "Noise Suppression", "Ultrasonic Sensor", "Undergraduate"]
+description: "A heuristic for noise suppression in Sonar Sensor data."
+date: "12/10/2017"
+image: setup.png
+---
+
+::: {.callout-note appearance="minimal" title="Note" icon=false collapse=false}
+
+Undergraduate Research Work
+
+* Poster presentation
+
+[NSysS 2017](https://cse.buet.ac.bd/nsyss2017/){.badge .bg-danger .rounded-pill}
+[Poster](https://drive.google.com/file/d/17lw7pvpXZ6txE_t-6Uaim0CyG6D4j0y0/view){.badge .bg-primary .rounded-pill}
+
+:::
+
+![](setup.png){.lightbox}
+
+## Background
+
+Sonar sensors are commonly used electronic devices for measuring the distance to obstacles. However, the accuracy of these distance measurements is often compromised by noise, particularly when the sensor is placed at an oblique angle. The noise in the readings can lead to significant errors in distance calculations. Although some methods for suppressing noise exist, they are often limited in scope, especially when it comes to improving accuracy across diverse sensor orientations. Most existing solutions focus on statistical approaches, such as using the median value of consecutive readings, but these techniques are prone to errors as the median value can sometimes represent a noisy data point instead of the true distance measurement. Therefore, there is a need for more robust methods that can effectively suppress noise and yield more accurate distance estimates in a variety of conditions.
+
+## Methodology
+
+To address the noise issue, our approach involves taking several consecutive readings from the sonar sensor and computing the average and standard deviation of these readings to understand the variability. Building on this foundation, we propose two alternative formulas for improving accuracy. The first is a trigonometric-based formula that adjusts the measurements based on the angle of the sensor, correcting for any distortions introduced by oblique placements. The second formula is exponential-based, designed to filter out extreme noise values by giving more weight to the most consistent readings. Both formulas aim to reduce the impact of noise and provide a more reliable estimation of the true distance.
+
+## Result
+
+![](results.png){.lightbox}
+
+The proposed method demonstrated a significant improvement over the traditional median-based approach. By applying our trigonometric and exponential formulas, we were able to reduce the error in distance measurements by 24.69%, showing that these new methods can provide more accurate results and suppress noise more effectively, even when the sensor is oriented at challenging angles.

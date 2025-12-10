@@ -1,0 +1,1346 @@
+[
+  {
+    "objectID": "teaching/index.html",
+    "href": "teaching/index.html",
+    "title": "Teaching",
+    "section": "",
+    "text": "I am currently on sabbatical from the Department of Computer Science and Engineering at United International University (UIU)1, Bangladesh, where I served as a tenured faculty member. Before my sabbatical, I taught advanced computer science topics, including Software Engineering, Computer Architecture, and Web Programming to senior undergraduate students.\nPreviously, I was a tenured faculty at Military Institute of Science and Technology (MIST)2 University, where I began my academic career as an adjunct faculty member. At MIST, I focused on teaching core programming concepts to undergraduate students, delivering courses in Structured Programming, Object-Oriented Programming, and Data Structures & Algorithms for nearly three years. In addition to my teaching responsibilities, I have actively contributed to various administrative roles, including serving as Postgraduate Coordinator, Secretary of the Syllabus Reform Committee, and overseeing departmental software development projects."
+  },
+  {
+    "objectID": "research/posts/wmd/index.html",
+    "href": "research/posts/wmd/index.html",
+    "title": "Predicting Interactions in the Weapons of Mass Destruction Knowledge Graphs",
+    "section": "",
+    "text": "NoteNote\n\n\n\n\n\nPhD collaboration work\n\nBook chapter\nPublished as the second author\n\nComplex Networks 2024"
+  },
+  {
+    "objectID": "research/posts/sptransx/index.html",
+    "href": "research/posts/sptransx/index.html",
+    "title": "SparseTransX: Efficient Training of Translation-Based Knowledge Graph Embeddings Using Sparse Matrix Operations",
+    "section": "",
+    "text": "NoteNote\n\n\n\n\n\nPhD Research Project\nMLSys 2025 Talk Slide Paper GitHub\nArtifact Available Artifact Evaluated"
+  },
+  {
+    "objectID": "research/posts/smoothing-time-series/index.html",
+    "href": "research/posts/smoothing-time-series/index.html",
+    "title": "A Study on the Effects of Smoothing in Time Series Prediction",
+    "section": "",
+    "text": "NoteNote\n\n\n\n\n\nGraduate Research Work\n\nPoster presentation\n\nNSysS 2021 Poster"
+  },
+  {
+    "objectID": "research/posts/polyglot/index.html",
+    "href": "research/posts/polyglot/index.html",
+    "title": "Polygot: An Approach Towards Reliable Translation By Name Identification And Memory Optimization Using Semantic Analysis",
+    "section": "",
+    "text": "NoteNote\n\n\n\n\n\nMaster’s Research Collaboration\nNSysS 2017 Paper"
+  },
+  {
+    "objectID": "research/posts/polyglot/index.html#background",
+    "href": "research/posts/polyglot/index.html#background",
+    "title": "Polygot: An Approach Towards Reliable Translation By Name Identification And Memory Optimization Using Semantic Analysis",
+    "section": "Background",
+    "text": "Background\nIn this study, we aim to improve the efficiency, complexity, and performance of the language translation process, particularly for underexplored languages like Bengali. While there have been numerous studies in natural language processing (NLP), most of them have focused on English as the target language, leaving many other languages, including Bengali, underrepresented. Although research on areas like Bengali keyboard layout design and English-to-Bengali translation exists, there is limited work on Bengali-to-English translation. Language translation is inherently complex due to the presence of words with multiple meanings, various forms, and different grammatical structures expressing the same idea. Additionally, accurately identifying names as nouns, particularly when they are attached with prefixes, suffixes, or other linguistic markers, poses a significant challenge in translation. Our goal is to address these issues by developing an efficient translation system that can handle these complexities."
+  },
+  {
+    "objectID": "research/posts/polyglot/index.html#methodology",
+    "href": "research/posts/polyglot/index.html#methodology",
+    "title": "Polygot: An Approach Towards Reliable Translation By Name Identification And Memory Optimization Using Semantic Analysis",
+    "section": "Methodology",
+    "text": "Methodology\nTo tackle these challenges, we focused on two critical aspects: memory optimization and accurate identification of names as nouns. We developed a system that optimizes memory usage while processing translation data, making it more efficient in terms of both time and resources. At the same time, we emphasized improving the system’s ability to identify and interpret names as nouns. In languages like Bengali, names are often embedded within intricate grammatical structures, making it difficult to differentiate them from other parts of speech. By employing semantic analysis, we aimed to enhance the accuracy of noun identification and ensure the proper translation of sentences. These optimizations were designed to make the system more effective and adaptable for low-resource languages like Bengali."
+  },
+  {
+    "objectID": "research/posts/polyglot/index.html#result",
+    "href": "research/posts/polyglot/index.html#result",
+    "title": "Polygot: An Approach Towards Reliable Translation By Name Identification And Memory Optimization Using Semantic Analysis",
+    "section": "Result",
+    "text": "Result\nOur proposed system showed significant improvements in both memory efficiency and the accurate identification of names as nouns. The semantic analysis approach allowed for more accurate translations, particularly when translating from Bengali to English. Furthermore, the memory optimization techniques reduced computational overhead, leading to faster translation times. Although developing an efficient translation system is a complex and resource-intensive task, our results demonstrate that it is possible to improve translation quality for Bengali by addressing specific challenges related to noun recognition and memory management. These advancements make the system more practical for real-world applications and more effective for low-resource languages."
+  },
+  {
+    "objectID": "research/posts/mt-heuristic/index.html",
+    "href": "research/posts/mt-heuristic/index.html",
+    "title": "An Approach Towards Multilingual Translation By Semantic-Based Verb Identification And Root Word Analysis",
+    "section": "",
+    "text": "NoteNote\n\n\n\n\n\nMaster’s Research Project\nNSysS 2018 Paper"
+  },
+  {
+    "objectID": "research/posts/mt-heuristic/index.html#problem-statement",
+    "href": "research/posts/mt-heuristic/index.html#problem-statement",
+    "title": "An Approach Towards Multilingual Translation By Semantic-Based Verb Identification And Root Word Analysis",
+    "section": "Problem Statement",
+    "text": "Problem Statement\nPopular machine translation systems like Google Translator rely on a statistical approach that depends heavily on the availability of large datasets. While these systems perform well for widely spoken languages such as English, French, or Spanish, they tend to make significant errors when translating lesser-known or newly introduced languages. Most research in Natural Language Processing (NLP) has focused on English or other major languages as the target, leaving many potential languages underexplored, despite the rise of global communication. This study addresses this gap by focusing on Bengali, a widely spoken but low-resource language, aiming to improve translation systems for languages with limited availability in the literature."
+  },
+  {
+    "objectID": "research/posts/mt-heuristic/index.html#methodology",
+    "href": "research/posts/mt-heuristic/index.html#methodology",
+    "title": "An Approach Towards Multilingual Translation By Semantic-Based Verb Identification And Root Word Analysis",
+    "section": "Methodology",
+    "text": "Methodology\nTo improve Bengali translation, we propose a generalized machine translation system designed for low-resource languages. Our approach centers on two key innovations: semantic-based verb identification and root word detection. The first technique focuses on understanding verbs based on their meaning, rather than relying solely on statistical correlations, which are prone to errors. The second technique involves detecting the root form of verbs to enhance translation accuracy by capturing the verb’s core meaning in context. These strategies are intended to overcome the limitations of current statistical translation methods, improving performance with smaller datasets."
+  },
+  {
+    "objectID": "research/posts/mt-heuristic/index.html#results",
+    "href": "research/posts/mt-heuristic/index.html#results",
+    "title": "An Approach Towards Multilingual Translation By Semantic-Based Verb Identification And Root Word Analysis",
+    "section": "Results",
+    "text": "Results\nOur proposed approach was evaluated against Google Translator in terms of:\nAccuracy: The semantic-based verb identification and root word detection algorithm showed significant improvements in translating Bengali verbs compared to Google Translator.\nTime Complexity: The algorithm exhibited efficient processing times, ensuring that the improvements in translation did not come at the cost of excessive computational delays.\nSpace Complexity: The proposed methods maintained reasonable memory usage, allowing them to scale without overwhelming system resources.\nOverall, the results demonstrate that our approach offers a substantial enhancement over existing translation systems for low-resource languages like Bengali, addressing both accuracy and computational efficiency."
+  },
+  {
+    "objectID": "research/posts/kge-profile/index.html",
+    "href": "research/posts/kge-profile/index.html",
+    "title": "Investigating Spatial-Temporal and Knowledge Graph Machine Learning Algorithms for Dominant Kernels & Potential Scope of Speedup",
+    "section": "",
+    "text": "NoteNote\n\n\n\n\n\nGraduate Coursework\n\nENG 503 - Intro to Intelligent Systems with Dr. Ariful Azad\n\nSlide"
+  },
+  {
+    "objectID": "research/posts/graph-mp/index.html",
+    "href": "research/posts/graph-mp/index.html",
+    "title": "Enabling Model Parallelism for Graph Neural Networks with a Scalable Sparse-Dense Matrix Multiplication Operator",
+    "section": "",
+    "text": "NoteNote\n\n\n\n\n\nPhD project ongoing work\n\nPresented at Sparstitute Meeting (Barkeley, CA)"
+  },
+  {
+    "objectID": "research/posts/gc-lstm/index.html",
+    "href": "research/posts/gc-lstm/index.html",
+    "title": "A Spatio-Temporal Link Prediction Pipeline using GC-LSTM for Dynamic Graphs in PyTorch",
+    "section": "",
+    "text": "NoteNote\n\n\n\n\n\nGraduate Course Project\n\nCSCI 565P - Data Mining with Dr. Dongruo Zhou\n\nSlides\nCoursework:"
+  },
+  {
+    "objectID": "research/posts/fastgraph/index.html",
+    "href": "research/posts/fastgraph/index.html",
+    "title": "Python Interface of FastGraph (an OpenMP-based sparse-matrix library)",
+    "section": "",
+    "text": "NoteNote\n\n\n\n\n\nSecondary PhD Research Project (Collaboration)"
+  },
+  {
+    "objectID": "research/posts/concurrency-python/index.html",
+    "href": "research/posts/concurrency-python/index.html",
+    "title": "Concurrency Study of Python 2.7",
+    "section": "",
+    "text": "NoteNote\n\n\n\n\n\nCourse Project from CSE6305 (Programming Languages and Systems)\nProject Report"
+  },
+  {
+    "objectID": "research/index.html",
+    "href": "research/index.html",
+    "title": "Research Work",
+    "section": "",
+    "text": "I have worked on 20+ research projects focused on high-performance computing (HPC), graph neural network (GNN) systems, and natural language processing (NLP), covering topics from system optimization to advanced model architectures."
+  },
+  {
+    "objectID": "processor.html",
+    "href": "processor.html",
+    "title": "Md Saidul Hoque Anik",
+    "section": "",
+    "text": "import pandas as pd\n\ndf = pd.read_html('courses.html')\n\n\ndf = df[0]\n\n\ndf['Level'] = df['Course'].apply(lambda x: int(x.split(' ')[0].split('-')[1][::-1]) % 10)\n\n\ndf\n\n\n\n\n\n\n\n\nSer\nCourse\nTopics Covered\nInstitute\nLevel\n\n\n\n\n0\n1\nCSE-465 Web Programming\nHTML5 Tags, CSS Selectors, JavaScript (Basic S...\nUIU\n4\n\n\n1\n2\nCSE-469 Project Management\nProcess Models (Waterfall, RUP, Iterative, Inc...\nUIU\n4\n\n\n2\n3\nCSE-414 Computer Graphics Sessional\nOpenGL 2D Animation, Mouse Interaction, Raster...\nMIST\n4\n\n\n3\n4\nCSE-404 Artificial Intelligence Sessional\nState Representation using Graph, Local Search...\nMIST\n4\n\n\n4\n5\nCSE-322 Software Engineering Laboratory\nREST API, CRUD Operations, Agile Methodology, ...\nUIU\n3\n\n\n5\n4\nCSE-312 System Analysis and Design Laboratory\nBenchmark Analysis, Feasibility Analysis, UML ...\nUIU\n3\n\n\n6\n6\nCSE-313 Computer Architecture\nBasic Concepts, MIPS, Datapath, Caching, Multi...\nUIU\n3\n\n\n7\n5\nCSE-304 Compiler Sessional\nLex, Bison, Yacc\nMIST\n3\n\n\n8\n6\nCSE-226 Assembly Language Programming\nIntroduction to 8086 emulator, Registers, Flag...\nUIU\n2\n\n\n9\n7\nCSE-223 Thoery of Computation\nBasic concepts, DFA, NFA, Epsilon Transition, ...\nUIU\n2\n\n\n10\n8\nCSE-222 Database Management System Laboratory\nMySQL Queries (Basic, JOIN, Aggregation, Subqu...\nUIU\n2\n\n\n11\n9\nCSE-215 Data Structures and Algorithms-II\nHashing, HashSet, Binary Search Tree, Trie, Ba...\nMIST\n2\n\n\n12\n9\nCSE-205 Object Oriented Programming Language (...\nInheritance, Multiple Inheritance, Constructor...\nMIST\n2\n\n\n13\n10\nCSE-203 Data Structures and Algorithms-I\nBig-O Notation, Linked List, Stack, Queue, Bin...\nMIST\n2\n\n\n14\n11\nCSE-1116 Object Oriented Programming Sessional\nJava Basic Syntax, Object Oriented Concepts (I...\nUIU, MIST\n1\n\n\n15\n12\nCSE-1110 Introduction to CS\nIntroduction to Computer, Block-based Programm...\nUIU\n1\n\n\n16\n13\nCSE-105 Structured Programming Language (Part-B)\nRecursion, Arrays & Strings, 2D Array & Pointe...\nMIST\n1\n\n\n\n\n\n\n\n\nout = ''\n\nfor l in [4, 3, 2, 1]:\n    out += f'## Level-{l}\\n\\n'\n    temp = df[df['Level'] == l]\n      \n    for i in temp.itertuples():\n        # print(i)\n        out += f'''\n                ### {i.Course}\n                \n                Institute: {i.Institute}\n                \n                {i._3}\n              '''\n        \n\n\nprint(out)\n\n## Level-4\n\n\n                ### CSE-465 Web Programming\n                \n                Institute: UIU\n                \n                HTML5 Tags, CSS Selectors, JavaScript (Basic Syntax, Higher Order Array Functions, DOM Traversal), Django (Routing, Templating, ORM, Authentication, Form Handling), Client Side Rendering, VueJS, Progessive Web Application (PWA)\n              \n                ### CSE-469 Project Management\n                \n                Institute: UIU\n                \n                Process Models (Waterfall, RUP, Iterative, Incremental, Agile, Scrum, Kanban, Extreme Programming), Vision and Design Document, Work Breakdown Structure (WBS), Delphie Estimation, Scheduling (Dependancy Network Graph, Gantt Chart), Review Documents\n              \n                ### CSE-414 Computer Graphics Sessional\n                \n                Institute: MIST\n                \n                OpenGL 2D Animation, Mouse Interaction, Raster-based Pipeline\n              \n                ### CSE-404 Artificial Intelligence Sessional\n                \n                Institute: MIST\n                \n                State Representation using Graph, Local Search, A* Search, Adversarial Search, Constraint Satisfaction Problem\n              ## Level-3\n\n\n                ### CSE-322 Software Engineering Laboratory\n                \n                Institute: UIU\n                \n                REST API, CRUD Operations, Agile Methodology, Testing (Python Selenium, PyTest), Ajax (Fetch/XHR), Version Controlling (Git, GitHub), Markdown, Static Site Generator (MkDocs), SRS Writing\n              \n                ### CSE-312 System Analysis and Design Laboratory\n                \n                Institute: UIU\n                \n                Benchmark Analysis, Feasibility Analysis, UML Diagrams (Use Case, Class Diagram, Dataflow Diagram), Agile Methodology (Jira)\n              \n                ### CSE-313 Computer Architecture\n                \n                Institute: UIU\n                \n                Basic Concepts, MIPS, Datapath, Caching, Multiplication Algorithms\n              \n                ### CSE-304 Compiler Sessional\n                \n                Institute: MIST\n                \n                Lex, Bison, Yacc\n              ## Level-2\n\n\n                ### CSE-226 Assembly Language Programming\n                \n                Institute: UIU\n                \n                Introduction to 8086 emulator, Registers, Flags, Flow Control, Loop, Shift, Rotate, Nested Loop, Procedure, Stack, Multiple, Division, Array, String\n              \n                ### CSE-223 Thoery of Computation\n                \n                Institute: UIU\n                \n                Basic concepts, DFA, NFA, Epsilon Transition, DFA Equivalence of NFA, Regular Expression, Context Free Grammar, Parse Trees, Ambiguity in Grammar, Pushdown Automata, Equivalence of PDA and CFG, Deterministic PDA, Normal Forms, Turing Machines\n              \n                ### CSE-222 Database Management System Laboratory\n                \n                Institute: UIU\n                \n                MySQL Queries (Basic, JOIN, Aggregation, Subqueries), PHP Implementations\n              \n                ### CSE-215 Data Structures and Algorithms-II\n                \n                Institute: MIST\n                \n                Hashing, HashSet, Binary Search Tree, Trie, Balanced Search Tree (Skip List, AVL Tree)\n              \n                ### CSE-205 Object Oriented Programming Language (Part-B)\n                \n                Institute: MIST\n                \n                Inheritance, Multiple Inheritance, Constructor & Destructor, Virtual Functions, Runtime Polymorphism, Abstract Class, Diamond Problem, Virtual Base Class, Operator Overloading, Functors (Function Objects), Conversion Function, Overloading subscript, new, and delete operator\n              \n                ### CSE-203 Data Structures and Algorithms-I\n                \n                Institute: MIST\n                \n                Big-O Notation, Linked List, Stack, Queue, Binary Search, Dequeue, Double Linked List, Graph, Tree\n              ## Level-1\n\n\n                ### CSE-1116 Object Oriented Programming Sessional\n                \n                Institute: UIU, MIST\n                \n                Java Basic Syntax, Object Oriented Concepts (Inheritance, Abstraction, Interface, Polymorphism), Access Modifier, String, File I/O, Exception Handling, Concurrency, UI Design with Swing\n              \n                ### CSE-1110 Introduction to CS\n                \n                Institute: UIU\n                \n                Introduction to Computer, Block-based Programming Language (Scratch), Memory and Storage, Binary Numbers, Introduction to C Programming Language (Variable Declaration, Conditions, For Loop)\n              \n                ### CSE-105 Structured Programming Language (Part-B)\n                \n                Institute: MIST\n                \n                Recursion, Arrays & Strings, 2D Array & Pointers, Structures, Unions, Padding, Enum, File I/O, Dynamic Memory Allocation, Bitwise Manipulation, Function Pointers\n              \n\n\n\n# df = pd.read_html('service.html')\n\n\n!pip install html5lib\n\nRequirement already satisfied: html5lib in /home/onixhoque/anaconda3/lib/python3.13/site-packages (1.1)\nRequirement already satisfied: six&gt;=1.9 in /home/onixhoque/anaconda3/lib/python3.13/site-packages (from html5lib) (1.17.0)\nRequirement already satisfied: webencodings in /home/onixhoque/anaconda3/lib/python3.13/site-packages (from html5lib) (0.5.1)"
+  },
+  {
+    "objectID": "community/index.html",
+    "href": "community/index.html",
+    "title": "Community",
+    "section": "",
+    "text": "Contents"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "Md Saidul Hoque Anik",
+    "section": "",
+    "text": "I am a PhD candidate in Computer Science and Engineering at Texas A&M, specializing in high-performance and distributed Machine Learning Systems. Particularly, I map and customize sparse linear algebra libraries to optimize the efficiency of sparse machine-learning pipelines. My industry experience includes an internship at Amazon AWS, where I developed an end-to-end differentiable GPU kernel autotuner for LLM inference, which significantly improved efficiency by applying transfer learning to reduce new kernel tuning time from days to hours. My core PhD research focuses on accelerating Graph Learning models (GNNs, KGEs, GraphRAG) through new distributed methods and customized sparse linear algebra."
+  },
+  {
+    "objectID": "about.html#about-me",
+    "href": "about.html#about-me",
+    "title": "Md Saidul Hoque Anik",
+    "section": "",
+    "text": "I am a PhD candidate in Computer Science and Engineering at Texas A&M, specializing in high-performance and distributed Machine Learning Systems. Particularly, I map and customize sparse linear algebra libraries to optimize the efficiency of sparse machine-learning pipelines. My industry experience includes an internship at Amazon AWS, where I developed an end-to-end differentiable GPU kernel autotuner for LLM inference, which significantly improved efficiency by applying transfer learning to reduce new kernel tuning time from days to hours. My core PhD research focuses on accelerating Graph Learning models (GNNs, KGEs, GraphRAG) through new distributed methods and customized sparse linear algebra."
+  },
+  {
+    "objectID": "about.html#research-background",
+    "href": "about.html#research-background",
+    "title": "Md Saidul Hoque Anik",
+    "section": "Research Background",
+    "text": "Research Background\nI have in-depth expertise in designing custom PyTorch-based systems. My accepted work at MLSys 2025 details an approach for expressing Knowledge Graph Embedding training via sparse-matrix multiplication, demonstrating innovative system design for large-scale, sparse model efficiency. Furthermore, I developed a high-performance and auto-tuned CPU Sparse Matrix-Matrix Multiplication (SpMM) library that accelerates PyTorch GCN training by up to 93x (published at ACM WebConf 2024) and supports several GNNs along with multiple CPU architectures (Intel, AMD, ARM). I am currently collaborating with Oak Ridge National Lab to build a distributed and differentiable framework for large-scale KGE training across hybrid storage and compute tiers (disk, CPU, GPU)."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Md Saidul Hoque Anik",
+    "section": "",
+    "text": "I am a PhD candidate in Computer Science and Engineering at Texas A&M, specializing in high-performance and distributed Machine Learning Systems. Particularly, I map and customize sparse linear algebra libraries to optimize the efficiency of sparse machine-learning pipelines. My industry experience includes an internship at Amazon AWS, where I developed an end-to-end differentiable GPU kernel autotuner for LLM inference, which significantly improved efficiency by applying transfer learning to reduce new kernel tuning time from days to hours. My core PhD research focuses on accelerating Graph Learning models (GNNs, KGEs, GraphRAG) through new distributed methods and customized sparse linear algebra."
+  },
+  {
+    "objectID": "projects/index.html",
+    "href": "projects/index.html",
+    "title": "Software Projects",
+    "section": "",
+    "text": "I developed 10+ open-source and commercial software projects between 2013 and 2023, using Python, Java, and C++. These span console, GUI, desktop, mobile (Android), and web applications.\n\n\n   \n    \n    \n      Order By\n      Default\n      \n        Title\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nBell-212 Training Module\n\n\n\nHTML\n\nPHP\n\nThree.js\n\nSemantic UI\n\n\n\nA training website with interactive 3D models to learn about different components of the Bell-212 Helicopter. Also has options to take and set quiz.\n\n\n\n\n\nJun’19 - Mar’20\n\n\n\n\n\n\n\n\n\n\n\n\nAayatun\n\n\n\nPython\n\nFlask\n\nPWA\n\nWhoosh\n\nSemantic UI\n\n\n\nA responsive, mobile-first Quran encyclopedia containing word-for-word meaning, word definition, two different recitations, and tafsir. It is hosted at (https://aayatun.com/)[aayatun.com].\n\n\n\n\n\nAug’20 - Present\n\n\n\n\n\n\n\n\n\n\n\n\nPlagiarism Checker\n\n\n\nJavaScript\n\nElectronJS\n\nVueJS\n\nSemantic UI\n\n\n\nA desktop application for plagiarism checking. It generates a detailed report, marks possible plagiarism cases based on statistics, and shows side-by-side similarity between two submissions.\n\n\n\n\n\nMar’21\n\n\n\n\n\n\n\n\n\n\n\n\nSocial Media App\n\n\n\nPython\n\nDjango\n\nPWA\n\nVueJS\n\n\n\nA social media web app demonstrating Django features including ORM and authentication. It was converted into MicroKernel Architecture and the client-side rendering was implemented using VueJS.\n\n\n\n\n\nAug’21 - Sept’21\n\n\n\n\n\n\n\n\n\n\n\n\nAutomated Attendance Entry\n\n\n\nPython\n\nPyQT5\n\nSelenium\n\n\n\nA desktop application that automatically extracts IDs from Google Meet chat scripts and submits attendance through a university portal using Selenium.\n\n\n\n\n\nJan’21\n\n\n\n\n\n\n\n\n\n\n\n\nAcademic Calendar Generator for UIU\n\n\n\nJavaScript\n\nVueJS\n\nSemantic UI\n\n\n\nA single-page application for generating academic calendars with live weekday count previews and export options to PDF/Excel. It handles single/multiple day holidays and makeup classes.\n\n\n\n\n\nJan’21\n\n\n\n\n\n\n\n\n\n\n\n\nCO/PO Attainment Tool for MIST\n\n\n\nGoogle Sheets\n\n\n\nAn interactive Google Sheet for calculating CO/PO attainment scores from mark-sheets and CO/Assessment links. Generates reports on PO attainment, CO attainment, and assessment status.\n\n\n\n\n\nOct’19\n\n\n\n\n\n\n\n\n\n\n\n\nUG Course Distributor for MIST\n\n\n\nJava\n\nSwing\n\n\n\nA desktop application to distribute courses for semester planning, showing live preview of total/distributed credits across faculty ranks. A budgeting system was added later.\n\n\n\n\n\nMay’17\n\n\n\n\n\n\n\n\n\n\nFixMyStreet for Brac\n\n\n\nJava\n\nAndroid\n\nPHP\n\n\n\nAn Android application enabling Dhaka city citizens to report urban road problems to the appropriate authorities. The project was completed under supervision of Brac IT.\n\n\n\n\n\nJan’15 - Dec’15\n\n\n\n\n\n\n\n\n\n\n\n\nBus Route Digitizer\n\n\n\nAndroid\n\nJava\n\nSwing\n\n\n\nAn Android app to view available bus routes in Dhaka including fare and ratings. Users can temporarily report route issues. The server backend was built using pure Java Sockets.\n\n\n\n\n\nJune’15 - Dec’15\n\n\n\n\n\n\n\n\n\n\n\n\nBarcode Reader\n\n\n\nJava\n\nSwing\n\nTesseract\n\n\n\nA desktop barcode reader that decodes 1D barcode images and identifies corresponding items. Uses Tesseract OCR Engine 3.02.\n\n\n\n\n\nJan’14 - Mar’14\n\n\n\n\n\n\n\n\n\n\n\n\nOnix AV\n\n\n\nC++\n\nClamWin\n\n\n\nA GUI implementation of the ClamWin Virus Detection Engine. It supports downloading the latest signatures and removing infected files.\n\n\n\n\n\nApr’13 - Nov’13\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "research/posts/automated-traffic-jam/index.html",
+    "href": "research/posts/automated-traffic-jam/index.html",
+    "title": "Towards Devising An Automated System for Determining The Length of A Traffic Jam in Dhaka City",
+    "section": "",
+    "text": "NoteNote\n\n\n\n\n\nUndergraduate Thesis Work\nPDF"
+  },
+  {
+    "objectID": "research/posts/efficient-kge/index.html",
+    "href": "research/posts/efficient-kge/index.html",
+    "title": "A Sparse Approach for Translation-based Training of Knowledge Graph Embeddings",
+    "section": "",
+    "text": "NoteNote\n\n\n\n\n\nPhD Research Project\nSC24 Best Poster Finalist Poster (PDF) Paper"
+  },
+  {
+    "objectID": "research/posts/ft-nmt/index.html",
+    "href": "research/posts/ft-nmt/index.html",
+    "title": "A Fault Tolerant Neural Machine Translation System",
+    "section": "",
+    "text": "NoteNote\n\n\n\n\n\nGraduate Course Project\n\nCSE6207 (Advanced Dependable and Fault-Tolerant Computer Systems) with Dr. Alim Al Islam Razi\n\nSlides"
+  },
+  {
+    "objectID": "research/posts/gpu-code-gen-cpp/index.html",
+    "href": "research/posts/gpu-code-gen-cpp/index.html",
+    "title": "Accelerating Graph Machine Learning using Auto-tuned Sparse Primitives for GPU",
+    "section": "",
+    "text": "NoteNote\n\n\n\n\n\nGraduate Course Project\n\nIntroduction to Intelligent Systems E-536 [Spring 2023] with Dr. Ariful Azad\n\nSlides"
+  },
+  {
+    "objectID": "research/posts/isplib/index.html",
+    "href": "research/posts/isplib/index.html",
+    "title": "iSpLib: A library for accelerating graph neural networks using auto-tuned sparse operations",
+    "section": "",
+    "text": "NoteNote\n\n\n\n\n\nPhD Research Project\n\nPoster presented in Luddy AI Center (Indiana, 2023) and ICICLE All Hands Meeting (Ohio, 2023)\nPublished in WebConf 2024 (Previously WWW)\n\nWeb Conference 2024 GitHub Paper\nArtifact Available"
+  },
+  {
+    "objectID": "research/posts/noise-supression/index.html",
+    "href": "research/posts/noise-supression/index.html",
+    "title": "Noise Suppression in Distance Measurements Using A Sonar Sensor Having Angular Orientation",
+    "section": "",
+    "text": "NoteNote\n\n\n\n\n\nUndergraduate Research Work\n\nPoster presentation\n\nNSysS 2017 Poster"
+  },
+  {
+    "objectID": "research/posts/noise-supression/index.html#background",
+    "href": "research/posts/noise-supression/index.html#background",
+    "title": "Noise Suppression in Distance Measurements Using A Sonar Sensor Having Angular Orientation",
+    "section": "Background",
+    "text": "Background\nSonar sensors are commonly used electronic devices for measuring the distance to obstacles. However, the accuracy of these distance measurements is often compromised by noise, particularly when the sensor is placed at an oblique angle. The noise in the readings can lead to significant errors in distance calculations. Although some methods for suppressing noise exist, they are often limited in scope, especially when it comes to improving accuracy across diverse sensor orientations. Most existing solutions focus on statistical approaches, such as using the median value of consecutive readings, but these techniques are prone to errors as the median value can sometimes represent a noisy data point instead of the true distance measurement. Therefore, there is a need for more robust methods that can effectively suppress noise and yield more accurate distance estimates in a variety of conditions."
+  },
+  {
+    "objectID": "research/posts/noise-supression/index.html#methodology",
+    "href": "research/posts/noise-supression/index.html#methodology",
+    "title": "Noise Suppression in Distance Measurements Using A Sonar Sensor Having Angular Orientation",
+    "section": "Methodology",
+    "text": "Methodology\nTo address the noise issue, our approach involves taking several consecutive readings from the sonar sensor and computing the average and standard deviation of these readings to understand the variability. Building on this foundation, we propose two alternative formulas for improving accuracy. The first is a trigonometric-based formula that adjusts the measurements based on the angle of the sensor, correcting for any distortions introduced by oblique placements. The second formula is exponential-based, designed to filter out extreme noise values by giving more weight to the most consistent readings. Both formulas aim to reduce the impact of noise and provide a more reliable estimation of the true distance."
+  },
+  {
+    "objectID": "research/posts/noise-supression/index.html#result",
+    "href": "research/posts/noise-supression/index.html#result",
+    "title": "Noise Suppression in Distance Measurements Using A Sonar Sensor Having Angular Orientation",
+    "section": "Result",
+    "text": "Result\n\nThe proposed method demonstrated a significant improvement over the traditional median-based approach. By applying our trigonometric and exponential formulas, we were able to reduce the error in distance measurements by 24.69%, showing that these new methods can provide more accurate results and suppress noise more effectively, even when the sensor is oriented at challenging angles."
+  },
+  {
+    "objectID": "research/posts/rbmt/index.html",
+    "href": "research/posts/rbmt/index.html",
+    "title": "An Enhanced RBMT: When RBMT Outperforms Modern Data-Driven Translators",
+    "section": "",
+    "text": "NoteNote\n\n\n\n\n\nMaster’s Research Collaboration\nIETE Technical Review, Volume 39 Paper"
+  },
+  {
+    "objectID": "research/posts/sp-mat-lib-c/index.html",
+    "href": "research/posts/sp-mat-lib-c/index.html",
+    "title": "A C++ Library for Sparse Matrix Data Structure",
+    "section": "",
+    "text": "NoteNote\n\n\n\n\n\nGraduate Coursework E-501: Introduction to Computer Engineering"
+  },
+  {
+    "objectID": "research/posts/twitter-sentiment/index.html",
+    "href": "research/posts/twitter-sentiment/index.html",
+    "title": "A Bimodal Longitudinal Investigation on Changes in Sentiments over Social Media Interactions Owing to COVID-19 Pandemic",
+    "section": "",
+    "text": "NoteNote\n\n\n\n\n\nGraduate thesis work"
+  },
+  {
+    "objectID": "research/posts/workplace-bullying/index.html",
+    "href": "research/posts/workplace-bullying/index.html",
+    "title": "Impact of Workplace Bullying among Physicians of Tertiary Medical College Hospitals",
+    "section": "",
+    "text": "NoteNote\n\n\n\n\n\n\nOther collaboration work\nJournal publication as fourth author\n\nJournal of Chittagong Medical College Teachers’ Association 34 (1) Paper"
+  },
+  {
+    "objectID": "research/posts/rbmt/index.html#background",
+    "href": "research/posts/rbmt/index.html#background",
+    "title": "An Enhanced RBMT: When RBMT Outperforms Modern Data-Driven Translators",
+    "section": "Background",
+    "text": "Background\nAlthough prominent translation systems like Google Translate, Yahoo Babel Fish, and Bing perform well with widely used languages, they often struggle with low-resource languages such as Bengali, Romanian, and Arabic. These systems typically rely on data-driven translation approaches like Neural Machine Translation (NMT) and Statistical Machine Translation (SMT) to develop polyglot translation models. However, the performance of these methods is highly dependent on the availability of large, parallel corpora for the language pairs being translated. As a result, many languages, including Bengali, remain underexplored not only in machine translation but also in broader Natural Language Processing (NLP) tasks. This gap highlights the need for more effective translation models and techniques for low-resource languages like Bengali, which are often neglected in current research and applications."
+  },
+  {
+    "objectID": "research/posts/rbmt/index.html#methodology",
+    "href": "research/posts/rbmt/index.html#methodology",
+    "title": "An Enhanced RBMT: When RBMT Outperforms Modern Data-Driven Translators",
+    "section": "Methodology",
+    "text": "Methodology\nIn this study, our primary goal is to improve Bengali-to-English translation through several targeted language processing tasks. We start by adopting a basic rule-based machine translation (MT) system for translating Bengali to English, providing a foundational approach to translation. To enhance its performance, we focus on the accurate interpretation of Bengali names as subjects and nouns in sentences, an often-overlooked aspect in machine translation. Additionally, we propose a verb identification and optimization technique that leverages root-word detection (stemming) to better handle the variations of Bengali verbs. By identifying the root form of verbs, we aim to improve the translation quality and handle the morphological richness of Bengali. Together, these techniques form the core of our approach to refining the Bengali-to-English translation process."
+  },
+  {
+    "objectID": "research/posts/rbmt/index.html#results",
+    "href": "research/posts/rbmt/index.html#results",
+    "title": "An Enhanced RBMT: When RBMT Outperforms Modern Data-Driven Translators",
+    "section": "Results",
+    "text": "Results\nTo evaluate the effectiveness of our proposed methods, we conducted a comparative analysis with popular data-driven translation systems, such as Google Translate, using a novel, customized dataset specifically designed for Bengali-to-English translation. Our results demonstrate that our rule-based system, enhanced with name recognition and verb optimization techniques, significantly outperforms existing data-driven translators for Bengali translation. This study not only highlights the effectiveness of these targeted techniques but also underscores the potential for improving translation accuracy for low-resource languages by leveraging rule-based systems and linguistic analysis."
+  },
+  {
+    "objectID": "research/posts/smoothing-time-series/index.html#background",
+    "href": "research/posts/smoothing-time-series/index.html#background",
+    "title": "A Study on the Effects of Smoothing in Time Series Prediction",
+    "section": "Background",
+    "text": "Background\nSmoothing filters are commonly applied in time series data analysis to reduce noise and improve prediction accuracy. These filters, such as exponential smoothing and regression-based filters, are particularly effective when working with sentiment data, especially data collected from social media platforms. Sentiment data from sources like Twitter can often contain outliers due to the nature of social media content, making it challenging to obtain reliable predictions. By removing noise through smoothing, we aim to enhance the quality of predictions for sentiment trends, which can vary over time. This study explores whether applying a smoothing filter before training a prediction model can improve the accuracy of sentiment trend predictions. Specifically, we focus on sentiment data categorized into positive, negative, and neutral trends, both for text and image-based tweets."
+  },
+  {
+    "objectID": "research/posts/smoothing-time-series/index.html#methodology",
+    "href": "research/posts/smoothing-time-series/index.html#methodology",
+    "title": "A Study on the Effects of Smoothing in Time Series Prediction",
+    "section": "Methodology",
+    "text": "Methodology\nTo evaluate the impact of smoothing on prediction accuracy, we apply six different types of trends, including positive, negative, and neutral sentiment for both text and image-based tweets. The dataset includes 300 days of aggregated data for each trend category: 17,25,297 values for text sentiment and 3,62,079 values for image sentiment. We use Facebook’s Prophet, a popular forecasting library, to predict sentiment trends. The model is trained using the first 240 days of data and then forecasts the sentiment trend for the subsequent 60 days. We experiment with various smoothing techniques, including exponential smoothing, seasonal decomposition, and polynomial smoothing, to determine if smoothing the data before training improves the predictive performance."
+  },
+  {
+    "objectID": "research/posts/smoothing-time-series/index.html#findings",
+    "href": "research/posts/smoothing-time-series/index.html#findings",
+    "title": "A Study on the Effects of Smoothing in Time Series Prediction",
+    "section": "Findings",
+    "text": "Findings\nThe effectiveness of smoothing filters varies depending on the type of sentiment trend being predicted. The results indicate that filtering actually worsens prediction accuracy in certain cases, specifically for Positive/Neutral Text and Positive Image sentiment trends. However, seasonal decomposition outperforms other methods for predicting Negative Text and Neutral Image trends, likely due to its ability to handle seasonality in the data. On the other hand, polynomial smoothing yields the best results for predicting Negative Image trends. These findings suggest that while smoothing can improve accuracy in some contexts, its effectiveness is highly dependent on the type of sentiment trend and the nature of the data."
+  },
+  {
+    "objectID": "research/posts/sp-mat-lib-c/index.html#findings",
+    "href": "research/posts/sp-mat-lib-c/index.html#findings",
+    "title": "A C++ Library for Sparse Matrix Data Structure",
+    "section": "Findings",
+    "text": "Findings\nThe results of our experiment reveal significant performance improvements when using sparse matrix multiplication techniques compared to regular dense matrix multiplication. For matrices up to 1000x1000, Sparse Matrix Multiplication (SpMM) achieved a 249.23x speedup and a 2x reduction in memory usage compared to MM. The performance gains were even more pronounced with Sparse General Matrix Multiplication (SpGEMM). Using the COO format, SpGEMM provided a 983.17x speedup and a 1665.41x reduction in memory, while the CSR format for SpGEMM offered a 411.04x speedup and a 1665.22x reduction in memory. These findings highlight the significant advantages of using sparse matrix data structures for both computational speedup and memory efficiency, particularly as the matrix size increases."
+  },
+  {
+    "objectID": "research/posts/sp-mat-lib-c/index.html#background",
+    "href": "research/posts/sp-mat-lib-c/index.html#background",
+    "title": "A C++ Library for Sparse Matrix Data Structure",
+    "section": "Background",
+    "text": "Background\nMatrix multiplication is a fundamental operation in numerous computational tasks, ranging from scientific computing to machine learning. However, for large-scale matrices, traditional dense matrix multiplication (MM) can become computationally expensive and memory-intensive. Sparse matrices, which contain a majority of zero elements, offer a way to optimize these operations by only storing and processing the non-zero elements. This can lead to significant improvements in both computational efficiency and memory usage. In this project, we explore how different sparse matrix data structures, such as Coordinate (COO), Compressed Sparse Row (CSR), and Compressed Sparse Column (CSC), can be leveraged to enhance the efficiency of matrix multiplication, specifically through sparse matrix multiplication (SpMM), sparse general matrix multiplication (SpGEMM), and their CSR-based variants."
+  },
+  {
+    "objectID": "research/posts/sp-mat-lib-c/index.html#methodology",
+    "href": "research/posts/sp-mat-lib-c/index.html#methodology",
+    "title": "A C++ Library for Sparse Matrix Data Structure",
+    "section": "Methodology",
+    "text": "Methodology\nIn this project, we benchmark the performance of various matrix multiplication techniques using sparse matrix data structures. The evaluation focuses on the regular Matrix Multiplication (MM), Sparse Matrix Multiplication (SpMM), Sparse General Matrix Multiplication (SpGEMM), and SpGEMM with CSR format (SpGEMM_CSR). The experiments involve generating random sparse matrices of increasing sizes (2x2, 3x3, up to 5000x5000), with the density of non-zero elements set to \\(1/n\\) where n is the matrix size. Each function is executed 20 times to account for variability, and the average elapsed time and memory allocation are measured for each method to assess their efficiency. The comparison focuses on matrices of up to 1000x1000 for speedup analysis and up to 5000x5000 for memory usage evaluation."
+  },
+  {
+    "objectID": "research/posts/sptransx/index.html#background",
+    "href": "research/posts/sptransx/index.html#background",
+    "title": "SparseTransX: Efficient Training of Translation-Based Knowledge Graph Embeddings Using Sparse Matrix Operations",
+    "section": "Background",
+    "text": "Background\n\nKnowledge Graph (KG) learning plays a critical role in enabling machines to generate new knowledge and make inferences based on relational data. However, training KG embeddings can be time-consuming, particularly for larger datasets. One of the primary bottlenecks in the training process is the gradient computation during embedding updates, which dominates the overall training time. In this context, we aim to accelerate the training process by replacing the core embedding computation with Sparse-Dense Matrix Multiplication (SpMM) kernels. This approach allows us to optimize the computation by consolidating multiple scatter (and gather) operations into a single, more efficient operation, reducing both training time and memory usage."
+  },
+  {
+    "objectID": "research/posts/sptransx/index.html#methodology",
+    "href": "research/posts/sptransx/index.html#methodology",
+    "title": "SparseTransX: Efficient Training of Translation-Based Knowledge Graph Embeddings Using Sparse Matrix Operations",
+    "section": "Methodology",
+    "text": "Methodology\n\nWe propose a framework that integrates sparse matmul kernels into the training of KGE models, enhancing the efficiency of the translation-based embedding techniques. Specifically, we implement sparse versions of four popular KG models: TransE, TransR, TransH, and TorusE. By leveraging SpMM kernels, we replace the traditional dense matrix multiplication operations, significantly improving the performance of the training loop. Our framework unifies various scatter and gather operations, which are typically separate, into a single operation, leading to a reduction in both computational time and memory footprint. We evaluate the performance of our sparse implementations on both CPU and GPU platforms, testing across various datasets, both large and small, to assess the generalizability of our approach."
+  },
+  {
+    "objectID": "research/posts/sptransx/index.html#findings",
+    "href": "research/posts/sptransx/index.html#findings",
+    "title": "SparseTransX: Efficient Training of Translation-Based Knowledge Graph Embeddings Using Sparse Matrix Operations",
+    "section": "Findings",
+    "text": "Findings\n\nOur sparse implementations deliver impressive speedups across different hardware platforms. On the CPU, we observe up to 5.3x speedup, while on the GPU, the speedup reaches 4.2x, all while significantly reducing GPU memory usage. These performance improvements are consistent regardless of dataset size, demonstrating the effectiveness of our approach across both small and large-scale datasets. The results indicate that our sparse kernel-based framework can substantially accelerate the training of translation-based KG models, with potential applications extending to other translation-based models (such as TransC and TransM) and non-translation models (like DistMult, ComplEx, and RotatE). This work lays the groundwork for more efficient and scalable KG embedding training methods."
+  },
+  {
+    "objectID": "research/posts/twitter-sentiment/index.html#background",
+    "href": "research/posts/twitter-sentiment/index.html#background",
+    "title": "A Bimodal Longitudinal Investigation on Changes in Sentiments over Social Media Interactions Owing to COVID-19 Pandemic",
+    "section": "Background",
+    "text": "Background\nThe COVID-19 pandemic presented a unique challenge for understanding human sentiment, as it occurred alongside an increasingly interactive and dynamic online environment. Prior pandemics did not have such widespread online platforms where public sentiment could be so readily expressed and analyzed in real-time. This study aims to explore the unprecedented shift in human sentiments across cyberspace during the COVID-19 pandemic, leveraging the vast amount of social media content available on platforms like Twitter to understand how sentiments evolved over time and in response to the crisis."
+  },
+  {
+    "objectID": "research/posts/twitter-sentiment/index.html#methodology",
+    "href": "research/posts/twitter-sentiment/index.html#methodology",
+    "title": "A Bimodal Longitudinal Investigation on Changes in Sentiments over Social Media Interactions Owing to COVID-19 Pandemic",
+    "section": "Methodology",
+    "text": "Methodology\n\nWe conducted a bimodal longitudinal analysis of sentiment trends throughout the COVID-19 pandemic, utilizing a dataset of 56,789 Tweets from 569 users over a period of 724 days, spanning from 2019 to 2020. The analysis focused on both textual content and images to track sentiment changes in a comprehensive manner. Our approach included reviewing existing sentiment classifier libraries and developing a novel classification technique for enhancing sentiment analysis in text-based Tweets. Additionally, we performed exploratory data analysis on the sentiment trends in both text and images to identify significant shifts and patterns in expression related to the pandemic."
+  },
+  {
+    "objectID": "research/posts/twitter-sentiment/index.html#findings",
+    "href": "research/posts/twitter-sentiment/index.html#findings",
+    "title": "A Bimodal Longitudinal Investigation on Changes in Sentiments over Social Media Interactions Owing to COVID-19 Pandemic",
+    "section": "Findings",
+    "text": "Findings\n \nThe results of our analysis revealed notable changes in sentiment during the pandemic: a 10.55% increase in negative sentiment in the text of Tweets and a 24.52% decrease in positive sentiment expressed in images. The bimodal investigation highlighted a correlation between sentiment changes in textual content and images, suggesting that social media users expressed sentiment across multiple modalities in tandem. Furthermore, we identified specific change-points that marked the shifts in sentiment between pre-pandemic and pandemic periods. This study introduces a novel framework for bimodal sentiment analysis and provides valuable insights into how sentiment evolves during global crises, which could inform decision-making by policymakers and social scientists."
+  },
+  {
+    "objectID": "research/posts/wmd/index.html#background",
+    "href": "research/posts/wmd/index.html#background",
+    "title": "Predicting Interactions in the Weapons of Mass Destruction Knowledge Graphs",
+    "section": "Background",
+    "text": "Background\nIn this paper, we explored the application of graph machine learning methods to predict unseen interactions within the Weapons of Mass Destruction (WMD) dataset, which has been developed by DARPA and IARPA. This dataset encompasses a wide array of complex online activities such as sales, purchases, and forum discussions, primarily focusing on sensitive topics related to weapons, explosives, and related threats. To leverage this data effectively, it is represented as a knowledge graph, where entities (e.g., people, weapons, organizations) are represented as nodes, and relationships between them (e.g., transactions, communications, affiliations) are captured as edges. By utilizing graph-based learning techniques, the goal is to uncover hidden interactions that can provide valuable insights into the dynamics of WMD-related activities."
+  },
+  {
+    "objectID": "research/posts/wmd/index.html#methodology",
+    "href": "research/posts/wmd/index.html#methodology",
+    "title": "Predicting Interactions in the Weapons of Mass Destruction Knowledge Graphs",
+    "section": "Methodology",
+    "text": "Methodology\nFor this project, I focused on the Neo4j interfacing aspect, facilitating the integration of graph machine learning techniques. The project employs knowledge graph embedding methods and graph neural networks to predict potential unseen interactions in the WMD dataset. DistMult, a semantic matching model, was selected due to its ability to effectively capture one-to-many relationships—common in the WMD data. I contributed by implementing an automated pipeline that integrates various stages of the graph machine learning workflow. Specifically, I worked on storing the knowledge graph in a Neo4j database, using Cypher queries to extract relevant subgraphs, and enabling the seamless interface between the Neo4j database and the graph embedding models used for predictions. High-confidence predictions were then reintegrated into the main graph to continuously refine the knowledge base."
+  },
+  {
+    "objectID": "research/posts/wmd/index.html#findings",
+    "href": "research/posts/wmd/index.html#findings",
+    "title": "Predicting Interactions in the Weapons of Mass Destruction Knowledge Graphs",
+    "section": "Findings",
+    "text": "Findings\nThe integration of DistMult for semantic matching achieved an impressive 84% prediction accuracy in identifying unseen relationships within the WMD dataset. My work on the Neo4j interface was crucial in streamlining the process of graph traversal, subgraph extraction, and the efficient handling of graph data for embedding model training. The automated pipeline, with Neo4j as the core database, played a key role in enabling efficient prediction and reintegration of high-confidence links back into the knowledge graph. This approach not only improved prediction accuracy but also demonstrated the potential for graph machine learning in uncovering hidden interactions within complex, sensitive datasets, with far-reaching applications in security and intelligence."
+  },
+  {
+    "objectID": "research/posts/wmd/index.html#overview",
+    "href": "research/posts/wmd/index.html#overview",
+    "title": "Predicting Interactions in the Weapons of Mass Destruction Knowledge Graphs",
+    "section": "Overview",
+    "text": "Overview\nIn this paper, the application of graph machine learning methods is explored to predict unseen interactions within the Weapons of Mass Destruction (WMD) dataset, developed by DARPA and IARPA. This dataset contains complex online activities such as sales, purchases, and forum discussions, focusing on sensitive subjects related to weapons and explosives. To analyze this data, the study represents it as a knowledge graph, where nodes represent entities (e.g., people, weapons, organizations) and edges capture the relationships between them (e.g., transactions, communications). Using graph-based learning techniques, the goal is to uncover hidden interactions that can provide valuable insights into WMD-related activities. The study uses DistMult, a semantic matching model, to predict potential relationships, and integrates graph machine learning techniques to enhance the prediction process."
+  },
+  {
+    "objectID": "research/posts/wmd/index.html#contribution",
+    "href": "research/posts/wmd/index.html#contribution",
+    "title": "Predicting Interactions in the Weapons of Mass Destruction Knowledge Graphs",
+    "section": "Contribution",
+    "text": "Contribution\nMy primary contribution to this project was in the Neo4j interfacing aspect, where I facilitated the integration of graph machine learning techniques. I implemented an automated pipeline that handled various stages of the process, including storing the knowledge graph in a Neo4j database and using Cypher queries to extract relevant subgraphs for analysis. My work focused on ensuring smooth interaction between the Neo4j database and the graph embedding models, such as DistMult, used for predicting links. This interface allowed for efficient graph traversal, streamlined subgraph extraction, and the seamless reintegration of high-confidence predictions into the main graph. By automating these processes, I played a key role in improving the overall efficiency and accuracy of the graph-based prediction model."
+  },
+  {
+    "objectID": "research/posts/workplace-bullying/index.html#overview",
+    "href": "research/posts/workplace-bullying/index.html#overview",
+    "title": "Impact of Workplace Bullying among Physicians of Tertiary Medical College Hospitals",
+    "section": "Overview",
+    "text": "Overview\nWorkplace bullying and harassment among healthcare professionals, particularly physicians, has long been associated with increased levels of stress, negatively affecting both professional performance and personal well-being. This study sought to evaluate the prevalence and forms of bullying faced by physicians in their workplace, focusing on its impact on stress levels. The research was conducted through a cross-sectional survey involving physicians from two Medical College Hospitals who had at least six months of work experience. The study aimed to uncover patterns of bullying, such as the most common forms and the sources of harassment, and to examine the correlation between bullying and stress-related symptoms like depression and anxiety. The findings highlighted the significant need for addressing workplace bullying to ensure a healthier work environment for healthcare professionals."
+  },
+  {
+    "objectID": "research/posts/workplace-bullying/index.html#contribution",
+    "href": "research/posts/workplace-bullying/index.html#contribution",
+    "title": "Impact of Workplace Bullying among Physicians of Tertiary Medical College Hospitals",
+    "section": "Contribution",
+    "text": "Contribution\nIn this study, my primary contribution was the development of an automated pipeline to generate Google Forms from large document files, which streamlined the process of creating and distributing surveys. This automation made it easier to handle a large-scale survey efficiently, ensuring that the questionnaires were accurately generated for all 189 physicians involved in the study. By integrating this automated approach, I helped facilitate a seamless data collection process, allowing researchers to focus on analyzing the responses and drawing meaningful insights. This contribution was crucial in managing the extensive data collection required for the study while ensuring consistency and reducing manual effort."
+  },
+  {
+    "objectID": "about.html#featured-researchwork",
+    "href": "about.html#featured-researchwork",
+    "title": "Md Saidul Hoque Anik",
+    "section": "Featured Researchwork",
+    "text": "Featured Researchwork\n\nDifferentiable Autotuner\nSparse T\nSparseTransX - Published in MLSys 2025 [Badge: Available, Reproducable]\niSpLib"
+  },
+  {
+    "objectID": "index.html#about-me",
+    "href": "index.html#about-me",
+    "title": "Md Saidul Hoque Anik",
+    "section": "",
+    "text": "I am a PhD candidate in Computer Science and Engineering at Texas A&M, specializing in high-performance and distributed Machine Learning Systems. Particularly, I map and customize sparse linear algebra libraries to optimize the efficiency of sparse machine-learning pipelines. My industry experience includes an internship at Amazon AWS, where I developed an end-to-end differentiable GPU kernel autotuner for LLM inference, which significantly improved efficiency by applying transfer learning to reduce new kernel tuning time from days to hours. My core PhD research focuses on accelerating Graph Learning models (GNNs, KGEs, GraphRAG) through new distributed methods and customized sparse linear algebra."
+  },
+  {
+    "objectID": "index.html#research-background",
+    "href": "index.html#research-background",
+    "title": "Md Saidul Hoque Anik",
+    "section": "Research Background",
+    "text": "Research Background\nI have in-depth expertise in designing custom PyTorch-based systems. My accepted work at MLSys 2025 details an approach for expressing Knowledge Graph Embedding training via sparse-matrix multiplication, demonstrating innovative system design for large-scale, sparse model efficiency. Furthermore, I developed a high-performance and auto-tuned CPU Sparse Matrix-Matrix Multiplication (SpMM) library that accelerates PyTorch GCN training by up to 93x (published at ACM WebConf 2024) and supports several GNNs along with multiple CPU architectures (Intel, AMD, ARM). I am currently collaborating with Oak Ridge National Lab to build a distributed and differentiable framework for large-scale KGE training across hybrid storage and compute tiers (disk, CPU, GPU)."
+  },
+  {
+    "objectID": "index.html#featured-researchwork",
+    "href": "index.html#featured-researchwork",
+    "title": "Md Saidul Hoque Anik",
+    "section": "Featured Researchwork",
+    "text": "Featured Researchwork\n\nDifferentiable Autotuner\nSparse T\nSparseTransX - Published in MLSys 2025 [Badge: Available, Reproducable]\niSpLib"
+  },
+  {
+    "objectID": "index.html#featured-research",
+    "href": "index.html#featured-research",
+    "title": "Md Saidul Hoque Anik",
+    "section": "Featured Research",
+    "text": "Featured Research\nDifferentiable Autotuner Sparse T SparseTransX - Published in MLSys 2025 [Badge: Available, Reproducable] iSpLib"
+  },
+  {
+    "objectID": "research/posts/gpu-tuner-amazon/index.html",
+    "href": "research/posts/gpu-tuner-amazon/index.html",
+    "title": "Differentiable GPU kernel autotuner with Transfer Learning",
+    "section": "",
+    "text": "NoteNote\n\n\n\n\n\nAmazon AWS Internship Summer 2025"
+  },
+  {
+    "objectID": "research/posts/gpu-tuner-amazon/index.html#overview",
+    "href": "research/posts/gpu-tuner-amazon/index.html#overview",
+    "title": "Differentiable GPU kernel autotuner with Transfer Learning",
+    "section": "Overview",
+    "text": "Overview\nDeveloped a robust, end-to-end differentiable GPU kernel autotuner for vLLM that works well with as low as 1% ground truth of the total search space. The solution also performs transfer learning and can leverage cheaper kernel tuning data to reduce new kernel tuning time from days to hours."
+  },
+  {
+    "objectID": "research/posts/gpu-tuner-amazon/index.html#findings",
+    "href": "research/posts/gpu-tuner-amazon/index.html#findings",
+    "title": "Differentiable GPU kernel autotuner with Transfer Learning",
+    "section": "Findings",
+    "text": "Findings\n\nAcross six datasets, our auto-tuner obtained an improvement in cross-validation accuracy of 0.85× − 1.60× compared to 16 other ML and tabular transformer models (commonly used for performance modeling) on 1% ground truth. Accuracy continued to improve and outperformed all baselines as the training data increased.\nIn transfer learning, up to 12.7% accuracy improvement was observed when an expensive CUDA kernel was tuned using only 100 config-perf pairs and leveraged with similar and cheaper Triton kernel’s tuning data."
+  },
+  {
+    "objectID": "research/posts/automated-traffic-jam/index.html#background",
+    "href": "research/posts/automated-traffic-jam/index.html#background",
+    "title": "Towards Devising An Automated System for Determining The Length of A Traffic Jam in Dhaka City",
+    "section": "Background",
+    "text": "Background\nIn this thesis, we investigate the development of a road-condition sensing and traffic-congestion detection system tailored to the unique environment of Dhaka City. We observe that traditional traffic-signal generation methods often fail to address Dhaka’s irregular road patterns, diverse vehicle types, and frequent roadside obstructions. These challenges motivate our pursuit of a more adaptive, sensor-driven approach capable of capturing real-time traffic dynamics."
+  },
+  {
+    "objectID": "research/posts/automated-traffic-jam/index.html#methodology",
+    "href": "research/posts/automated-traffic-jam/index.html#methodology",
+    "title": "Towards Devising An Automated System for Determining The Length of A Traffic Jam in Dhaka City",
+    "section": "Methodology",
+    "text": "Methodology\nWe designed a system that uses ultrasonic sensors connected to Arduino Nano microcontrollers and GSM modules. Our sensor nodes collect distance and movement data and transmit them to a central server for processing. We built a network of sensors linked to a central computer that analyzes vehicle behavior and estimates traffic conditions, including the length of congestion. Throughout development, we worked to reduce noise in sonar readings, handle the variability of irregularly shaped vehicles and their unpredictable movements, and filter out interference from pedestrians and roadside vendors such as food carts."
+  },
+  {
+    "objectID": "research/posts/automated-traffic-jam/index.html#findings",
+    "href": "research/posts/automated-traffic-jam/index.html#findings",
+    "title": "Towards Devising An Automated System for Determining The Length of A Traffic Jam in Dhaka City",
+    "section": "Findings",
+    "text": "Findings\nThrough our prototype implementation, we demonstrate the feasibility of using low-cost ultrasonic sensors and GSM communication to monitor real-time road conditions in complex urban environments. Our results show that the system can distinguish vehicle patterns, estimate congestion levels, and maintain reliable data transmission despite environmental challenges. We conclude that a sensor-based traffic monitoring approach offers a more responsive and context-aware alternative to conventional traffic-signal generation methods in cities like Dhaka."
+  },
+  {
+    "objectID": "research/posts/concurrency-python/index.html#background",
+    "href": "research/posts/concurrency-python/index.html#background",
+    "title": "Concurrency Study of Python 2.7",
+    "section": "Background",
+    "text": "Background\nIn this project, we present a comparative study of multi-threaded programs developed using different implementations of Python. Our aim is to understand how various Python runtimes handle concurrency by examining differences in performance, thread management, and execution behavior. Python offers a wide range of concurrency libraries, yet not all implementations execute multi-threaded programs with equal efficiency—particularly due to the presence of the Global Interpreter Lock (GIL) in some variants. This motivates our investigation into how architectural differences across Python implementations influence their real-world behavior under concurrent workloads."
+  },
+  {
+    "objectID": "research/posts/concurrency-python/index.html#methodology",
+    "href": "research/posts/concurrency-python/index.html#methodology",
+    "title": "Concurrency Study of Python 2.7",
+    "section": "Methodology",
+    "text": "Methodology\nWe compare three Python runtimes: CPython, the most commonly used implementation; IronPython, which is built on the .NET framework; and Jython, which runs on the Java Virtual Machine. These implementations differ significantly in their underlying architectures, making them ideal candidates for evaluating contrasting approaches to concurrency. To conduct our study, we developed equivalent multi-threaded programs and executed them under similar workloads across all three environments. We then measured execution time, thread utilization, and responsiveness, and analyzed how the presence or absence of the GIL—along with runtime-specific threading models—affects performance."
+  },
+  {
+    "objectID": "research/posts/concurrency-python/index.html#findings",
+    "href": "research/posts/concurrency-python/index.html#findings",
+    "title": "Concurrency Study of Python 2.7",
+    "section": "Findings",
+    "text": "Findings\nOur experiments reveal notable performance differences among the three implementations. IronPython and Jython often outperform CPython in multi-threaded scenarios because they do not employ a GIL, allowing true parallel execution of threads. CPython, constrained by the GIL, demonstrates slower performance under CPU-bound concurrent workloads but remains competitive in I/O-bound tasks. We further identify the architectural factors that drive these differences, providing insights into why certain implementations excel in specific concurrency workloads. Overall, our study highlights the strengths and limitations of each Python runtime from a developer’s perspective, offering guidance for choosing the most suitable implementation for multi-threaded applications."
+  },
+  {
+    "objectID": "research/posts/efficient-kge/index.html#findings",
+    "href": "research/posts/efficient-kge/index.html#findings",
+    "title": "A Sparse Approach for Translation-based Training of Knowledge Graph Embeddings",
+    "section": "Findings",
+    "text": "Findings\nOur sparse SpMM-based approach significantly accelerates KG embedding training. On the TransE model, we achieve up to a 5.3× speedup on CPU and up to a 4.2× speedup on GPU. When distributed across 64 GPUs, the method delivers up to a 3.9× improvement per epoch. These results demonstrate that unifying scatter/gather operations through sparse kernels can effectively mitigate training bottlenecks, offering substantial gains in efficiency for large-scale KG learning."
+  },
+  {
+    "objectID": "research/posts/efficient-kge/index.html#background",
+    "href": "research/posts/efficient-kge/index.html#background",
+    "title": "A Sparse Approach for Translation-based Training of Knowledge Graph Embeddings",
+    "section": "Background",
+    "text": "Background\nIn this work, we explored how to make knowledge graph (KG) embedding training process through expressing it with a more efficient sparse linear algebra kernels. While KG embedding models are widely used, their training process can be extremely time-consuming, particularly for large datasets. Through our analysis, we identify gradient computation of embeddings and vector normalization as the most time-dominating components of the KG embedding training loop. These bottlenecks motivate our investigation into more efficient computation strategies."
+  },
+  {
+    "objectID": "research/posts/efficient-kge/index.html#methodology",
+    "href": "research/posts/efficient-kge/index.html#methodology",
+    "title": "A Sparse Approach for Translation-based Training of Knowledge Graph Embeddings",
+    "section": "Methodology",
+    "text": "Methodology\nTo address the high computational cost, we replace the core embedding operations with SpMM (Sparse–Dense Matrix Multiplication) kernels. This approach unifies multiple scatter and gather operations into a single sparse operation, reducing both training time and memory usage. We apply this sparse computation strategy to the TransE model and evaluate its performance on both CPUs and GPUs. Additionally, we scale the method across a distributed environment using 64 GPUs to assess its effectiveness under large-scale parallelism."
+  },
+  {
+    "objectID": "research/posts/fastgraph/index.html#background",
+    "href": "research/posts/fastgraph/index.html#background",
+    "title": "Python Interface of FastGraph (an OpenMP-based sparse-matrix library)",
+    "section": "Background",
+    "text": "Background\nFastGraph is an OpenMP-accelerated C++ library designed for high-performance sparse-matrix and graph operations, addressing the scalability limitations of pure-Python frameworks like NetworkX. While NetworkX offers an intuitive interface, its lack of parallelization makes it unsuitable for large or complex graph analytics. FastGraph, by contrast, leverages efficient, multicore algorithms to support workloads that demand significant computational throughput. Before this project, however, FastGraph’s capabilities were not readily accessible to Python users, creating a barrier between high-performance C++ backends and the broader Python data science ecosystem."
+  },
+  {
+    "objectID": "research/posts/fastgraph/index.html#methodology",
+    "href": "research/posts/fastgraph/index.html#methodology",
+    "title": "Python Interface of FastGraph (an OpenMP-based sparse-matrix library)",
+    "section": "Methodology",
+    "text": "Methodology\nTo close this gap, we developed a PyBind11-based interface that exposes FastGraph’s core data structures and algorithms through a clean, Pythonic API. Our approach involved designing lightweight bindings for key graph representations, creating wrapper classes that correctly manage memory and threading behavior, and mapping FastGraph’s parallel operations—such as graph traversals, sparse-matrix multiplications, and structural transformations—into Python-callable methods. Throughout the development process, we iterated on the interface design to balance performance with usability, conducting benchmarking, debugging, and documentation to ensure that the Python layer introduced minimal overhead and maintained FastGraph’s parallel execution model."
+  },
+  {
+    "objectID": "research/posts/fastgraph/index.html#findings",
+    "href": "research/posts/fastgraph/index.html#findings",
+    "title": "Python Interface of FastGraph (an OpenMP-based sparse-matrix library)",
+    "section": "Findings",
+    "text": "Findings\nThe resulting PyBind11 interface effectively connects FastGraph’s high-performance C++ engine with Python’s ease of use. In benchmarking, we observed substantial speedups compared to NetworkX, especially on large graphs where parallelism provides significant advantages. Python users can now work with FastGraph using familiar coding patterns while benefiting from multicore acceleration and low-level optimizations. Overall, our integration demonstrates that a well-designed binding layer can make advanced, high-performance graph analytics both accessible and scalable for the broader Python community."
+  },
+  {
+    "objectID": "research/posts/ft-nmt/index.html#methodology",
+    "href": "research/posts/ft-nmt/index.html#methodology",
+    "title": "A Fault Tolerant Neural Machine Translation System",
+    "section": "Methodology",
+    "text": "Methodology\n\nOur approach centered on two key strategies: model ensembling and dataset augmentation. For ensembling, we trained three seq2seq translation models, each on a different portion of the available training data to encourage diversity in their learned representations. Instead of traditional ensemble methods such as probability averaging or beam-level voting, we generated translations from all three models and then computed pairwise BLEU scores to assess their agreement. Using these scores, we performed a majority-voting procedure to select the final output, favoring translations that were most consistent across models.\nIn parallel, we augmented the dataset by partitioning it into distinct subsets for the three models, effectively exposing each model to a different slice of the overall data distribution. This form of data diversification served as a lightweight augmentation technique, increasing variability without introducing synthetic noise. We evaluated the resulting hybrid system using standard machine translation benchmarks, measuring its accuracy, fluency, and robustness across multiple test sets."
+  },
+  {
+    "objectID": "research/posts/ft-nmt/index.html#findings",
+    "href": "research/posts/ft-nmt/index.html#findings",
+    "title": "A Fault Tolerant Neural Machine Translation System",
+    "section": "Findings",
+    "text": "Findings\n\nOur results showed that integrating multiple seq2seq models led to improvements over some baselines, but the hybrid method did not consistently outperform all comparison systems. While the ensemble offered modest gains in stability and occasionally reduced specific types of errors, these benefits were uneven and often dependent on the language pair or dataset. Similarly, dataset augmentation provided some boosts in generalization, but its impact varied and was sometimes offset by noise introduced during the augmentation process. Overall, we found that combining model ensembling with enriched training data has potential but did not yield uniformly superior translation quality, highlighting the need for further refinement of both the ensemble strategy and the augmentation pipeline."
+  },
+  {
+    "objectID": "research/posts/ft-nmt/index.html#background",
+    "href": "research/posts/ft-nmt/index.html#background",
+    "title": "A Fault Tolerant Neural Machine Translation System",
+    "section": "Background",
+    "text": "Background\nNeural machine translation (NMT) systems built on sequence-to-sequence (seq2seq) architectures have become the standard for automated translation, yet individual models still struggle with linguistic ambiguity, domain shifts, and low-resource language pairs. These limitations often lead to inconsistent phrasing, mistranslations, or reduced fluency, particularly when the training data is sparse or uneven. We explored whether combining multiple translation models and strengthening the training corpus could address these challenges. By leveraging the idea that different models may capture complementary linguistic patterns, we aimed to create a system capable of generating more accurate and robust translations than any single model alone."
+  },
+  {
+    "objectID": "research/posts/gc-lstm/index.html#background",
+    "href": "research/posts/gc-lstm/index.html#background",
+    "title": "A Spatio-Temporal Link Prediction Pipeline using GC-LSTM for Dynamic Graphs in PyTorch",
+    "section": "Background",
+    "text": "Background\nDynamic graphs arise in domains where relationships between entities change over time, requiring models that can capture both structural information and temporal evolution. Traditional static graph methods fall short in these settings, motivating the use of spatio-temporal neural architectures. Protein–protein interaction networks, such as those in the DDPIN dataset, exhibit particularly complex and time-varying connectivity patterns, making them a challenging but valuable testbed for link prediction research. Our work explores how gated spatio-temporal models can better forecast future connections in such evolving networks."
+  },
+  {
+    "objectID": "research/posts/gc-lstm/index.html#methodology",
+    "href": "research/posts/gc-lstm/index.html#methodology",
+    "title": "A Spatio-Temporal Link Prediction Pipeline using GC-LSTM for Dynamic Graphs in PyTorch",
+    "section": "Methodology",
+    "text": "Methodology\nWe developed a spatio-temporal link prediction pipeline centered on the GC-LSTM architecture, implemented in PyTorch. The model integrates graph convolutional operations to extract structural features at each time step and LSTM components to capture temporal dependencies across graph snapshots. Using sequences of protein–protein interaction networks from the DDPIN dataset, we trained the model to predict future links by learning from historical connectivity patterns. The pipeline included data preprocessing, temporal batching, negative sampling for training stability, and evaluation metrics tailored to sparse biological graphs. This design allowed the system to effectively learn both localized graph structure and longer-term temporal dynamics."
+  },
+  {
+    "objectID": "research/posts/gc-lstm/index.html#findings",
+    "href": "research/posts/gc-lstm/index.html#findings",
+    "title": "A Spatio-Temporal Link Prediction Pipeline using GC-LSTM for Dynamic Graphs in PyTorch",
+    "section": "Findings",
+    "text": "Findings\n\nApplied to dynamic protein–protein interaction graphs, the GC-LSTM pipeline achieved over 75% Hits@100 accuracy, indicating strong predictive performance in a biologically complex and highly dynamic domain. The model successfully identified likely future interactions by leveraging both temporal trends and evolving graph structure. Beyond this specific application, our evaluation suggests that the framework generalizes well to other dynamic graph tasks—such as recommendation systems, social-network evolution modeling, and knowledge-graph completion—highlighting its versatility as a tool for forecasting future connections in evolving networks."
+  },
+  {
+    "objectID": "research/posts/gpu-code-gen-cpp/index.html#background",
+    "href": "research/posts/gpu-code-gen-cpp/index.html#background",
+    "title": "Accelerating Graph Machine Learning using Auto-tuned Sparse Primitives for GPU",
+    "section": "Background",
+    "text": "Background\nSparse-dense matrix multiplication (SpMM) is a fundamental operation that underlies a wide range of scientific, machine learning, and graph-processing workloads. Its performance becomes especially critical as datasets grow larger and applications demand real-time or near–real-time computation. While existing SpMM libraries provide strong performance on CPUs, they generally lack robust support for GPU execution, particularly in areas such as auto-tuning and specialized sparse kernel optimization. This gap limits the ability of developers and researchers to fully exploit modern GPU architectures for high-throughput sparse computation."
+  },
+  {
+    "objectID": "research/posts/gpu-code-gen-cpp/index.html#methodology",
+    "href": "research/posts/gpu-code-gen-cpp/index.html#methodology",
+    "title": "Accelerating Graph Machine Learning using Auto-tuned Sparse Primitives for GPU",
+    "section": "Methodology",
+    "text": "Methodology\nTo address this limitation, we extended a generic SpMM library with a GPU-compatible auto-tuner designed to optimize sparse-dense kernel performance on contemporary GPU hardware. Our methodology involved adapting the library’s kernel-selection mechanisms to operate efficiently on GPUs, implementing GPU-specific tuning strategies, and ensuring compatibility with CUDA-based execution paths. The auto-tuner systematically benchmarks alternative kernel configurations—including thread-block layouts, memory-access patterns, and sparsity-aware execution modes—and selects the optimal configuration for a given input matrix. Throughout this process, we prioritized generality so the tuner could accommodate a wide range of sparsity patterns and workload characteristics."
+  },
+  {
+    "objectID": "research/posts/gpu-code-gen-cpp/index.html#findings",
+    "href": "research/posts/gpu-code-gen-cpp/index.html#findings",
+    "title": "Accelerating Graph Machine Learning using Auto-tuned Sparse Primitives for GPU",
+    "section": "Findings",
+    "text": "Findings\nThe resulting GPU-enabled auto-tuner successfully expanded the library’s capabilities, allowing its sparse-dense kernels to run efficiently on modern GPU architectures. While this work represents an initial step rather than a complete overhaul of GPU-based sparse optimization, it establishes the essential infrastructure needed to explore more advanced GPU-specific techniques. By enabling auto-tuning on GPUs, the project opens a pathway for future performance improvements and broader adoption of GPU resources in applications that depend on fast and scalable SpMM operations."
+  },
+  {
+    "objectID": "research/posts/graph-mp/index.html#overview",
+    "href": "research/posts/graph-mp/index.html#overview",
+    "title": "Enabling Model Parallelism for Graph Neural Networks with a Scalable Sparse-Dense Matrix Multiplication Operator",
+    "section": "Overview",
+    "text": "Overview\n[Work in progress] We are developing a distributed, differentiable sparse-matrix library designed to support model parallelism for Graph Neural Networks with very large parameters. The framework aims to improve memory efficiency and scalability across multiple devices, enabling efficient training of large-scale graph models. While still in progress, the work also lays the groundwork for future applications in sparse transformer architectures and other memory-intensive neural networks."
+  },
+  {
+    "objectID": "research/posts/isplib/index.html#background",
+    "href": "research/posts/isplib/index.html#background",
+    "title": "iSpLib: A library for accelerating graph neural networks using auto-tuned sparse operations",
+    "section": "Background",
+    "text": "Background\nTraining and inference in Graph Neural Networks (GNNs) often rely on sparse matrix operations, such as sparse-dense matrix multiplication (SpMM). These operations are challenging to optimize manually due to their dependence on the sparsity patterns of input graphs, the architecture of GNN models, and the characteristics of the underlying hardware. Existing frameworks like PyTorch and PyTorch Geometric provide general implementations, but they often fail to fully exploit hardware capabilities or the specific sparsity patterns in GNN workloads, leading to suboptimal performance."
+  },
+  {
+    "objectID": "research/posts/isplib/index.html#methodology",
+    "href": "research/posts/isplib/index.html#methodology",
+    "title": "iSpLib: A library for accelerating graph neural networks using auto-tuned sparse operations",
+    "section": "Methodology",
+    "text": "Methodology\n\nTo address these challenges, we introduce iSpLib, a PyTorch-based C++ library that provides auto-tuned sparse operations specifically designed to accelerate GNN training. Key features of iSpLib include:\n\nCache-enabled backpropagation: Intermediate matrices are stored in local caches during training, reducing redundant computations and improving efficiency.\nPython plug-in interface: Users can easily integrate iSpLib’s optimized sparse operations into any existing GNN model, including Graph Convolution Networks (GCNs), GraphSAGE, or Graph Inference Networks, with only two additional lines of code.\nAuto-tuning mechanisms: Sparse operations are automatically tuned based on the input graph structure, GNN model, and hardware characteristics, minimizing manual optimization effort."
+  },
+  {
+    "objectID": "research/posts/isplib/index.html#findings",
+    "href": "research/posts/isplib/index.html#findings",
+    "title": "iSpLib: A library for accelerating graph neural networks using auto-tuned sparse operations",
+    "section": "Findings",
+    "text": "Findings\n\nExperimental evaluations demonstrate that iSpLib provides substantial performance improvements over standard implementations. Specifically, training GNNs with iSpLib achieves up to 27× speedup on CPU compared to PyTorch 2.1.0 and PyTorch Geometric 2.4."
+  },
+  {
+    "objectID": "research/posts/kge-profile/index.html#background",
+    "href": "research/posts/kge-profile/index.html#background",
+    "title": "Investigating Spatial-Temporal and Knowledge Graph Machine Learning Algorithms for Dominant Kernels & Potential Scope of Speedup",
+    "section": "Background",
+    "text": "Background\nSpatio-Temporal Graph Neural Networks (ST-GNNs) and Knowledge Graph Embedding (KGE) algorithms are state-of-the-art machine learning techniques for analyzing dynamic and relational data represented as graphs. These algorithms are widely applied in areas such as time-series prediction, recommendation systems, and knowledge extraction. Frameworks like PyTorch Geometric Temporal and TorchKGE are commonly used to implement these models.\nDespite their effectiveness, long training times remain a major challenge, particularly for large graphs or real-time applications. As graph size and complexity increase, the computational resources required for training grow significantly, limiting the scalability of these methods."
+  },
+  {
+    "objectID": "research/posts/kge-profile/index.html#methodology",
+    "href": "research/posts/kge-profile/index.html#methodology",
+    "title": "Investigating Spatial-Temporal and Knowledge Graph Machine Learning Algorithms for Dominant Kernels & Potential Scope of Speedup",
+    "section": "Methodology",
+    "text": "Methodology\nTo identify computational bottlenecks, we profiled several ST-GNN and KGE models on two different datasets. By analyzing the execution time of individual operations, we could pinpoint which functions dominate CPU computation during training. This profiling allows us to focus optimization efforts on the most impactful kernels rather than optimizing the entire model indiscriminately."
+  },
+  {
+    "objectID": "research/posts/kge-profile/index.html#findings",
+    "href": "research/posts/kge-profile/index.html#findings",
+    "title": "Investigating Spatial-Temporal and Knowledge Graph Machine Learning Algorithms for Dominant Kernels & Potential Scope of Speedup",
+    "section": "Findings",
+    "text": "Findings\nFor Knowledge Graph Embedding models, profiling revealed three key internal PyTorch functions responsible for the majority of CPU time. These involve gradient computations for dense embeddings and vector normalization. Optimizing these functions could reduce CPU time by roughly 50%–60% for the corresponding datasets.\n(Done by my lab partner) For Spatio-Temporal Graph Neural Networks, three critical functions were identified that account for a substantial portion of total computation. Optimizing these kernels could lead to up to a 50% reduction in training time.\nThese findings demonstrate that targeted optimization of bottleneck kernels—rather than general code or sparse operations—can deliver significant performance improvements for graph-based models."
+  },
+  {
+    "objectID": "research/posts/mt-heuristic/index.html#background",
+    "href": "research/posts/mt-heuristic/index.html#background",
+    "title": "An Approach Towards Multilingual Translation By Semantic-Based Verb Identification And Root Word Analysis",
+    "section": "Background",
+    "text": "Background\nWhile machine translation systems like Google Translator excel with widely spoken languages such as English, French, or Spanish, they struggle with lesser-known or newly introduced languages due to their reliance on large, high-quality datasets. Most Natural Language Processing (NLP) research has concentrated on major languages, leaving many low-resource languages underrepresented. Bengali, despite being one of the most spoken languages globally, remains a low-resource language in machine translation systems. This study addresses this gap by focusing on Bengali, aiming to improve translation quality for languages with limited representation in the field."
+  },
+  {
+    "objectID": "research/posts/mt-heuristic/index.html#findings",
+    "href": "research/posts/mt-heuristic/index.html#findings",
+    "title": "An Approach Towards Multilingual Translation By Semantic-Based Verb Identification And Root Word Analysis",
+    "section": "Findings",
+    "text": "Findings\nOur approach was evaluated against Google Translator in terms of accuracy, time complexity, and space complexity. The results show that the semantic-based verb identification and root word detection algorithms significantly improve the translation of Bengali verbs, outperforming Google Translator in terms of accuracy. Additionally, our method demonstrated efficient time complexity, ensuring that improvements in translation quality did not come at the expense of processing delays. The approach also maintained reasonable space complexity, allowing it to scale effectively without demanding excessive memory. Overall, our results indicate that this semantic-focused approach offers a meaningful advancement in translating low-resource languages like Bengali, balancing both accuracy and computational efficiency."
+  },
+  {
+    "objectID": "research/posts/polyglot/index.html#findings",
+    "href": "research/posts/polyglot/index.html#findings",
+    "title": "Polygot: An Approach Towards Reliable Translation By Name Identification And Memory Optimization Using Semantic Analysis",
+    "section": "Findings",
+    "text": "Findings\nOur proposed system showed significant improvements in both memory efficiency and the accurate identification of names as nouns. The semantic analysis approach allowed for more accurate translations, particularly when translating from Bengali to English. Furthermore, the memory optimization techniques reduced computational overhead, leading to faster translation times. Although developing an efficient translation system is a complex and resource-intensive task, our results demonstrate that it is possible to improve translation quality for Bengali by addressing specific challenges related to noun recognition and memory management. These advancements make the system more practical for real-world applications and more effective for low-resource languages."
+  },
+  {
+    "objectID": "research/posts/rbmt/index.html#findings",
+    "href": "research/posts/rbmt/index.html#findings",
+    "title": "An Enhanced RBMT: When RBMT Outperforms Modern Data-Driven Translators",
+    "section": "Findings",
+    "text": "Findings\nTo evaluate the effectiveness of our proposed methods, we conducted a comparative analysis with popular data-driven translation systems, such as Google Translate, using a novel, customized dataset specifically designed for Bengali-to-English translation. Our results demonstrate that our rule-based system, enhanced with name recognition and verb optimization techniques, significantly outperforms existing data-driven translators for Bengali translation. This study not only highlights the effectiveness of these targeted techniques but also underscores the potential for improving translation accuracy for low-resource languages by leveraging rule-based systems and linguistic analysis."
+  },
+  {
+    "objectID": "research/systems/wmd/index.html",
+    "href": "research/systems/wmd/index.html",
+    "title": "Predicting Interactions in the Weapons of Mass Destruction Knowledge Graphs",
+    "section": "",
+    "text": "NoteNote\n\n\n\n\n\nPhD collaboration work\n\nBook chapter\nPublished as the second author\n\nComplex Networks 2024"
+  },
+  {
+    "objectID": "research/systems/wmd/index.html#overview",
+    "href": "research/systems/wmd/index.html#overview",
+    "title": "Predicting Interactions in the Weapons of Mass Destruction Knowledge Graphs",
+    "section": "Overview",
+    "text": "Overview\nIn this paper, the application of graph machine learning methods is explored to predict unseen interactions within the Weapons of Mass Destruction (WMD) dataset, developed by DARPA and IARPA. This dataset contains complex online activities such as sales, purchases, and forum discussions, focusing on sensitive subjects related to weapons and explosives. To analyze this data, the study represents it as a knowledge graph, where nodes represent entities (e.g., people, weapons, organizations) and edges capture the relationships between them (e.g., transactions, communications). Using graph-based learning techniques, the goal is to uncover hidden interactions that can provide valuable insights into WMD-related activities. The study uses DistMult, a semantic matching model, to predict potential relationships, and integrates graph machine learning techniques to enhance the prediction process."
+  },
+  {
+    "objectID": "research/systems/wmd/index.html#contribution",
+    "href": "research/systems/wmd/index.html#contribution",
+    "title": "Predicting Interactions in the Weapons of Mass Destruction Knowledge Graphs",
+    "section": "Contribution",
+    "text": "Contribution\nMy primary contribution to this project was in the Neo4j interfacing aspect, where I facilitated the integration of graph machine learning techniques. I implemented an automated pipeline that handled various stages of the process, including storing the knowledge graph in a Neo4j database and using Cypher queries to extract relevant subgraphs for analysis. My work focused on ensuring smooth interaction between the Neo4j database and the graph embedding models, such as DistMult, used for predicting links. This interface allowed for efficient graph traversal, streamlined subgraph extraction, and the seamless reintegration of high-confidence predictions into the main graph. By automating these processes, I played a key role in improving the overall efficiency and accuracy of the graph-based prediction model."
+  },
+  {
+    "objectID": "research/systems/sp-mat-lib-c/index.html",
+    "href": "research/systems/sp-mat-lib-c/index.html",
+    "title": "A C++ Library for Sparse Matrix Data Structure",
+    "section": "",
+    "text": "NoteNote\n\n\n\n\n\nGraduate Course Project\n\nGraduate Coursework E-501: Introduction to Computer Engineering\nFaculty: Dr. Lei Jiang\nIndiana University Bloomington, Fall 2022\n\nSlides"
+  },
+  {
+    "objectID": "research/systems/sp-mat-lib-c/index.html#background",
+    "href": "research/systems/sp-mat-lib-c/index.html#background",
+    "title": "A C++ Library for Sparse Matrix Data Structure",
+    "section": "Background",
+    "text": "Background\nMatrix multiplication is a fundamental operation in numerous computational tasks, ranging from scientific computing to machine learning. However, for large-scale matrices, traditional dense matrix multiplication (MM) can become computationally expensive and memory-intensive. Sparse matrices, which contain a majority of zero elements, offer a way to optimize these operations by only storing and processing the non-zero elements. This can lead to significant improvements in both computational efficiency and memory usage. In this project, we explore how different sparse matrix data structures, such as Coordinate (COO), Compressed Sparse Row (CSR), and Compressed Sparse Column (CSC), can be leveraged to enhance the efficiency of matrix multiplication, specifically through sparse matrix multiplication (SpMM), sparse general matrix multiplication (SpGEMM), and their CSR-based variants."
+  },
+  {
+    "objectID": "research/systems/sp-mat-lib-c/index.html#methodology",
+    "href": "research/systems/sp-mat-lib-c/index.html#methodology",
+    "title": "A C++ Library for Sparse Matrix Data Structure",
+    "section": "Methodology",
+    "text": "Methodology\nIn this project, we benchmark the performance of various matrix multiplication techniques using sparse matrix data structures. The evaluation focuses on the regular Matrix Multiplication (MM), Sparse Matrix Multiplication (SpMM), Sparse General Matrix Multiplication (SpGEMM), and SpGEMM with CSR format (SpGEMM_CSR). The experiments involve generating random sparse matrices of increasing sizes (2x2, 3x3, up to 5000x5000), with the density of non-zero elements set to \\(1/n\\) where n is the matrix size. Each function is executed 20 times to account for variability, and the average elapsed time and memory allocation are measured for each method to assess their efficiency. The comparison focuses on matrices of up to 1000x1000 for speedup analysis and up to 5000x5000 for memory usage evaluation."
+  },
+  {
+    "objectID": "research/systems/sp-mat-lib-c/index.html#findings",
+    "href": "research/systems/sp-mat-lib-c/index.html#findings",
+    "title": "A C++ Library for Sparse Matrix Data Structure",
+    "section": "Findings",
+    "text": "Findings\n\nThe results of our experiment reveal significant performance improvements when using sparse matrix multiplication techniques compared to regular dense matrix multiplication. For matrices up to 1000x1000, Sparse Matrix Multiplication (SpMM) achieved a 249.23x speedup and a 2x reduction in memory usage compared to MM. The performance gains were even more pronounced with Sparse General Matrix Multiplication (SpGEMM). Using the COO format, SpGEMM provided a 983.17x speedup and a 1665.41x reduction in memory, while the CSR format for SpGEMM offered a 411.04x speedup and a 1665.22x reduction in memory. These findings highlight the significant advantages of using sparse matrix data structures for both computational speedup and memory efficiency, particularly as the matrix size increases."
+  },
+  {
+    "objectID": "research/systems/isplib/index.html",
+    "href": "research/systems/isplib/index.html",
+    "title": "iSpLib: A library for accelerating graph neural networks using auto-tuned sparse operations",
+    "section": "",
+    "text": "NoteNote\n\n\n\n\n\nPhD Research Project\n\nPoster presented in Luddy AI Center (Indiana, 2023) and ICICLE All Hands Meeting (Ohio, 2023)\nPublished in WebConf 2024 (Previously WWW)\n\nWeb Conference 2024 GitHub Paper\nArtifact Available"
+  },
+  {
+    "objectID": "research/systems/isplib/index.html#background",
+    "href": "research/systems/isplib/index.html#background",
+    "title": "iSpLib: A library for accelerating graph neural networks using auto-tuned sparse operations",
+    "section": "Background",
+    "text": "Background\nTraining and inference in Graph Neural Networks (GNNs) often rely on sparse matrix operations, such as sparse-dense matrix multiplication (SpMM). These operations are challenging to optimize manually due to their dependence on the sparsity patterns of input graphs, the architecture of GNN models, and the characteristics of the underlying hardware. Existing frameworks like PyTorch and PyTorch Geometric provide general implementations, but they often fail to fully exploit hardware capabilities or the specific sparsity patterns in GNN workloads, leading to suboptimal performance."
+  },
+  {
+    "objectID": "research/systems/isplib/index.html#methodology",
+    "href": "research/systems/isplib/index.html#methodology",
+    "title": "iSpLib: A library for accelerating graph neural networks using auto-tuned sparse operations",
+    "section": "Methodology",
+    "text": "Methodology\n\nTo address these challenges, we introduce iSpLib, a PyTorch-based C++ library that provides auto-tuned sparse operations specifically designed to accelerate GNN training. Key features of iSpLib include:\n\nCache-enabled backpropagation: Intermediate matrices are stored in local caches during training, reducing redundant computations and improving efficiency.\nPython plug-in interface: Users can easily integrate iSpLib’s optimized sparse operations into any existing GNN model, including Graph Convolution Networks (GCNs), GraphSAGE, or Graph Inference Networks, with only two additional lines of code.\nAuto-tuning mechanisms: Sparse operations are automatically tuned based on the input graph structure, GNN model, and hardware characteristics, minimizing manual optimization effort."
+  },
+  {
+    "objectID": "research/systems/isplib/index.html#findings",
+    "href": "research/systems/isplib/index.html#findings",
+    "title": "iSpLib: A library for accelerating graph neural networks using auto-tuned sparse operations",
+    "section": "Findings",
+    "text": "Findings\n\nExperimental evaluations demonstrate that iSpLib provides substantial performance improvements over standard implementations. Specifically, training GNNs with iSpLib achieves up to 27× speedup on CPU compared to PyTorch 2.1.0 and PyTorch Geometric 2.4."
+  },
+  {
+    "objectID": "research/systems/gpu-tuner-amazon/index.html",
+    "href": "research/systems/gpu-tuner-amazon/index.html",
+    "title": "Differentiable GPU kernel autotuner with Transfer Learning",
+    "section": "",
+    "text": "NoteNote\n\n\n\n\n\nAmazon AWS Internship Summer 2025"
+  },
+  {
+    "objectID": "research/systems/gpu-tuner-amazon/index.html#overview",
+    "href": "research/systems/gpu-tuner-amazon/index.html#overview",
+    "title": "Differentiable GPU kernel autotuner with Transfer Learning",
+    "section": "Overview",
+    "text": "Overview\nDeveloped a robust, end-to-end differentiable GPU kernel autotuner for vLLM that works well with as low as 1% ground truth of the total search space. The solution also performs transfer learning and can leverage cheaper kernel tuning data to reduce new kernel tuning time from days to hours."
+  },
+  {
+    "objectID": "research/systems/gpu-tuner-amazon/index.html#findings",
+    "href": "research/systems/gpu-tuner-amazon/index.html#findings",
+    "title": "Differentiable GPU kernel autotuner with Transfer Learning",
+    "section": "Findings",
+    "text": "Findings\n\nAcross six datasets, our auto-tuner obtained an improvement in cross-validation accuracy of 0.85× − 1.60× compared to 16 other ML and tabular transformer models (commonly used for performance modeling) on 1% ground truth. Accuracy continued to improve and outperformed all baselines as the training data increased.\nIn transfer learning, up to 12.7% accuracy improvement was observed when an expensive CUDA kernel was tuned using only 100 config-perf pairs and leveraged with similar and cheaper Triton kernel’s tuning data."
+  },
+  {
+    "objectID": "research/systems/fastgraph/index.html",
+    "href": "research/systems/fastgraph/index.html",
+    "title": "Python Interface of FastGraph (an OpenMP-based sparse-matrix library)",
+    "section": "",
+    "text": "NoteNote\n\n\n\n\n\nSecondary PhD Research Project (Collaboration)"
+  },
+  {
+    "objectID": "research/systems/fastgraph/index.html#background",
+    "href": "research/systems/fastgraph/index.html#background",
+    "title": "Python Interface of FastGraph (an OpenMP-based sparse-matrix library)",
+    "section": "Background",
+    "text": "Background\nFastGraph is an OpenMP-accelerated C++ library designed for high-performance sparse-matrix and graph operations, addressing the scalability limitations of pure-Python frameworks like NetworkX. While NetworkX offers an intuitive interface, its lack of parallelization makes it unsuitable for large or complex graph analytics. FastGraph, by contrast, leverages efficient, multicore algorithms to support workloads that demand significant computational throughput. Before this project, however, FastGraph’s capabilities were not readily accessible to Python users, creating a barrier between high-performance C++ backends and the broader Python data science ecosystem."
+  },
+  {
+    "objectID": "research/systems/fastgraph/index.html#methodology",
+    "href": "research/systems/fastgraph/index.html#methodology",
+    "title": "Python Interface of FastGraph (an OpenMP-based sparse-matrix library)",
+    "section": "Methodology",
+    "text": "Methodology\nTo close this gap, we developed a PyBind11-based interface that exposes FastGraph’s core data structures and algorithms through a clean, Pythonic API. Our approach involved designing lightweight bindings for key graph representations, creating wrapper classes that correctly manage memory and threading behavior, and mapping FastGraph’s parallel operations—such as graph traversals, sparse-matrix multiplications, and structural transformations—into Python-callable methods. Throughout the development process, we iterated on the interface design to balance performance with usability, conducting benchmarking, debugging, and documentation to ensure that the Python layer introduced minimal overhead and maintained FastGraph’s parallel execution model."
+  },
+  {
+    "objectID": "research/systems/fastgraph/index.html#findings",
+    "href": "research/systems/fastgraph/index.html#findings",
+    "title": "Python Interface of FastGraph (an OpenMP-based sparse-matrix library)",
+    "section": "Findings",
+    "text": "Findings\nThe resulting PyBind11 interface effectively connects FastGraph’s high-performance C++ engine with Python’s ease of use. In benchmarking, we observed substantial speedups compared to NetworkX, especially on large graphs where parallelism provides significant advantages. Python users can now work with FastGraph using familiar coding patterns while benefiting from multicore acceleration and low-level optimizations. Overall, our integration demonstrates that a well-designed binding layer can make advanced, high-performance graph analytics both accessible and scalable for the broader Python community."
+  },
+  {
+    "objectID": "research/systems/concurrency-python/index.html",
+    "href": "research/systems/concurrency-python/index.html",
+    "title": "Concurrency Study of Python 2.7",
+    "section": "",
+    "text": "NoteNote\n\n\n\n\n\nCourse Project from CSE6305 (Programming Languages and Systems)\nProject Report"
+  },
+  {
+    "objectID": "research/systems/concurrency-python/index.html#background",
+    "href": "research/systems/concurrency-python/index.html#background",
+    "title": "Concurrency Study of Python 2.7",
+    "section": "Background",
+    "text": "Background\nIn this project, we present a comparative study of multi-threaded programs developed using different implementations of Python. Our aim is to understand how various Python runtimes handle concurrency by examining differences in performance, thread management, and execution behavior. Python offers a wide range of concurrency libraries, yet not all implementations execute multi-threaded programs with equal efficiency—particularly due to the presence of the Global Interpreter Lock (GIL) in some variants. This motivates our investigation into how architectural differences across Python implementations influence their real-world behavior under concurrent workloads."
+  },
+  {
+    "objectID": "research/systems/concurrency-python/index.html#methodology",
+    "href": "research/systems/concurrency-python/index.html#methodology",
+    "title": "Concurrency Study of Python 2.7",
+    "section": "Methodology",
+    "text": "Methodology\nWe compare three Python runtimes: CPython, the most commonly used implementation; IronPython, which is built on the .NET framework; and Jython, which runs on the Java Virtual Machine. These implementations differ significantly in their underlying architectures, making them ideal candidates for evaluating contrasting approaches to concurrency. To conduct our study, we developed equivalent multi-threaded programs and executed them under similar workloads across all three environments. We then measured execution time, thread utilization, and responsiveness, and analyzed how the presence or absence of the GIL—along with runtime-specific threading models—affects performance."
+  },
+  {
+    "objectID": "research/systems/concurrency-python/index.html#findings",
+    "href": "research/systems/concurrency-python/index.html#findings",
+    "title": "Concurrency Study of Python 2.7",
+    "section": "Findings",
+    "text": "Findings\nOur experiments reveal notable performance differences among the three implementations. IronPython and Jython often outperform CPython in multi-threaded scenarios because they do not employ a GIL, allowing true parallel execution of threads. CPython, constrained by the GIL, demonstrates slower performance under CPU-bound concurrent workloads but remains competitive in I/O-bound tasks. We further identify the architectural factors that drive these differences, providing insights into why certain implementations excel in specific concurrency workloads. Overall, our study highlights the strengths and limitations of each Python runtime from a developer’s perspective, offering guidance for choosing the most suitable implementation for multi-threaded applications."
+  },
+  {
+    "objectID": "research/sensors/noise-supression/index.html",
+    "href": "research/sensors/noise-supression/index.html",
+    "title": "Noise Suppression in Distance Measurements Using A Sonar Sensor Having Angular Orientation",
+    "section": "",
+    "text": "NoteNote\n\n\n\n\n\nUndergraduate Research Work\n\nPoster presentation\n\nNSysS 2017 Poster"
+  },
+  {
+    "objectID": "research/sensors/noise-supression/index.html#background",
+    "href": "research/sensors/noise-supression/index.html#background",
+    "title": "Noise Suppression in Distance Measurements Using A Sonar Sensor Having Angular Orientation",
+    "section": "Background",
+    "text": "Background\nSonar sensors are commonly used electronic devices for measuring the distance to obstacles. However, the accuracy of these distance measurements is often compromised by noise, particularly when the sensor is placed at an oblique angle. The noise in the readings can lead to significant errors in distance calculations. Although some methods for suppressing noise exist, they are often limited in scope, especially when it comes to improving accuracy across diverse sensor orientations. Most existing solutions focus on statistical approaches, such as using the median value of consecutive readings, but these techniques are prone to errors as the median value can sometimes represent a noisy data point instead of the true distance measurement. Therefore, there is a need for more robust methods that can effectively suppress noise and yield more accurate distance estimates in a variety of conditions."
+  },
+  {
+    "objectID": "research/sensors/noise-supression/index.html#methodology",
+    "href": "research/sensors/noise-supression/index.html#methodology",
+    "title": "Noise Suppression in Distance Measurements Using A Sonar Sensor Having Angular Orientation",
+    "section": "Methodology",
+    "text": "Methodology\nTo address the noise issue, our approach involves taking several consecutive readings from the sonar sensor and computing the average and standard deviation of these readings to understand the variability. Building on this foundation, we propose two alternative formulas for improving accuracy. The first is a trigonometric-based formula that adjusts the measurements based on the angle of the sensor, correcting for any distortions introduced by oblique placements. The second formula is exponential-based, designed to filter out extreme noise values by giving more weight to the most consistent readings. Both formulas aim to reduce the impact of noise and provide a more reliable estimation of the true distance."
+  },
+  {
+    "objectID": "research/sensors/noise-supression/index.html#result",
+    "href": "research/sensors/noise-supression/index.html#result",
+    "title": "Noise Suppression in Distance Measurements Using A Sonar Sensor Having Angular Orientation",
+    "section": "Result",
+    "text": "Result\n\nThe proposed method demonstrated a significant improvement over the traditional median-based approach. By applying our trigonometric and exponential formulas, we were able to reduce the error in distance measurements by 24.69%, showing that these new methods can provide more accurate results and suppress noise more effectively, even when the sensor is oriented at challenging angles."
+  },
+  {
+    "objectID": "research/nlp-deep-learning/workplace-bullying/index.html",
+    "href": "research/nlp-deep-learning/workplace-bullying/index.html",
+    "title": "Impact of Workplace Bullying among Physicians of Tertiary Medical College Hospitals",
+    "section": "",
+    "text": "NoteNote\n\n\n\n\n\n\nOther collaboration work\nJournal publication as fourth author\n\nJournal of Chittagong Medical College Teachers’ Association 34 (1) Paper"
+  },
+  {
+    "objectID": "research/nlp-deep-learning/workplace-bullying/index.html#overview",
+    "href": "research/nlp-deep-learning/workplace-bullying/index.html#overview",
+    "title": "Impact of Workplace Bullying among Physicians of Tertiary Medical College Hospitals",
+    "section": "Overview",
+    "text": "Overview\nWorkplace bullying and harassment among healthcare professionals, particularly physicians, has long been associated with increased levels of stress, negatively affecting both professional performance and personal well-being. This study sought to evaluate the prevalence and forms of bullying faced by physicians in their workplace, focusing on its impact on stress levels. The research was conducted through a cross-sectional survey involving physicians from two Medical College Hospitals who had at least six months of work experience. The study aimed to uncover patterns of bullying, such as the most common forms and the sources of harassment, and to examine the correlation between bullying and stress-related symptoms like depression and anxiety. The findings highlighted the significant need for addressing workplace bullying to ensure a healthier work environment for healthcare professionals."
+  },
+  {
+    "objectID": "research/nlp-deep-learning/workplace-bullying/index.html#contribution",
+    "href": "research/nlp-deep-learning/workplace-bullying/index.html#contribution",
+    "title": "Impact of Workplace Bullying among Physicians of Tertiary Medical College Hospitals",
+    "section": "Contribution",
+    "text": "Contribution\nIn this study, my primary contribution was the development of an automated pipeline to generate Google Forms from large document files, which streamlined the process of creating and distributing surveys. This automation made it easier to handle a large-scale survey efficiently, ensuring that the questionnaires were accurately generated for all 189 physicians involved in the study. By integrating this automated approach, I helped facilitate a seamless data collection process, allowing researchers to focus on analyzing the responses and drawing meaningful insights. This contribution was crucial in managing the extensive data collection required for the study while ensuring consistency and reducing manual effort."
+  },
+  {
+    "objectID": "research/nlp-deep-learning/rbmt/index.html",
+    "href": "research/nlp-deep-learning/rbmt/index.html",
+    "title": "An Enhanced RBMT: When RBMT Outperforms Modern Data-Driven Translators",
+    "section": "",
+    "text": "NoteNote\n\n\n\n\n\nMaster’s Research Collaboration\nIETE Technical Review, Volume 39 Paper"
+  },
+  {
+    "objectID": "research/nlp-deep-learning/rbmt/index.html#background",
+    "href": "research/nlp-deep-learning/rbmt/index.html#background",
+    "title": "An Enhanced RBMT: When RBMT Outperforms Modern Data-Driven Translators",
+    "section": "Background",
+    "text": "Background\nAlthough prominent translation systems like Google Translate, Yahoo Babel Fish, and Bing perform well with widely used languages, they often struggle with low-resource languages such as Bengali, Romanian, and Arabic. These systems typically rely on data-driven translation approaches like Neural Machine Translation (NMT) and Statistical Machine Translation (SMT) to develop polyglot translation models. However, the performance of these methods is highly dependent on the availability of large, parallel corpora for the language pairs being translated. As a result, many languages, including Bengali, remain underexplored not only in machine translation but also in broader Natural Language Processing (NLP) tasks. This gap highlights the need for more effective translation models and techniques for low-resource languages like Bengali, which are often neglected in current research and applications."
+  },
+  {
+    "objectID": "research/nlp-deep-learning/rbmt/index.html#methodology",
+    "href": "research/nlp-deep-learning/rbmt/index.html#methodology",
+    "title": "An Enhanced RBMT: When RBMT Outperforms Modern Data-Driven Translators",
+    "section": "Methodology",
+    "text": "Methodology\nIn this study, our primary goal is to improve Bengali-to-English translation through several targeted language processing tasks. We start by adopting a basic rule-based machine translation (MT) system for translating Bengali to English, providing a foundational approach to translation. To enhance its performance, we focus on the accurate interpretation of Bengali names as subjects and nouns in sentences, an often-overlooked aspect in machine translation. Additionally, we propose a verb identification and optimization technique that leverages root-word detection (stemming) to better handle the variations of Bengali verbs. By identifying the root form of verbs, we aim to improve the translation quality and handle the morphological richness of Bengali. Together, these techniques form the core of our approach to refining the Bengali-to-English translation process."
+  },
+  {
+    "objectID": "research/nlp-deep-learning/rbmt/index.html#findings",
+    "href": "research/nlp-deep-learning/rbmt/index.html#findings",
+    "title": "An Enhanced RBMT: When RBMT Outperforms Modern Data-Driven Translators",
+    "section": "Findings",
+    "text": "Findings\nTo evaluate the effectiveness of our proposed methods, we conducted a comparative analysis with popular data-driven translation systems, such as Google Translate, using a novel, customized dataset specifically designed for Bengali-to-English translation. Our results demonstrate that our rule-based system, enhanced with name recognition and verb optimization techniques, significantly outperforms existing data-driven translators for Bengali translation. This study not only highlights the effectiveness of these targeted techniques but also underscores the potential for improving translation accuracy for low-resource languages by leveraging rule-based systems and linguistic analysis."
+  },
+  {
+    "objectID": "research/nlp-deep-learning/mt-heuristic/index.html",
+    "href": "research/nlp-deep-learning/mt-heuristic/index.html",
+    "title": "An Approach Towards Multilingual Translation By Semantic-Based Verb Identification And Root Word Analysis",
+    "section": "",
+    "text": "NoteNote\n\n\n\n\n\nMaster’s Research Project\nNSysS 2018 Paper"
+  },
+  {
+    "objectID": "research/nlp-deep-learning/mt-heuristic/index.html#background",
+    "href": "research/nlp-deep-learning/mt-heuristic/index.html#background",
+    "title": "An Approach Towards Multilingual Translation By Semantic-Based Verb Identification And Root Word Analysis",
+    "section": "Background",
+    "text": "Background\nWhile machine translation systems like Google Translator excel with widely spoken languages such as English, French, or Spanish, they struggle with lesser-known or newly introduced languages due to their reliance on large, high-quality datasets. Most Natural Language Processing (NLP) research has concentrated on major languages, leaving many low-resource languages underrepresented. Bengali, despite being one of the most spoken languages globally, remains a low-resource language in machine translation systems. This study addresses this gap by focusing on Bengali, aiming to improve translation quality for languages with limited representation in the field."
+  },
+  {
+    "objectID": "research/nlp-deep-learning/mt-heuristic/index.html#methodology",
+    "href": "research/nlp-deep-learning/mt-heuristic/index.html#methodology",
+    "title": "An Approach Towards Multilingual Translation By Semantic-Based Verb Identification And Root Word Analysis",
+    "section": "Methodology",
+    "text": "Methodology\nTo improve Bengali translation, we propose a generalized machine translation system designed for low-resource languages. Our approach centers on two key innovations: semantic-based verb identification and root word detection. The first technique focuses on understanding verbs based on their meaning, rather than relying solely on statistical correlations, which are prone to errors. The second technique involves detecting the root form of verbs to enhance translation accuracy by capturing the verb’s core meaning in context. These strategies are intended to overcome the limitations of current statistical translation methods, improving performance with smaller datasets."
+  },
+  {
+    "objectID": "research/nlp-deep-learning/mt-heuristic/index.html#findings",
+    "href": "research/nlp-deep-learning/mt-heuristic/index.html#findings",
+    "title": "An Approach Towards Multilingual Translation By Semantic-Based Verb Identification And Root Word Analysis",
+    "section": "Findings",
+    "text": "Findings\nOur approach was evaluated against Google Translator in terms of accuracy, time complexity, and space complexity. The results show that the semantic-based verb identification and root word detection algorithms significantly improve the translation of Bengali verbs, outperforming Google Translator in terms of accuracy. Additionally, our method demonstrated efficient time complexity, ensuring that improvements in translation quality did not come at the expense of processing delays. The approach also maintained reasonable space complexity, allowing it to scale effectively without demanding excessive memory. Overall, our results indicate that this semantic-focused approach offers a meaningful advancement in translating low-resource languages like Bengali, balancing both accuracy and computational efficiency."
+  },
+  {
+    "objectID": "research/nlp-deep-learning/ft-nmt/index.html",
+    "href": "research/nlp-deep-learning/ft-nmt/index.html",
+    "title": "A Fault Tolerant Neural Machine Translation System",
+    "section": "",
+    "text": "NoteNote\n\n\n\n\n\nGraduate Course Project\n\nCSE6207 (Advanced Dependable and Fault-Tolerant Computer Systems) with Dr. Alim Al Islam Razi\n\nSlides"
+  },
+  {
+    "objectID": "research/nlp-deep-learning/ft-nmt/index.html#background",
+    "href": "research/nlp-deep-learning/ft-nmt/index.html#background",
+    "title": "A Fault Tolerant Neural Machine Translation System",
+    "section": "Background",
+    "text": "Background\nNeural machine translation (NMT) systems built on sequence-to-sequence (seq2seq) architectures have become the standard for automated translation, yet individual models still struggle with linguistic ambiguity, domain shifts, and low-resource language pairs. These limitations often lead to inconsistent phrasing, mistranslations, or reduced fluency, particularly when the training data is sparse or uneven. We explored whether combining multiple translation models and strengthening the training corpus could address these challenges. By leveraging the idea that different models may capture complementary linguistic patterns, we aimed to create a system capable of generating more accurate and robust translations than any single model alone."
+  },
+  {
+    "objectID": "research/nlp-deep-learning/ft-nmt/index.html#methodology",
+    "href": "research/nlp-deep-learning/ft-nmt/index.html#methodology",
+    "title": "A Fault Tolerant Neural Machine Translation System",
+    "section": "Methodology",
+    "text": "Methodology\n\nOur approach centered on two key strategies: model ensembling and dataset augmentation. For ensembling, we trained three seq2seq translation models, each on a different portion of the available training data to encourage diversity in their learned representations. Instead of traditional ensemble methods such as probability averaging or beam-level voting, we generated translations from all three models and then computed pairwise BLEU scores to assess their agreement. Using these scores, we performed a majority-voting procedure to select the final output, favoring translations that were most consistent across models.\nIn parallel, we augmented the dataset by partitioning it into distinct subsets for the three models, effectively exposing each model to a different slice of the overall data distribution. This form of data diversification served as a lightweight augmentation technique, increasing variability without introducing synthetic noise. We evaluated the resulting hybrid system using standard machine translation benchmarks, measuring its accuracy, fluency, and robustness across multiple test sets."
+  },
+  {
+    "objectID": "research/nlp-deep-learning/ft-nmt/index.html#findings",
+    "href": "research/nlp-deep-learning/ft-nmt/index.html#findings",
+    "title": "A Fault Tolerant Neural Machine Translation System",
+    "section": "Findings",
+    "text": "Findings\n\nOur results showed that integrating multiple seq2seq models led to improvements over some baselines, but the hybrid method did not consistently outperform all comparison systems. While the ensemble offered modest gains in stability and occasionally reduced specific types of errors, these benefits were uneven and often dependent on the language pair or dataset. Similarly, dataset augmentation provided some boosts in generalization, but its impact varied and was sometimes offset by noise introduced during the augmentation process. Overall, we found that combining model ensembling with enriched training data has potential but did not yield uniformly superior translation quality, highlighting the need for further refinement of both the ensemble strategy and the augmentation pipeline."
+  },
+  {
+    "objectID": "research/index.html#systems",
+    "href": "research/index.html#systems",
+    "title": "Research Work",
+    "section": "Systems",
+    "text": "Systems\n\n\n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nEnabling Model Parallelism for Graph Neural Networks with a Scalable Sparse-Dense Matrix Multiplication Operator\n\n\n\nPyTorch\n\nSpMM\n\nDistributed\n\nDifferentiable\n\n\n\nA distributed, differentiable sparse-matrix library to scale large Graph Neural Networks.\n\n\n\n\n\nNovember 2025\n\n\n\n\n\n\n\n\n\n\n\n\nDifferentiable GPU kernel autotuner with Transfer Learning\n\n\n\nAutotuner\n\nCUDA\n\nKernel\n\nDifferentiable\n\nvLLM\n\nTransfer Learning\n\nAmazon Internship\n\n\n\nDeveloped a robust, end-to-end differentiable GPU kernel autotuner for vLLM that requires very little (~1000) ground truth for tuning.\n\n\n\n\n\nAugust 2025\n\n\n\n\n\n\n\n\n\n\n\n\nSparseTransX: Efficient Training of Translation-Based Knowledge Graph Embeddings Using Sparse Matrix Operations\n\n\n\nKnowledge Graph\n\nSpMM\n\nMLSys2025\n\nCPU\n\nGPU\n\nPyTorch\n\n\n\nWe expressed and reformulated 10 KG embedding models using Sparse-dense matrix mutliplication speeding up the training for CPU and GPU while making them significantly memory efficient.\n\n\n\n\n\nMay 2025\n\n\n\n\n\n\n\n\n\n\n\n\nPredicting Interactions in the Weapons of Mass Destruction Knowledge Graphs\n\n\n\nNeo4j\n\nKnowledge Graph\n\nComplex Networks 2024\n\nBook Chapter\n\nCollaboration\n\n\n\nAn applied Knowledge Graph Embedding (KGE) project where I developed the Neo4j interface to facilitate efficient graph data handling and support the training of KGE models.\n\n\n\n\n\nDecember 2024\n\n\n\n\n\n\n\n\n\n\n\n\nA Sparse Approach for Translation-based Training of Knowledge Graph Embeddings\n\n\n\nTransE\n\nKGE\n\nSpMM\n\nSC24\n\n\n\nSC24 Best poster finalist. This work accelerates knowledge-graph embedding training by replacing traditional scatter/gather operations with sparse–dense matrix multiplication, reducing memory usage and achieving significant CPU, GPU, and multi-GPU speedups.\n\n\n\n\n\nNovember 2024\n\n\n\n\n\n\n\n\n\n\n\n\niSpLib: A library for accelerating graph neural networks using auto-tuned sparse operations\n\n\n\nPyTorch\n\nGNN\n\nC++\n\nAuto-tuned\n\nCPU\n\nSparse Linear Algebra\n\nWebConf2024\n\n\n\nAn auto-tuned Sparse Matrix-multiplcation Library for GNN training and inference.\n\n\n\n\n\nApril 2024\n\n\n\n\n\n\n\n\n\n\n\n\nInvestigating Spatial-Temporal and Knowledge Graph Machine Learning Algorithms for Dominant Kernels & Potential Scope of Speedup\n\n\n\nSpatio-Temporal Graph\n\nKnowledge Graph Embedding\n\nProfiling\n\nCPU\n\nKernel\n\nGraduate Course Project\n\n\n\nThis project aims to identify the functions responsible for the long training times in Spatio-Temporal Graph Neural Networks and Knowledge Graph Embedding algorithms, comparing their frequency to optimize performance for larger graphs or real-time analysis.\n\n\n\n\n\nDecember 2023\n\n\n\n\n\n\n\n\n\n\n\n\nPython Interface of FastGraph (an OpenMP-based sparse-matrix library)\n\n\n\nPybind11\n\nOpenMP\n\nZero-copy\n\n\n\nDeveloped a PyBind11 interface for FastGraph, an OpenMP-based C++ parallel sparse-matrix library designed as a high-performance alternative to NetworkX.\n\n\n\n\n\nApril 2023\n\n\n\n\n\n\n\n\n\n\n\n\nAccelerating Graph Machine Learning using Auto-tuned Sparse Primitives for GPU\n\n\n\nSpMM\n\nCode-generator\n\nCUDA\n\nGPU\n\n\n\nDeveloped a GPU-compatible auto-tuner for a sparse-dense matrix multiplication (SpMM) library, enabling GPU execution of its kernels.\n\n\n\n\n\nApril 2023\n\n\n\n\n\n\n\n\n\n\n\n\nA C++ Library for Sparse Matrix Data Structure\n\n\n\nSparse Matrix\n\nCOO\n\nCSC\n\nCSR\n\nC++\n\nGraduate Coursework\n\n\n\nA toy project to understand how matrix multiplication can become efficient by using sparse matrix data structures (COO/CSR/CSC).\n\n\n\n\n\nDecember 2022\n\n\n\n\n\n\n\n\n\n\n\n\nConcurrency Study of Python 2.7\n\n\n\nPython\n\nConcurrency\n\nIronPython\n\nCPython\n\nJython\n\nSystems\n\nProfiling\n\n\n\nA comparative study examining how multi-threaded programs perform when written in different Python implementations.\n\n\n\n\n\nAugust 2017\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "research/index.html#nlp-and-deep-learning",
+    "href": "research/index.html#nlp-and-deep-learning",
+    "title": "Research Work",
+    "section": "NLP and Deep Learning",
+    "text": "NLP and Deep Learning\n\n\n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nA Spatio-Temporal Link Prediction Pipeline using GC-LSTM for Dynamic Graphs in PyTorch\n\n\n\nGCN\n\nLSTM\n\nSpatio-Temporal Graph\n\nPyTorch\n\nProtein-Protein interaction\n\nDynamic Graph\n\n\n\nDeveloped a spatio-temporal link prediction pipeline using GC-LSTM for dynamic graphs in PyTorch. Achieved over 75% Hits@100 accuracy for the protein-protein interaction graph sequences of DDPIN dataset.\n\n\n\n\n\nDecember 2023\n\n\n\n\n\n\n\n\n\n\n\n\nImpact of Workplace Bullying among Physicians of Tertiary Medical College Hospitals\n\n\n\nNLP\n\nAutomation\n\nCollaboration\n\n\n\nThis study examined the prevalence and impact of workplace bullying on stress levels among physicians, finding a significant correlation with symptoms like depression and anxiety. My contribution was developing an automated pipeline to generate Google Forms for efficient survey distribution to 189 physicians, streamlining data collection for the research.\n\n\n\n\n\nOctober 2023\n\n\n\n\n\n\n\n\n\n\n\n\nA Bimodal Longitudinal Investigation on Changes in Sentiments over Social Media Interactions Owing to COVID-19 Pandemic\n\n\n\nNLP\n\nSentiment Analysis\n\nMultimodal\n\nForecasting\n\nHeuristic\n\nGraduate Work\n\n\n\nThis study analyzes sentiment shifts on Twitter during the COVID-19 pandemic, revealing significant changes in both text and image sentiment, with negative text sentiment increasing by 10.55% and positive image sentiment decreasing by 24.52%, and introduces a novel bimodal sentiment analysis framework.\n\n\n\n\n\nAugust 2022\n\n\n\n\n\n\n\n\n\n\n\n\nAn Enhanced RBMT: When RBMT Outperforms Modern Data-Driven Translators\n\n\n\nJournal\n\nCollaboration\n\nNLP\n\nHybrid\n\nDeep Learning\n\nLSTM\n\nMachine Translation\n\nRule-based\n\n\n\nA hybrid approach to machine translation combining both RNN-based and rule-based translators.\n\n\n\n\n\nFebruary 2022\n\n\n\n\n\n\n\n\n\n\n\n\nAn Enhanced RBMT: When RBMT Outperforms Modern Data-Driven Translators\n\n\n\nJournal\n\nNLP\n\nHybrid\n\nDeep Learning\n\nLSTM\n\nMachine Translation\n\nRule-based\n\n\n\nI improved Bengali-to-English translation by evaluating rule-based, SMT, and NMT methods and contributing an RNN seq2seq training pipeline for enhanced low-resource translation performance.\n\n\n\n\n\nMarch 2021\n\n\n\n\n\n\n\n\n\n\n\n\nAn Approach Towards Multilingual Translation By Semantic-Based Verb Identification And Root Word Analysis\n\n\n\nMachine Translation\n\nNLP\n\nNER\n\n\n\nThis study explores a generalized machine translation system for low-resource languages like Bengali, proposing semantic-based verb identification and root word detection algorithms that outperform Google Translator, while comparing various approaches in terms of accuracy, time, and space complexity.\n\n\n\n\n\nApril 2018\n\n\n\n\n\n\n\n\n\n\n\n\nPolygot: An Approach Towards Reliable Translation By Name Identification And Memory Optimization Using Semantic Analysis\n\n\n\nNLP\n\nNER\n\nRule-based\n\n\n\nA rule-based approach for name identification in Bengali Language.\n\n\n\n\n\nDecember 2017\n\n\n\n\n\n\n\n\n\n\n\n\nA Fault Tolerant Neural Machine Translation System\n\n\n\nFault Tolerant\n\nMachine Translation\n\nNLP\n\nTensorflow\n\n\n\nAn effort to improve translation accuracy by combining multiple seq2seq neural machine translation models with augmented training data, completed as part of the CSE6207 project work.\n\n\n\n\n\nAugust 2017\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "research/index.html#sensors",
+    "href": "research/index.html#sensors",
+    "title": "Research Work",
+    "section": "Sensors",
+    "text": "Sensors"
+  },
+  {
+    "objectID": "research/nlp-deep-learning/gc-lstm/index.html",
+    "href": "research/nlp-deep-learning/gc-lstm/index.html",
+    "title": "A Spatio-Temporal Link Prediction Pipeline using GC-LSTM for Dynamic Graphs in PyTorch",
+    "section": "",
+    "text": "NoteNote\n\n\n\n\n\nGraduate Course Project\n\nCSCI 565P - Data Mining with Dr. Dongruo Zhou\n\nSlides\nCoursework:"
+  },
+  {
+    "objectID": "research/nlp-deep-learning/gc-lstm/index.html#background",
+    "href": "research/nlp-deep-learning/gc-lstm/index.html#background",
+    "title": "A Spatio-Temporal Link Prediction Pipeline using GC-LSTM for Dynamic Graphs in PyTorch",
+    "section": "Background",
+    "text": "Background\nDynamic graphs arise in domains where relationships between entities change over time, requiring models that can capture both structural information and temporal evolution. Traditional static graph methods fall short in these settings, motivating the use of spatio-temporal neural architectures. Protein–protein interaction networks, such as those in the DDPIN dataset, exhibit particularly complex and time-varying connectivity patterns, making them a challenging but valuable testbed for link prediction research. Our work explores how gated spatio-temporal models can better forecast future connections in such evolving networks."
+  },
+  {
+    "objectID": "research/nlp-deep-learning/gc-lstm/index.html#methodology",
+    "href": "research/nlp-deep-learning/gc-lstm/index.html#methodology",
+    "title": "A Spatio-Temporal Link Prediction Pipeline using GC-LSTM for Dynamic Graphs in PyTorch",
+    "section": "Methodology",
+    "text": "Methodology\nWe developed a spatio-temporal link prediction pipeline centered on the GC-LSTM architecture, implemented in PyTorch. The model integrates graph convolutional operations to extract structural features at each time step and LSTM components to capture temporal dependencies across graph snapshots. Using sequences of protein–protein interaction networks from the DDPIN dataset, we trained the model to predict future links by learning from historical connectivity patterns. The pipeline included data preprocessing, temporal batching, negative sampling for training stability, and evaluation metrics tailored to sparse biological graphs. This design allowed the system to effectively learn both localized graph structure and longer-term temporal dynamics."
+  },
+  {
+    "objectID": "research/nlp-deep-learning/gc-lstm/index.html#findings",
+    "href": "research/nlp-deep-learning/gc-lstm/index.html#findings",
+    "title": "A Spatio-Temporal Link Prediction Pipeline using GC-LSTM for Dynamic Graphs in PyTorch",
+    "section": "Findings",
+    "text": "Findings\n\nApplied to dynamic protein–protein interaction graphs, the GC-LSTM pipeline achieved over 75% Hits@100 accuracy, indicating strong predictive performance in a biologically complex and highly dynamic domain. The model successfully identified likely future interactions by leveraging both temporal trends and evolving graph structure. Beyond this specific application, our evaluation suggests that the framework generalizes well to other dynamic graph tasks—such as recommendation systems, social-network evolution modeling, and knowledge-graph completion—highlighting its versatility as a tool for forecasting future connections in evolving networks."
+  },
+  {
+    "objectID": "research/nlp-deep-learning/polyglot/index.html",
+    "href": "research/nlp-deep-learning/polyglot/index.html",
+    "title": "Polygot: An Approach Towards Reliable Translation By Name Identification And Memory Optimization Using Semantic Analysis",
+    "section": "",
+    "text": "NoteNote\n\n\n\n\n\nMaster’s Research Collaboration\nNSysS 2017 Paper"
+  },
+  {
+    "objectID": "research/nlp-deep-learning/polyglot/index.html#background",
+    "href": "research/nlp-deep-learning/polyglot/index.html#background",
+    "title": "Polygot: An Approach Towards Reliable Translation By Name Identification And Memory Optimization Using Semantic Analysis",
+    "section": "Background",
+    "text": "Background\nIn this study, we aim to improve the efficiency, complexity, and performance of the language translation process, particularly for underexplored languages like Bengali. While there have been numerous studies in natural language processing (NLP), most of them have focused on English as the target language, leaving many other languages, including Bengali, underrepresented. Although research on areas like Bengali keyboard layout design and English-to-Bengali translation exists, there is limited work on Bengali-to-English translation. Language translation is inherently complex due to the presence of words with multiple meanings, various forms, and different grammatical structures expressing the same idea. Additionally, accurately identifying names as nouns, particularly when they are attached with prefixes, suffixes, or other linguistic markers, poses a significant challenge in translation. Our goal is to address these issues by developing an efficient translation system that can handle these complexities."
+  },
+  {
+    "objectID": "research/nlp-deep-learning/polyglot/index.html#methodology",
+    "href": "research/nlp-deep-learning/polyglot/index.html#methodology",
+    "title": "Polygot: An Approach Towards Reliable Translation By Name Identification And Memory Optimization Using Semantic Analysis",
+    "section": "Methodology",
+    "text": "Methodology\nTo tackle these challenges, we focused on two critical aspects: memory optimization and accurate identification of names as nouns. We developed a system that optimizes memory usage while processing translation data, making it more efficient in terms of both time and resources. At the same time, we emphasized improving the system’s ability to identify and interpret names as nouns. In languages like Bengali, names are often embedded within intricate grammatical structures, making it difficult to differentiate them from other parts of speech. By employing semantic analysis, we aimed to enhance the accuracy of noun identification and ensure the proper translation of sentences. These optimizations were designed to make the system more effective and adaptable for low-resource languages like Bengali."
+  },
+  {
+    "objectID": "research/nlp-deep-learning/polyglot/index.html#findings",
+    "href": "research/nlp-deep-learning/polyglot/index.html#findings",
+    "title": "Polygot: An Approach Towards Reliable Translation By Name Identification And Memory Optimization Using Semantic Analysis",
+    "section": "Findings",
+    "text": "Findings\nOur proposed system showed significant improvements in both memory efficiency and the accurate identification of names as nouns. The semantic analysis approach allowed for more accurate translations, particularly when translating from Bengali to English. Furthermore, the memory optimization techniques reduced computational overhead, leading to faster translation times. Although developing an efficient translation system is a complex and resource-intensive task, our results demonstrate that it is possible to improve translation quality for Bengali by addressing specific challenges related to noun recognition and memory management. These advancements make the system more practical for real-world applications and more effective for low-resource languages."
+  },
+  {
+    "objectID": "research/nlp-deep-learning/twitter-sentiment/index.html",
+    "href": "research/nlp-deep-learning/twitter-sentiment/index.html",
+    "title": "A Bimodal Longitudinal Investigation on Changes in Sentiments over Social Media Interactions Owing to COVID-19 Pandemic",
+    "section": "",
+    "text": "NoteNote\n\n\n\n\n\nGraduate thesis work"
+  },
+  {
+    "objectID": "research/nlp-deep-learning/twitter-sentiment/index.html#background",
+    "href": "research/nlp-deep-learning/twitter-sentiment/index.html#background",
+    "title": "A Bimodal Longitudinal Investigation on Changes in Sentiments over Social Media Interactions Owing to COVID-19 Pandemic",
+    "section": "Background",
+    "text": "Background\nThe COVID-19 pandemic presented a unique challenge for understanding human sentiment, as it occurred alongside an increasingly interactive and dynamic online environment. Prior pandemics did not have such widespread online platforms where public sentiment could be so readily expressed and analyzed in real-time. This study aims to explore the unprecedented shift in human sentiments across cyberspace during the COVID-19 pandemic, leveraging the vast amount of social media content available on platforms like Twitter to understand how sentiments evolved over time and in response to the crisis."
+  },
+  {
+    "objectID": "research/nlp-deep-learning/twitter-sentiment/index.html#methodology",
+    "href": "research/nlp-deep-learning/twitter-sentiment/index.html#methodology",
+    "title": "A Bimodal Longitudinal Investigation on Changes in Sentiments over Social Media Interactions Owing to COVID-19 Pandemic",
+    "section": "Methodology",
+    "text": "Methodology\n\nWe conducted a bimodal longitudinal analysis of sentiment trends throughout the COVID-19 pandemic, utilizing a dataset of 56,789 Tweets from 569 users over a period of 724 days, spanning from 2019 to 2020. The analysis focused on both textual content and images to track sentiment changes in a comprehensive manner. Our approach included reviewing existing sentiment classifier libraries and developing a novel classification technique for enhancing sentiment analysis in text-based Tweets. Additionally, we performed exploratory data analysis on the sentiment trends in both text and images to identify significant shifts and patterns in expression related to the pandemic."
+  },
+  {
+    "objectID": "research/nlp-deep-learning/twitter-sentiment/index.html#findings",
+    "href": "research/nlp-deep-learning/twitter-sentiment/index.html#findings",
+    "title": "A Bimodal Longitudinal Investigation on Changes in Sentiments over Social Media Interactions Owing to COVID-19 Pandemic",
+    "section": "Findings",
+    "text": "Findings\n \nThe results of our analysis revealed notable changes in sentiment during the pandemic: a 10.55% increase in negative sentiment in the text of Tweets and a 24.52% decrease in positive sentiment expressed in images. The bimodal investigation highlighted a correlation between sentiment changes in textual content and images, suggesting that social media users expressed sentiment across multiple modalities in tandem. Furthermore, we identified specific change-points that marked the shifts in sentiment between pre-pandemic and pandemic periods. This study introduces a novel framework for bimodal sentiment analysis and provides valuable insights into how sentiment evolves during global crises, which could inform decision-making by policymakers and social scientists."
+  },
+  {
+    "objectID": "research/sensors/automated-traffic-jam/index.html",
+    "href": "research/sensors/automated-traffic-jam/index.html",
+    "title": "Towards Devising An Automated System for Determining The Length of A Traffic Jam in Dhaka City",
+    "section": "",
+    "text": "NoteNote\n\n\n\n\n\nUndergraduate Thesis Work\nPDF"
+  },
+  {
+    "objectID": "research/sensors/automated-traffic-jam/index.html#background",
+    "href": "research/sensors/automated-traffic-jam/index.html#background",
+    "title": "Towards Devising An Automated System for Determining The Length of A Traffic Jam in Dhaka City",
+    "section": "Background",
+    "text": "Background\nIn this thesis, we investigate the development of a road-condition sensing and traffic-congestion detection system tailored to the unique environment of Dhaka City. We observe that traditional traffic-signal generation methods often fail to address Dhaka’s irregular road patterns, diverse vehicle types, and frequent roadside obstructions. These challenges motivate our pursuit of a more adaptive, sensor-driven approach capable of capturing real-time traffic dynamics."
+  },
+  {
+    "objectID": "research/sensors/automated-traffic-jam/index.html#methodology",
+    "href": "research/sensors/automated-traffic-jam/index.html#methodology",
+    "title": "Towards Devising An Automated System for Determining The Length of A Traffic Jam in Dhaka City",
+    "section": "Methodology",
+    "text": "Methodology\nWe designed a system that uses ultrasonic sensors connected to Arduino Nano microcontrollers and GSM modules. Our sensor nodes collect distance and movement data and transmit them to a central server for processing. We built a network of sensors linked to a central computer that analyzes vehicle behavior and estimates traffic conditions, including the length of congestion. Throughout development, we worked to reduce noise in sonar readings, handle the variability of irregularly shaped vehicles and their unpredictable movements, and filter out interference from pedestrians and roadside vendors such as food carts."
+  },
+  {
+    "objectID": "research/sensors/automated-traffic-jam/index.html#findings",
+    "href": "research/sensors/automated-traffic-jam/index.html#findings",
+    "title": "Towards Devising An Automated System for Determining The Length of A Traffic Jam in Dhaka City",
+    "section": "Findings",
+    "text": "Findings\nThrough our prototype implementation, we demonstrate the feasibility of using low-cost ultrasonic sensors and GSM communication to monitor real-time road conditions in complex urban environments. Our results show that the system can distinguish vehicle patterns, estimate congestion levels, and maintain reliable data transmission despite environmental challenges. We conclude that a sensor-based traffic monitoring approach offers a more responsive and context-aware alternative to conventional traffic-signal generation methods in cities like Dhaka."
+  },
+  {
+    "objectID": "research/sensors/smoothing-time-series/index.html",
+    "href": "research/sensors/smoothing-time-series/index.html",
+    "title": "A Study on the Effects of Smoothing in Time Series Prediction",
+    "section": "",
+    "text": "NoteNote\n\n\n\n\n\nGraduate Research Work\n\nPoster presentation\n\nNSysS 2021 Poster"
+  },
+  {
+    "objectID": "research/sensors/smoothing-time-series/index.html#background",
+    "href": "research/sensors/smoothing-time-series/index.html#background",
+    "title": "A Study on the Effects of Smoothing in Time Series Prediction",
+    "section": "Background",
+    "text": "Background\nSmoothing filters are commonly applied in time series data analysis to reduce noise and improve prediction accuracy. These filters, such as exponential smoothing and regression-based filters, are particularly effective when working with sentiment data, especially data collected from social media platforms. Sentiment data from sources like Twitter can often contain outliers due to the nature of social media content, making it challenging to obtain reliable predictions. By removing noise through smoothing, we aim to enhance the quality of predictions for sentiment trends, which can vary over time. This study explores whether applying a smoothing filter before training a prediction model can improve the accuracy of sentiment trend predictions. Specifically, we focus on sentiment data categorized into positive, negative, and neutral trends, both for text and image-based tweets."
+  },
+  {
+    "objectID": "research/sensors/smoothing-time-series/index.html#methodology",
+    "href": "research/sensors/smoothing-time-series/index.html#methodology",
+    "title": "A Study on the Effects of Smoothing in Time Series Prediction",
+    "section": "Methodology",
+    "text": "Methodology\nTo evaluate the impact of smoothing on prediction accuracy, we apply six different types of trends, including positive, negative, and neutral sentiment for both text and image-based tweets. The dataset includes 300 days of aggregated data for each trend category: 17,25,297 values for text sentiment and 3,62,079 values for image sentiment. We use Facebook’s Prophet, a popular forecasting library, to predict sentiment trends. The model is trained using the first 240 days of data and then forecasts the sentiment trend for the subsequent 60 days. We experiment with various smoothing techniques, including exponential smoothing, seasonal decomposition, and polynomial smoothing, to determine if smoothing the data before training improves the predictive performance."
+  },
+  {
+    "objectID": "research/sensors/smoothing-time-series/index.html#findings",
+    "href": "research/sensors/smoothing-time-series/index.html#findings",
+    "title": "A Study on the Effects of Smoothing in Time Series Prediction",
+    "section": "Findings",
+    "text": "Findings\nThe effectiveness of smoothing filters varies depending on the type of sentiment trend being predicted. The results indicate that filtering actually worsens prediction accuracy in certain cases, specifically for Positive/Neutral Text and Positive Image sentiment trends. However, seasonal decomposition outperforms other methods for predicting Negative Text and Neutral Image trends, likely due to its ability to handle seasonality in the data. On the other hand, polynomial smoothing yields the best results for predicting Negative Image trends. These findings suggest that while smoothing can improve accuracy in some contexts, its effectiveness is highly dependent on the type of sentiment trend and the nature of the data."
+  },
+  {
+    "objectID": "research/systems/efficient-kge/index.html",
+    "href": "research/systems/efficient-kge/index.html",
+    "title": "A Sparse Approach for Translation-based Training of Knowledge Graph Embeddings",
+    "section": "",
+    "text": "NoteNote\n\n\n\n\n\nPhD Research Project\nSC24 Best Poster Finalist Poster (PDF) Paper"
+  },
+  {
+    "objectID": "research/systems/efficient-kge/index.html#background",
+    "href": "research/systems/efficient-kge/index.html#background",
+    "title": "A Sparse Approach for Translation-based Training of Knowledge Graph Embeddings",
+    "section": "Background",
+    "text": "Background\nIn this work, we explored how to make knowledge graph (KG) embedding training process through expressing it with a more efficient sparse linear algebra kernels. While KG embedding models are widely used, their training process can be extremely time-consuming, particularly for large datasets. Through our analysis, we identify gradient computation of embeddings and vector normalization as the most time-dominating components of the KG embedding training loop. These bottlenecks motivate our investigation into more efficient computation strategies."
+  },
+  {
+    "objectID": "research/systems/efficient-kge/index.html#methodology",
+    "href": "research/systems/efficient-kge/index.html#methodology",
+    "title": "A Sparse Approach for Translation-based Training of Knowledge Graph Embeddings",
+    "section": "Methodology",
+    "text": "Methodology\nTo address the high computational cost, we replace the core embedding operations with SpMM (Sparse–Dense Matrix Multiplication) kernels. This approach unifies multiple scatter and gather operations into a single sparse operation, reducing both training time and memory usage. We apply this sparse computation strategy to the TransE model and evaluate its performance on both CPUs and GPUs. Additionally, we scale the method across a distributed environment using 64 GPUs to assess its effectiveness under large-scale parallelism."
+  },
+  {
+    "objectID": "research/systems/efficient-kge/index.html#findings",
+    "href": "research/systems/efficient-kge/index.html#findings",
+    "title": "A Sparse Approach for Translation-based Training of Knowledge Graph Embeddings",
+    "section": "Findings",
+    "text": "Findings\nOur sparse SpMM-based approach significantly accelerates KG embedding training. On the TransE model, we achieve up to a 5.3× speedup on CPU and up to a 4.2× speedup on GPU. When distributed across 64 GPUs, the method delivers up to a 3.9× improvement per epoch. These results demonstrate that unifying scatter/gather operations through sparse kernels can effectively mitigate training bottlenecks, offering substantial gains in efficiency for large-scale KG learning."
+  },
+  {
+    "objectID": "research/systems/gpu-code-gen-cpp/index.html",
+    "href": "research/systems/gpu-code-gen-cpp/index.html",
+    "title": "Accelerating Graph Machine Learning using Auto-tuned Sparse Primitives for GPU",
+    "section": "",
+    "text": "NoteNote\n\n\n\n\n\nGraduate Course Project\n\nIntroduction to Intelligent Systems E-536 [Spring 2023] with Dr. Ariful Azad\n\nSlides"
+  },
+  {
+    "objectID": "research/systems/gpu-code-gen-cpp/index.html#background",
+    "href": "research/systems/gpu-code-gen-cpp/index.html#background",
+    "title": "Accelerating Graph Machine Learning using Auto-tuned Sparse Primitives for GPU",
+    "section": "Background",
+    "text": "Background\nSparse-dense matrix multiplication (SpMM) is a fundamental operation that underlies a wide range of scientific, machine learning, and graph-processing workloads. Its performance becomes especially critical as datasets grow larger and applications demand real-time or near–real-time computation. While existing SpMM libraries provide strong performance on CPUs, they generally lack robust support for GPU execution, particularly in areas such as auto-tuning and specialized sparse kernel optimization. This gap limits the ability of developers and researchers to fully exploit modern GPU architectures for high-throughput sparse computation."
+  },
+  {
+    "objectID": "research/systems/gpu-code-gen-cpp/index.html#methodology",
+    "href": "research/systems/gpu-code-gen-cpp/index.html#methodology",
+    "title": "Accelerating Graph Machine Learning using Auto-tuned Sparse Primitives for GPU",
+    "section": "Methodology",
+    "text": "Methodology\nTo address this limitation, we extended a generic SpMM library with a GPU-compatible auto-tuner designed to optimize sparse-dense kernel performance on contemporary GPU hardware. Our methodology involved adapting the library’s kernel-selection mechanisms to operate efficiently on GPUs, implementing GPU-specific tuning strategies, and ensuring compatibility with CUDA-based execution paths. The auto-tuner systematically benchmarks alternative kernel configurations—including thread-block layouts, memory-access patterns, and sparsity-aware execution modes—and selects the optimal configuration for a given input matrix. Throughout this process, we prioritized generality so the tuner could accommodate a wide range of sparsity patterns and workload characteristics."
+  },
+  {
+    "objectID": "research/systems/gpu-code-gen-cpp/index.html#findings",
+    "href": "research/systems/gpu-code-gen-cpp/index.html#findings",
+    "title": "Accelerating Graph Machine Learning using Auto-tuned Sparse Primitives for GPU",
+    "section": "Findings",
+    "text": "Findings\nThe resulting GPU-enabled auto-tuner successfully expanded the library’s capabilities, allowing its sparse-dense kernels to run efficiently on modern GPU architectures. While this work represents an initial step rather than a complete overhaul of GPU-based sparse optimization, it establishes the essential infrastructure needed to explore more advanced GPU-specific techniques. By enabling auto-tuning on GPUs, the project opens a pathway for future performance improvements and broader adoption of GPU resources in applications that depend on fast and scalable SpMM operations."
+  },
+  {
+    "objectID": "research/systems/graph-mp/index.html",
+    "href": "research/systems/graph-mp/index.html",
+    "title": "Enabling Model Parallelism for Graph Neural Networks with a Scalable Sparse-Dense Matrix Multiplication Operator",
+    "section": "",
+    "text": "NoteNote\n\n\n\n\n\nPhD project ongoing work\n\nPresented at Sparstitute Meeting (Barkeley, CA)"
+  },
+  {
+    "objectID": "research/systems/graph-mp/index.html#overview",
+    "href": "research/systems/graph-mp/index.html#overview",
+    "title": "Enabling Model Parallelism for Graph Neural Networks with a Scalable Sparse-Dense Matrix Multiplication Operator",
+    "section": "Overview",
+    "text": "Overview\n[Work in progress] We are developing a distributed, differentiable sparse-matrix library designed to support model parallelism for Graph Neural Networks with very large parameters. The framework aims to improve memory efficiency and scalability across multiple devices, enabling efficient training of large-scale graph models. While still in progress, the work also lays the groundwork for future applications in sparse transformer architectures and other memory-intensive neural networks."
+  },
+  {
+    "objectID": "research/systems/kge-profile/index.html",
+    "href": "research/systems/kge-profile/index.html",
+    "title": "Investigating Spatial-Temporal and Knowledge Graph Machine Learning Algorithms for Dominant Kernels & Potential Scope of Speedup",
+    "section": "",
+    "text": "NoteNote\n\n\n\n\n\nGraduate Course Project\n\nENG 503 - Intro to Intelligent Systems with Dr. Ariful Azad\n\nSlide"
+  },
+  {
+    "objectID": "research/systems/kge-profile/index.html#background",
+    "href": "research/systems/kge-profile/index.html#background",
+    "title": "Investigating Spatial-Temporal and Knowledge Graph Machine Learning Algorithms for Dominant Kernels & Potential Scope of Speedup",
+    "section": "Background",
+    "text": "Background\nSpatio-Temporal Graph Neural Networks (ST-GNNs) and Knowledge Graph Embedding (KGE) algorithms are state-of-the-art machine learning techniques for analyzing dynamic and relational data represented as graphs. These algorithms are widely applied in areas such as time-series prediction, recommendation systems, and knowledge extraction. Frameworks like PyTorch Geometric Temporal and TorchKGE are commonly used to implement these models.\nDespite their effectiveness, long training times remain a major challenge, particularly for large graphs or real-time applications. As graph size and complexity increase, the computational resources required for training grow significantly, limiting the scalability of these methods."
+  },
+  {
+    "objectID": "research/systems/kge-profile/index.html#methodology",
+    "href": "research/systems/kge-profile/index.html#methodology",
+    "title": "Investigating Spatial-Temporal and Knowledge Graph Machine Learning Algorithms for Dominant Kernels & Potential Scope of Speedup",
+    "section": "Methodology",
+    "text": "Methodology\nTo identify computational bottlenecks, we profiled several ST-GNN and KGE models on two different datasets. By analyzing the execution time of individual operations, we could pinpoint which functions dominate CPU computation during training. This profiling allows us to focus optimization efforts on the most impactful kernels rather than optimizing the entire model indiscriminately."
+  },
+  {
+    "objectID": "research/systems/kge-profile/index.html#findings",
+    "href": "research/systems/kge-profile/index.html#findings",
+    "title": "Investigating Spatial-Temporal and Knowledge Graph Machine Learning Algorithms for Dominant Kernels & Potential Scope of Speedup",
+    "section": "Findings",
+    "text": "Findings\nFor Knowledge Graph Embedding models, profiling revealed three key internal PyTorch functions responsible for the majority of CPU time. These involve gradient computations for dense embeddings and vector normalization. Optimizing these functions could reduce CPU time by roughly 50%–60% for the corresponding datasets.\n(Done by my lab partner) For Spatio-Temporal Graph Neural Networks, three critical functions were identified that account for a substantial portion of total computation. Optimizing these kernels could lead to up to a 50% reduction in training time.\nThese findings demonstrate that targeted optimization of bottleneck kernels—rather than general code or sparse operations—can deliver significant performance improvements for graph-based models."
+  },
+  {
+    "objectID": "research/systems/sptransx/index.html",
+    "href": "research/systems/sptransx/index.html",
+    "title": "SparseTransX: Efficient Training of Translation-Based Knowledge Graph Embeddings Using Sparse Matrix Operations",
+    "section": "",
+    "text": "NoteNote\n\n\n\n\n\nPhD Research Project\nMLSys 2025 Talk Slide Paper GitHub\nArtifact Available Artifact Evaluated"
+  },
+  {
+    "objectID": "research/systems/sptransx/index.html#background",
+    "href": "research/systems/sptransx/index.html#background",
+    "title": "SparseTransX: Efficient Training of Translation-Based Knowledge Graph Embeddings Using Sparse Matrix Operations",
+    "section": "Background",
+    "text": "Background\n\nKnowledge Graph (KG) learning plays a critical role in enabling machines to generate new knowledge and make inferences based on relational data. However, training KG embeddings can be time-consuming, particularly for larger datasets. One of the primary bottlenecks in the training process is the gradient computation during embedding updates, which dominates the overall training time. In this context, we aim to accelerate the training process by replacing the core embedding computation with Sparse-Dense Matrix Multiplication (SpMM) kernels. This approach allows us to optimize the computation by consolidating multiple scatter (and gather) operations into a single, more efficient operation, reducing both training time and memory usage."
+  },
+  {
+    "objectID": "research/systems/sptransx/index.html#methodology",
+    "href": "research/systems/sptransx/index.html#methodology",
+    "title": "SparseTransX: Efficient Training of Translation-Based Knowledge Graph Embeddings Using Sparse Matrix Operations",
+    "section": "Methodology",
+    "text": "Methodology\n\nWe propose a framework that integrates sparse matmul kernels into the training of KGE models, enhancing the efficiency of the translation-based embedding techniques. Specifically, we implement sparse versions of four popular KG models: TransE, TransR, TransH, and TorusE. By leveraging SpMM kernels, we replace the traditional dense matrix multiplication operations, significantly improving the performance of the training loop. Our framework unifies various scatter and gather operations, which are typically separate, into a single operation, leading to a reduction in both computational time and memory footprint. We evaluate the performance of our sparse implementations on both CPU and GPU platforms, testing across various datasets, both large and small, to assess the generalizability of our approach."
+  },
+  {
+    "objectID": "research/systems/sptransx/index.html#findings",
+    "href": "research/systems/sptransx/index.html#findings",
+    "title": "SparseTransX: Efficient Training of Translation-Based Knowledge Graph Embeddings Using Sparse Matrix Operations",
+    "section": "Findings",
+    "text": "Findings\n\nOur sparse implementations deliver impressive speedups across different hardware platforms. On the CPU, we observe up to 5.3x speedup, while on the GPU, the speedup reaches 4.2x, all while significantly reducing GPU memory usage. These performance improvements are consistent regardless of dataset size, demonstrating the effectiveness of our approach across both small and large-scale datasets. The results indicate that our sparse kernel-based framework can substantially accelerate the training of translation-based KG models, with potential applications extending to other translation-based models (such as TransC and TransM) and non-translation models (like DistMult, ComplEx, and RotatE). This work lays the groundwork for more efficient and scalable KG embedding training methods."
+  },
+  {
+    "objectID": "research/nlp-deep-learning/delicate/index.html",
+    "href": "research/nlp-deep-learning/delicate/index.html",
+    "title": "An Enhanced RBMT: When RBMT Outperforms Modern Data-Driven Translators",
+    "section": "",
+    "text": "NoteNote\n\n\n\n\n\n\nMaster’s Research Collaboration\n\nNeural Computing and Applications 33.18 (2021) Paper"
+  },
+  {
+    "objectID": "research/nlp-deep-learning/delicate/index.html#overview",
+    "href": "research/nlp-deep-learning/delicate/index.html#overview",
+    "title": "An Enhanced RBMT: When RBMT Outperforms Modern Data-Driven Translators",
+    "section": "Overview",
+    "text": "Overview\nPopular translation systems such as Google and Bing perform reliably for high-resource language pairs like English–French but often produce elementary errors when handling low-resource languages such as Bengali or Arabic. Although modern systems rely heavily on Neural Machine Translation (NMT)—with earlier systems using Statistical Machine Translation (SMT)—both approaches depend on large, high-quality parallel corpora. This dependency leaves many widely spoken yet low-resource languages, including Bengali, insufficiently explored in mainstream AI research.\nThis study aims to improve Bengali-to-English translation quality by examining rule-based, SMT-based, and NMT-based approaches individually and in various hybrid configurations. We adopt established corpus-based translators (SMT and NMT) alongside a rule-based system, then evaluate multiple integration strategies that blend rule-based and data-driven methods. Through extensive experimentation across several datasets, we identify the best-performing configuration reported to date for Bengali-to-English translation and highlight how these hybrid strategies can generalize to other low-resource languages."
+  },
+  {
+    "objectID": "research/nlp-deep-learning/delicate/index.html#contribution",
+    "href": "research/nlp-deep-learning/delicate/index.html#contribution",
+    "title": "An Enhanced RBMT: When RBMT Outperforms Modern Data-Driven Translators",
+    "section": "Contribution",
+    "text": "Contribution\nMy primary contribution was the design and implementation of the RNN-based seq2seq NMT training pipeline. This included developing the end-to-end data preprocessing workflow, constructing and tuning the encoder–decoder architecture, managing the training regimen, and integrating the resulting NMT model into the broader evaluation and hybridization framework used in this study."
+  },
+  {
+    "objectID": "research/nlp-deep-learning/rbmt/index.html#overview",
+    "href": "research/nlp-deep-learning/rbmt/index.html#overview",
+    "title": "An Enhanced RBMT: When RBMT Outperforms Modern Data-Driven Translators",
+    "section": "Overview",
+    "text": "Overview\nCurrent mainstream translation systems—such as Google Translate, Yahoo Babel Fish, and Bing—perform reliably for high-resource languages but often fail to accurately translate low-resource languages like Bengali, Romanian, and Arabic. Because these systems depend heavily on large parallel corpora for NMT and SMT, many widely spoken languages remain underexplored across both machine translation and broader NLP tasks.\nThis study addresses this gap by improving Bengali-to-English translation through a refined rule-based MT system. We enhance translation quality by incorporating more accurate handling of Bengali proper nouns as subjects, as well as by strengthening verb processing through root-word identification to better manage the language’s morphological complexity. These linguistic techniques collectively form a more effective framework for low-resource translation. Comparative evaluation against popular data-driven systems using a custom Bengali–English dataset shows that our enhanced rule-based approach delivers superior translation accuracy."
+  },
+  {
+    "objectID": "research/nlp-deep-learning/rbmt/index.html#contribution",
+    "href": "research/nlp-deep-learning/rbmt/index.html#contribution",
+    "title": "An Enhanced RBMT: When RBMT Outperforms Modern Data-Driven Translators",
+    "section": "Contribution",
+    "text": "Contribution\nMy key contribution to this work was designing a novel heuristic for verb root detection that improved both accuracy and space efficiency. This heuristic significantly enhanced the system’s ability to process Bengali verb forms, leading to more precise and reliable translations."
+  },
+  {
+    "objectID": "new/index.html",
+    "href": "new/index.html",
+    "title": "Software Projects",
+    "section": "",
+    "text": "I developed 10+ open-source and commercial software projects between 2013 and 2023, using Python, Java, and C++. These span console, GUI, desktop, mobile (Android), and web applications.\n\n\n   \n    \n    \n      Order By\n      Default\n      \n        Title\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "news/index.html",
+    "href": "news/index.html",
+    "title": "News and Updates",
+    "section": "",
+    "text": "Order By\n      Default\n      \n        Categories\n      \n      \n        News\n      \n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\nDate\n\n\n\nCategories\n\n\n\nNews\n\n\n\n\n\n\n\n\nNov 2025\n\n\nTalk, Poster\n\n\nBerlekey talk about our ongoing systems work on GNN model parallelism\n\n\n\n\n\n\nOct 2025\n\n\nTalk\n\n\nTwo-Day Session on Distributed Data Parallel (DDP) for TAMU CSCE-654: Supercomputing Course\n\n\n\n\n\n\nMay 2025\n\n\nInternship, Job\n\n\nSummer Internship at Amazon Sagemaker on vLLM Systems. Designed a differentiable kernel tuner with transfer learning feature.\n\n\n\n\n\n\nApr 2025\n\n\nMilestone\n\n\naayatun.com has reached 100K+ monthly users! Made it open-source!\n\n\n\n\n\n\nFeb 2025\n\n\nPaper\n\n\nPaper accepted on MLSys 2025! Expressed 10 KGE models using sparse-dense matrix multiplication.\n\n\n\n\n\n\nJan 2025\n\n\nGraduate Studies, Job\n\n\nStarted PhD in Computer Science and Engineering at Texas A&M University\n\n\n\n\n\n\nDec 2024\n\n\nBook Chapter\n\n\nBook Chapter on Complex Networks 2024! Collaboration work. Developed Neo4j interface for KGE application.\n\n\n\n\n\n\nNov 2024\n\n\nPoster, Recognition\n\n\nBest poster finalist (top-6) at SC24! Expressed TransE KGE model using sparse-dense matrix multiplication.\n\n\n\n\n\n\nAug 2024\n\n\nGraduate Studies, Job\n\n\nCompleted graduate studies in Indiana University Bloomington (IUB) with a CGPA of 4.00/4.00\n\n\n\n\n\n\nApr 2024\n\n\nPublication\n\n\nPaper accepted at WebConf 2024! Developed CPU PyTorch SpMM operator for GNN training with auto-tuner backend.\n\n\n\n\n\n\nApr 2023\n\n\nRecognition\n\n\nReceived Google Foobar Challenge!\n\n\n\n\n\n\nAug 2022\n\n\nAward\n\n\nReceived Luddy Summer Fellowship ($8,400)!\n\n\n\n\n\n\nAug 2022\n\n\nGraduate Studies, Job\n\n\nStarted graduate studies in Computer Science at Indiana University Bloomington (IUB)\n\n\n\n\n\n\nAug 2022\n\n\nGraduate Studies\n\n\nCompleted part-time graduate studies in Computer Science at Bangladesh University of Engineering and Technology (BUET)\n\n\n\n\n\n\nNov 2021\n\n\nService\n\n\nExternal Supervisor, CSE Dept FYDP-II Summer 2021, MIST\n\n\n\n\n\n\nJan 2021\n\n\nService\n\n\nMember, Outcome-Based Education (OBE) Revision Team, UIU\n\n\n\n\n\n\nMay 2020\n\n\nService\n\n\nPaper Reviewer, Asian CHI Symposium 2020\n\n\n\n\n\n\nFeb 2020\n\n\nService\n\n\nAssistant Technical Coordinator, UIU Innobotics\n\n\n\n\n\n\nJan 2020\n\n\nJob\n\n\nJoined United International University (UIU) as a Faculty in Department of CSE\n\n\n\n\n\n\nJul 2019\n\n\nTalk\n\n\nSpeaker at Cyber Security Training Program 2019, MIST. Talked about web-security and cross-site scripting attacks.\n\n\n\n\n\n\nJan 2019\n\n\nService\n\n\nPostgraduate Coordinator at CSE Deptartment, MIST\n\n\n\n\n\n\nJan 2019\n\n\nService\n\n\nCoordinator, CSE Postgraduate Programs, MIST\n\n\n\n\n\n\nJan 2019\n\n\nService\n\n\nTechnical Coordinator, Inter-University Programming Contest (IUPC) 2019, MIST\n\n\n\n\n\n\nDec 2018\n\n\nService\n\n\nMember Secretary, Syllabus Review Committee for OBE Implementation, MIST\n\n\n\n\n\n\nOct 2018\n\n\nWorkshop\n\n\nWorkshop Instructor, Unicode Typing Training Program 2018, MIST\n\n\n\n\n\n\nJul 2018\n\n\nService\n\n\nSteering Committee Member, Outcome-Based Education (OBE) Initiative at MIST\n\n\n\n\n\n\nApr 2018\n\n\nPublication\n\n\nAuthor, 42-Page Guide on Java for C++ Programmers (Self-Published). Shared online as a free resource for programmers transitioning from C++ to Java.\n\n\n\n\n\n\nApr 2017\n\n\nGraduate Studies\n\n\nStarted part-time graduate studies in Computer Science at Bangladesh University of Engineering and Technology (BUET)\n\n\n\n\n\n\nFeb 2017\n\n\nJob\n\n\nStarted first job as adjunt Faculty in Department of CSE, MIST\n\n\n\n\n\n\nMar 2016\n\n\nWorkshop, Video Tutorial\n\n\nOrganizer & Instructor, 5-Day Android Workshop at Samsung R&D Lab, BUET for System Analysis, Design, and Development (BSADD). Conducted tutorial classes and made full workshop content available online for free.\n\n\n\n\n\n\nDec 2015\n\n\nAward\n\n\nChampion at BRAC Hackathon 2015 Android App Development ($2,500)!\n\n\n\n\n\n\nDec 2015\n\n\nService\n\n\nCoordinator, BUET System Analysis, Design, and Development Community\n\n\n\n\n\n\nNov 2014\n\n\nVideo Tutorial\n\n\nYouTube Content Creator: Video Tutorials on Programming Concepts, Data Structures & Algorithms, including C++ STL\n\n\n\n\n\n\nApr 2013\n\n\nAward\n\n\nReceived BUET Undergraduate Scholarship\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "teaching/index.html#guest-lecture-at-texas-am",
+    "href": "teaching/index.html#guest-lecture-at-texas-am",
+    "title": "Teaching",
+    "section": "Guest Lecture at Texas A&M",
+    "text": "Guest Lecture at Texas A&M\nI delivered a guest lecture at Texas A&M University as part of the Supercomputing graduate course (CSCE-654) in Fall 2025. Over two sessions, I introduced the concept of Data-Distributed Parallel (DDP) techniques for training models on large datasets, providing hands-on demonstrations using PyTorch.\nIn the first session, I began by explaining how to perform interprocess communication using the PyTorch Distributed Package across multiple processes and demonstrate the ALL_REDUCE operation. We then implemented DDP from scratch to train a simple MNIST dataset using a multi-layer perceptron (MLP). I also discussed strategies for adjusting the learning rate to ensure that DDP produces a consistent loss curve.\nIn the second session, the focus shifted to multinode DDP training. I demonstrated how to use HDF5 files to load portions of the dataset into a distributed dataloader.\nThe session materials are available in this GitHub repository."
+  },
+  {
+    "objectID": "teaching/index.html#academic-service",
+    "href": "teaching/index.html#academic-service",
+    "title": "Teaching",
+    "section": "Academic Service",
+    "text": "Academic Service\n\nUIUMIST\n\n\n\nExternal Supervisor, FYDP-II Summer 2021\nNov 2021\nActed as an external supervisor for Final Year Design Project (FYDP) final defense presentation.\n\n\nAsst Technical Coordinator, Innobotics 2020\nFeb 2020\nProvided programming related technical assistance during the competition.\n\n\nAsst, OBE Revision Team\nJan 2021 - Present\nRevised two course syllabus according to new guideline. Revising rubrics for Final Year Design Project-II.\n\n\nMember, Registration Surveillance Team\nJune 2021\nResponsible for increasing section capacity on-demand during course registration of Summer 2021 semester.\n\n\nCourse Advisor\nJan 2020 - Present\nResponsible for course advising and enrollment for several batches of students.\n\n\n\n\nSoftware Development and Project Planning\nSept 2017 - Jan 2020\nHigh involvement in SRS design, timeline planning, coordination and coding of on-demand software for third-party clients. Specialization in Android and Web App development.\n\n\nCoordinator, Postgraduate Program\nJan 2019 - June 2019\nArrangement of BPGS meeting, thesis proposal presentation, Oct 2018 question moderation meeting. Preparation of BPGS agenda and minutes. Coordination of admission test for April 2019 semester including question setting, moderation, script checking, and result publication. Preparation of tabulation sheet for April 2019 Semester.\n\n\nInternal Member Secretary, Syllabus Review Committee for OBE\nDec 2018 - Jan 2019\nCoordination and compilation of the reviewed syllabus for the adaptation of OBE program. Preparation of a special syllabus with the amendment of old syllabus for 3rd year and 4th year students.\n\n\nMember, OBE Steering Committee\nJuly 2018 - Oct 2019\nCoordination of the CO-PO mapping and overall PO attainment for CSE department. Developed an automated system to calculate the CO-PO attainment for OBE Accreditation Visit 2019. Presented at the Multi-purpose Hall of MIST on CO-PO mapping methodology and Capstone Project (Dec 2018).\n\n\nInstructor, Cyber Security Training Program 2019\nJuly 2019\nConducted a session on web-security and cross-site scripting attack as part of the training module. Also participated in Cyber Security Training Program in 2017.\n\n\nTechnical Coordinator, MIST IUPC 2019\nJan 2019\nLab preparation for IUPC 2019. Ensured smooth connectivity between computers, servers and printers.\n\n\nInstructor, Unicode Training Program\nOct 2018\nConducted a training session on how to write Bengali official letters with Unicode font for the staffs of MIST.\n\n\nMember, TO&E Reformation Committee\nDec 2017 - Sept 2018\nPreparation of revised organogram tree, charter of duties, pay scale, list of equipment for the lab, and necessary presentation.\n\n\nAsst. Coordinator, Comptia A+ Training Program 2017\nMay 2017\nCoordination of the Program, attendance report generation, preparation of lab equipment.\n\n\nMiscellaneous\nQuestion setting, invigilation, and script checking of various recruitment examinations."
+  },
+  {
+    "objectID": "teaching/index.html#course-contents",
+    "href": "teaching/index.html#course-contents",
+    "title": "Teaching",
+    "section": "Course Contents",
+    "text": "Course Contents\nBelow are some of the courses I’ve taught over five years. I primarily used learning management systems to share course content with my students. This is a link to a sample page from a C programming courses I taught at MIST.\n\nLevel-4Level-3Level-2Level-1\n\n\n\nCSE-465 Web Programming\nInstitute: UIU\nHTML5 Tags, CSS Selectors, JavaScript (Basic Syntax, Higher Order Array Functions, DOM Traversal), Django (Routing, Templating, ORM, Authentication, Form Handling), Client Side Rendering, VueJS, Progessive Web Application (PWA)\n\n\nCSE-469 Project Management\nInstitute: UIU\nProcess Models (Waterfall, RUP, Iterative, Incremental, Agile, Scrum, Kanban, Extreme Programming), Vision and Design Document, Work Breakdown Structure (WBS), Delphie Estimation, Scheduling (Dependancy Network Graph, Gantt Chart), Review Documents\n\n\nCSE-414 Computer Graphics Sessional\nInstitute: MIST\nOpenGL 2D Animation, Mouse Interaction, Raster-based Pipeline\n\n\nCSE-404 Artificial Intelligence Sessional\nInstitute: MIST\nState Representation using Graph, Local Search, A* Search, Adversarial Search, Constraint Satisfaction Problem\n\n\n\n\nCSE-322 Software Engineering Laboratory\nInstitute: UIU\nREST API, CRUD Operations, Agile Methodology, Testing (Python Selenium, PyTest), Ajax (Fetch/XHR), Version Controlling (Git, GitHub), Markdown, Static Site Generator (MkDocs), SRS Writing\n\n\nCSE-312 System Analysis and Design Laboratory\nInstitute: UIU\nBenchmark Analysis, Feasibility Analysis, UML Diagrams (Use Case, Class Diagram, Dataflow Diagram), Agile Methodology (Jira)\n\n\nCSE-313 Computer Architecture\nInstitute: UIU\nBasic Concepts, MIPS, Datapath, Caching, Multiplication Algorithms\n\n\nCSE-304 Compiler Sessional\nInstitute: MIST\nLex, Bison, Yacc\n\n\n\n\nCSE-226 Assembly Language Programming\nInstitute: UIU\nIntroduction to 8086 emulator, Registers, Flags, Flow Control, Loop, Shift, Rotate, Nested Loop, Procedure, Stack, Multiple, Division, Array, String\n\n\nCSE-223 Thoery of Computation\nInstitute: UIU\nBasic concepts, DFA, NFA, Epsilon Transition, DFA Equivalence of NFA, Regular Expression, Context Free Grammar, Parse Trees, Ambiguity in Grammar, Pushdown Automata, Equivalence of PDA and CFG, Deterministic PDA, Normal Forms, Turing Machines\n\n\nCSE-222 Database Management System Laboratory\nInstitute: UIU\nMySQL Queries (Basic, JOIN, Aggregation, Subqueries), PHP Implementations\n\n\nCSE-215 Data Structures and Algorithms-II\nInstitute: MIST\nHashing, HashSet, Binary Search Tree, Trie, Balanced Search Tree (Skip List, AVL Tree)\n\n\nCSE-205 Object Oriented Programming Language (Part-B)\nInstitute: MIST\nInheritance, Multiple Inheritance, Constructor & Destructor, Virtual Functions, Runtime Polymorphism, Abstract Class, Diamond Problem, Virtual Base Class, Operator Overloading, Functors (Function Objects), Conversion Function, Overloading subscript, new, and delete operator\n\n\nCSE-203 Data Structures and Algorithms-I\nInstitute: MIST\nBig-O Notation, Linked List, Stack, Queue, Binary Search, Dequeue, Double Linked List, Graph, Tree\n\n\n\n\nCSE-1116 Object Oriented Programming Sessional\nInstitute: UIU, MIST\nJava Basic Syntax, Object Oriented Concepts (Inheritance, Abstraction, Interface, Polymorphism), Access Modifier, String, File I/O, Exception Handling, Concurrency, UI Design with Swing\n\n\nCSE-1110 Introduction to CS\nInstitute: UIU\nIntroduction to Computer, Block-based Programming Language (Scratch), Memory and Storage, Binary Numbers, Introduction to C Programming Language (Variable Declaration, Conditions, For Loop)\n\n\nCSE-105 Structured Programming Language (Part-B)\nInstitute: MIST\nRecursion, Arrays & Strings, 2D Array & Pointers, Structures, Unions, Padding, Enum, File I/O, Dynamic Memory Allocation, Bitwise Manipulation, Function Pointers"
+  }
+]

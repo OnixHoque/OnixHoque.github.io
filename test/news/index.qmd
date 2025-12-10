@@ -1,0 +1,26 @@
+---
+title: "News and Updates"
+format: 
+  html:
+    page-layout: full
+listing:
+  id: sample-listings
+  # image-height: 200%
+  image-align: left
+  date-format: "MMM YYYY"
+  # max-description-length: 100
+  sort-ui: true
+  filter-ui: true
+  contents: 
+    - news.yaml
+  type: table
+  categories: true
+  sort: "date desc"
+  fields: [date, categories, News]
+  field-links: [News]
+---
+
+<!-- I developed 10+ open-source and commercial software projects between 2013 and 2023, using Python, Java, and C++. These span console, GUI, desktop, mobile (Android), and web applications. -->
+
+::: {#sample-listings}
+:::

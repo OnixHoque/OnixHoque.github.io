@@ -1,0 +1,24 @@
+---
+title: "Impact of Workplace Bullying among Physicians of Tertiary Medical College Hospitals"
+categories: ["NLP", "Automation", "Collaboration"]
+description: "This study examined the prevalence and impact of workplace bullying on stress levels among physicians, finding a significant correlation with symptoms like depression and anxiety. My contribution was developing an automated pipeline to generate Google Forms for efficient survey distribution to 189 physicians, streamlining data collection for the research."
+date: "10/01/2023"
+image: assoc.jpg
+---
+
+::: {.callout-note appearance="minimal" title="Note" icon="false" collapse="false"}
+* Other collaboration work
+* Journal publication as fourth author
+
+[Journal of Chittagong Medical College Teachers' Association 34 (1)](https://banglajol.info/index.php/JCMCTA/article/view/67334){.badge .bg-danger .rounded-pill}
+[Paper](https://banglajol.info/index.php/JCMCTA/article/download/67334/46397){.badge .bg-primary .rounded-pill}
+:::
+
+
+## Overview
+
+Workplace bullying and harassment among healthcare professionals, particularly physicians, has long been associated with increased levels of stress, negatively affecting both professional performance and personal well-being. This study sought to evaluate the prevalence and forms of bullying faced by physicians in their workplace, focusing on its impact on stress levels. The research was conducted through a cross-sectional survey involving physicians from two Medical College Hospitals who had at least six months of work experience. The study aimed to uncover patterns of bullying, such as the most common forms and the sources of harassment, and to examine the correlation between bullying and stress-related symptoms like depression and anxiety. The findings highlighted the significant need for addressing workplace bullying to ensure a healthier work environment for healthcare professionals.
+
+## Contribution
+
+In this study, my primary contribution was the development of an automated pipeline to generate Google Forms from large document files, which streamlined the process of creating and distributing surveys. This automation made it easier to handle a large-scale survey efficiently, ensuring that the questionnaires were accurately generated for all 189 physicians involved in the study. By integrating this automated approach, I helped facilitate a seamless data collection process, allowing researchers to focus on analyzing the responses and drawing meaningful insights. This contribution was crucial in managing the extensive data collection required for the study while ensuring consistency and reducing manual effort.

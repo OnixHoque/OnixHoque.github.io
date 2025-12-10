@@ -1,0 +1,25 @@
+---
+title: "Python Interface of FastGraph (an OpenMP-based sparse-matrix library)"
+categories: ["Pybind11", "OpenMP", "Zero-copy"]
+description: "Developed a PyBind11 interface for FastGraph, an OpenMP-based C++ parallel sparse-matrix library designed as a high-performance alternative to NetworkX."
+date: "04/01/2023"
+image: iu.png
+---
+
+::: {.callout-note appearance="minimal" title="Note" icon=false collapse=false}
+
+Secondary PhD Research Project (Collaboration)
+
+:::
+
+## Background
+
+FastGraph is an OpenMP-accelerated C++ library designed for high-performance sparse-matrix and graph operations, addressing the scalability limitations of pure-Python frameworks like NetworkX. While NetworkX offers an intuitive interface, its lack of parallelization makes it unsuitable for large or complex graph analytics. FastGraph, by contrast, leverages efficient, multicore algorithms to support workloads that demand significant computational throughput. Before this project, however, FastGraph’s capabilities were not readily accessible to Python users, creating a barrier between high-performance C++ backends and the broader Python data science ecosystem.
+
+## Methodology
+
+To close this gap, we developed a PyBind11-based interface that exposes FastGraph’s core data structures and algorithms through a clean, Pythonic API. Our approach involved designing lightweight bindings for key graph representations, creating wrapper classes that correctly manage memory and threading behavior, and mapping FastGraph’s parallel operations—such as graph traversals, sparse-matrix multiplications, and structural transformations—into Python-callable methods. Throughout the development process, we iterated on the interface design to balance performance with usability, conducting benchmarking, debugging, and documentation to ensure that the Python layer introduced minimal overhead and maintained FastGraph’s parallel execution model.
+
+## Findings
+
+The resulting PyBind11 interface effectively connects FastGraph’s high-performance C++ engine with Python’s ease of use. In benchmarking, we observed substantial speedups compared to NetworkX, especially on large graphs where parallelism provides significant advantages. Python users can now work with FastGraph using familiar coding patterns while benefiting from multicore acceleration and low-level optimizations. Overall, our integration demonstrates that a well-designed binding layer can make advanced, high-performance graph analytics both accessible and scalable for the broader Python community.

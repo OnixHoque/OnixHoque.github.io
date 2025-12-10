@@ -1,0 +1,36 @@
+---
+title: "A C++ Library for Sparse Matrix Data Structure"
+categories: ["Sparse Matrix", "COO", "CSC", "CSR", "C++", "Graduate Coursework"]
+description: "A toy project to understand how matrix multiplication can become efficient by using sparse matrix data structures (COO/CSR/CSC)."
+date: "12/01/2022"
+image: mat.png
+---
+
+::: {.callout-note appearance="minimal" title="Note" icon=false collapse=false}
+
+Graduate Course Project
+
+* Graduate Coursework E-501: Introduction to Computer Engineering
+* Faculty: Dr. Lei Jiang
+* Indiana University Bloomington, Fall 2022
+
+[Slides](https://docs.google.com/presentation/d/10GMTrRnKXz7UTOfHYQGvNs7a1IoPRkdq/edit?slide=id.p49#slide=id.p49){.badge .bg-primary .rounded-pill}
+
+:::
+
+![](mat.png){.lightbox}
+
+## Background
+
+Matrix multiplication is a fundamental operation in numerous computational tasks, ranging from scientific computing to machine learning. However, for large-scale matrices, traditional dense matrix multiplication (MM) can become computationally expensive and memory-intensive. Sparse matrices, which contain a majority of zero elements, offer a way to optimize these operations by only storing and processing the non-zero elements. This can lead to significant improvements in both computational efficiency and memory usage. In this project, we explore how different sparse matrix data structures, such as Coordinate (COO), Compressed Sparse Row (CSR), and Compressed Sparse Column (CSC), can be leveraged to enhance the efficiency of matrix multiplication, specifically through sparse matrix multiplication (SpMM), sparse general matrix multiplication (SpGEMM), and their CSR-based variants.
+
+## Methodology
+
+In this project, we benchmark the performance of various matrix multiplication techniques using sparse matrix data structures. The evaluation focuses on the regular Matrix Multiplication (MM), Sparse Matrix Multiplication (SpMM), Sparse General Matrix Multiplication (SpGEMM), and SpGEMM with CSR format (SpGEMM_CSR). The experiments involve generating random sparse matrices of increasing sizes (2x2, 3x3, up to 5000x5000), with the density of non-zero elements set to 
+$1/n$ where n is the matrix size. Each function is executed 20 times to account for variability, and the average elapsed time and memory allocation are measured for each method to assess their efficiency. The comparison focuses on matrices of up to 1000x1000 for speedup analysis and up to 5000x5000 for memory usage evaluation.
+
+## Findings
+
+![](results.png){.lightbox}
+
+The results of our experiment reveal significant performance improvements when using sparse matrix multiplication techniques compared to regular dense matrix multiplication. For matrices up to 1000x1000, Sparse Matrix Multiplication (SpMM) achieved a 249.23x speedup and a 2x reduction in memory usage compared to MM. The performance gains were even more pronounced with Sparse General Matrix Multiplication (SpGEMM). Using the COO format, SpGEMM provided a 983.17x speedup and a 1665.41x reduction in memory, while the CSR format for SpGEMM offered a 411.04x speedup and a 1665.22x reduction in memory. These findings highlight the significant advantages of using sparse matrix data structures for both computational speedup and memory efficiency, particularly as the matrix size increases.

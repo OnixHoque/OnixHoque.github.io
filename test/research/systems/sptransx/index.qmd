@@ -1,0 +1,42 @@
+---
+title: "SparseTransX: Efficient Training of Translation-Based Knowledge Graph Embeddings Using Sparse Matrix Operations"
+categories: ["Knowledge Graph", "SpMM", "MLSys2025", "CPU", "GPU", "PyTorch"]
+description: "We expressed and reformulated 10 KG embedding models using Sparse-dense matrix mutliplication speeding up the training for CPU and GPU while making them significantly memory efficient."
+date: "05/01/2025"
+image: mlsys.png
+---
+
+::: {.callout-note appearance="minimal" title="Note" icon=false collapse=false}
+PhD Research Project 
+
+[MLSys 2025](https://mlsys.org/virtual/2025/poster/3282){.badge .bg-danger .rounded-pill}
+[Talk](https://mlsys.org/virtual/2025/poster/3282){.badge .bg-primary .rounded-pill}
+[Slide](https://mlsys.org/media/mlsys-2025/Slides/3282_xccc5UA.pdf){.badge .bg-primary .rounded-pill}
+[Paper](https://openreview.net/pdf?id=73tG7ZDSBT){.badge .bg-primary .rounded-pill}
+[GitHub](https://github.com/HipGraph/SpTransX){.badge .bg-primary .rounded-pill}
+
+[Artifact Available](https://openreview.net/pdf?id=73tG7ZDSBT){.badge .bg-success}
+[Artifact Evaluated](https://openreview.net/pdf?id=73tG7ZDSBT){.badge .bg-danger }
+:::
+
+![](presentation-1.jpeg){.lightbox width=45%}
+![](presentation-2.png){.lightbox width=45%}
+
+
+## Background
+
+![](bottleneck.png){.lightbox}
+
+Knowledge Graph (KG) learning plays a critical role in enabling machines to generate new knowledge and make inferences based on relational data. However, training KG embeddings can be time-consuming, particularly for larger datasets. One of the primary bottlenecks in the training process is the gradient computation during embedding updates, which dominates the overall training time. In this context, we aim to accelerate the training process by replacing the core embedding computation with Sparse-Dense Matrix Multiplication (SpMM) kernels. This approach allows us to optimize the computation by consolidating multiple scatter (and gather) operations into a single, more efficient operation, reducing both training time and memory usage.
+
+## Methodology
+
+![](method.png){.lightbox}
+
+We propose a framework that integrates sparse matmul kernels into the training of KGE models, enhancing the efficiency of the translation-based embedding techniques. Specifically, we implement sparse versions of four popular KG models: TransE, TransR, TransH, and TorusE. By leveraging SpMM kernels, we replace the traditional dense matrix multiplication operations, significantly improving the performance of the training loop. Our framework unifies various scatter and gather operations, which are typically separate, into a single operation, leading to a reduction in both computational time and memory footprint. We evaluate the performance of our sparse implementations on both CPU and GPU platforms, testing across various datasets, both large and small, to assess the generalizability of our approach.
+
+## Findings
+
+![](results.png){.lightbox}
+
+Our sparse implementations deliver impressive speedups across different hardware platforms. On the CPU, we observe up to 5.3x speedup, while on the GPU, the speedup reaches 4.2x, all while significantly reducing GPU memory usage. These performance improvements are consistent regardless of dataset size, demonstrating the effectiveness of our approach across both small and large-scale datasets. The results indicate that our sparse kernel-based framework can substantially accelerate the training of translation-based KG models, with potential applications extending to other translation-based models (such as TransC and TransM) and non-translation models (like DistMult, ComplEx, and RotatE). This work lays the groundwork for more efficient and scalable KG embedding training methods.

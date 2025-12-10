@@ -1,0 +1,29 @@
+---
+title: "Concurrency Study of Python 2.7"
+categories: ["Python", "Concurrency", "IronPython", "CPython", "Jython", "Systems", "Profiling"]
+description: "A comparative study examining how multi-threaded programs perform when written in different Python implementations."
+date: "08/08/2017"
+image: cuncurrency.png
+---
+
+::: {.callout-note appearance="minimal" title="Note" icon=false collapse=false}
+Course Project from CSE6305 (Programming Languages and Systems)
+
+[Project Report](https://drive.google.com/file/d/1v9CG2xLGNi70mX-NQOq6mscgCdShjC4T/view){.btn .btn-outline-primary}
+:::
+
+![Image: CPython is slower than IronPython and Jython due to GIL](cuncurrency.png){.lightbox}
+
+
+## Background
+
+In this project, we present a comparative study of multi-threaded programs developed using different implementations of Python. Our aim is to understand how various Python runtimes handle concurrency by examining differences in performance, thread management, and execution behavior. Python offers a wide range of concurrency libraries, yet not all implementations execute multi-threaded programs with equal efficiency—particularly due to the presence of the Global Interpreter Lock (GIL) in some variants. This motivates our investigation into how architectural differences across Python implementations influence their real-world behavior under concurrent workloads.
+
+## Methodology
+
+We compare three Python runtimes: CPython, the most commonly used implementation; IronPython, which is built on the .NET framework; and Jython, which runs on the Java Virtual Machine. These implementations differ significantly in their underlying architectures, making them ideal candidates for evaluating contrasting approaches to concurrency. To conduct our study, we developed equivalent multi-threaded programs and executed them under similar workloads across all three environments. We then measured execution time, thread utilization, and responsiveness, and analyzed how the presence or absence of the GIL—along with runtime-specific threading models—affects performance.
+
+## Findings
+
+Our experiments reveal notable performance differences among the three implementations. IronPython and Jython often outperform CPython in multi-threaded scenarios because they do not employ a GIL, allowing true parallel execution of threads. CPython, constrained by the GIL, demonstrates slower performance under CPU-bound concurrent workloads but remains competitive in I/O-bound tasks. We further identify the architectural factors that drive these differences, providing insights into why certain implementations excel in specific concurrency workloads. Overall, our study highlights the strengths and limitations of each Python runtime from a developer’s perspective, offering guidance for choosing the most suitable implementation for multi-threaded applications.
+

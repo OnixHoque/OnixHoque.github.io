@@ -1,0 +1,38 @@
+---
+title: "Investigating Spatial-Temporal and Knowledge Graph Machine Learning Algorithms for Dominant Kernels & Potential Scope of Speedup"
+categories: ["Spatio-Temporal Graph", "Knowledge Graph Embedding", "Profiling", "CPU", "Kernel", "Graduate Course Project"]
+description: "This project aims to identify the functions responsible for the long training times in Spatio-Temporal Graph Neural Networks and Knowledge Graph Embedding algorithms, comparing their frequency to optimize performance for larger graphs or real-time analysis."
+date: "12/01/2023"
+image: bottleneck.png
+---
+
+::: {.callout-note appearance="minimal" title="Note" icon=false collapse=false}
+
+Graduate Course Project
+
+* ENG 503 - Intro to Intelligent Systems with Dr. Ariful Azad
+
+
+[Slide](https://docs.google.com/presentation/d/198lUeo7WSKAmXfGlZyW8vGusNF_51PzmqvL_8jLO6bU/edit?usp=sharing){.badge .bg-primary .rounded-pill}
+
+:::
+
+![](bottleneck.png){.lightbox }
+
+## Background
+
+Spatio-Temporal Graph Neural Networks (ST-GNNs) and Knowledge Graph Embedding (KGE) algorithms are state-of-the-art machine learning techniques for analyzing dynamic and relational data represented as graphs. These algorithms are widely applied in areas such as time-series prediction, recommendation systems, and knowledge extraction. Frameworks like PyTorch Geometric Temporal and TorchKGE are commonly used to implement these models.
+
+Despite their effectiveness, long training times remain a major challenge, particularly for large graphs or real-time applications. As graph size and complexity increase, the computational resources required for training grow significantly, limiting the scalability of these methods.
+
+## Methodology
+
+To identify computational bottlenecks, we profiled several ST-GNN and KGE models on two different datasets. By analyzing the execution time of individual operations, we could pinpoint which functions dominate CPU computation during training. This profiling allows us to focus optimization efforts on the most impactful kernels rather than optimizing the entire model indiscriminately.
+
+## Findings
+
+For Knowledge Graph Embedding models, profiling revealed three key internal PyTorch functions responsible for the majority of CPU time. These involve gradient computations for dense embeddings and vector normalization. Optimizing these functions could reduce CPU time by roughly 50%–60% for the corresponding datasets.
+
+(Done by my lab partner) For Spatio-Temporal Graph Neural Networks, three critical functions were identified that account for a substantial portion of total computation. Optimizing these kernels could lead to up to a 50% reduction in training time.
+
+These findings demonstrate that targeted optimization of bottleneck kernels—rather than general code or sparse operations—can deliver significant performance improvements for graph-based models.

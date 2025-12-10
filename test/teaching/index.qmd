@@ -1,0 +1,248 @@
+---
+title: "Teaching"
+smooth-scroll: true
+format: 
+  html:
+    page-layout: full
+---
+
+I am currently on sabbatical from the Department of Computer Science and Engineering at United International University (UIU)[^1], Bangladesh, where I served as a tenured faculty member. Before my sabbatical, I taught advanced computer science topics, including Software Engineering, Computer Architecture, and Web Programming to senior undergraduate students.
+
+[^1]: UIU: Spring 2020 --- Current
+
+Previously, I was a tenured faculty at Military Institute of Science and Technology (MIST)[^2] University, where I began my academic career as an adjunct faculty member. At MIST, I focused on teaching core programming concepts to undergraduate students, delivering courses in Structured Programming, Object-Oriented Programming, and Data Structures & Algorithms for nearly three years. In addition to my teaching responsibilities, I have actively contributed to various administrative roles, including serving as Postgraduate Coordinator, Secretary of the Syllabus Reform Committee, and overseeing departmental software development projects.
+
+## Guest Lecture at Texas A&M
+
+I delivered a guest lecture at Texas A&M University as part of the Supercomputing graduate course (CSCE-654) in Fall 2025. Over two sessions, I introduced the concept of Data-Distributed Parallel (DDP) techniques for training models on large datasets, providing hands-on demonstrations using PyTorch.
+
+In the first session, I began by explaining how to perform interprocess communication using the PyTorch Distributed Package across multiple processes and demonstrate the ALL_REDUCE operation. We then implemented DDP from scratch to train a simple MNIST dataset using a multi-layer perceptron (MLP). I also discussed strategies for adjusting the learning rate to ensure that DDP produces a consistent loss curve.
+
+In the second session, the focus shifted to multinode DDP training. I demonstrated how to use HDF5 files to load portions of the dataset into a distributed dataloader.
+
+The session materials are available in [this GitHub repository](https://github.com/HipGraph/DDP_demo).
+
+## Academic Service
+
+::: {.panel-tabset}
+
+## UIU
+
+
+### External Supervisor, FYDP-II Summer 2021
+
+Nov 2021
+
+Acted as an external supervisor for Final Year Design Project (FYDP) final defense presentation.
+
+### Asst Technical Coordinator, Innobotics 2020
+
+Feb 2020
+
+Provided programming related technical assistance during the competition.
+
+### Asst, OBE Revision Team
+
+Jan 2021 - Present
+
+Revised two course syllabus according to new guideline. Revising rubrics for Final Year Design Project-II.
+
+### Member, Registration Surveillance Team
+
+June 2021
+
+Responsible for increasing section capacity on-demand during course registration of Summer 2021 semester.
+
+### Course Advisor
+
+Jan 2020 - Present
+
+Responsible for course advising and enrollment for several batches of students.
+
+## MIST
+
+### Software Development and Project Planning
+
+Sept 2017 - Jan 2020
+
+High involvement in SRS design, timeline planning, coordination and coding of on-demand software for third-party clients. Specialization in Android and Web App development.
+
+### Coordinator, Postgraduate Program
+
+Jan 2019 - June 2019
+
+Arrangement of BPGS meeting, thesis proposal presentation, Oct 2018 question moderation meeting. Preparation of BPGS agenda and minutes. Coordination of admission test for April 2019 semester including question setting, moderation, script checking, and result publication. Preparation of tabulation sheet for April 2019 Semester.
+
+### Internal Member Secretary, Syllabus Review Committee for OBE
+
+Dec 2018 - Jan 2019
+
+Coordination and compilation of the reviewed syllabus for the adaptation of OBE program. Preparation of a special syllabus with the amendment of old syllabus for 3rd year and 4th year students.
+
+### Member, OBE Steering Committee
+
+July 2018 - Oct 2019
+
+Coordination of the CO-PO mapping and overall PO attainment for CSE department. Developed an automated system to calculate the CO-PO attainment for OBE Accreditation Visit 2019. Presented at the Multi-purpose Hall of MIST on CO-PO mapping methodology and Capstone Project (Dec 2018).
+
+### Instructor, Cyber Security Training Program 2019
+
+July 2019
+
+Conducted a session on web-security and cross-site scripting attack as part of the training module. Also participated in Cyber Security Training Program in 2017.
+
+### Technical Coordinator, MIST IUPC 2019
+
+Jan 2019
+
+Lab preparation for IUPC 2019. Ensured smooth connectivity between computers, servers and printers.
+
+### Instructor, Unicode Training Program
+
+Oct 2018
+
+Conducted a training session on how to write Bengali official letters with Unicode font for the staffs of MIST.
+
+### Member, TO&E Reformation Committee
+
+Dec 2017 - Sept 2018
+
+Preparation of revised organogram tree, charter of duties, pay scale, list of equipment for the lab, and necessary presentation.
+
+### Asst. Coordinator, Comptia A+ Training Program 2017
+
+May 2017
+
+Coordination of the Program, attendance report generation, preparation of lab equipment.
+
+### Miscellaneous
+
+Question setting, invigilation, and script checking of various recruitment examinations. 
+
+:::
+
+## Course Contents
+
+Below are some of the courses I’ve taught over five years. I primarily used learning management systems to share course content with my students. [This is a link](https://sites.google.com/view/cse105june18) to a sample page from a C programming courses I taught at MIST.
+
+::: {.panel-tabset}
+
+## Level-4
+
+### CSE-465 Web Programming
+
+Institute: UIU
+
+HTML5 Tags, CSS Selectors, JavaScript (Basic Syntax, Higher Order Array Functions, DOM Traversal), Django (Routing, Templating, ORM, Authentication, Form Handling), Client Side Rendering, VueJS, Progessive Web Application (PWA)
+
+### CSE-469 Project Management
+
+Institute: UIU
+
+Process Models (Waterfall, RUP, Iterative, Incremental, Agile, Scrum, Kanban, Extreme Programming), Vision and Design Document, Work Breakdown Structure (WBS), Delphie Estimation, Scheduling (Dependancy Network Graph, Gantt Chart), Review Documents
+
+### CSE-414 Computer Graphics Sessional
+
+Institute: MIST
+
+OpenGL 2D Animation, Mouse Interaction, Raster-based Pipeline
+
+### CSE-404 Artificial Intelligence Sessional
+
+Institute: MIST
+
+State Representation using Graph, Local Search, A* Search, Adversarial Search, Constraint Satisfaction Problem
+
+## Level-3
+
+
+### CSE-322 Software Engineering Laboratory
+
+Institute: UIU
+
+REST API, CRUD Operations, Agile Methodology, Testing (Python Selenium, PyTest), Ajax (Fetch/XHR), Version Controlling (Git, GitHub), Markdown, Static Site Generator (MkDocs), SRS Writing
+
+### CSE-312 System Analysis and Design Laboratory
+
+Institute: UIU
+
+Benchmark Analysis, Feasibility Analysis, UML Diagrams (Use Case, Class Diagram, Dataflow Diagram), Agile Methodology (Jira)
+
+### CSE-313 Computer Architecture
+
+Institute: UIU
+
+Basic Concepts, MIPS, Datapath, Caching, Multiplication Algorithms
+
+### CSE-304 Compiler Sessional
+
+Institute: MIST
+
+Lex, Bison, Yacc
+
+## Level-2
+
+
+### CSE-226 Assembly Language Programming
+
+Institute: UIU
+
+Introduction to 8086 emulator, Registers, Flags, Flow Control, Loop, Shift, Rotate, Nested Loop, Procedure, Stack, Multiple, Division, Array, String
+
+### CSE-223 Thoery of Computation
+
+Institute: UIU
+
+Basic concepts, DFA, NFA, Epsilon Transition, DFA Equivalence of NFA, Regular Expression, Context Free Grammar, Parse Trees, Ambiguity in Grammar, Pushdown Automata, Equivalence of PDA and CFG, Deterministic PDA, Normal Forms, Turing Machines
+
+### CSE-222 Database Management System Laboratory
+
+Institute: UIU
+
+MySQL Queries (Basic, JOIN, Aggregation, Subqueries), PHP Implementations
+
+### CSE-215 Data Structures and Algorithms-II
+
+Institute: MIST
+
+Hashing, HashSet, Binary Search Tree, Trie, Balanced Search Tree (Skip List, AVL Tree)
+
+### CSE-205 Object Oriented Programming Language (Part-B)
+
+Institute: MIST
+
+Inheritance, Multiple Inheritance, Constructor & Destructor, Virtual Functions, Runtime Polymorphism, Abstract Class, Diamond Problem, Virtual Base Class, Operator Overloading, Functors (Function Objects), Conversion Function, Overloading subscript, new, and delete operator
+
+### CSE-203 Data Structures and Algorithms-I
+
+Institute: MIST
+
+Big-O Notation, Linked List, Stack, Queue, Binary Search, Dequeue, Double Linked List, Graph, Tree
+
+
+## Level-1
+
+
+### CSE-1116 Object Oriented Programming Sessional
+
+Institute: UIU, MIST
+
+Java Basic Syntax, Object Oriented Concepts (Inheritance, Abstraction, Interface, Polymorphism), Access Modifier, String, File I/O, Exception Handling, Concurrency, UI Design with Swing
+
+### CSE-1110 Introduction to CS
+
+Institute: UIU
+
+Introduction to Computer, Block-based Programming Language (Scratch), Memory and Storage, Binary Numbers, Introduction to C Programming Language (Variable Declaration, Conditions, For Loop)
+
+### CSE-105 Structured Programming Language (Part-B)
+
+Institute: MIST
+
+Recursion, Arrays & Strings, 2D Array & Pointers, Structures, Unions, Padding, Enum, File I/O, Dynamic Memory Allocation, Bitwise Manipulation, Function Pointers
+
+:::
+
+[^2]: MIST: Spring 2017 --- Fall 2019
+
+

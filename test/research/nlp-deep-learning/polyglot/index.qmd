@@ -1,0 +1,29 @@
+---
+title: "Polygot: An Approach Towards Reliable Translation By Name Identification And Memory Optimization Using Semantic Analysis"
+categories: ["NLP", "NER", "Rule-based"]
+description: "A rule-based approach for name identification in Bengali Language."
+date: "12/12/2017"
+image: buet.png
+---
+
+::: {.callout-note appearance="minimal" title="Note" icon=false collapse=false}
+
+Master's Research Collaboration
+
+[NSysS 2017](https://ieeexplore.ieee.org/document/8267795){.badge .bg-danger .rounded-pill}
+[Paper](https://drive.google.com/file/d/1pNRVHsI-8TivSeEvBdWLj5spfF4YnzQz/view){.badge .bg-primary .rounded-pill}
+
+:::
+
+
+## Background
+
+In this study, we aim to improve the efficiency, complexity, and performance of the language translation process, particularly for underexplored languages like Bengali. While there have been numerous studies in natural language processing (NLP), most of them have focused on English as the target language, leaving many other languages, including Bengali, underrepresented. Although research on areas like Bengali keyboard layout design and English-to-Bengali translation exists, there is limited work on Bengali-to-English translation. Language translation is inherently complex due to the presence of words with multiple meanings, various forms, and different grammatical structures expressing the same idea. Additionally, accurately identifying names as nouns, particularly when they are attached with prefixes, suffixes, or other linguistic markers, poses a significant challenge in translation. Our goal is to address these issues by developing an efficient translation system that can handle these complexities.
+
+## Methodology
+
+To tackle these challenges, we focused on two critical aspects: memory optimization and accurate identification of names as nouns. We developed a system that optimizes memory usage while processing translation data, making it more efficient in terms of both time and resources. At the same time, we emphasized improving the system's ability to identify and interpret names as nouns. In languages like Bengali, names are often embedded within intricate grammatical structures, making it difficult to differentiate them from other parts of speech. By employing semantic analysis, we aimed to enhance the accuracy of noun identification and ensure the proper translation of sentences. These optimizations were designed to make the system more effective and adaptable for low-resource languages like Bengali.
+
+## Findings
+
+Our proposed system showed significant improvements in both memory efficiency and the accurate identification of names as nouns. The semantic analysis approach allowed for more accurate translations, particularly when translating from Bengali to English. Furthermore, the memory optimization techniques reduced computational overhead, leading to faster translation times. Although developing an efficient translation system is a complex and resource-intensive task, our results demonstrate that it is possible to improve translation quality for Bengali by addressing specific challenges related to noun recognition and memory management. These advancements make the system more practical for real-world applications and more effective for low-resource languages.

@@ -1,0 +1,21 @@
+---
+title: "Enabling Model Parallelism for Graph Neural Networks with a Scalable Sparse-Dense Matrix Multiplication Operator"
+categories: ["PyTorch", "SpMM", "Distributed", "Differentiable"]
+description: "A distributed, differentiable sparse-matrix library to scale large Graph Neural Networks."
+date: "11/01/2025"
+image: presentation.jpeg
+---
+
+::: {.callout-note appearance="minimal" title="Note" icon=false collapse=false}
+
+PhD project ongoing work
+
+* Presented at Sparstitute Meeting (Barkeley, CA)
+
+:::
+
+![](presentation.jpeg){.lightbox}
+
+## Overview
+
+[Work in progress] We are developing a distributed, differentiable sparse-matrix library designed to support model parallelism for Graph Neural Networks with very large parameters. The framework aims to improve memory efficiency and scalability across multiple devices, enabling efficient training of large-scale graph models. While still in progress, the work also lays the groundwork for future applications in sparse transformer architectures and other memory-intensive neural networks.

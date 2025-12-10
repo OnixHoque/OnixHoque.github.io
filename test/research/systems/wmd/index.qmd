@@ -1,0 +1,26 @@
+---
+title: "Predicting Interactions in the Weapons of Mass Destruction Knowledge Graphs"
+categories: ["Neo4j", "Knowledge Graph", "Complex Networks 2024", "Book Chapter", "Collaboration"]
+description: "An applied Knowledge Graph Embedding (KGE) project where I developed the Neo4j interface to facilitate efficient graph data handling and support the training of KGE models."
+date: "12/01/2024"
+image: cn-book.png
+---
+
+::: {.callout-note appearance="minimal" title="Note" icon="false" collapse="false"}
+PhD collaboration work
+
+* Book chapter
+* Published as the second author
+
+[Complex Networks 2024](https://link.springer.com/chapter/10.1007/978-3-031-82439-5_18){.badge .bg-danger .rounded-pill}
+:::
+
+![The framework for Neo4j interfacing I designed](wmd.png){.lightbox width="70%" }
+
+## Overview
+
+In this paper, the application of graph machine learning methods is explored to predict unseen interactions within the Weapons of Mass Destruction (WMD) dataset, developed by DARPA and IARPA. This dataset contains complex online activities such as sales, purchases, and forum discussions, focusing on sensitive subjects related to weapons and explosives. To analyze this data, the study represents it as a knowledge graph, where nodes represent entities (e.g., people, weapons, organizations) and edges capture the relationships between them (e.g., transactions, communications). Using graph-based learning techniques, the goal is to uncover hidden interactions that can provide valuable insights into WMD-related activities. The study uses DistMult, a semantic matching model, to predict potential relationships, and integrates graph machine learning techniques to enhance the prediction process.
+
+## Contribution
+
+My primary contribution to this project was in the Neo4j interfacing aspect, where I facilitated the integration of graph machine learning techniques. I implemented an automated pipeline that handled various stages of the process, including storing the knowledge graph in a Neo4j database and using Cypher queries to extract relevant subgraphs for analysis. My work focused on ensuring smooth interaction between the Neo4j database and the graph embedding models, such as DistMult, used for predicting links. This interface allowed for efficient graph traversal, streamlined subgraph extraction, and the seamless reintegration of high-confidence predictions into the main graph. By automating these processes, I played a key role in improving the overall efficiency and accuracy of the graph-based prediction model.

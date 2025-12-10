@@ -1,0 +1,30 @@
+---
+title: "A Bimodal Longitudinal Investigation on Changes in Sentiments over Social Media Interactions Owing to COVID-19 Pandemic"
+categories: ["NLP", "Sentiment Analysis", "Multimodal", "Forecasting", "Heuristic", "Graduate Work"]
+description: "This study analyzes sentiment shifts on Twitter during the COVID-19 pandemic, revealing significant changes in both text and image sentiment, with negative text sentiment increasing by 10.55% and positive image sentiment decreasing by 24.52%, and introduces a novel bimodal sentiment analysis framework."
+date: "08/01/2022"
+image: migration.png
+---
+
+::: {.callout-note appearance="minimal" title="Note" icon="false" collapse="false"}
+Graduate thesis work
+:::
+
+![User sentiment migration trend for text and image](migration.png){.lightbox}
+
+## Background
+
+The COVID-19 pandemic presented a unique challenge for understanding human sentiment, as it occurred alongside an increasingly interactive and dynamic online environment. Prior pandemics did not have such widespread online platforms where public sentiment could be so readily expressed and analyzed in real-time. This study aims to explore the unprecedented shift in human sentiments across cyberspace during the COVID-19 pandemic, leveraging the vast amount of social media content available on platforms like Twitter to understand how sentiments evolved over time and in response to the crisis.
+
+## Methodology
+
+![](method.png){.lightbox}
+
+We conducted a bimodal longitudinal analysis of sentiment trends throughout the COVID-19 pandemic, utilizing a dataset of 56,789 Tweets from 569 users over a period of 724 days, spanning from 2019 to 2020. The analysis focused on both textual content and images to track sentiment changes in a comprehensive manner. Our approach included reviewing existing sentiment classifier libraries and developing a novel classification technique for enhancing sentiment analysis in text-based Tweets. Additionally, we performed exploratory data analysis on the sentiment trends in both text and images to identify significant shifts and patterns in expression related to the pandemic.
+
+## Findings
+
+![The abrupt change in sentiment trend around COVID-19 outbreak for positive tweets](changepoint.png){.lightbox width="45%"}
+![Correlation between same sentiment text and image tweets. The "jump" of positive sentiment during outbreak is interesting.](result.png){.lightbox width="45%" }
+
+The results of our analysis revealed notable changes in sentiment during the pandemic: a 10.55% increase in negative sentiment in the text of Tweets and a 24.52% decrease in positive sentiment expressed in images. The bimodal investigation highlighted a correlation between sentiment changes in textual content and images, suggesting that social media users expressed sentiment across multiple modalities in tandem. Furthermore, we identified specific change-points that marked the shifts in sentiment between pre-pandemic and pandemic periods. This study introduces a novel framework for bimodal sentiment analysis and provides valuable insights into how sentiment evolves during global crises, which could inform decision-making by policymakers and social scientists.

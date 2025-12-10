@@ -1,0 +1,46 @@
+---
+title: "iSpLib: A library for accelerating graph neural networks using auto-tuned sparse operations"
+categories: ["PyTorch", "GNN", "C++", "Auto-tuned", "CPU", "Sparse Linear Algebra", "WebConf2024"]
+description: "An auto-tuned Sparse Matrix-multiplcation Library for GNN training and inference."
+date: "04/01/2024"
+image: workflow.png
+---
+
+::: {.callout-note appearance="minimal" title="Note" icon=false collapse=false}
+
+PhD Research Project
+
+* Poster presented in Luddy AI Center (Indiana, 2023) and ICICLE All Hands Meeting (Ohio, 2023)
+* Published in WebConf 2024 (Previously WWW)
+
+[Web Conference 2024](https://www2024.thewebconf.org/accepted/short-papers/){.badge .bg-danger .rounded-pill}
+[GitHub](https://github.com/HipGraph/iSpLib){.badge .bg-primary .rounded-pill}
+[Paper](https://arxiv.org/pdf/2403.14853){.badge .bg-primary .rounded-pill}
+
+[Artifact Available](https://zenodo.org/records/10806512){.badge .bg-success }
+
+:::
+
+![](presentation.jpeg ){.lightbox width=0.5}
+
+## Background
+
+Training and inference in Graph Neural Networks (GNNs) often rely on sparse matrix operations, such as sparse-dense matrix multiplication (SpMM). These operations are challenging to optimize manually due to their dependence on the sparsity patterns of input graphs, the architecture of GNN models, and the characteristics of the underlying hardware. Existing frameworks like PyTorch and PyTorch Geometric provide general implementations, but they often fail to fully exploit hardware capabilities or the specific sparsity patterns in GNN workloads, leading to suboptimal performance.
+
+## Methodology
+
+![](workflow.png){.lightbox}
+
+To address these challenges, we introduce iSpLib, a PyTorch-based C++ library that provides auto-tuned sparse operations specifically designed to accelerate GNN training. Key features of iSpLib include:
+
+* Cache-enabled backpropagation: Intermediate matrices are stored in local caches during training, reducing redundant computations and improving efficiency.
+
+* Python plug-in interface: Users can easily integrate iSpLib’s optimized sparse operations into any existing GNN model, including Graph Convolution Networks (GCNs), GraphSAGE, or Graph Inference Networks, with only two additional lines of code.
+
+* Auto-tuning mechanisms: Sparse operations are automatically tuned based on the input graph structure, GNN model, and hardware characteristics, minimizing manual optimization effort.
+
+## Findings
+
+![](tuning-graph.png){.lightbox}
+
+Experimental evaluations demonstrate that iSpLib provides substantial performance improvements over standard implementations. Specifically, training GNNs with iSpLib achieves up to 27× speedup on CPU compared to PyTorch 2.1.0 and PyTorch Geometric 2.4.

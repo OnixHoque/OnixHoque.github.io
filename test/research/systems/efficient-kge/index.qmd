@@ -1,0 +1,29 @@
+---
+title: "A Sparse Approach for Translation-based Training of Knowledge Graph Embeddings"
+categories: ["TransE", "KGE", "SpMM", "SC24"]
+description: "SC24 Best poster finalist. This work accelerates knowledge-graph embedding training by replacing traditional scatter/gather operations with sparse–dense matrix multiplication, reducing memory usage and achieving significant CPU, GPU, and multi-GPU speedups."
+date: "11/25/2024"
+image: sc24.png
+---
+
+::: {.callout-note appearance="minimal" title="Note" icon=false collapse=false}
+PhD Research Project 
+
+[SC24 Best Poster Finalist](https://sc24.supercomputing.org/proceedings/poster/poster_pages/post275.html){.badge .bg-danger .rounded-pill}
+[Poster (PDF)](https://sc24.supercomputing.org/proceedings/poster/poster_files/post275s2-file2.pdf){.badge .bg-primary .rounded-pill}
+[Paper](https://sc24.supercomputing.org/proceedings/poster/poster_files/post275s2-file3.pdf){.badge .bg-primary .rounded-pill}
+:::
+
+![](presentation.jpeg){.lightbox}
+
+## Background
+
+In this work, we explored how to make knowledge graph (KG) embedding training process through expressing it with a more efficient sparse linear algebra kernels. While KG embedding models are widely used, their training process can be extremely time-consuming, particularly for large datasets. Through our analysis, we identify gradient computation of embeddings and vector normalization as the most time-dominating components of the KG embedding training loop. These bottlenecks motivate our investigation into more efficient computation strategies.
+
+## Methodology
+
+To address the high computational cost, we replace the core embedding operations with SpMM (Sparse–Dense Matrix Multiplication) kernels. This approach unifies multiple scatter and gather operations into a single sparse operation, reducing both training time and memory usage. We apply this sparse computation strategy to the TransE model and evaluate its performance on both CPUs and GPUs. Additionally, we scale the method across a distributed environment using 64 GPUs to assess its effectiveness under large-scale parallelism.
+
+## Findings
+
+Our sparse SpMM-based approach significantly accelerates KG embedding training. On the TransE model, we achieve up to a 5.3× speedup on CPU and up to a 4.2× speedup on GPU. When distributed across 64 GPUs, the method delivers up to a 3.9× improvement per epoch. These results demonstrate that unifying scatter/gather operations through sparse kernels can effectively mitigate training bottlenecks, offering substantial gains in efficiency for large-scale KG learning.

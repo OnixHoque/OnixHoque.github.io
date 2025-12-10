@@ -1,0 +1,173 @@
+- categories: ["Talk"]
+  News: "Two-Day Session on Distributed Data Parallel (DDP) for TAMU CSCE-654: Supercomputing Course"
+  date: "10/01/2025"
+  path: "/teaching/#guest-lecture-at-texas-am"
+
+- categories: ["Talk", "Poster"]
+  News: "Berlekey talk about our ongoing systems work on **GNN model parallelism**"
+  date: "11/01/2025"
+  path: "/research/systems/graph-mp/"
+
+- categories: ["Internship", "Job"]
+  News: "Summer Internship at **Amazon Sagemaker** on vLLM Systems. Designed a differentiable kernel tuner with transfer learning feature."
+  date: "05/01/2025"
+  path: "/research/systems/gpu-tuner-amazon/"
+
+- categories: ["Paper"]
+  News: "Paper accepted on **MLSys 2025**! Expressed 10 KGE models using sparse-dense matrix multiplication."
+  date: "02/01/2025"
+  path: "/research/systems/sptransx/"
+
+- categories: ["Book Chapter"]
+  News: "Book Chapter on Complex Networks 2024! Collaboration work. Developed Neo4j interface for KGE application."
+  date: "12/01/2024"
+  path: "/research/systems/wmd/"
+
+- categories: ["Poster", "Recognition"]
+  News: "Best poster finalist (top-6) at **SC24**! Expressed TransE KGE model using sparse-dense matrix multiplication."
+  date: "11/01/2024"
+  path: "/research/systems/efficient-kge/"
+
+- categories: ["Publication"]
+  News: "Paper accepted at WebConf 2024! Developed CPU PyTorch SpMM operator for GNN training with auto-tuner backend."
+  date: "04/01/2024"
+  path: "/research/systems/isplib/"
+
+- categories: ["Recognition"]
+  News: "Received Google Foobar Challenge!"
+  date: "04/01/2023"
+  path: ""
+
+- categories: ["Award"]
+  News: "Received Luddy Summer Fellowship ($8,400)!"
+  date: "08/01/2022"
+  path: ""
+
+- categories: ["Service"]
+  News: "Paper Reviewer, Asian CHI Symposium 2020"
+  date: "05/01/2020"
+  path: "https://asian-chi.github.io/2020/organizing/"
+
+- categories: ["Award"]
+  News: "Champion at BRAC Hackathon 2015 Android App Development ($2,500)!"
+  date: "12/01/2015"
+  path: "https://www.prothomalo.com/technology/%E0%A6%B8%E0%A6%BE%E0%A6%AE%E0%A6%BE%E0%A6%9C%E0%A6%BF%E0%A6%95-%E0%A6%B8%E0%A6%AE%E0%A6%B8%E0%A7%8D%E0%A6%AF%E0%A6%BE%E0%A6%B0-%E0%A6%B8%E0%A6%AE%E0%A6%BE%E0%A6%A7%E0%A6%BE%E0%A6%A8%E0%A7%87-%E0%A6%B8%E0%A6%BE%E0%A6%A4-%E0%A6%85%E0%A7%8D%E0%A6%AF%E0%A6%BE%E0%A6%AA"
+
+- categories: ["Award"]
+  News: "Received BUET Undergraduate Scholarship"
+  date: "04/01/2013"
+  path: ""
+
+- categories: ["Milestone"]
+  News: "aayatun.com has reached 100K+ monthly users! Made it open-source!"
+  date: "04/01/2025"
+  path: "https://www.linkedin.com/feed/update/urn:li:activity:7310688419192471552/"
+
+- categories: ["Service"]
+  News: "Postgraduate Coordinator at CSE Deptartment, MIST"
+  date: "01/01/2019"
+  path: ""
+
+- categories: ["Service"]
+  News: "Coordinator, BUET System Analysis, Design, and Development Community"
+  date: "12/01/2015"
+  path: "https://cse.buet.ac.bd/bsadd/"
+
+- categories: ["Service"]
+  News: "Assistant Technical Coordinator, UIU Innobotics"
+  date: "02/01/2020"
+  path: ""
+
+- categories: ["Service"]
+  News: "Steering Committee Member, Outcome-Based Education (OBE) Initiative at MIST"
+  date: "07/01/2018"
+  path: ""
+
+- categories: ["Service"]
+  News: "Coordinator, CSE Postgraduate Programs, MIST"
+  date: "01/01/2019"
+  path: ""
+
+- categories: ["Talk"]
+  News: "Speaker at Cyber Security Training Program 2019, MIST. Talked about web-security and cross-site scripting attacks."
+  date: "07/01/2019"
+  path: ""
+
+- categories: ["Workshop"]
+  News: "Workshop Instructor, Unicode Typing Training Program 2018, MIST"
+  date: "10/01/2018"
+  path: ""
+
+- categories: ["Service"]
+  News: "Technical Coordinator, Inter-University Programming Contest (IUPC) 2019, MIST"
+  date: "01/01/2019"
+  path: ""
+
+
+- categories: ["Service"]
+  News: "Member Secretary, Syllabus Review Committee for OBE Implementation, MIST"
+  date: "12/01/2018"
+  path: ""
+
+
+- categories: ["Service"]
+  News: "External Supervisor, CSE Dept FYDP-II Summer 2021, MIST"
+  date: "11/01/2021"
+  path: ""
+
+- categories: ["Service"]
+  News: "Member, Outcome-Based Education (OBE) Revision Team, UIU"
+  date: "01/01/2021"
+  path: ""
+
+- categories: ["Publication"]
+  News: "Author, 42-Page Guide on Java for C++ Programmers (Self-Published). Shared online as a free resource for programmers transitioning from C++ to Java."
+  date: "04/01/2018"
+  path: "https://drive.google.com/file/d/1Ttl1GGjqBGe6Gl8rCUqYBfJCcgz4iie1/view"
+
+- categories: ["Workshop", "Video Tutorial"]
+  News: "Organizer & Instructor, 5-Day Android Workshop at Samsung R&D Lab, BUET for System Analysis, Design, and Development (BSADD). Conducted tutorial classes and made full workshop content available online for free."
+  date: "03/01/2016"
+  path: "https://sites.google.com/site/droidworkshop2016/home"
+
+- categories: ["Video Tutorial"]
+  News: "YouTube Content Creator: Video Tutorials on Programming Concepts, Data Structures & Algorithms, including C++ STL"
+  date: "11/01/2014"
+  path: "https://www.youtube.com/@OnixHoque/videos"
+
+- categories: ["Job"]
+  News: "Started first job as adjunt Faculty in Department of CSE, MIST"
+  date: "02/01/2017"
+  path: ""
+
+- categories: ["Job"]
+  News: "Joined United International University (UIU) as a Faculty in Department of CSE"
+  date: "01/01/2020"
+  path: ""
+
+
+- categories: ["Graduate Studies", "Job"]
+  News: "Started graduate studies in Computer Science at Indiana University Bloomington (IUB)"
+  date: "08/01/2022"
+  path: ""
+
+- categories: ["Graduate Studies", "Job"]
+  News: "Started PhD in Computer Science and Engineering at Texas A&M University"
+  date: "01/01/2025"
+  path: ""
+
+- categories: ["Graduate Studies"]
+  News: "Started part-time graduate studies in Computer Science at Bangladesh University of Engineering and Technology (BUET)"
+  date: "04/01/2017"
+  path: ""
+
+- categories: ["Graduate Studies"]
+  News: "Completed part-time graduate studies in Computer Science at Bangladesh University of Engineering and Technology (BUET)"
+  date: "08/01/2022"
+  path: ""
+
+- categories: ["Graduate Studies", "Job"]
+  News: "Completed graduate studies in Indiana University Bloomington (IUB) with a CGPA of 4.00/4.00"
+  date: "08/01/2024"
+  path: ""
+

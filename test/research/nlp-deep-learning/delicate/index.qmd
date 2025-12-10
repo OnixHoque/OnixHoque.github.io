@@ -1,0 +1,28 @@
+---
+title: "An Enhanced RBMT: When RBMT Outperforms Modern Data-Driven Translators"
+categories: ["Journal", "NLP", "Hybrid", "Deep Learning", "LSTM", "Machine Translation", "Rule-based"]
+description: "I improved Bengali-to-English translation by evaluating rule-based, SMT, and NMT methods and contributing an RNN seq2seq training pipeline for enhanced low-resource translation performance."
+date: "03/01/2021"
+image: nca.png
+---
+
+::: {.callout-note appearance="minimal" title="Note" icon=false collapse=false}
+
+* Master's Research Collaboration
+
+[Neural Computing and Applications 33.18 (2021)](https://link.springer.com/article/10.1007/s00521-021-05895-x){.badge .bg-danger .rounded-pill}
+[Paper](https://drive.google.com/file/d/1e9EvMnBEqkXGDhRDVQ46OrOtrM0YaX3M/view){.badge .bg-primary .rounded-pill}
+
+:::
+
+![](rnn.png){.lightbox}
+
+## Overview
+
+Popular translation systems such as Google and Bing perform reliably for high-resource language pairs like English–French but often produce elementary errors when handling low-resource languages such as Bengali or Arabic. Although modern systems rely heavily on Neural Machine Translation (NMT)—with earlier systems using Statistical Machine Translation (SMT)—both approaches depend on large, high-quality parallel corpora. This dependency leaves many widely spoken yet low-resource languages, including Bengali, insufficiently explored in mainstream AI research.
+
+This study aims to improve Bengali-to-English translation quality by examining rule-based, SMT-based, and NMT-based approaches individually and in various hybrid configurations. We adopt established corpus-based translators (SMT and NMT) alongside a rule-based system, then evaluate multiple integration strategies that blend rule-based and data-driven methods. Through extensive experimentation across several datasets, we identify the best-performing configuration reported to date for Bengali-to-English translation and highlight how these hybrid strategies can generalize to other low-resource languages.
+
+## Contribution
+
+My primary contribution was the design and implementation of the RNN-based seq2seq NMT training pipeline. This included developing the end-to-end data preprocessing workflow, constructing and tuning the encoder–decoder architecture, managing the training regimen, and integrating the resulting NMT model into the broader evaluation and hybridization framework used in this study.

@@ -1,0 +1,28 @@
+---
+title: "Towards Devising An Automated System for Determining The Length of A Traffic Jam in Dhaka City"
+categories: ["Arduino Nano", "GSM Device", "Ultrasonic Sensor"]
+description: "An undergraduate thesis investigating road-condition and traffic-jam detection in Dhaka City using ultrasonic sensors connected to Arduino Nano and GSM modules, which transmit data to a central server for processing."
+date: "02/01/2017"
+image: jam.png
+---
+
+::: {.callout-note appearance="minimal" title="Note" icon=false collapse=false}
+Undergraduate Thesis Work
+
+[PDF](https://drive.google.com/file/d/1yEivuLhtMUKZcCJOkX8dfG7ecBQtFCzd/view){.btn .btn-outline-primary}
+:::
+
+![Image: Jam locations from satelite](jam.png){.lightbox}
+
+
+## Background
+
+In this thesis, we investigate the development of a road-condition sensing and traffic-congestion detection system tailored to the unique environment of Dhaka City. We observe that traditional traffic-signal generation methods often fail to address Dhaka’s irregular road patterns, diverse vehicle types, and frequent roadside obstructions. These challenges motivate our pursuit of a more adaptive, sensor-driven approach capable of capturing real-time traffic dynamics.
+
+## Methodology
+
+We designed a system that uses ultrasonic sensors connected to Arduino Nano microcontrollers and GSM modules. Our sensor nodes collect distance and movement data and transmit them to a central server for processing. We built a network of sensors linked to a central computer that analyzes vehicle behavior and estimates traffic conditions, including the length of congestion. Throughout development, we worked to reduce noise in sonar readings, handle the variability of irregularly shaped vehicles and their unpredictable movements, and filter out interference from pedestrians and roadside vendors such as food carts.
+
+## Findings
+
+Through our prototype implementation, we demonstrate the feasibility of using low-cost ultrasonic sensors and GSM communication to monitor real-time road conditions in complex urban environments. Our results show that the system can distinguish vehicle patterns, estimate congestion levels, and maintain reliable data transmission despite environmental challenges. We conclude that a sensor-based traffic monitoring approach offers a more responsive and context-aware alternative to conventional traffic-signal generation methods in cities like Dhaka.

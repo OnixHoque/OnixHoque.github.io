@@ -1,0 +1,32 @@
+---
+title: "A Study on the Effects of Smoothing in Time Series Prediction"
+categories: ["Time Series Prediction", "Smoothing", "NSysS"]
+description: "A survey on the impact of various smoothing technique in temporal data prediction models."
+date: "12/01/2021"
+image: trends.png
+---
+
+::: {.callout-note appearance="minimal" title="Note" icon=false collapse=false}
+
+Graduate Research Work
+
+* Poster presentation
+
+[NSysS 2021](https://cse.buet.ac.bd/nsyss2021/){.badge .bg-danger .rounded-pill}
+[Poster](https://drive.google.com/file/d/1Ht0Czfc8wzvd8wefoFjnB3VjUcdhpKF9/view){.badge .bg-primary .rounded-pill}
+
+:::
+
+![](trends.png){.lightbox width="50%"}
+
+## Background
+
+Smoothing filters are commonly applied in time series data analysis to reduce noise and improve prediction accuracy. These filters, such as exponential smoothing and regression-based filters, are particularly effective when working with sentiment data, especially data collected from social media platforms. Sentiment data from sources like Twitter can often contain outliers due to the nature of social media content, making it challenging to obtain reliable predictions. By removing noise through smoothing, we aim to enhance the quality of predictions for sentiment trends, which can vary over time. This study explores whether applying a smoothing filter before training a prediction model can improve the accuracy of sentiment trend predictions. Specifically, we focus on sentiment data categorized into positive, negative, and neutral trends, both for text and image-based tweets.
+
+## Methodology
+
+To evaluate the impact of smoothing on prediction accuracy, we apply six different types of trends, including positive, negative, and neutral sentiment for both text and image-based tweets. The dataset includes 300 days of aggregated data for each trend category: 17,25,297 values for text sentiment and 3,62,079 values for image sentiment. We use Facebook's Prophet, a popular forecasting library, to predict sentiment trends. The model is trained using the first 240 days of data and then forecasts the sentiment trend for the subsequent 60 days. We experiment with various smoothing techniques, including exponential smoothing, seasonal decomposition, and polynomial smoothing, to determine if smoothing the data before training improves the predictive performance.
+
+## Findings
+
+The effectiveness of smoothing filters varies depending on the type of sentiment trend being predicted. The results indicate that filtering actually worsens prediction accuracy in certain cases, specifically for Positive/Neutral Text and Positive Image sentiment trends. However, seasonal decomposition outperforms other methods for predicting Negative Text and Neutral Image trends, likely due to its ability to handle seasonality in the data. On the other hand, polynomial smoothing yields the best results for predicting Negative Image trends. These findings suggest that while smoothing can improve accuracy in some contexts, its effectiveness is highly dependent on the type of sentiment trend and the nature of the data.
