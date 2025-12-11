@@ -347,14 +347,14 @@
     "href": "index.html",
     "title": "Md Saidul Hoque Anik",
     "section": "",
-    "text": "I am a PhD candidate in Computer Science and Engineering at Texas A&M, specializing in high-performance and distributed Machine Learning Systems. Particularly, I map and customize sparse linear algebra libraries to optimize the efficiency of sparse machine-learning pipelines. My industry experience includes an internship at Amazon AWS, where I developed an end-to-end differentiable GPU kernel autotuner for LLM inference, which significantly improved efficiency by applying transfer learning to reduce new kernel tuning time from days to hours. My core PhD research focuses on accelerating Graph Learning models (GNNs, KGEs, GraphRAG) through new distributed methods and customized sparse linear algebra."
+    "text": "I am a PhD candidate in Computer Science and Engineering at Texas A&M, specializing in high-performance and distributed Machine Learning Systems. Particularly, I map and customize sparse linear algebra libraries to optimize the efficiency of sparse machine-learning pipelines. My industry experience includes an internship at Amazon AWS, where I developed an end-to-end differentiable GPU kernel autotuner for LLM inference, which significantly improved efficiency by applying transfer learning to reduce new kernel tuning time from days to hours. My core PhD research focuses on accelerating Graph Learning models (GNNs, KGEs, GraphRAG) through new distributed methods and customized sparse linear algebra.\nI can:\n\nBuild custom PyTorch training pipelines for Graph Neural Networks using efficient sparse linear algebra.\nIntegrate high-performance C++ libraries into PyTorch workflows through LibTorch and PyBind11.\nDevelop distributed training pipelines with PyTorch Distributed, including robust disk-based data streaming.\nProfile Python code with native C/C++ backends to identify and resolve performance bottlenecks."
   },
   {
     "objectID": "index.html#about-me",
     "href": "index.html#about-me",
     "title": "Md Saidul Hoque Anik",
     "section": "",
-    "text": "I am a PhD candidate in Computer Science and Engineering at Texas A&M, specializing in high-performance and distributed Machine Learning Systems. Particularly, I map and customize sparse linear algebra libraries to optimize the efficiency of sparse machine-learning pipelines. My industry experience includes an internship at Amazon AWS, where I developed an end-to-end differentiable GPU kernel autotuner for LLM inference, which significantly improved efficiency by applying transfer learning to reduce new kernel tuning time from days to hours. My core PhD research focuses on accelerating Graph Learning models (GNNs, KGEs, GraphRAG) through new distributed methods and customized sparse linear algebra."
+    "text": "I am a PhD candidate in Computer Science and Engineering at Texas A&M, specializing in high-performance and distributed Machine Learning Systems. Particularly, I map and customize sparse linear algebra libraries to optimize the efficiency of sparse machine-learning pipelines. My industry experience includes an internship at Amazon AWS, where I developed an end-to-end differentiable GPU kernel autotuner for LLM inference, which significantly improved efficiency by applying transfer learning to reduce new kernel tuning time from days to hours. My core PhD research focuses on accelerating Graph Learning models (GNNs, KGEs, GraphRAG) through new distributed methods and customized sparse linear algebra.\nI can:\n\nBuild custom PyTorch training pipelines for Graph Neural Networks using efficient sparse linear algebra.\nIntegrate high-performance C++ libraries into PyTorch workflows through LibTorch and PyBind11.\nDevelop distributed training pipelines with PyTorch Distributed, including robust disk-based data streaming.\nProfile Python code with native C/C++ backends to identify and resolve performance bottlenecks."
   },
   {
     "objectID": "index.html#research-background",
@@ -368,7 +368,7 @@
     "href": "index.html#featured-research",
     "title": "Md Saidul Hoque Anik",
     "section": "Featured Research",
-    "text": "Featured Research\nDifferentiable Autotuner Sparse T SparseTransX - Published in MLSys 2025 [Badge: Available, Reproducable] iSpLib"
+    "text": "Featured Research\n\nSC24 best poster finalist (top-6): Expressed TransE Knowledge Graph Embedding (KGE) training using faster sparse-dense matrix multiplication kernel.\nMLSys 2025 Paper: Generalized 10 KGE model training using faster sparse-dense matrix multiplication kernel.\nAmazon Summer Internship 2025: Developed Differentiable GPU Kernel Autotuner.\n\nSee all 20+ research projects here. Or, see an overview of my progress here."
   },
   {
     "objectID": "projects/index.html",

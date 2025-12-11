@@ -18,14 +18,14 @@ website:
         text: Softwares
       - href: teaching
         text: Teaching
-      - href: community
-        text: Community
-      - href: community
-        text: Blog
-      - href: miscellaneous
-        text: Miscellaneous
-      - href: Anik_CV_Nov_2025.pdf
-        text: CV
+      # - href: community
+      #   text: Community
+      # - href: community
+      #   text: Blog
+      # - href: miscellaneous
+      #   text: Miscellaneous
+      # - href: Anik_CV_Nov_2025.pdf
+      #   text: CV
 
 format:
   html:
@@ -41,7 +41,7 @@ format:
       dark: cyborg
     css: styles.css
     toc: true
-    fontsize: 1em
+    fontsize: 1.1em
 
 execute: 
   enabled: true

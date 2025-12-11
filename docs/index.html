@@ -42,9 +42,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-38395bc95730428e7257ac3aaf9dee6a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-80f53ea1aa0a1593ec20f8fd658c8e11.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-38395bc95730428e7257ac3aaf9dee6a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-f71f0ef933c71ddcfcc1ff9a1a9925f7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-034d1b716cca99f204bd22b710d330b9.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-f71f0ef933c71ddcfcc1ff9a1a9925f7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -279,22 +279,6 @@ ul.task-list li input[type="checkbox"] {
     <a class="nav-link" href="./teaching"> 
 <span class="menu-text">Teaching</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./community"> 
-<span class="menu-text">Community</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./community"> 
-<span class="menu-text">Blog</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./miscellaneous"> 
-<span class="menu-text">Miscellaneous</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./Anik_CV_Nov_2025.pdf"> 
-<span class="menu-text">CV</span></a>
-  </li>  
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
@@ -307,18 +291,9 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-  <ul>
-  <li><a href="#about-me" id="toc-about-me" class="nav-link active" data-scroll-target="#about-me">About Me</a></li>
-  <li><a href="#research-background" id="toc-research-background" class="nav-link" data-scroll-target="#research-background">Research Background</a></li>
-  <li><a href="#featured-research" id="toc-featured-research" class="nav-link" data-scroll-target="#featured-research">Featured Research</a></li>
-  </ul>
-</nav>
-    </div>
+    
 <!-- main -->
-<div class="quarto-about-trestles column-page-left">
+<div class="quarto-about-trestles column-page">
   <div class="about-entity">
     <img src="images/propic2.png" class="about-image
   rounded " style="width: 20em;" title="At MLSys 2025">
@@ -331,26 +306,22 @@ ul.task-list li input[type="checkbox"] {
     PhD Candidate | Scalable and Differentiable Sparse Kernels for Graph Learning | ML Systems Optimization
   </div>
 </div>
-<div class="quarto-title-meta column-page-left">
+<div class="quarto-title-meta column-page">
   </div>
 </header>
-    <div class="about-links">
-  <a href="https://twitter.com" class="about-link" rel="" target="">
-    <i class="bi bi-twitter"></i>
-     <span class="about-link-text">twitter</span>
-  </a>
-  <a href="https://github.com" class="about-link" rel="" target="">
-    <i class="bi bi-github"></i>
-     <span class="about-link-text">Github</span>
-  </a>
-</div>
   </div>
-  <div class="about-contents"><main class="content column-page-left" id="quarto-document-content">
-
+  <div class="about-contents"><main class="content column-page" id="quarto-document-content">
 
 <section id="about-me" class="level2">
 <h2 data-anchor-id="about-me">About Me</h2>
 <p>I am a PhD candidate in Computer Science and Engineering at Texas A&amp;M, specializing in high-performance and distributed Machine Learning Systems. Particularly, I map and customize sparse linear algebra libraries to optimize the efficiency of sparse machine-learning pipelines. My industry experience includes an internship at Amazon AWS, where I developed an end-to-end differentiable GPU kernel autotuner for LLM inference, which significantly improved efficiency by applying transfer learning to reduce new kernel tuning time from days to hours. My core PhD research focuses on accelerating Graph Learning models (GNNs, KGEs, GraphRAG) through new distributed methods and customized sparse linear algebra.</p>
+<p>I can:</p>
+<ul>
+<li>Build custom PyTorch training pipelines for Graph Neural Networks using efficient sparse linear algebra.</li>
+<li>Integrate high-performance C++ libraries into PyTorch workflows through LibTorch and PyBind11.</li>
+<li>Develop distributed training pipelines with PyTorch Distributed, including robust disk-based data streaming.</li>
+<li>Profile Python code with native C/C++ backends to identify and resolve performance bottlenecks.</li>
+</ul>
 </section>
 <section id="research-background" class="level2">
 <h2 data-anchor-id="research-background">Research Background</h2>
@@ -359,7 +330,13 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="featured-research" class="level2">
 <h2 data-anchor-id="featured-research">Featured Research</h2>
-<p>Differentiable Autotuner Sparse T SparseTransX - Published in MLSys 2025 [Badge: Available, Reproducable] iSpLib <!-- ::: --></p>
+<ul>
+<li><a href="./research/systems/efficient-kge/index.html">SC24 best poster finalist (top-6): Expressed TransE Knowledge Graph Embedding (KGE) training using faster sparse-dense matrix multiplication kernel.</a></li>
+<li><a href="./research/systems/sptransx/index.html">MLSys 2025 Paper: Generalized 10 KGE model training using faster sparse-dense matrix multiplication kernel.</a></li>
+<li><a href="./research/systems/gpu-tuner-amazon/index.html">Amazon Summer Internship 2025: Developed Differentiable GPU Kernel Autotuner.</a></li>
+</ul>
+<p>See all 20+ research projects <a href="./research/index.html">here</a>. Or, see an overview of my progress <a href="./news/index.html">here</a>.</p>
+<!-- ::: -->
 
 
 </section>
