@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="An effort to improve translation accuracy by combining multiple seq2seq neural machine translation models with augmented training data, completed as part of the CSE6207 project work.">
+<meta name="description" content="An undergraduate thesis investigating road-condition and traffic-jam detection in Dhaka City using ultrasonic sensors connected to Arduino Nano and GSM modules, which transmit data to a central server for processing.">
 
-<title>A Fault Tolerant Neural Machine Translation System – Md Saidul Hoque Anik</title>
+<title>Towards Devising An Automated System for Determining The Length of A Traffic Jam in Dhaka City – Md Saidul Hoque Anik</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -24,31 +24,31 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../../../">
-<script src="../../../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="../../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b758ccaa5987ceb1b75504551e579abf.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
-<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap-038a103d4a9cf255c75ac97a161d84de.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../../site_libs/bootstrap/bootstrap-dark-3776982185214b6e9fac11378b4e0f3a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../../site_libs/bootstrap/bootstrap-038a103d4a9cf255c75ac97a161d84de.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
-<script src="../../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
-<link href="../../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<script src="../../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../../">
+<script src="../../../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b758ccaa5987ceb1b75504551e579abf.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../../../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../../site_libs/bootstrap/bootstrap-038a103d4a9cf255c75ac97a161d84de.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../../../site_libs/bootstrap/bootstrap-dark-3776982185214b6e9fac11378b4e0f3a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../../../site_libs/bootstrap/bootstrap-038a103d4a9cf255c75ac97a161d84de.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../../../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../../../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../../../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -81,7 +81,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="https://fonts.cdnfonts.com/css/palatino" rel="stylesheet">
 
 
-<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../../styles.css">
 </head>
 
 <body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
@@ -253,7 +253,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../../../index.html">
+    <a class="navbar-brand" href="../../../../index.html">
     <span class="navbar-title">Md Saidul Hoque Anik</span>
     </a>
   </div>
@@ -264,39 +264,39 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../../index.html"> 
+    <a class="nav-link" href="../../../../index.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../research"> 
+    <a class="nav-link" href="../../../../research"> 
 <span class="menu-text">Research</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../news"> 
+    <a class="nav-link" href="../../../../news"> 
 <span class="menu-text">News</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../projects"> 
+    <a class="nav-link" href="../../../../projects"> 
 <span class="menu-text">Softwares</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../teaching"> 
+    <a class="nav-link" href="../../../../teaching"> 
 <span class="menu-text">Teaching</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../community"> 
+    <a class="nav-link" href="../../../../community"> 
 <span class="menu-text">Community</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../community"> 
+    <a class="nav-link" href="../../../../community"> 
 <span class="menu-text">Blog</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../miscellaneous"> 
+    <a class="nav-link" href="../../../../miscellaneous"> 
 <span class="menu-text">Miscellaneous</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../Anik_CV_Nov_2025.pdf"> 
+    <a class="nav-link" href="../../../../Anik_CV_Nov_2025.pdf"> 
 <span class="menu-text">CV</span></a>
   </li>  
 </ul>
@@ -328,18 +328,17 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">A Fault Tolerant Neural Machine Translation System</h1>
+<h1 class="title">Towards Devising An Automated System for Determining The Length of A Traffic Jam in Dhaka City</h1>
   <div class="quarto-categories">
-    <div class="quarto-category">Fault Tolerant</div>
-    <div class="quarto-category">Machine Translation</div>
-    <div class="quarto-category">NLP</div>
-    <div class="quarto-category">Tensorflow</div>
+    <div class="quarto-category">Arduino Nano</div>
+    <div class="quarto-category">GSM Device</div>
+    <div class="quarto-category">Ultrasonic Sensor</div>
   </div>
   </div>
 
 <div>
   <div class="description">
-    An effort to improve translation accuracy by combining multiple seq2seq neural machine translation models with augmented training data, completed as part of the CSE6207 project work.
+    An undergraduate thesis investigating road-condition and traffic-jam detection in Dhaka City using ultrasonic sensors connected to Arduino Nano and GSM modules, which transmit data to a central server for processing.
   </div>
 </div>
 
@@ -350,7 +349,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">August 2017</p>
+      <p class="date">February 2017</p>
     </div>
   </div>
   
@@ -374,29 +373,28 @@ ul.task-list li input[type="checkbox"] {
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
-<p>Graduate Course Project</p>
-<ul>
-<li>CSE6207 (Advanced Dependable and Fault-Tolerant Computer Systems) with Dr.&nbsp;Alim Al Islam Razi</li>
-</ul>
-<p><a href="https://drive.google.com/file/d/1uNhTc95pGrOf7KVZUhHRYvfSVG4EiIci/view" class="badge bg-primary rounded-pill">Slides</a></p>
+<p>Undergraduate Thesis Work</p>
+<p><a href="https://drive.google.com/file/d/1yEivuLhtMUKZcCJOkX8dfG7ecBQtFCzd/view" class="btn btn-outline-primary">PDF</a></p>
 </div>
 </div>
 </div>
-<p><a href="models.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="models.png" class="img-fluid"></a></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="jam.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Image: Jam locations from satelite"><img src="jam.png" class="img-fluid figure-img" alt="Image: Jam locations from satelite"></a></p>
+<figcaption>Image: Jam locations from satelite</figcaption>
+</figure>
+</div>
 <section id="background" class="level2">
 <h2 class="anchored" data-anchor-id="background">Background</h2>
-<p>Neural machine translation (NMT) systems built on sequence-to-sequence (seq2seq) architectures have become the standard for automated translation, yet individual models still struggle with linguistic ambiguity, domain shifts, and low-resource language pairs. These limitations often lead to inconsistent phrasing, mistranslations, or reduced fluency, particularly when the training data is sparse or uneven. We explored whether combining multiple translation models and strengthening the training corpus could address these challenges. By leveraging the idea that different models may capture complementary linguistic patterns, we aimed to create a system capable of generating more accurate and robust translations than any single model alone.</p>
+<p>In this thesis, we investigate the development of a road-condition sensing and traffic-congestion detection system tailored to the unique environment of Dhaka City. We observe that traditional traffic-signal generation methods often fail to address Dhaka’s irregular road patterns, diverse vehicle types, and frequent roadside obstructions. These challenges motivate our pursuit of a more adaptive, sensor-driven approach capable of capturing real-time traffic dynamics.</p>
 </section>
 <section id="methodology" class="level2">
 <h2 class="anchored" data-anchor-id="methodology">Methodology</h2>
-<p><a href="method.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="method.png" class="img-fluid"></a></p>
-<p>Our approach centered on two key strategies: model ensembling and dataset augmentation. For ensembling, we trained three seq2seq translation models, each on a different portion of the available training data to encourage diversity in their learned representations. Instead of traditional ensemble methods such as probability averaging or beam-level voting, we generated translations from all three models and then computed pairwise BLEU scores to assess their agreement. Using these scores, we performed a majority-voting procedure to select the final output, favoring translations that were most consistent across models.</p>
-<p>In parallel, we augmented the dataset by partitioning it into distinct subsets for the three models, effectively exposing each model to a different slice of the overall data distribution. This form of data diversification served as a lightweight augmentation technique, increasing variability without introducing synthetic noise. We evaluated the resulting hybrid system using standard machine translation benchmarks, measuring its accuracy, fluency, and robustness across multiple test sets.</p>
+<p>We designed a system that uses ultrasonic sensors connected to Arduino Nano microcontrollers and GSM modules. Our sensor nodes collect distance and movement data and transmit them to a central server for processing. We built a network of sensors linked to a central computer that analyzes vehicle behavior and estimates traffic conditions, including the length of congestion. Throughout development, we worked to reduce noise in sonar readings, handle the variability of irregularly shaped vehicles and their unpredictable movements, and filter out interference from pedestrians and roadside vendors such as food carts.</p>
 </section>
 <section id="findings" class="level2">
 <h2 class="anchored" data-anchor-id="findings">Findings</h2>
-<p><a href="result.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="result.png" class="img-fluid"></a></p>
-<p>Our results showed that integrating multiple seq2seq models led to improvements over some baselines, but the hybrid method did not consistently outperform all comparison systems. While the ensemble offered modest gains in stability and occasionally reduced specific types of errors, these benefits were uneven and often dependent on the language pair or dataset. Similarly, dataset augmentation provided some boosts in generalization, but its impact varied and was sometimes offset by noise introduced during the augmentation process. Overall, we found that combining model ensembling with enriched training data has potential but did not yield uniformly superior translation quality, highlighting the need for further refinement of both the ensemble strategy and the augmentation pipeline.</p>
+<p>Through our prototype implementation, we demonstrate the feasibility of using low-cost ultrasonic sensors and GSM communication to monitor real-time road conditions in complex urban environments. Our results show that the system can distinguish vehicle patterns, estimate congestion levels, and maintain reliable data transmission despite environmental challenges. We conclude that a sensor-based traffic monitoring approach offers a more responsive and context-aware alternative to conventional traffic-signal generation methods in cities like Dhaka.</p>
 
 
 </section>

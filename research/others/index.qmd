@@ -1,0 +1,56 @@
+---
+title: "Research Work"
+format: 
+  html:
+    page-layout: full
+    # grid:
+    #   body-width: 1200px
+
+listing:
+  # - id: listings-systems
+  #   date-format: "MMMM YYYY"
+  #   # image-height: 100px
+  #   image-align: left
+  #   # sort-ui: true
+  #   filter-ui: true
+  #   contents: systems
+  #   type: default
+  #   categories: cloud 
+  #   sort: "date desc"
+
+
+  - id: listings-nlp
+    date-format: "MMMM YYYY"
+    # image-height: 200%
+    image-align: left
+    # sort-ui: true
+    filter-ui: true
+    contents: nlp-deep-learning
+    type: default
+    categories: cloud 
+    sort: "date desc"
+
+  - id: listings-sensors
+    date-format: "MMMM YYYY"
+    # image-height: 200%
+    image-align: left
+    # sort-ui: true
+    filter-ui: true
+    contents: sensors
+    type: default
+    categories: cloud 
+    sort: "date desc"
+---
+
+This page lists my other research works (NLP and Sensors) done during my graduate and undergraduate studies in Bangladesh.
+
+
+## Natural Language Processing
+
+::: {#listings-nlp}
+:::
+
+## Sensors and Wireless Networks
+
+::: {#sample-sensors}
+:::

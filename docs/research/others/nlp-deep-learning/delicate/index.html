@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="description" content="I improved Bengali-to-English translation by evaluating rule-based, SMT, and NMT methods and contributing an RNN seq2seq training pipeline for enhanced low-resource translation performance.">
 
-<title>processor – Md Saidul Hoque Anik</title>
+<title>An Enhanced RBMT: When RBMT Outperforms Modern Data-Driven Translators – Md Saidul Hoque Anik</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,66 +21,34 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script><script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-b758ccaa5987ceb1b75504551e579abf.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-038a103d4a9cf255c75ac97a161d84de.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-3776982185214b6e9fac11378b4e0f3a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-038a103d4a9cf255c75ac97a161d84de.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../../">
+<script src="../../../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b758ccaa5987ceb1b75504551e579abf.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../../../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../../site_libs/bootstrap/bootstrap-038a103d4a9cf255c75ac97a161d84de.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../../../site_libs/bootstrap/bootstrap-dark-3776982185214b6e9fac11378b4e0f3a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../../../site_libs/bootstrap/bootstrap-038a103d4a9cf255c75ac97a161d84de.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../../../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../../../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../../../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -107,15 +76,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
-<script src="https://cdn.jsdelivr.net/npm/requirejs@2.3.6/require.min.js" integrity="sha384-c9c+LnTbwQ3aujuU7ULEPVvgLs+Fn6fJUvIGTsuu1ZcCf11fiEubah0ttpca4ntM sha384-6V1/AdqZRWk1KAlWbKBlGhN7VG4iE/yAZcO6NZPMF8od0vukrvr0tg4qY6NSrItx" crossorigin="anonymous"></script>
-
-<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 <link href="https://cdn.jsdelivr.net/npm/charter-webfont@4.1.0/charter.min.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&amp;family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&amp;family=Open+Sans:ital,wght@0,300..800;1,300..800&amp;display=swap" rel="stylesheet">
 <link href="https://fonts.cdnfonts.com/css/palatino" rel="stylesheet">
 
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../../../../styles.css">
 </head>
 
 <body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
@@ -287,7 +253,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../../../index.html">
     <span class="navbar-title">Md Saidul Hoque Anik</span>
     </a>
   </div>
@@ -298,39 +264,39 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
+    <a class="nav-link" href="../../../../index.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./research"> 
+    <a class="nav-link" href="../../../../research"> 
 <span class="menu-text">Research</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./news"> 
+    <a class="nav-link" href="../../../../news"> 
 <span class="menu-text">News</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./projects"> 
+    <a class="nav-link" href="../../../../projects"> 
 <span class="menu-text">Softwares</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./teaching"> 
+    <a class="nav-link" href="../../../../teaching"> 
 <span class="menu-text">Teaching</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./community"> 
+    <a class="nav-link" href="../../../../community"> 
 <span class="menu-text">Community</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./community"> 
+    <a class="nav-link" href="../../../../community"> 
 <span class="menu-text">Blog</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./miscellaneous"> 
+    <a class="nav-link" href="../../../../miscellaneous"> 
 <span class="menu-text">Miscellaneous</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./Anik_CV_Nov_2025.pdf"> 
+    <a class="nav-link" href="../../../../Anik_CV_Nov_2025.pdf"> 
 <span class="menu-text">CV</span></a>
   </li>  
 </ul>
@@ -345,334 +311,90 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
+  <li><a href="#contribution" id="toc-contribution" class="nav-link" data-scroll-target="#contribution">Contribution</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+<main class="content" id="quarto-document-content">
 
 
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">An Enhanced RBMT: When RBMT Outperforms Modern Data-Driven Translators</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">Journal</div>
+    <div class="quarto-category">NLP</div>
+    <div class="quarto-category">Hybrid</div>
+    <div class="quarto-category">Deep Learning</div>
+    <div class="quarto-category">LSTM</div>
+    <div class="quarto-category">Machine Translation</div>
+    <div class="quarto-category">Rule-based</div>
+  </div>
+  </div>
 
-
-
-<div id="c8976124" class="cell" data-execution_count="1">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_html(<span class="st">'courses.html'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<div id="098d19ee" class="cell" data-execution_count="2">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df[<span class="dv">0</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<div id="fecebaa3" class="cell" data-execution_count="3">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'Level'</span>] <span class="op">=</span> df[<span class="st">'Course'</span>].<span class="bu">apply</span>(<span class="kw">lambda</span> x: <span class="bu">int</span>(x.split(<span class="st">' '</span>)[<span class="dv">0</span>].split(<span class="st">'-'</span>)[<span class="dv">1</span>][::<span class="op">-</span><span class="dv">1</span>]) <span class="op">%</span> <span class="dv">10</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<div id="a7453b21" class="cell" data-execution_count="4">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>df</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="4">
 <div>
-
-
-<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">Ser</th>
-<th data-quarto-table-cell-role="th">Course</th>
-<th data-quarto-table-cell-role="th">Topics Covered</th>
-<th data-quarto-table-cell-role="th">Institute</th>
-<th data-quarto-table-cell-role="th">Level</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<th data-quarto-table-cell-role="th">0</th>
-<td>1</td>
-<td>CSE-465 Web Programming</td>
-<td>HTML5 Tags, CSS Selectors, JavaScript (Basic S...</td>
-<td>UIU</td>
-<td>4</td>
-</tr>
-<tr class="even">
-<th data-quarto-table-cell-role="th">1</th>
-<td>2</td>
-<td>CSE-469 Project Management</td>
-<td>Process Models (Waterfall, RUP, Iterative, Inc...</td>
-<td>UIU</td>
-<td>4</td>
-</tr>
-<tr class="odd">
-<th data-quarto-table-cell-role="th">2</th>
-<td>3</td>
-<td>CSE-414 Computer Graphics Sessional</td>
-<td>OpenGL 2D Animation, Mouse Interaction, Raster...</td>
-<td>MIST</td>
-<td>4</td>
-</tr>
-<tr class="even">
-<th data-quarto-table-cell-role="th">3</th>
-<td>4</td>
-<td>CSE-404 Artificial Intelligence Sessional</td>
-<td>State Representation using Graph, Local Search...</td>
-<td>MIST</td>
-<td>4</td>
-</tr>
-<tr class="odd">
-<th data-quarto-table-cell-role="th">4</th>
-<td>5</td>
-<td>CSE-322 Software Engineering Laboratory</td>
-<td>REST API, CRUD Operations, Agile Methodology, ...</td>
-<td>UIU</td>
-<td>3</td>
-</tr>
-<tr class="even">
-<th data-quarto-table-cell-role="th">5</th>
-<td>4</td>
-<td>CSE-312 System Analysis and Design Laboratory</td>
-<td>Benchmark Analysis, Feasibility Analysis, UML ...</td>
-<td>UIU</td>
-<td>3</td>
-</tr>
-<tr class="odd">
-<th data-quarto-table-cell-role="th">6</th>
-<td>6</td>
-<td>CSE-313 Computer Architecture</td>
-<td>Basic Concepts, MIPS, Datapath, Caching, Multi...</td>
-<td>UIU</td>
-<td>3</td>
-</tr>
-<tr class="even">
-<th data-quarto-table-cell-role="th">7</th>
-<td>5</td>
-<td>CSE-304 Compiler Sessional</td>
-<td>Lex, Bison, Yacc</td>
-<td>MIST</td>
-<td>3</td>
-</tr>
-<tr class="odd">
-<th data-quarto-table-cell-role="th">8</th>
-<td>6</td>
-<td>CSE-226 Assembly Language Programming</td>
-<td>Introduction to 8086 emulator, Registers, Flag...</td>
-<td>UIU</td>
-<td>2</td>
-</tr>
-<tr class="even">
-<th data-quarto-table-cell-role="th">9</th>
-<td>7</td>
-<td>CSE-223 Thoery of Computation</td>
-<td>Basic concepts, DFA, NFA, Epsilon Transition, ...</td>
-<td>UIU</td>
-<td>2</td>
-</tr>
-<tr class="odd">
-<th data-quarto-table-cell-role="th">10</th>
-<td>8</td>
-<td>CSE-222 Database Management System Laboratory</td>
-<td>MySQL Queries (Basic, JOIN, Aggregation, Subqu...</td>
-<td>UIU</td>
-<td>2</td>
-</tr>
-<tr class="even">
-<th data-quarto-table-cell-role="th">11</th>
-<td>9</td>
-<td>CSE-215 Data Structures and Algorithms-II</td>
-<td>Hashing, HashSet, Binary Search Tree, Trie, Ba...</td>
-<td>MIST</td>
-<td>2</td>
-</tr>
-<tr class="odd">
-<th data-quarto-table-cell-role="th">12</th>
-<td>9</td>
-<td>CSE-205 Object Oriented Programming Language (...</td>
-<td>Inheritance, Multiple Inheritance, Constructor...</td>
-<td>MIST</td>
-<td>2</td>
-</tr>
-<tr class="even">
-<th data-quarto-table-cell-role="th">13</th>
-<td>10</td>
-<td>CSE-203 Data Structures and Algorithms-I</td>
-<td>Big-O Notation, Linked List, Stack, Queue, Bin...</td>
-<td>MIST</td>
-<td>2</td>
-</tr>
-<tr class="odd">
-<th data-quarto-table-cell-role="th">14</th>
-<td>11</td>
-<td>CSE-1116 Object Oriented Programming Sessional</td>
-<td>Java Basic Syntax, Object Oriented Concepts (I...</td>
-<td>UIU, MIST</td>
-<td>1</td>
-</tr>
-<tr class="even">
-<th data-quarto-table-cell-role="th">15</th>
-<td>12</td>
-<td>CSE-1110 Introduction to CS</td>
-<td>Introduction to Computer, Block-based Programm...</td>
-<td>UIU</td>
-<td>1</td>
-</tr>
-<tr class="odd">
-<th data-quarto-table-cell-role="th">16</th>
-<td>13</td>
-<td>CSE-105 Structured Programming Language (Part-B)</td>
-<td>Recursion, Arrays &amp; Strings, 2D Array &amp; Pointe...</td>
-<td>MIST</td>
-<td>1</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-</div>
-</div>
-<div id="741b1ce0" class="cell" data-execution_count="6">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>out <span class="op">=</span> <span class="st">''</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> l <span class="kw">in</span> [<span class="dv">4</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">1</span>]:</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    out <span class="op">+=</span> <span class="ss">f'## Level-</span><span class="sc">{</span>l<span class="sc">}</span><span class="ch">\n\n</span><span class="ss">'</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    temp <span class="op">=</span> df[df[<span class="st">'Level'</span>] <span class="op">==</span> l]</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>      </span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> temp.itertuples():</span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>        <span class="co"># print(i)</span></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>        out <span class="op">+=</span> <span class="ss">f'''</span></span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="ss">                ### </span><span class="sc">{</span>i<span class="sc">.</span>Course<span class="sc">}</span></span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="ss">                </span></span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="ss">                Institute: </span><span class="sc">{</span>i<span class="sc">.</span>Institute<span class="sc">}</span></span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="ss">                </span></span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="ss">                </span><span class="sc">{</span>i<span class="sc">.</span>_3<span class="sc">}</span></span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="ss">              '''</span></span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>        </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<div id="5c717830" class="cell" data-execution_count="7">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(out)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>## Level-4
-
-
-                ### CSE-465 Web Programming
-                
-                Institute: UIU
-                
-                HTML5 Tags, CSS Selectors, JavaScript (Basic Syntax, Higher Order Array Functions, DOM Traversal), Django (Routing, Templating, ORM, Authentication, Form Handling), Client Side Rendering, VueJS, Progessive Web Application (PWA)
-              
-                ### CSE-469 Project Management
-                
-                Institute: UIU
-                
-                Process Models (Waterfall, RUP, Iterative, Incremental, Agile, Scrum, Kanban, Extreme Programming), Vision and Design Document, Work Breakdown Structure (WBS), Delphie Estimation, Scheduling (Dependancy Network Graph, Gantt Chart), Review Documents
-              
-                ### CSE-414 Computer Graphics Sessional
-                
-                Institute: MIST
-                
-                OpenGL 2D Animation, Mouse Interaction, Raster-based Pipeline
-              
-                ### CSE-404 Artificial Intelligence Sessional
-                
-                Institute: MIST
-                
-                State Representation using Graph, Local Search, A* Search, Adversarial Search, Constraint Satisfaction Problem
-              ## Level-3
-
-
-                ### CSE-322 Software Engineering Laboratory
-                
-                Institute: UIU
-                
-                REST API, CRUD Operations, Agile Methodology, Testing (Python Selenium, PyTest), Ajax (Fetch/XHR), Version Controlling (Git, GitHub), Markdown, Static Site Generator (MkDocs), SRS Writing
-              
-                ### CSE-312 System Analysis and Design Laboratory
-                
-                Institute: UIU
-                
-                Benchmark Analysis, Feasibility Analysis, UML Diagrams (Use Case, Class Diagram, Dataflow Diagram), Agile Methodology (Jira)
-              
-                ### CSE-313 Computer Architecture
-                
-                Institute: UIU
-                
-                Basic Concepts, MIPS, Datapath, Caching, Multiplication Algorithms
-              
-                ### CSE-304 Compiler Sessional
-                
-                Institute: MIST
-                
-                Lex, Bison, Yacc
-              ## Level-2
-
-
-                ### CSE-226 Assembly Language Programming
-                
-                Institute: UIU
-                
-                Introduction to 8086 emulator, Registers, Flags, Flow Control, Loop, Shift, Rotate, Nested Loop, Procedure, Stack, Multiple, Division, Array, String
-              
-                ### CSE-223 Thoery of Computation
-                
-                Institute: UIU
-                
-                Basic concepts, DFA, NFA, Epsilon Transition, DFA Equivalence of NFA, Regular Expression, Context Free Grammar, Parse Trees, Ambiguity in Grammar, Pushdown Automata, Equivalence of PDA and CFG, Deterministic PDA, Normal Forms, Turing Machines
-              
-                ### CSE-222 Database Management System Laboratory
-                
-                Institute: UIU
-                
-                MySQL Queries (Basic, JOIN, Aggregation, Subqueries), PHP Implementations
-              
-                ### CSE-215 Data Structures and Algorithms-II
-                
-                Institute: MIST
-                
-                Hashing, HashSet, Binary Search Tree, Trie, Balanced Search Tree (Skip List, AVL Tree)
-              
-                ### CSE-205 Object Oriented Programming Language (Part-B)
-                
-                Institute: MIST
-                
-                Inheritance, Multiple Inheritance, Constructor &amp; Destructor, Virtual Functions, Runtime Polymorphism, Abstract Class, Diamond Problem, Virtual Base Class, Operator Overloading, Functors (Function Objects), Conversion Function, Overloading subscript, new, and delete operator
-              
-                ### CSE-203 Data Structures and Algorithms-I
-                
-                Institute: MIST
-                
-                Big-O Notation, Linked List, Stack, Queue, Binary Search, Dequeue, Double Linked List, Graph, Tree
-              ## Level-1
-
-
-                ### CSE-1116 Object Oriented Programming Sessional
-                
-                Institute: UIU, MIST
-                
-                Java Basic Syntax, Object Oriented Concepts (Inheritance, Abstraction, Interface, Polymorphism), Access Modifier, String, File I/O, Exception Handling, Concurrency, UI Design with Swing
-              
-                ### CSE-1110 Introduction to CS
-                
-                Institute: UIU
-                
-                Introduction to Computer, Block-based Programming Language (Scratch), Memory and Storage, Binary Numbers, Introduction to C Programming Language (Variable Declaration, Conditions, For Loop)
-              
-                ### CSE-105 Structured Programming Language (Part-B)
-                
-                Institute: MIST
-                
-                Recursion, Arrays &amp; Strings, 2D Array &amp; Pointers, Structures, Unions, Padding, Enum, File I/O, Dynamic Memory Allocation, Bitwise Manipulation, Function Pointers
-              </code></pre>
-</div>
-</div>
-<div id="2f6cdbd2" class="cell" data-execution_count="8">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># df = pd.read_html('service.html')</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<div id="2fe57264" class="cell" data-execution_count="9">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>pip install html5lib</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Requirement already satisfied: html5lib in /home/onixhoque/anaconda3/lib/python3.13/site-packages (1.1)
-Requirement already satisfied: six&gt;=1.9 in /home/onixhoque/anaconda3/lib/python3.13/site-packages (from html5lib) (1.17.0)
-Requirement already satisfied: webencodings in /home/onixhoque/anaconda3/lib/python3.13/site-packages (from html5lib) (0.5.1)</code></pre>
-</div>
+  <div class="description">
+    I improved Bengali-to-English translation by evaluating rule-based, SMT, and NMT methods and contributing an RNN seq2seq training pipeline for enhanced low-resource translation performance.
+  </div>
 </div>
 
 
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">March 2021</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Note">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Note
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<ul>
+<li>Master’s Research Collaboration</li>
+</ul>
+<p><a href="https://link.springer.com/article/10.1007/s00521-021-05895-x" class="badge bg-danger rounded-pill">Neural Computing and Applications 33.18 (2021)</a> <a href="https://drive.google.com/file/d/1e9EvMnBEqkXGDhRDVQ46OrOtrM0YaX3M/view" class="badge bg-primary rounded-pill">Paper</a></p>
+</div>
+</div>
+</div>
+<p><a href="rnn.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="rnn.png" class="img-fluid"></a></p>
+<section id="overview" class="level2">
+<h2 class="anchored" data-anchor-id="overview">Overview</h2>
+<p>Popular translation systems such as Google and Bing perform reliably for high-resource language pairs like English–French but often produce elementary errors when handling low-resource languages such as Bengali or Arabic. Although modern systems rely heavily on Neural Machine Translation (NMT)—with earlier systems using Statistical Machine Translation (SMT)—both approaches depend on large, high-quality parallel corpora. This dependency leaves many widely spoken yet low-resource languages, including Bengali, insufficiently explored in mainstream AI research.</p>
+<p>This study aims to improve Bengali-to-English translation quality by examining rule-based, SMT-based, and NMT-based approaches individually and in various hybrid configurations. We adopt established corpus-based translators (SMT and NMT) alongside a rule-based system, then evaluate multiple integration strategies that blend rule-based and data-driven methods. Through extensive experimentation across several datasets, we identify the best-performing configuration reported to date for Bengali-to-English translation and highlight how these hybrid strategies can generalize to other low-resource languages.</p>
+</section>
+<section id="contribution" class="level2">
+<h2 class="anchored" data-anchor-id="contribution">Contribution</h2>
+<p>My primary contribution was the design and implementation of the RNN-based seq2seq NMT training pipeline. This included developing the end-to-end data preprocessing workflow, constructing and tuning the encoder–decoder architecture, managing the training regimen, and integrating the resulting NMT model into the broader evaluation and hybridization framework used in this study.</p>
+
+
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -1089,6 +811,38 @@ Requirement already satisfied: webencodings in /home/onixhoque/anaconda3/lib/pyt
   });
   </script>
 </div> <!-- /content -->
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 

@@ -102,62 +102,6 @@ ul.task-list li input[type="checkbox"] {
       window['quarto-listing-loaded']();
     }
   })
-  
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listings-nlp .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listings-nlp'] = new List('listing-listings-nlp', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listings-sensors .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listings-sensors'] = new List('listing-listings-sensors', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
   </script>
 <link href="https://cdn.jsdelivr.net/npm/charter-webfont@4.1.0/charter.min.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&amp;family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&amp;family=Open+Sans:ital,wght@0,300..800;1,300..800&amp;display=swap" rel="stylesheet">
@@ -428,12 +372,10 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#systems" id="toc-systems" class="nav-link active" data-scroll-target="#systems">Systems</a></li>
-  <li><a href="#nlp-and-deep-learning" id="toc-nlp-and-deep-learning" class="nav-link" data-scroll-target="#nlp-and-deep-learning">NLP and Deep Learning</a></li>
-  <li><a href="#sensors" id="toc-sensors" class="nav-link" data-scroll-target="#sensors">Sensors</a></li>
+  <li><a href="#systems-and-graph-neural-networks" id="toc-systems-and-graph-neural-networks" class="nav-link active" data-scroll-target="#systems-and-graph-neural-networks">Systems and Graph Neural Networks</a></li>
   </ul>
 </nav>
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-cloud"><div class="category" data-category="QW1hem9uJTIwSW50ZXJuc2hpcA=="><span class="quarto-category-count category-cloud-1">Amazon Internship</span></div><div class="category" data-category="QXJkdWlubyUyME5hbm8="><span class="quarto-category-count category-cloud-1">Arduino Nano</span></div><div class="category" data-category="QXV0by10dW5lZA=="><span class="quarto-category-count category-cloud-1">Auto-tuned</span></div><div class="category" data-category="QXV0b21hdGlvbg=="><span class="quarto-category-count category-cloud-1">Automation</span></div><div class="category" data-category="QXV0b3R1bmVy"><span class="quarto-category-count category-cloud-1">Autotuner</span></div><div class="category" data-category="Qm9vayUyMENoYXB0ZXI="><span class="quarto-category-count category-cloud-1">Book Chapter</span></div><div class="category" data-category="QyUyQiUyQg=="><span class="quarto-category-count category-cloud-1">C++</span></div><div class="category" data-category="Q29kZS1nZW5lcmF0b3I="><span class="quarto-category-count category-cloud-1">Code-generator</span></div><div class="category" data-category="Q29sbGFib3JhdGlvbg=="><span class="quarto-category-count category-cloud-2">Collaboration</span></div><div class="category" data-category="Q29tcGxleCUyME5ldHdvcmtzJTIwMjAyNA=="><span class="quarto-category-count category-cloud-1">Complex Networks 2024</span></div><div class="category" data-category="Q29uY3VycmVuY3k="><span class="quarto-category-count category-cloud-1">Concurrency</span></div><div class="category" data-category="Q09P"><span class="quarto-category-count category-cloud-1">COO</span></div><div class="category" data-category="Q1BV"><span class="quarto-category-count category-cloud-2">CPU</span></div><div class="category" data-category="Q1B5dGhvbg=="><span class="quarto-category-count category-cloud-1">CPython</span></div><div class="category" data-category="Q1ND"><span class="quarto-category-count category-cloud-1">CSC</span></div><div class="category" data-category="Q1NS"><span class="quarto-category-count category-cloud-1">CSR</span></div><div class="category" data-category="Q1VEQQ=="><span class="quarto-category-count category-cloud-1">CUDA</span></div><div class="category" data-category="RGVlcCUyMExlYXJuaW5n"><span class="quarto-category-count category-cloud-1">Deep Learning</span></div><div class="category" data-category="RGlmZmVyZW50aWFibGU="><span class="quarto-category-count category-cloud-1">Differentiable</span></div><div class="category" data-category="RGlzdHJpYnV0ZWQ="><span class="quarto-category-count category-cloud-1">Distributed</span></div><div class="category" data-category="RHluYW1pYyUyMEdyYXBo"><span class="quarto-category-count category-cloud-1">Dynamic Graph</span></div><div class="category" data-category="RmF1bHQlMjBUb2xlcmFudA=="><span class="quarto-category-count category-cloud-1">Fault Tolerant</span></div><div class="category" data-category="Rm9yZWNhc3Rpbmc="><span class="quarto-category-count category-cloud-1">Forecasting</span></div><div class="category" data-category="R0NO"><span class="quarto-category-count category-cloud-1">GCN</span></div><div class="category" data-category="R05O"><span class="quarto-category-count category-cloud-1">GNN</span></div><div class="category" data-category="R1BV"><span class="quarto-category-count category-cloud-1">GPU</span></div><div class="category" data-category="R3JhZHVhdGUlMjBDb3Vyc2UlMjBQcm9qZWN0"><span class="quarto-category-count category-cloud-1">Graduate Course Project</span></div><div class="category" data-category="R3JhZHVhdGUlMjBDb3Vyc2V3b3Jr"><span class="quarto-category-count category-cloud-1">Graduate Coursework</span></div><div class="category" data-category="R3JhZHVhdGUlMjBXb3Jr"><span class="quarto-category-count category-cloud-1">Graduate Work</span></div><div class="category" data-category="R1NNJTIwRGV2aWNl"><span class="quarto-category-count category-cloud-1">GSM Device</span></div><div class="category" data-category="SGV1cmlzdGlj"><span class="quarto-category-count category-cloud-1">Heuristic</span></div><div class="category" data-category="SHlicmlk"><span class="quarto-category-count category-cloud-1">Hybrid</span></div><div class="category" data-category="SXJvblB5dGhvbg=="><span class="quarto-category-count category-cloud-1">IronPython</span></div><div class="category" data-category="Sm91cm5hbA=="><span class="quarto-category-count category-cloud-1">Journal</span></div><div class="category" data-category="Snl0aG9u"><span class="quarto-category-count category-cloud-1">Jython</span></div><div class="category" data-category="S2VybmVs"><span class="quarto-category-count category-cloud-1">Kernel</span></div><div class="category" data-category="S0dF"><span class="quarto-category-count category-cloud-1">KGE</span></div><div class="category" data-category="S25vd2xlZGdlJTIwR3JhcGg="><span class="quarto-category-count category-cloud-1">Knowledge Graph</span></div><div class="category" data-category="S25vd2xlZGdlJTIwR3JhcGglMjBFbWJlZGRpbmc="><span class="quarto-category-count category-cloud-1">Knowledge Graph Embedding</span></div><div class="category" data-category="TFNUTQ=="><span class="quarto-category-count category-cloud-2">LSTM</span></div><div class="category" data-category="TWFjaGluZSUyMFRyYW5zbGF0aW9u"><span class="quarto-category-count category-cloud-2">Machine Translation</span></div><div class="category" data-category="TUxTeXMyMDI1"><span class="quarto-category-count category-cloud-1">MLSys2025</span></div><div class="category" data-category="TXVsdGltb2RhbA=="><span class="quarto-category-count category-cloud-1">Multimodal</span></div><div class="category" data-category="TmVvNGo="><span class="quarto-category-count category-cloud-1">Neo4j</span></div><div class="category" data-category="TkVS"><span class="quarto-category-count category-cloud-1">NER</span></div><div class="category" data-category="TkxQ"><span class="quarto-category-count category-cloud-4">NLP</span></div><div class="category" data-category="Tm9pc2UlMjBTdXBwcmVzc2lvbg=="><span class="quarto-category-count category-cloud-1">Noise Suppression</span></div><div class="category" data-category="TlN5c1M="><span class="quarto-category-count category-cloud-1">NSysS</span></div><div class="category" data-category="T3Blbk1Q"><span class="quarto-category-count category-cloud-1">OpenMP</span></div><div class="category" data-category="UHJvZmlsaW5n"><span class="quarto-category-count category-cloud-1">Profiling</span></div><div class="category" data-category="UHJvdGVpbi1Qcm90ZWluJTIwaW50ZXJhY3Rpb24="><span class="quarto-category-count category-cloud-1">Protein-Protein interaction</span></div><div class="category" data-category="UHliaW5kMTE="><span class="quarto-category-count category-cloud-1">Pybind11</span></div><div class="category" data-category="UHl0aG9u"><span class="quarto-category-count category-cloud-1">Python</span></div><div class="category" data-category="UHlUb3JjaA=="><span class="quarto-category-count category-cloud-2">PyTorch</span></div><div class="category" data-category="UnVsZS1iYXNlZA=="><span class="quarto-category-count category-cloud-2">Rule-based</span></div><div class="category" data-category="U0MyNA=="><span class="quarto-category-count category-cloud-1">SC24</span></div><div class="category" data-category="U2VudGltZW50JTIwQW5hbHlzaXM="><span class="quarto-category-count category-cloud-1">Sentiment Analysis</span></div><div class="category" data-category="U21vb3RoaW5n"><span class="quarto-category-count category-cloud-1">Smoothing</span></div><div class="category" data-category="U3BhcnNlJTIwTGluZWFyJTIwQWxnZWJyYQ=="><span class="quarto-category-count category-cloud-1">Sparse Linear Algebra</span></div><div class="category" data-category="U3BhcnNlJTIwTWF0cml4"><span class="quarto-category-count category-cloud-1">Sparse Matrix</span></div><div class="category" data-category="U3BhdGlvLVRlbXBvcmFsJTIwR3JhcGg="><span class="quarto-category-count category-cloud-1">Spatio-Temporal Graph</span></div><div class="category" data-category="U3BNTQ=="><span class="quarto-category-count category-cloud-2">SpMM</span></div><div class="category" data-category="U3lzdGVtcw=="><span class="quarto-category-count category-cloud-1">Systems</span></div><div class="category" data-category="VGVuc29yZmxvdw=="><span class="quarto-category-count category-cloud-1">Tensorflow</span></div><div class="category" data-category="VGltZSUyMFNlcmllcyUyMFByZWRpY3Rpb24="><span class="quarto-category-count category-cloud-1">Time Series Prediction</span></div><div class="category" data-category="VHJhbnNF"><span class="quarto-category-count category-cloud-1">TransE</span></div><div class="category" data-category="VHJhbnNmZXIlMjBMZWFybmluZw=="><span class="quarto-category-count category-cloud-1">Transfer Learning</span></div><div class="category" data-category="VWx0cmFzb25pYyUyMFNlbnNvcg=="><span class="quarto-category-count category-cloud-1">Ultrasonic Sensor</span></div><div class="category" data-category="VW5kZXJncmFkdWF0ZQ=="><span class="quarto-category-count category-cloud-1">Undergraduate</span></div><div class="category" data-category="dkxMTQ=="><span class="quarto-category-count category-cloud-1">vLLM</span></div><div class="category" data-category="V2ViQ29uZjIwMjQ="><span class="quarto-category-count category-cloud-1">WebConf2024</span></div><div class="category" data-category="WmVyby1jb3B5"><span class="quarto-category-count category-cloud-1">Zero-copy</span></div></div></div>
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-cloud"><div class="category" data-category="QW1hem9uJTIwSW50ZXJuc2hpcA=="><span class="quarto-category-count category-cloud-1">Amazon Internship</span></div><div class="category" data-category="QXV0by10dW5lZA=="><span class="quarto-category-count category-cloud-1">Auto-tuned</span></div><div class="category" data-category="QXV0b3R1bmVy"><span class="quarto-category-count category-cloud-1">Autotuner</span></div><div class="category" data-category="Qm9vayUyMENoYXB0ZXI="><span class="quarto-category-count category-cloud-1">Book Chapter</span></div><div class="category" data-category="QyUyQiUyQg=="><span class="quarto-category-count category-cloud-2">C++</span></div><div class="category" data-category="Q29kZS1nZW5lcmF0b3I="><span class="quarto-category-count category-cloud-1">Code-generator</span></div><div class="category" data-category="Q29sbGFib3JhdGlvbg=="><span class="quarto-category-count category-cloud-1">Collaboration</span></div><div class="category" data-category="Q29tcGxleCUyME5ldHdvcmtzJTIwMjAyNA=="><span class="quarto-category-count category-cloud-1">Complex Networks 2024</span></div><div class="category" data-category="Q29uY3VycmVuY3k="><span class="quarto-category-count category-cloud-1">Concurrency</span></div><div class="category" data-category="Q09P"><span class="quarto-category-count category-cloud-1">COO</span></div><div class="category" data-category="Q1BV"><span class="quarto-category-count category-cloud-3">CPU</span></div><div class="category" data-category="Q1B5dGhvbg=="><span class="quarto-category-count category-cloud-1">CPython</span></div><div class="category" data-category="Q1ND"><span class="quarto-category-count category-cloud-1">CSC</span></div><div class="category" data-category="Q1NS"><span class="quarto-category-count category-cloud-1">CSR</span></div><div class="category" data-category="Q1VEQQ=="><span class="quarto-category-count category-cloud-2">CUDA</span></div><div class="category" data-category="RGlmZmVyZW50aWFibGU="><span class="quarto-category-count category-cloud-2">Differentiable</span></div><div class="category" data-category="RGlzdHJpYnV0ZWQ="><span class="quarto-category-count category-cloud-1">Distributed</span></div><div class="category" data-category="RHluYW1pYyUyMEdyYXBo"><span class="quarto-category-count category-cloud-1">Dynamic Graph</span></div><div class="category" data-category="R0NO"><span class="quarto-category-count category-cloud-1">GCN</span></div><div class="category" data-category="R05O"><span class="quarto-category-count category-cloud-1">GNN</span></div><div class="category" data-category="R1BV"><span class="quarto-category-count category-cloud-2">GPU</span></div><div class="category" data-category="R3JhZHVhdGUlMjBDb3Vyc2UlMjBQcm9qZWN0"><span class="quarto-category-count category-cloud-1">Graduate Course Project</span></div><div class="category" data-category="R3JhZHVhdGUlMjBDb3Vyc2V3b3Jr"><span class="quarto-category-count category-cloud-1">Graduate Coursework</span></div><div class="category" data-category="SXJvblB5dGhvbg=="><span class="quarto-category-count category-cloud-1">IronPython</span></div><div class="category" data-category="Snl0aG9u"><span class="quarto-category-count category-cloud-1">Jython</span></div><div class="category" data-category="S2VybmVs"><span class="quarto-category-count category-cloud-2">Kernel</span></div><div class="category" data-category="S0dF"><span class="quarto-category-count category-cloud-1">KGE</span></div><div class="category" data-category="S25vd2xlZGdlJTIwR3JhcGg="><span class="quarto-category-count category-cloud-2">Knowledge Graph</span></div><div class="category" data-category="S25vd2xlZGdlJTIwR3JhcGglMjBFbWJlZGRpbmc="><span class="quarto-category-count category-cloud-1">Knowledge Graph Embedding</span></div><div class="category" data-category="TFNUTQ=="><span class="quarto-category-count category-cloud-1">LSTM</span></div><div class="category" data-category="TUxTeXMyMDI1"><span class="quarto-category-count category-cloud-1">MLSys2025</span></div><div class="category" data-category="TmVvNGo="><span class="quarto-category-count category-cloud-1">Neo4j</span></div><div class="category" data-category="T3Blbk1Q"><span class="quarto-category-count category-cloud-1">OpenMP</span></div><div class="category" data-category="UHJvZmlsaW5n"><span class="quarto-category-count category-cloud-2">Profiling</span></div><div class="category" data-category="UHJvdGVpbi1Qcm90ZWluJTIwaW50ZXJhY3Rpb24="><span class="quarto-category-count category-cloud-1">Protein-Protein interaction</span></div><div class="category" data-category="UHliaW5kMTE="><span class="quarto-category-count category-cloud-1">Pybind11</span></div><div class="category" data-category="UHl0aG9u"><span class="quarto-category-count category-cloud-1">Python</span></div><div class="category" data-category="UHlUb3JjaA=="><span class="quarto-category-count category-cloud-4">PyTorch</span></div><div class="category" data-category="U0MyNA=="><span class="quarto-category-count category-cloud-1">SC24</span></div><div class="category" data-category="U3BhcnNlJTIwTGluZWFyJTIwQWxnZWJyYQ=="><span class="quarto-category-count category-cloud-1">Sparse Linear Algebra</span></div><div class="category" data-category="U3BhcnNlJTIwTWF0cml4"><span class="quarto-category-count category-cloud-1">Sparse Matrix</span></div><div class="category" data-category="U3BhdGlvLVRlbXBvcmFsJTIwR3JhcGg="><span class="quarto-category-count category-cloud-2">Spatio-Temporal Graph</span></div><div class="category" data-category="U3BNTQ=="><span class="quarto-category-count category-cloud-4">SpMM</span></div><div class="category" data-category="U3lzdGVtcw=="><span class="quarto-category-count category-cloud-1">Systems</span></div><div class="category" data-category="VHJhbnNF"><span class="quarto-category-count category-cloud-1">TransE</span></div><div class="category" data-category="VHJhbnNmZXIlMjBMZWFybmluZw=="><span class="quarto-category-count category-cloud-1">Transfer Learning</span></div><div class="category" data-category="dkxMTQ=="><span class="quarto-category-count category-cloud-1">vLLM</span></div><div class="category" data-category="V2ViQ29uZjIwMjQ="><span class="quarto-category-count category-cloud-1">WebConf2024</span></div><div class="category" data-category="WmVyby1jb3B5"><span class="quarto-category-count category-cloud-1">Zero-copy</span></div></div></div>
 <!-- main -->
 <main class="content column-page-left" id="quarto-document-content">
 
@@ -458,8 +400,9 @@ window.Quarto = {
 
 
 <p>I have worked on 20+ research projects focused on high-performance computing (HPC), graph neural network (GNN) systems, and natural language processing (NLP), covering topics from system optimization to advanced model architectures.</p>
-<section id="systems" class="level2">
-<h2 class="anchored" data-anchor-id="systems">Systems</h2>
+<p>The following lists my research projects on Systems and GNN. For other research projects, please see <a href="../research/others/index.html">this link</a> .</p>
+<section id="systems-and-graph-neural-networks" class="level2">
+<h2 class="anchored" data-anchor-id="systems-and-graph-neural-networks">Systems and Graph Neural Networks</h2>
 <div id="listing-listings-systems" class="quarto-listing quarto-listing-container-default">
 <div class="listing-actions-group">
     <div class="input-group input-group-sm quarto-listing-filter">
@@ -684,7 +627,44 @@ April 2024
 </a>
 </div>
 </div>
-<div class="quarto-post image-left" data-index="6" data-categories="U3BhdGlvLVRlbXBvcmFsJTIwR3JhcGglMkNLbm93bGVkZ2UlMjBHcmFwaCUyMEVtYmVkZGluZyUyQ1Byb2ZpbGluZyUyQ0NQVSUyQ0tlcm5lbCUyQ0dyYWR1YXRlJTIwQ291cnNlJTIwUHJvamVjdA==" data-listing-date-sort="1701410400000" data-listing-file-modified-sort="1765403636819" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="266">
+<div class="quarto-post image-left" data-index="6" data-categories="R0NOJTJDTFNUTSUyQ1NwYXRpby1UZW1wb3JhbCUyMEdyYXBoJTJDUHlUb3JjaCUyQ1Byb3RlaW4tUHJvdGVpbiUyMGludGVyYWN0aW9uJTJDRHluYW1pYyUyMEdyYXBo" data-listing-date-sort="1701410400000" data-listing-file-modified-sort="1765403636084" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="281">
+<div class="thumbnail"><a href="../research/systems/gc-lstm/index.html" class="no-external">
+
+<img loading="lazy" src="../research/systems/gc-lstm/model.png" class="thumbnail-image">
+
+</a></div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../research/systems/gc-lstm/index.html" class="no-external">A Spatio-Temporal Link Prediction Pipeline using GC-LSTM for Dynamic Graphs in PyTorch</a>
+</h3>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('R0NO'); return false;">GCN</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('TFNUTQ=='); return false;">LSTM</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('U3BhdGlvLVRlbXBvcmFsJTIwR3JhcGg='); return false;">Spatio-Temporal Graph</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('UHlUb3JjaA=='); return false;">PyTorch</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('UHJvdGVpbi1Qcm90ZWluJTIwaW50ZXJhY3Rpb24='); return false;">Protein-Protein interaction</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('RHluYW1pYyUyMEdyYXBo'); return false;">Dynamic Graph</div>
+
+</div>
+<div class="delink listing-description"><a href="../research/systems/gc-lstm/index.html" class="no-external">
+<p>Developed a spatio-temporal link prediction pipeline using GC-LSTM for dynamic graphs in PyTorch. Achieved over 75% Hits@100 accuracy for the protein-protein interaction graph sequences of DDPIN dataset.</p>
+</a></div>
+</div>
+<div class="metadata">
+<a href="../research/systems/gc-lstm/index.html" class="no-external">
+<div class="listing-date">
+December 2023
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-left" data-index="7" data-categories="U3BhdGlvLVRlbXBvcmFsJTIwR3JhcGglMkNLbm93bGVkZ2UlMjBHcmFwaCUyMEVtYmVkZGluZyUyQ1Byb2ZpbGluZyUyQ0NQVSUyQ0tlcm5lbCUyQ0dyYWR1YXRlJTIwQ291cnNlJTIwUHJvamVjdA==" data-listing-date-sort="1701410400000" data-listing-file-modified-sort="1765403636819" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="266">
 <div class="thumbnail"><a href="../research/systems/kge-profile/index.html" class="no-external">
 
 <img loading="lazy" src="../research/systems/kge-profile/bottleneck.png" class="thumbnail-image">
@@ -721,7 +701,7 @@ December 2023
 </a>
 </div>
 </div>
-<div class="quarto-post image-left" data-index="7" data-categories="UHliaW5kMTElMkNPcGVuTVAlMkNaZXJvLWNvcHk=" data-listing-date-sort="1680325200000" data-listing-file-modified-sort="1765403636601" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="260">
+<div class="quarto-post image-left" data-index="8" data-categories="UHliaW5kMTElMkNPcGVuTVAlMkNaZXJvLWNvcHk=" data-listing-date-sort="1680325200000" data-listing-file-modified-sort="1765403636601" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="260">
 <div class="thumbnail"><a href="../research/systems/fastgraph/index.html" class="no-external">
 
 <img loading="lazy" src="../research/systems/fastgraph/iu.png" class="thumbnail-image">
@@ -752,7 +732,7 @@ April 2023
 </a>
 </div>
 </div>
-<div class="quarto-post image-left" data-index="8" data-categories="U3BNTSUyQ0NvZGUtZ2VuZXJhdG9yJTJDQ1VEQSUyQ0dQVQ==" data-listing-date-sort="1680325200000" data-listing-file-modified-sort="1765403636620" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="273">
+<div class="quarto-post image-left" data-index="9" data-categories="U3BNTSUyQ0NvZGUtZ2VuZXJhdG9yJTJDQ1VEQSUyQ0dQVQ==" data-listing-date-sort="1680325200000" data-listing-file-modified-sort="1765403636620" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="273">
 <div class="thumbnail"><a href="../research/systems/gpu-code-gen-cpp/index.html" class="no-external">
 
 <img loading="lazy" src="../research/systems/gpu-code-gen-cpp/tuner.png" class="thumbnail-image">
@@ -785,7 +765,7 @@ April 2023
 </a>
 </div>
 </div>
-<div class="quarto-post image-left" data-index="9" data-categories="U3BhcnNlJTIwTWF0cml4JTJDQ09PJTJDQ1NDJTJDQ1NSJTJDQyUyQiUyQiUyQ0dyYWR1YXRlJTIwQ291cnNld29yaw==" data-listing-date-sort="1669874400000" data-listing-file-modified-sort="1765403636827" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="374">
+<div class="quarto-post image-left" data-index="10" data-categories="U3BhcnNlJTIwTWF0cml4JTJDQ09PJTJDQ1NDJTJDQ1NSJTJDQyUyQiUyQiUyQ0dyYWR1YXRlJTIwQ291cnNld29yaw==" data-listing-date-sort="1669874400000" data-listing-file-modified-sort="1765403636827" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="374">
 <div class="thumbnail"><a href="../research/systems/sp-mat-lib-c/index.html" class="no-external">
 
 <img loading="lazy" src="../research/systems/sp-mat-lib-c/mat.png" class="thumbnail-image">
@@ -822,7 +802,7 @@ December 2022
 </a>
 </div>
 </div>
-<div class="quarto-post image-left" data-index="10" data-categories="UHl0aG9uJTJDQ29uY3VycmVuY3klMkNJcm9uUHl0aG9uJTJDQ1B5dGhvbiUyQ0p5dGhvbiUyQ1N5c3RlbXMlMkNQcm9maWxpbmc=" data-listing-date-sort="1502168400000" data-listing-file-modified-sort="1765403636549" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="298">
+<div class="quarto-post image-left" data-index="11" data-categories="UHl0aG9uJTJDQ29uY3VycmVuY3klMkNJcm9uUHl0aG9uJTJDQ1B5dGhvbiUyQ0p5dGhvbiUyQ1N5c3RlbXMlMkNQcm9maWxpbmc=" data-listing-date-sort="1502168400000" data-listing-file-modified-sort="1765403636549" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="298">
 <div class="thumbnail"><a href="../research/systems/concurrency-python/index.html" class="no-external">
 
 <img loading="lazy" src="../research/systems/concurrency-python/cuncurrency.png" class="thumbnail-image">
@@ -864,417 +844,12 @@ August 2017
 </div>
 <div class="listing-no-matching d-none">No matching items</div>
 </div>
-</section>
-<section id="nlp-and-deep-learning" class="level2">
-<h2 class="anchored" data-anchor-id="nlp-and-deep-learning">NLP and Deep Learning</h2>
-<div id="listing-listings-nlp" class="quarto-listing quarto-listing-container-default">
-<div class="listing-actions-group">
-    <div class="input-group input-group-sm quarto-listing-filter">
-      <span class="input-group-text"><i class="bi bi-search"></i></span>
-      <input type="text" class="search form-control" placeholder="Filter">
-    </div>
-</div>
-<div class="list quarto-listing-default">
-<div class="quarto-post image-left" data-index="0" data-categories="R0NOJTJDTFNUTSUyQ1NwYXRpby1UZW1wb3JhbCUyMEdyYXBoJTJDUHlUb3JjaCUyQ1Byb3RlaW4tUHJvdGVpbiUyMGludGVyYWN0aW9uJTJDRHluYW1pYyUyMEdyYXBo" data-listing-date-sort="1701410400000" data-listing-file-modified-sort="1765403636084" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="281">
-<div class="thumbnail"><a href="../research/nlp-deep-learning/gc-lstm/index.html" class="no-external">
-
-<img loading="lazy" src="../research/nlp-deep-learning/gc-lstm/model.png" class="thumbnail-image">
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../research/nlp-deep-learning/gc-lstm/index.html" class="no-external">A Spatio-Temporal Link Prediction Pipeline using GC-LSTM for Dynamic Graphs in PyTorch</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('R0NO'); return false;">GCN</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('TFNUTQ=='); return false;">LSTM</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('U3BhdGlvLVRlbXBvcmFsJTIwR3JhcGg='); return false;">Spatio-Temporal Graph</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('UHlUb3JjaA=='); return false;">PyTorch</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('UHJvdGVpbi1Qcm90ZWluJTIwaW50ZXJhY3Rpb24='); return false;">Protein-Protein interaction</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('RHluYW1pYyUyMEdyYXBo'); return false;">Dynamic Graph</div>
-
-</div>
-<div class="delink listing-description"><a href="../research/nlp-deep-learning/gc-lstm/index.html" class="no-external">
-<p>Developed a spatio-temporal link prediction pipeline using GC-LSTM for dynamic graphs in PyTorch. Achieved over 75% Hits@100 accuracy for the protein-protein interaction graph sequences of DDPIN dataset.</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="../research/nlp-deep-learning/gc-lstm/index.html" class="no-external">
-<div class="listing-date">
-December 2023
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-left" data-index="1" data-categories="TkxQJTJDQXV0b21hdGlvbiUyQ0NvbGxhYm9yYXRpb24=" data-listing-date-sort="1696136400000" data-listing-file-modified-sort="1765403636317" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="253">
-<div class="thumbnail"><a href="../research/nlp-deep-learning/workplace-bullying/index.html" class="no-external">
-
-<img loading="lazy" src="../research/nlp-deep-learning/workplace-bullying/assoc.jpg" class="thumbnail-image">
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../research/nlp-deep-learning/workplace-bullying/index.html" class="no-external">Impact of Workplace Bullying among Physicians of Tertiary Medical College Hospitals</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('TkxQ'); return false;">NLP</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('QXV0b21hdGlvbg=='); return false;">Automation</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('Q29sbGFib3JhdGlvbg=='); return false;">Collaboration</div>
-
-</div>
-<div class="delink listing-description"><a href="../research/nlp-deep-learning/workplace-bullying/index.html" class="no-external">
-<p>This study examined the prevalence and impact of workplace bullying on stress levels among physicians, finding a significant correlation with symptoms like depression and anxiety. My contribution was developing an automated pipeline to generate Google Forms for efficient survey distribution to 189 physicians, streamlining data collection for the research.</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="../research/nlp-deep-learning/workplace-bullying/index.html" class="no-external">
-<div class="listing-date">
-October 2023
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-left" data-index="2" data-categories="TkxQJTJDU2VudGltZW50JTIwQW5hbHlzaXMlMkNNdWx0aW1vZGFsJTJDRm9yZWNhc3RpbmclMkNIZXVyaXN0aWMlMkNHcmFkdWF0ZSUyMFdvcms=" data-listing-date-sort="1659330000000" data-listing-file-modified-sort="1765403636247" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="334">
-<div class="thumbnail"><a href="../research/nlp-deep-learning/twitter-sentiment/index.html" class="no-external">
-
-<img loading="lazy" src="../research/nlp-deep-learning/twitter-sentiment/migration.png" class="thumbnail-image">
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../research/nlp-deep-learning/twitter-sentiment/index.html" class="no-external">A Bimodal Longitudinal Investigation on Changes in Sentiments over Social Media Interactions Owing to COVID-19 Pandemic</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('TkxQ'); return false;">NLP</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('U2VudGltZW50JTIwQW5hbHlzaXM='); return false;">Sentiment Analysis</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('TXVsdGltb2RhbA=='); return false;">Multimodal</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('Rm9yZWNhc3Rpbmc='); return false;">Forecasting</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('SGV1cmlzdGlj'); return false;">Heuristic</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('R3JhZHVhdGUlMjBXb3Jr'); return false;">Graduate Work</div>
-
-</div>
-<div class="delink listing-description"><a href="../research/nlp-deep-learning/twitter-sentiment/index.html" class="no-external">
-<p>This study analyzes sentiment shifts on Twitter during the COVID-19 pandemic, revealing significant changes in both text and image sentiment, with negative text sentiment increasing by 10.55% and positive image sentiment decreasing by 24.52%, and introduces a novel bimodal sentiment analysis framework.</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="../research/nlp-deep-learning/twitter-sentiment/index.html" class="no-external">
-<div class="listing-date">
-August 2022
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-left" data-index="3" data-categories="Sm91cm5hbCUyQ0NvbGxhYm9yYXRpb24lMkNOTFAlMkNIeWJyaWQlMkNEZWVwJTIwTGVhcm5pbmclMkNMU1RNJTJDTWFjaGluZSUyMFRyYW5zbGF0aW9uJTJDUnVsZS1iYXNlZA==" data-listing-date-sort="1643695200000" data-listing-file-modified-sort="1765403636197" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="191">
-<div class="thumbnail"><a href="../research/nlp-deep-learning/rbmt/index.html" class="no-external">
-
-<img loading="lazy" src="../research/nlp-deep-learning/rbmt/tf.png" class="thumbnail-image">
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../research/nlp-deep-learning/rbmt/index.html" class="no-external">An Enhanced RBMT: When RBMT Outperforms Modern Data-Driven Translators</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('Sm91cm5hbA=='); return false;">Journal</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('Q29sbGFib3JhdGlvbg=='); return false;">Collaboration</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('TkxQ'); return false;">NLP</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('SHlicmlk'); return false;">Hybrid</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('RGVlcCUyMExlYXJuaW5n'); return false;">Deep Learning</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('TFNUTQ=='); return false;">LSTM</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('TWFjaGluZSUyMFRyYW5zbGF0aW9u'); return false;">Machine Translation</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('UnVsZS1iYXNlZA=='); return false;">Rule-based</div>
-
-</div>
-<div class="delink listing-description"><a href="../research/nlp-deep-learning/rbmt/index.html" class="no-external">
-<p>A hybrid approach to machine translation combining both RNN-based and rule-based translators.</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="../research/nlp-deep-learning/rbmt/index.html" class="no-external">
-<div class="listing-date">
-February 2022
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-left" data-index="4" data-categories="Sm91cm5hbCUyQ05MUCUyQ0h5YnJpZCUyQ0RlZXAlMjBMZWFybmluZyUyQ0xTVE0lMkNNYWNoaW5lJTIwVHJhbnNsYXRpb24lMkNSdWxlLWJhc2Vk" data-listing-date-sort="1614578400000" data-listing-file-modified-sort="1765403635980" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="210">
-<div class="thumbnail"><a href="../research/nlp-deep-learning/delicate/index.html" class="no-external">
-
-<img loading="lazy" src="../research/nlp-deep-learning/delicate/nca.png" class="thumbnail-image">
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../research/nlp-deep-learning/delicate/index.html" class="no-external">An Enhanced RBMT: When RBMT Outperforms Modern Data-Driven Translators</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('Sm91cm5hbA=='); return false;">Journal</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('TkxQ'); return false;">NLP</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('SHlicmlk'); return false;">Hybrid</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('RGVlcCUyMExlYXJuaW5n'); return false;">Deep Learning</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('TFNUTQ=='); return false;">LSTM</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('TWFjaGluZSUyMFRyYW5zbGF0aW9u'); return false;">Machine Translation</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('UnVsZS1iYXNlZA=='); return false;">Rule-based</div>
-
-</div>
-<div class="delink listing-description"><a href="../research/nlp-deep-learning/delicate/index.html" class="no-external">
-<p>I improved Bengali-to-English translation by evaluating rule-based, SMT, and NMT methods and contributing an RNN seq2seq training pipeline for enhanced low-resource translation performance.</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="../research/nlp-deep-learning/delicate/index.html" class="no-external">
-<div class="listing-date">
-March 2021
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-left" data-index="5" data-categories="TWFjaGluZSUyMFRyYW5zbGF0aW9uJTJDTkxQJTJDTkVS" data-listing-date-sort="1522558800000" data-listing-file-modified-sort="1765403636141" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="299">
-<div class="thumbnail"><a href="../research/nlp-deep-learning/mt-heuristic/index.html" class="no-external">
-
-<img loading="lazy" src="../research/nlp-deep-learning/mt-heuristic/heuristic.png" class="thumbnail-image">
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../research/nlp-deep-learning/mt-heuristic/index.html" class="no-external">An Approach Towards Multilingual Translation By Semantic-Based Verb Identification And Root Word Analysis</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('TWFjaGluZSUyMFRyYW5zbGF0aW9u'); return false;">Machine Translation</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('TkxQ'); return false;">NLP</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('TkVS'); return false;">NER</div>
-
-</div>
-<div class="delink listing-description"><a href="../research/nlp-deep-learning/mt-heuristic/index.html" class="no-external">
-<p>This study explores a generalized machine translation system for low-resource languages like Bengali, proposing semantic-based verb identification and root word detection algorithms that outperform Google Translator, while comparing various approaches in terms of accuracy, time, and space complexity.</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="../research/nlp-deep-learning/mt-heuristic/index.html" class="no-external">
-<div class="listing-date">
-April 2018
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-left" data-index="6" data-categories="TkxQJTJDTkVSJTJDUnVsZS1iYXNlZA==" data-listing-date-sort="1513058400000" data-listing-file-modified-sort="1765403636176" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="368">
-<div class="thumbnail"><a href="../research/nlp-deep-learning/polyglot/index.html" class="no-external">
-
-<img loading="lazy" src="../research/nlp-deep-learning/polyglot/buet.png" class="thumbnail-image">
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../research/nlp-deep-learning/polyglot/index.html" class="no-external">Polygot: An Approach Towards Reliable Translation By Name Identification And Memory Optimization Using Semantic Analysis</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('TkxQ'); return false;">NLP</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('TkVS'); return false;">NER</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('UnVsZS1iYXNlZA=='); return false;">Rule-based</div>
-
-</div>
-<div class="delink listing-description"><a href="../research/nlp-deep-learning/polyglot/index.html" class="no-external">
-<p>A rule-based approach for name identification in Bengali Language.</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="../research/nlp-deep-learning/polyglot/index.html" class="no-external">
-<div class="listing-date">
-December 2017
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-left" data-index="7" data-categories="RmF1bHQlMjBUb2xlcmFudCUyQ01hY2hpbmUlMjBUcmFuc2xhdGlvbiUyQ05MUCUyQ1RlbnNvcmZsb3c=" data-listing-date-sort="1502168400000" data-listing-file-modified-sort="1765403636035" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="385">
-<div class="thumbnail"><a href="../research/nlp-deep-learning/ft-nmt/index.html" class="no-external">
-
-<img loading="lazy" src="../research/nlp-deep-learning/ft-nmt/models.png" class="thumbnail-image">
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../research/nlp-deep-learning/ft-nmt/index.html" class="no-external">A Fault Tolerant Neural Machine Translation System</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('RmF1bHQlMjBUb2xlcmFudA=='); return false;">Fault Tolerant</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('TWFjaGluZSUyMFRyYW5zbGF0aW9u'); return false;">Machine Translation</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('TkxQ'); return false;">NLP</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('VGVuc29yZmxvdw=='); return false;">Tensorflow</div>
-
-</div>
-<div class="delink listing-description"><a href="../research/nlp-deep-learning/ft-nmt/index.html" class="no-external">
-<p>An effort to improve translation accuracy by combining multiple seq2seq neural machine translation models with augmented training data, completed as part of the CSE6207 project work.</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="../research/nlp-deep-learning/ft-nmt/index.html" class="no-external">
-<div class="listing-date">
-August 2017
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">No matching items</div>
-</div>
-</section>
-<section id="sensors" class="level2">
-<h2 class="anchored" data-anchor-id="sensors">Sensors</h2>
-<div id="sample-sensors">
-
-</div>
 
 
 
 </section>
 
-<div class="quarto-listing quarto-listing-container-default" id="listing-listings-sensors">
-<div class="listing-actions-group">
-    <div class="input-group input-group-sm quarto-listing-filter">
-      <span class="input-group-text"><i class="bi bi-search"></i></span>
-      <input type="text" class="search form-control" placeholder="Filter">
-    </div>
-</div>
-<div class="list quarto-listing-default">
-<div class="quarto-post image-left" data-index="0" data-categories="VGltZSUyMFNlcmllcyUyMFByZWRpY3Rpb24lMkNTbW9vdGhpbmclMkNOU3lzUw==" data-listing-date-sort="1638338400000" data-listing-file-modified-sort="1765403636486" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="358">
-<div class="thumbnail"><a href="../research/sensors/smoothing-time-series/index.html" class="no-external">
-
-<img loading="lazy" src="../research/sensors/smoothing-time-series/trends.png" class="thumbnail-image">
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../research/sensors/smoothing-time-series/index.html" class="no-external">A Study on the Effects of Smoothing in Time Series Prediction</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('VGltZSUyMFNlcmllcyUyMFByZWRpY3Rpb24='); return false;">Time Series Prediction</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('U21vb3RoaW5n'); return false;">Smoothing</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('TlN5c1M='); return false;">NSysS</div>
-
-</div>
-<div class="delink listing-description"><a href="../research/sensors/smoothing-time-series/index.html" class="no-external">
-<p>A survey on the impact of various smoothing technique in temporal data prediction models.</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="../research/sensors/smoothing-time-series/index.html" class="no-external">
-<div class="listing-date">
-December 2021
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-left" data-index="1" data-categories="SGV1cmlzdGljJTJDTm9pc2UlMjBTdXBwcmVzc2lvbiUyQ1VsdHJhc29uaWMlMjBTZW5zb3IlMkNVbmRlcmdyYWR1YXRl" data-listing-date-sort="1512885600000" data-listing-file-modified-sort="1765403636444" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="313">
-<div class="thumbnail"><a href="../research/sensors/noise-supression/index.html" class="no-external">
-
-<img loading="lazy" src="../research/sensors/noise-supression/setup.png" class="thumbnail-image">
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../research/sensors/noise-supression/index.html" class="no-external">Noise Suppression in Distance Measurements Using A Sonar Sensor Having Angular Orientation</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('SGV1cmlzdGlj'); return false;">Heuristic</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('Tm9pc2UlMjBTdXBwcmVzc2lvbg=='); return false;">Noise Suppression</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('VWx0cmFzb25pYyUyMFNlbnNvcg=='); return false;">Ultrasonic Sensor</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('VW5kZXJncmFkdWF0ZQ=='); return false;">Undergraduate</div>
-
-</div>
-<div class="delink listing-description"><a href="../research/sensors/noise-supression/index.html" class="no-external">
-<p>A heuristic for noise suppression in Sonar Sensor data.</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="../research/sensors/noise-supression/index.html" class="no-external">
-<div class="listing-date">
-December 2017
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-left" data-index="2" data-categories="QXJkdWlubyUyME5hbm8lMkNHU00lMjBEZXZpY2UlMkNVbHRyYXNvbmljJTIwU2Vuc29y" data-listing-date-sort="1485928800000" data-listing-file-modified-sort="1765403636384" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="235">
-<div class="thumbnail"><a href="../research/sensors/automated-traffic-jam/index.html" class="no-external">
-
-<img loading="lazy" src="../research/sensors/automated-traffic-jam/jam.png" class="thumbnail-image">
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../research/sensors/automated-traffic-jam/index.html" class="no-external">Towards Devising An Automated System for Determining The Length of A Traffic Jam in Dhaka City</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('QXJkdWlubyUyME5hbm8='); return false;">Arduino Nano</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('R1NNJTIwRGV2aWNl'); return false;">GSM Device</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('VWx0cmFzb25pYyUyMFNlbnNvcg=='); return false;">Ultrasonic Sensor</div>
-
-</div>
-<div class="delink listing-description"><a href="../research/sensors/automated-traffic-jam/index.html" class="no-external">
-<p>An undergraduate thesis investigating road-condition and traffic-jam detection in Dhaka City using ultrasonic sensors connected to Arduino Nano and GSM modules, which transmit data to a central server for processing.</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="../research/sensors/automated-traffic-jam/index.html" class="no-external">
-<div class="listing-date">
-February 2017
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">No matching items</div>
-</div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right

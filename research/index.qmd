@@ -19,43 +19,35 @@ listing:
     sort: "date desc"
 
 
-  - id: listings-nlp
-    date-format: "MMMM YYYY"
-    # image-height: 200%
-    image-align: left
-    # sort-ui: true
-    filter-ui: true
-    contents: nlp-deep-learning
-    type: default
-    categories: cloud 
-    sort: "date desc"
+  # - id: listings-nlp
+  #   date-format: "MMMM YYYY"
+  #   # image-height: 200%
+  #   image-align: left
+  #   # sort-ui: true
+  #   filter-ui: true
+  #   contents: nlp-deep-learning
+  #   type: default
+  #   categories: cloud 
+  #   sort: "date desc"
 
-  - id: listings-sensors
-    date-format: "MMMM YYYY"
-    # image-height: 200%
-    image-align: left
-    # sort-ui: true
-    filter-ui: true
-    contents: sensors
-    type: default
-    categories: cloud 
-    sort: "date desc"
+  # - id: listings-sensors
+  #   date-format: "MMMM YYYY"
+  #   # image-height: 200%
+  #   image-align: left
+  #   # sort-ui: true
+  #   filter-ui: true
+  #   contents: sensors
+  #   type: default
+  #   categories: cloud 
+  #   sort: "date desc"
 ---
 
 I have worked on 20+ research projects focused on high-performance computing (HPC), graph neural network (GNN) systems, and natural language processing (NLP), covering topics from system optimization to advanced model architectures.
 
+The following lists my research projects on Systems and GNN. For other research projects, please see [this link](others/index.qmd) .
 
-## Systems
+
+## Systems and Graph Neural Networks
 
 ::: {#listings-systems}
-:::
-
-## NLP and Deep Learning
-
-::: {#listings-nlp}
-:::
-
-## Sensors
-
-::: {#sample-sensors}
 :::

@@ -13,12 +13,12 @@
   date: "05/01/2025"
   path: "/research/systems/gpu-tuner-amazon/"
 
-- categories: ["Paper"]
+- categories: ["Conference", "Publication"]
   News: "Paper accepted on **MLSys 2025**! Expressed 10 KGE models using sparse-dense matrix multiplication."
   date: "02/01/2025"
   path: "/research/systems/sptransx/"
 
-- categories: ["Book Chapter"]
+- categories: ["Book Chapter", "Publication"]
   News: "Book Chapter on Complex Networks 2024! Collaboration work. Developed Neo4j interface for KGE application."
   date: "12/01/2024"
   path: "/research/systems/wmd/"
@@ -28,7 +28,7 @@
   date: "11/01/2024"
   path: "/research/systems/efficient-kge/"
 
-- categories: ["Publication"]
+- categories: ["Conference", "Publication"]
   News: "Paper accepted at WebConf 2024! Developed CPU PyTorch SpMM operator for GNN training with auto-tuner backend."
   date: "04/01/2024"
   path: "/research/systems/isplib/"
@@ -120,7 +120,7 @@
   date: "01/01/2021"
   path: ""
 
-- categories: ["Publication"]
+- categories: ["Book"]
   News: "Author, 42-Page Guide on Java for C++ Programmers (Self-Published). Shared online as a free resource for programmers transitioning from C++ to Java."
   date: "04/01/2018"
   path: "https://drive.google.com/file/d/1Ttl1GGjqBGe6Gl8rCUqYBfJCcgz4iie1/view"

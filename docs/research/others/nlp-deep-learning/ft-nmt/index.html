@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="A survey on the impact of various smoothing technique in temporal data prediction models.">
+<meta name="description" content="An effort to improve translation accuracy by combining multiple seq2seq neural machine translation models with augmented training data, completed as part of the CSE6207 project work.">
 
-<title>A Study on the Effects of Smoothing in Time Series Prediction – Md Saidul Hoque Anik</title>
+<title>A Fault Tolerant Neural Machine Translation System – Md Saidul Hoque Anik</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -24,31 +24,31 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../../../">
-<script src="../../../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="../../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b758ccaa5987ceb1b75504551e579abf.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
-<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap-038a103d4a9cf255c75ac97a161d84de.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../../site_libs/bootstrap/bootstrap-dark-3776982185214b6e9fac11378b4e0f3a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../../site_libs/bootstrap/bootstrap-038a103d4a9cf255c75ac97a161d84de.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
-<script src="../../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
-<link href="../../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<script src="../../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../../">
+<script src="../../../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b758ccaa5987ceb1b75504551e579abf.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../../../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../../site_libs/bootstrap/bootstrap-038a103d4a9cf255c75ac97a161d84de.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../../../site_libs/bootstrap/bootstrap-dark-3776982185214b6e9fac11378b4e0f3a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../../../site_libs/bootstrap/bootstrap-038a103d4a9cf255c75ac97a161d84de.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../../../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../../../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../../../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -81,7 +81,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="https://fonts.cdnfonts.com/css/palatino" rel="stylesheet">
 
 
-<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../../styles.css">
 </head>
 
 <body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
@@ -253,7 +253,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../../../index.html">
+    <a class="navbar-brand" href="../../../../index.html">
     <span class="navbar-title">Md Saidul Hoque Anik</span>
     </a>
   </div>
@@ -264,39 +264,39 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../../index.html"> 
+    <a class="nav-link" href="../../../../index.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../research"> 
+    <a class="nav-link" href="../../../../research"> 
 <span class="menu-text">Research</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../news"> 
+    <a class="nav-link" href="../../../../news"> 
 <span class="menu-text">News</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../projects"> 
+    <a class="nav-link" href="../../../../projects"> 
 <span class="menu-text">Softwares</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../teaching"> 
+    <a class="nav-link" href="../../../../teaching"> 
 <span class="menu-text">Teaching</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../community"> 
+    <a class="nav-link" href="../../../../community"> 
 <span class="menu-text">Community</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../community"> 
+    <a class="nav-link" href="../../../../community"> 
 <span class="menu-text">Blog</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../miscellaneous"> 
+    <a class="nav-link" href="../../../../miscellaneous"> 
 <span class="menu-text">Miscellaneous</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../Anik_CV_Nov_2025.pdf"> 
+    <a class="nav-link" href="../../../../Anik_CV_Nov_2025.pdf"> 
 <span class="menu-text">CV</span></a>
   </li>  
 </ul>
@@ -328,17 +328,18 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">A Study on the Effects of Smoothing in Time Series Prediction</h1>
+<h1 class="title">A Fault Tolerant Neural Machine Translation System</h1>
   <div class="quarto-categories">
-    <div class="quarto-category">Time Series Prediction</div>
-    <div class="quarto-category">Smoothing</div>
-    <div class="quarto-category">NSysS</div>
+    <div class="quarto-category">Fault Tolerant</div>
+    <div class="quarto-category">Machine Translation</div>
+    <div class="quarto-category">NLP</div>
+    <div class="quarto-category">Tensorflow</div>
   </div>
   </div>
 
 <div>
   <div class="description">
-    A survey on the impact of various smoothing technique in temporal data prediction models.
+    An effort to improve translation accuracy by combining multiple seq2seq neural machine translation models with augmented training data, completed as part of the CSE6207 project work.
   </div>
 </div>
 
@@ -349,7 +350,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">December 2021</p>
+      <p class="date">August 2017</p>
     </div>
   </div>
   
@@ -373,26 +374,29 @@ ul.task-list li input[type="checkbox"] {
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
-<p>Graduate Research Work</p>
+<p>Graduate Course Project</p>
 <ul>
-<li>Poster presentation</li>
+<li>CSE6207 (Advanced Dependable and Fault-Tolerant Computer Systems) with Dr.&nbsp;Alim Al Islam Razi</li>
 </ul>
-<p><a href="https://cse.buet.ac.bd/nsyss2021/" class="badge bg-danger rounded-pill">NSysS 2021</a> <a href="https://drive.google.com/file/d/1Ht0Czfc8wzvd8wefoFjnB3VjUcdhpKF9/view" class="badge bg-primary rounded-pill">Poster</a></p>
+<p><a href="https://drive.google.com/file/d/1uNhTc95pGrOf7KVZUhHRYvfSVG4EiIci/view" class="badge bg-primary rounded-pill">Slides</a></p>
 </div>
 </div>
 </div>
-<p><a href="trends.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="trends.png" class="img-fluid" style="width:50.0%"></a></p>
+<p><a href="models.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="models.png" class="img-fluid"></a></p>
 <section id="background" class="level2">
 <h2 class="anchored" data-anchor-id="background">Background</h2>
-<p>Smoothing filters are commonly applied in time series data analysis to reduce noise and improve prediction accuracy. These filters, such as exponential smoothing and regression-based filters, are particularly effective when working with sentiment data, especially data collected from social media platforms. Sentiment data from sources like Twitter can often contain outliers due to the nature of social media content, making it challenging to obtain reliable predictions. By removing noise through smoothing, we aim to enhance the quality of predictions for sentiment trends, which can vary over time. This study explores whether applying a smoothing filter before training a prediction model can improve the accuracy of sentiment trend predictions. Specifically, we focus on sentiment data categorized into positive, negative, and neutral trends, both for text and image-based tweets.</p>
+<p>Neural machine translation (NMT) systems built on sequence-to-sequence (seq2seq) architectures have become the standard for automated translation, yet individual models still struggle with linguistic ambiguity, domain shifts, and low-resource language pairs. These limitations often lead to inconsistent phrasing, mistranslations, or reduced fluency, particularly when the training data is sparse or uneven. We explored whether combining multiple translation models and strengthening the training corpus could address these challenges. By leveraging the idea that different models may capture complementary linguistic patterns, we aimed to create a system capable of generating more accurate and robust translations than any single model alone.</p>
 </section>
 <section id="methodology" class="level2">
 <h2 class="anchored" data-anchor-id="methodology">Methodology</h2>
-<p>To evaluate the impact of smoothing on prediction accuracy, we apply six different types of trends, including positive, negative, and neutral sentiment for both text and image-based tweets. The dataset includes 300 days of aggregated data for each trend category: 17,25,297 values for text sentiment and 3,62,079 values for image sentiment. We use Facebook’s Prophet, a popular forecasting library, to predict sentiment trends. The model is trained using the first 240 days of data and then forecasts the sentiment trend for the subsequent 60 days. We experiment with various smoothing techniques, including exponential smoothing, seasonal decomposition, and polynomial smoothing, to determine if smoothing the data before training improves the predictive performance.</p>
+<p><a href="method.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="method.png" class="img-fluid"></a></p>
+<p>Our approach centered on two key strategies: model ensembling and dataset augmentation. For ensembling, we trained three seq2seq translation models, each on a different portion of the available training data to encourage diversity in their learned representations. Instead of traditional ensemble methods such as probability averaging or beam-level voting, we generated translations from all three models and then computed pairwise BLEU scores to assess their agreement. Using these scores, we performed a majority-voting procedure to select the final output, favoring translations that were most consistent across models.</p>
+<p>In parallel, we augmented the dataset by partitioning it into distinct subsets for the three models, effectively exposing each model to a different slice of the overall data distribution. This form of data diversification served as a lightweight augmentation technique, increasing variability without introducing synthetic noise. We evaluated the resulting hybrid system using standard machine translation benchmarks, measuring its accuracy, fluency, and robustness across multiple test sets.</p>
 </section>
 <section id="findings" class="level2">
 <h2 class="anchored" data-anchor-id="findings">Findings</h2>
-<p>The effectiveness of smoothing filters varies depending on the type of sentiment trend being predicted. The results indicate that filtering actually worsens prediction accuracy in certain cases, specifically for Positive/Neutral Text and Positive Image sentiment trends. However, seasonal decomposition outperforms other methods for predicting Negative Text and Neutral Image trends, likely due to its ability to handle seasonality in the data. On the other hand, polynomial smoothing yields the best results for predicting Negative Image trends. These findings suggest that while smoothing can improve accuracy in some contexts, its effectiveness is highly dependent on the type of sentiment trend and the nature of the data.</p>
+<p><a href="result.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="result.png" class="img-fluid"></a></p>
+<p>Our results showed that integrating multiple seq2seq models led to improvements over some baselines, but the hybrid method did not consistently outperform all comparison systems. While the ensemble offered modest gains in stability and occasionally reduced specific types of errors, these benefits were uneven and often dependent on the language pair or dataset. Similarly, dataset augmentation provided some boosts in generalization, but its impact varied and was sometimes offset by noise introduced during the augmentation process. Overall, we found that combining model ensembling with enriched training data has potential but did not yield uniformly superior translation quality, highlighting the need for further refinement of both the ensemble strategy and the augmentation pipeline.</p>
 
 
 </section>

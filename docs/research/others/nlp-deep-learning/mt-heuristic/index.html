@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="A hybrid approach to machine translation combining both RNN-based and rule-based translators.">
+<meta name="description" content="This study explores a generalized machine translation system for low-resource languages like Bengali, proposing semantic-based verb identification and root word detection algorithms that outperform Google Translator, while comparing various approaches in terms of accuracy, time, and space complexity.">
 
-<title>An Enhanced RBMT: When RBMT Outperforms Modern Data-Driven Translators – Md Saidul Hoque Anik</title>
+<title>An Approach Towards Multilingual Translation By Semantic-Based Verb Identification And Root Word Analysis – Md Saidul Hoque Anik</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -24,31 +24,31 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../../../">
-<script src="../../../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="../../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b758ccaa5987ceb1b75504551e579abf.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
-<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap-038a103d4a9cf255c75ac97a161d84de.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../../site_libs/bootstrap/bootstrap-dark-3776982185214b6e9fac11378b4e0f3a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../../site_libs/bootstrap/bootstrap-038a103d4a9cf255c75ac97a161d84de.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
-<script src="../../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
-<link href="../../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<script src="../../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../../">
+<script src="../../../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b758ccaa5987ceb1b75504551e579abf.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../../../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../../site_libs/bootstrap/bootstrap-038a103d4a9cf255c75ac97a161d84de.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../../../site_libs/bootstrap/bootstrap-dark-3776982185214b6e9fac11378b4e0f3a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../../../site_libs/bootstrap/bootstrap-038a103d4a9cf255c75ac97a161d84de.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../../../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../../../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../../../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -81,7 +81,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="https://fonts.cdnfonts.com/css/palatino" rel="stylesheet">
 
 
-<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../../styles.css">
 </head>
 
 <body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
@@ -253,7 +253,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../../../index.html">
+    <a class="navbar-brand" href="../../../../index.html">
     <span class="navbar-title">Md Saidul Hoque Anik</span>
     </a>
   </div>
@@ -264,39 +264,39 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../../index.html"> 
+    <a class="nav-link" href="../../../../index.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../research"> 
+    <a class="nav-link" href="../../../../research"> 
 <span class="menu-text">Research</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../news"> 
+    <a class="nav-link" href="../../../../news"> 
 <span class="menu-text">News</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../projects"> 
+    <a class="nav-link" href="../../../../projects"> 
 <span class="menu-text">Softwares</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../teaching"> 
+    <a class="nav-link" href="../../../../teaching"> 
 <span class="menu-text">Teaching</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../community"> 
+    <a class="nav-link" href="../../../../community"> 
 <span class="menu-text">Community</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../community"> 
+    <a class="nav-link" href="../../../../community"> 
 <span class="menu-text">Blog</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../miscellaneous"> 
+    <a class="nav-link" href="../../../../miscellaneous"> 
 <span class="menu-text">Miscellaneous</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../Anik_CV_Nov_2025.pdf"> 
+    <a class="nav-link" href="../../../../Anik_CV_Nov_2025.pdf"> 
 <span class="menu-text">CV</span></a>
   </li>  
 </ul>
@@ -316,8 +316,9 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
-  <li><a href="#contribution" id="toc-contribution" class="nav-link" data-scroll-target="#contribution">Contribution</a></li>
+  <li><a href="#background" id="toc-background" class="nav-link active" data-scroll-target="#background">Background</a></li>
+  <li><a href="#methodology" id="toc-methodology" class="nav-link" data-scroll-target="#methodology">Methodology</a></li>
+  <li><a href="#findings" id="toc-findings" class="nav-link" data-scroll-target="#findings">Findings</a></li>
   </ul>
 </nav>
     </div>
@@ -327,22 +328,17 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">An Enhanced RBMT: When RBMT Outperforms Modern Data-Driven Translators</h1>
+<h1 class="title">An Approach Towards Multilingual Translation By Semantic-Based Verb Identification And Root Word Analysis</h1>
   <div class="quarto-categories">
-    <div class="quarto-category">Journal</div>
-    <div class="quarto-category">Collaboration</div>
-    <div class="quarto-category">NLP</div>
-    <div class="quarto-category">Hybrid</div>
-    <div class="quarto-category">Deep Learning</div>
-    <div class="quarto-category">LSTM</div>
     <div class="quarto-category">Machine Translation</div>
-    <div class="quarto-category">Rule-based</div>
+    <div class="quarto-category">NLP</div>
+    <div class="quarto-category">NER</div>
   </div>
   </div>
 
 <div>
   <div class="description">
-    A hybrid approach to machine translation combining both RNN-based and rule-based translators.
+    This study explores a generalized machine translation system for low-resource languages like Bengali, proposing semantic-based verb identification and root word detection algorithms that outperform Google Translator, while comparing various approaches in terms of accuracy, time, and space complexity.
   </div>
 </div>
 
@@ -353,7 +349,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">February 2022</p>
+      <p class="date">April 2018</p>
     </div>
   </div>
   
@@ -377,20 +373,23 @@ ul.task-list li input[type="checkbox"] {
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
-<p>Master’s Research Collaboration</p>
-<p><a href="https://www.tandfonline.com/doi/full/10.1080/02564602.2022.2026828?scroll=top&amp;needAccess=true" class="badge bg-danger rounded-pill">IETE Technical Review, Volume 39</a> <a href="https://drive.google.com/file/d/1MWamJLoQ3Op-7zJ_J8Rpmc0xmH58tphM/view?usp=sharing" class="badge bg-primary rounded-pill">Paper</a></p>
+<p>Master’s Research Project</p>
+<p><a href="https://ieeexplore.ieee.org/document/8631383" class="badge bg-danger rounded-pill">NSysS 2018</a> <a href="https://drive.google.com/file/d/1S_JrjS5ZLF0hMobw5jvW08XxMz8vlhBM/view" class="badge bg-primary rounded-pill">Paper</a></p>
 </div>
 </div>
 </div>
-<p><a href="vowel.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="vowel.jpg" class="img-fluid"></a></p>
-<section id="overview" class="level2">
-<h2 class="anchored" data-anchor-id="overview">Overview</h2>
-<p>Current mainstream translation systems—such as Google Translate, Yahoo Babel Fish, and Bing—perform reliably for high-resource languages but often fail to accurately translate low-resource languages like Bengali, Romanian, and Arabic. Because these systems depend heavily on large parallel corpora for NMT and SMT, many widely spoken languages remain underexplored across both machine translation and broader NLP tasks.</p>
-<p>This study addresses this gap by improving Bengali-to-English translation through a refined rule-based MT system. We enhance translation quality by incorporating more accurate handling of Bengali proper nouns as subjects, as well as by strengthening verb processing through root-word identification to better manage the language’s morphological complexity. These linguistic techniques collectively form a more effective framework for low-resource translation. Comparative evaluation against popular data-driven systems using a custom Bengali–English dataset shows that our enhanced rule-based approach delivers superior translation accuracy.</p>
+<p><a href="heuristic.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="heuristic.png" class="img-fluid"></a></p>
+<section id="background" class="level2">
+<h2 class="anchored" data-anchor-id="background">Background</h2>
+<p>While machine translation systems like Google Translator excel with widely spoken languages such as English, French, or Spanish, they struggle with lesser-known or newly introduced languages due to their reliance on large, high-quality datasets. Most Natural Language Processing (NLP) research has concentrated on major languages, leaving many low-resource languages underrepresented. Bengali, despite being one of the most spoken languages globally, remains a low-resource language in machine translation systems. This study addresses this gap by focusing on Bengali, aiming to improve translation quality for languages with limited representation in the field.</p>
 </section>
-<section id="contribution" class="level2">
-<h2 class="anchored" data-anchor-id="contribution">Contribution</h2>
-<p>My key contribution to this work was designing a novel heuristic for verb root detection that improved both accuracy and space efficiency. This heuristic significantly enhanced the system’s ability to process Bengali verb forms, leading to more precise and reliable translations.</p>
+<section id="methodology" class="level2">
+<h2 class="anchored" data-anchor-id="methodology">Methodology</h2>
+<p>To improve Bengali translation, we propose a generalized machine translation system designed for low-resource languages. Our approach centers on two key innovations: semantic-based verb identification and root word detection. The first technique focuses on understanding verbs based on their meaning, rather than relying solely on statistical correlations, which are prone to errors. The second technique involves detecting the root form of verbs to enhance translation accuracy by capturing the verb’s core meaning in context. These strategies are intended to overcome the limitations of current statistical translation methods, improving performance with smaller datasets.</p>
+</section>
+<section id="findings" class="level2">
+<h2 class="anchored" data-anchor-id="findings">Findings</h2>
+<p>Our approach was evaluated against Google Translator in terms of accuracy, time complexity, and space complexity. The results show that the semantic-based verb identification and root word detection algorithms significantly improve the translation of Bengali verbs, outperforming Google Translator in terms of accuracy. Additionally, our method demonstrated efficient time complexity, ensuring that improvements in translation quality did not come at the expense of processing delays. The approach also maintained reasonable space complexity, allowing it to scale effectively without demanding excessive memory. Overall, our results indicate that this semantic-focused approach offers a meaningful advancement in translating low-resource languages like Bengali, balancing both accuracy and computational efficiency.</p>
 
 
 </section>
