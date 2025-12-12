@@ -1,5 +1,5 @@
 ---
-title: "Research Work"
+title: "Other Research Work"
 format: 
   html:
     page-layout: full
@@ -42,7 +42,7 @@ listing:
     sort: "date desc"
 ---
 
-This page lists my other research works (NLP and Sensors) done during my graduate and undergraduate studies in Bangladesh.
+This page lists my other research works (NLP and Sensors) done during my graduate and undergraduate studies in Bangladesh. See current research works [here](/research/index.qmd).
 
 
 ## Natural Language Processing

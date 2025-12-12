@@ -1,6 +1,6 @@
 ---
 title: "Md Saidul Hoque Anik"
-description: "PhD Candidate | Scalable and Differentiable Sparse Kernels for Graph Learning | ML Systems Optimization"
+description: "PhD Candidate | Sparse Kernels for Graph Learning | ML Systems & Performance Optimization"
 toc: false
 format: 
   html:
@@ -9,33 +9,37 @@ about:
   template: trestles
   image: images/propic2.png
   image-title: "At MLSys 2025"
-  # links:
-  #   - icon: twitter
-  #     text: twitter
-  #     href: https://twitter.com
-  #   - icon: github
-  #     text: Github
-  #     href: https://github.com
+  links:
+    - icon: github
+      text: Github
+      href: https://github.com/OnixHoque
+    - icon: linkedin
+      text: LinkedIn 
+      href: https://www.linkedin.com/in/onixhoque/
 
 linestretch: 1.7
 
 ---
-
 ## About Me
 
-I am a PhD candidate in Computer Science and Engineering at Texas A&M, specializing in high-performance and distributed Machine Learning Systems. Particularly, I map and customize sparse linear algebra libraries to optimize the efficiency of sparse machine-learning pipelines. My industry experience includes an internship at Amazon AWS, where I developed an end-to-end differentiable GPU kernel autotuner for LLM inference, which significantly improved efficiency by applying transfer learning to reduce new kernel tuning time from days to hours. My core PhD research focuses on accelerating Graph Learning models (GNNs, KGEs, GraphRAG) through new distributed methods and customized sparse linear algebra. 
+I am a PhD candidate in Computer Science & Engineering at Texas A&M University, focusing on **high-performance and distributed machine learning systems**. I specialize in optimizing **sparse linear algebra** for efficient ML pipelines. Previously, I interned at **Amazon AWS**, where I built a differentiable GPU kernel autotuner that reduced LLM kernel-tuning time from **days to hours** using transfer learning.
 
-I can:
 
-* Build custom PyTorch training pipelines for Graph Neural Networks using efficient sparse linear algebra.
-* Integrate high-performance C++ libraries into PyTorch workflows through LibTorch and PyBind11.
-* Develop distributed training pipelines with PyTorch Distributed, including robust disk-based data streaming.
-* Profile Python code with native C/C++ backends to identify and resolve performance bottlenecks.
+> I can:
+>
+> - Build custom **PyTorch GNN** training pipelines backed by optimized sparse linear algebra.  
+> - Integrate custom **C++/CUDA** kernels into PyTorch with LibTorch & PyBind11.  
+> - Develop **distributed training systems** with PyTorch Distributed and efficient disk-based data streaming.  
+> - Profile and optimize Python/C++ pipelines for performance bottlenecks.  
+> - Apply ML for systems optimization (e.g., neural GPU kernel autotuning).  
+
 
 ## Research Background
 
-I have in-depth expertise in designing custom PyTorch-based systems. My accepted work at MLSys 2025 details an approach for expressing Knowledge Graph Embedding training via sparse-matrix multiplication, demonstrating innovative system design for large-scale, sparse model efficiency. Furthermore, I developed a high-performance and auto-tuned CPU Sparse Matrix-Matrix Multiplication (SpMM) library that accelerates PyTorch GCN training by up to 93x (published at ACM WebConf 2024) and supports several GNNs along with multiple CPU architectures (Intel, AMD, ARM). I am currently collaborating with Oak Ridge National Lab to build a distributed and differentiable framework for large-scale KGE training across hybrid storage and compute tiers (disk, CPU, GPU).
-
+My research centers on **scalable graph learning systems** (GNNs, KGEs, GraphRAG) and custom sparse linear algebra.  
+At **MLSys 2025**, I presented a generalized method for expressing KGE training models through sparse matrix multiplication to improve large-scale efficiency.  
+I also built a **high-performance CPU SpMM library** (ACM WebConf 2024) that accelerates PyTorch GNN training by **up to 93×** across Intel, AMD, and ARM CPUs.  
+Currently, I am collaborating with **Oak Ridge National Lab** on a distributed, differentiable framework for large-scale KGE training across hybrid compute tiers.
 
 <!-- :::{.column-margin} -->
 ## Featured Research
@@ -44,6 +48,7 @@ I have in-depth expertise in designing custom PyTorch-based systems. My accepted
 * [MLSys 2025 Paper: Generalized 10 KGE model training using faster sparse-dense matrix multiplication kernel.](/research/systems/sptransx/index.qmd)
 * [Amazon Summer Internship 2025: Developed Differentiable GPU Kernel Autotuner.](/research/systems/gpu-tuner-amazon/index.qmd)
 
-See all 20+ research projects [here](/research/index.qmd). Or, see an overview of my progress [here](/news/index.qmd).
+Explore all 20+ research projects [here](/research/index.qmd), or check out a quick progress overview [here](/news/index.qmd).
+
 
 <!-- ::: -->

@@ -6,6 +6,7 @@ date: "08/01/2025"
 image: amazon.jpg
 ---
 
+> 📁 This article is part of the full list of [Research Projects{{< iconify ix:arrow-diagonal-top-right >}}](/research/index.qmd)
 
 ::: {.callout-note appearance="minimal" title="Note" icon=false collapse=false}
 Amazon AWS Internship Summer 2025

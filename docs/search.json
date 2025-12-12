@@ -32,7 +32,7 @@
     "href": "research/systems/sptransx/index.html",
     "title": "SparseTransX: Efficient Training of Translation-Based Knowledge Graph Embeddings Using Sparse Matrix Operations",
     "section": "",
-    "text": "NoteNote\n\n\n\n\n\nPhD Research Project\nMLSys 2025 Talk Slide Paper GitHub\nArtifact Available Artifact Evaluated"
+    "text": "📁 This article is part of the full list of Research Projects"
   },
   {
     "objectID": "research/systems/sptransx/index.html#background",
@@ -60,7 +60,7 @@
     "href": "research/systems/kge-profile/index.html",
     "title": "Investigating Spatial-Temporal and Knowledge Graph Machine Learning Algorithms for Dominant Kernels & Potential Scope of Speedup",
     "section": "",
-    "text": "NoteNote\n\n\n\n\n\nGraduate Course Project\n\nENG 503 - Intro to Intelligent Systems with Dr. Ariful Azad\n\nSlide"
+    "text": "📁 This article is part of the full list of Research Projects"
   },
   {
     "objectID": "research/systems/kge-profile/index.html#background",
@@ -88,7 +88,7 @@
     "href": "research/systems/graph-mp/index.html",
     "title": "Enabling Model Parallelism for Graph Neural Networks with a Scalable Sparse-Dense Matrix Multiplication Operator",
     "section": "",
-    "text": "NoteNote\n\n\n\n\n\nPhD project ongoing work\n\nPresented at Sparstitute Meeting (Barkeley, CA)"
+    "text": "📁 This article is part of the full list of Research Projects"
   },
   {
     "objectID": "research/systems/graph-mp/index.html#overview",
@@ -102,7 +102,7 @@
     "href": "research/systems/gpu-code-gen-cpp/index.html",
     "title": "Accelerating Graph Machine Learning using Auto-tuned Sparse Primitives for GPU",
     "section": "",
-    "text": "NoteNote\n\n\n\n\n\nGraduate Course Project\n\nIntroduction to Intelligent Systems E-536 [Spring 2023] with Dr. Ariful Azad\n\nSlides"
+    "text": "📁 This article is part of the full list of Research Projects"
   },
   {
     "objectID": "research/systems/gpu-code-gen-cpp/index.html#background",
@@ -130,7 +130,7 @@
     "href": "research/systems/fastgraph/index.html",
     "title": "Python Interface of FastGraph (an OpenMP-based sparse-matrix library)",
     "section": "",
-    "text": "NoteNote\n\n\n\n\n\nSecondary PhD Research Project (Collaboration)"
+    "text": "📁 This article is part of the full list of Research Projects"
   },
   {
     "objectID": "research/systems/fastgraph/index.html#background",
@@ -158,7 +158,7 @@
     "href": "research/systems/concurrency-python/index.html",
     "title": "Concurrency Study of Python 2.7",
     "section": "",
-    "text": "NoteNote\n\n\n\n\n\nCourse Project from CSE6305 (Programming Languages and Systems)\nProject Report"
+    "text": "📁 This article is part of the full list of Research Projects"
   },
   {
     "objectID": "research/systems/concurrency-python/index.html#background",
@@ -347,54 +347,54 @@
     "href": "index.html",
     "title": "Md Saidul Hoque Anik",
     "section": "",
-    "text": "I am a PhD candidate in Computer Science and Engineering at Texas A&M, specializing in high-performance and distributed Machine Learning Systems. Particularly, I map and customize sparse linear algebra libraries to optimize the efficiency of sparse machine-learning pipelines. My industry experience includes an internship at Amazon AWS, where I developed an end-to-end differentiable GPU kernel autotuner for LLM inference, which significantly improved efficiency by applying transfer learning to reduce new kernel tuning time from days to hours. My core PhD research focuses on accelerating Graph Learning models (GNNs, KGEs, GraphRAG) through new distributed methods and customized sparse linear algebra.\nI can:\n\nBuild custom PyTorch training pipelines for Graph Neural Networks using efficient sparse linear algebra.\nIntegrate high-performance C++ libraries into PyTorch workflows through LibTorch and PyBind11.\nDevelop distributed training pipelines with PyTorch Distributed, including robust disk-based data streaming.\nProfile Python code with native C/C++ backends to identify and resolve performance bottlenecks."
+    "text": "I am a PhD candidate in Computer Science & Engineering at Texas A&M University, focusing on high-performance and distributed machine learning systems. I specialize in optimizing sparse linear algebra for efficient ML pipelines. Previously, I interned at Amazon AWS, where I built a differentiable GPU kernel autotuner that reduced LLM kernel-tuning time from days to hours using transfer learning.\n\nI can:\n\nBuild custom PyTorch GNN training pipelines backed by optimized sparse linear algebra.\n\nIntegrate custom C++/CUDA kernels into PyTorch with LibTorch & PyBind11.\n\nDevelop distributed training systems with PyTorch Distributed and efficient disk-based data streaming.\n\nProfile and optimize Python/C++ pipelines for performance bottlenecks.\n\nApply ML for systems optimization (e.g., neural GPU kernel autotuning)."
   },
   {
     "objectID": "index.html#about-me",
     "href": "index.html#about-me",
     "title": "Md Saidul Hoque Anik",
     "section": "",
-    "text": "I am a PhD candidate in Computer Science and Engineering at Texas A&M, specializing in high-performance and distributed Machine Learning Systems. Particularly, I map and customize sparse linear algebra libraries to optimize the efficiency of sparse machine-learning pipelines. My industry experience includes an internship at Amazon AWS, where I developed an end-to-end differentiable GPU kernel autotuner for LLM inference, which significantly improved efficiency by applying transfer learning to reduce new kernel tuning time from days to hours. My core PhD research focuses on accelerating Graph Learning models (GNNs, KGEs, GraphRAG) through new distributed methods and customized sparse linear algebra.\nI can:\n\nBuild custom PyTorch training pipelines for Graph Neural Networks using efficient sparse linear algebra.\nIntegrate high-performance C++ libraries into PyTorch workflows through LibTorch and PyBind11.\nDevelop distributed training pipelines with PyTorch Distributed, including robust disk-based data streaming.\nProfile Python code with native C/C++ backends to identify and resolve performance bottlenecks."
+    "text": "I am a PhD candidate in Computer Science & Engineering at Texas A&M University, focusing on high-performance and distributed machine learning systems. I specialize in optimizing sparse linear algebra for efficient ML pipelines. Previously, I interned at Amazon AWS, where I built a differentiable GPU kernel autotuner that reduced LLM kernel-tuning time from days to hours using transfer learning.\n\nI can:\n\nBuild custom PyTorch GNN training pipelines backed by optimized sparse linear algebra.\n\nIntegrate custom C++/CUDA kernels into PyTorch with LibTorch & PyBind11.\n\nDevelop distributed training systems with PyTorch Distributed and efficient disk-based data streaming.\n\nProfile and optimize Python/C++ pipelines for performance bottlenecks.\n\nApply ML for systems optimization (e.g., neural GPU kernel autotuning)."
   },
   {
     "objectID": "index.html#research-background",
     "href": "index.html#research-background",
     "title": "Md Saidul Hoque Anik",
     "section": "Research Background",
-    "text": "Research Background\nI have in-depth expertise in designing custom PyTorch-based systems. My accepted work at MLSys 2025 details an approach for expressing Knowledge Graph Embedding training via sparse-matrix multiplication, demonstrating innovative system design for large-scale, sparse model efficiency. Furthermore, I developed a high-performance and auto-tuned CPU Sparse Matrix-Matrix Multiplication (SpMM) library that accelerates PyTorch GCN training by up to 93x (published at ACM WebConf 2024) and supports several GNNs along with multiple CPU architectures (Intel, AMD, ARM). I am currently collaborating with Oak Ridge National Lab to build a distributed and differentiable framework for large-scale KGE training across hybrid storage and compute tiers (disk, CPU, GPU)."
+    "text": "Research Background\nMy research centers on scalable graph learning systems (GNNs, KGEs, GraphRAG) and custom sparse linear algebra.\nAt MLSys 2025, I presented a generalized method for expressing KGE training models through sparse matrix multiplication to improve large-scale efficiency.\nI also built a high-performance CPU SpMM library (ACM WebConf 2024) that accelerates PyTorch GNN training by up to 93× across Intel, AMD, and ARM CPUs.\nCurrently, I am collaborating with Oak Ridge National Lab on a distributed, differentiable framework for large-scale KGE training across hybrid compute tiers."
   },
   {
     "objectID": "index.html#featured-research",
     "href": "index.html#featured-research",
     "title": "Md Saidul Hoque Anik",
     "section": "Featured Research",
-    "text": "Featured Research\n\nSC24 best poster finalist (top-6): Expressed TransE Knowledge Graph Embedding (KGE) training using faster sparse-dense matrix multiplication kernel.\nMLSys 2025 Paper: Generalized 10 KGE model training using faster sparse-dense matrix multiplication kernel.\nAmazon Summer Internship 2025: Developed Differentiable GPU Kernel Autotuner.\n\nSee all 20+ research projects here. Or, see an overview of my progress here."
+    "text": "Featured Research\n\nSC24 best poster finalist (top-6): Expressed TransE Knowledge Graph Embedding (KGE) training using faster sparse-dense matrix multiplication kernel.\nMLSys 2025 Paper: Generalized 10 KGE model training using faster sparse-dense matrix multiplication kernel.\nAmazon Summer Internship 2025: Developed Differentiable GPU Kernel Autotuner.\n\nExplore all 20+ research projects here, or check out a quick progress overview here."
   },
   {
     "objectID": "projects/index.html",
     "href": "projects/index.html",
     "title": "Software Development & Engineering Projects",
     "section": "",
-    "text": "I developed 10+ open-source and commercial software projects between 2013 and 2023, using Python, Java, and C++. These span console, GUI, desktop, mobile (Android), and web applications.\n\n\n   \n    \n    \n      Order By\n      Default\n      \n        Title\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nBell-212 Training Module\n\n\n\nHTML\n\nPHP\n\nThree.js\n\nSemantic UI\n\n\n\nA training website with interactive 3D models to learn about different components of the Bell-212 Helicopter. Also has options to take and set quiz.\n\n\n\n\n\ntimeline\n\n\nJun’19 - Mar’20\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAayatun\n\n\n\nPython\n\nFlask\n\nPWA\n\nWhoosh\n\nSemantic UI\n\n\n\nA responsive, mobile-first Quran encyclopedia containing word-for-word meaning, word definition, two different recitations, and tafsir. It is hosted at…\n\n\n\n\n\ntimeline\n\n\nAug’20 - Present\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPlagiarism Checker\n\n\n\nJavaScript\n\nElectronJS\n\nVueJS\n\nSemantic UI\n\n\n\nA desktop application for plagiarism checking. It generates a detailed report, marks possible plagiarism cases based on statistics, and shows side-by-side similarity between…\n\n\n\n\n\ntimeline\n\n\nMar’21\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSocial Media App\n\n\n\nPython\n\nDjango\n\nPWA\n\nVueJS\n\n\n\nA social media web app demonstrating Django features including ORM and authentication. It was converted into MicroKernel Architecture and the client-side rendering was…\n\n\n\n\n\ntimeline\n\n\nAug’21 - Sept’21\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAutomated Attendance Entry\n\n\n\nPython\n\nPyQT5\n\nSelenium\n\n\n\nA desktop application that automatically extracts IDs from Google Meet chat scripts and submits attendance through a university portal using Selenium.\n\n\n\n\n\ntimeline\n\n\nJan’21\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAcademic Calendar Generator for UIU\n\n\n\nJavaScript\n\nVueJS\n\nSemantic UI\n\n\n\nA single-page application for generating academic calendars with live weekday count previews and export options to PDF/Excel. It handles single/multiple day holidays and…\n\n\n\n\n\ntimeline\n\n\nJan’21\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCO/PO Attainment Tool for MIST\n\n\n\nGoogle Sheets\n\n\n\nAn interactive Google Sheet for calculating CO/PO attainment scores from mark-sheets and CO/Assessment links. Generates reports on PO attainment, CO attainment, and…\n\n\n\n\n\ntimeline\n\n\nOct’19\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nUG Course Distributor for MIST\n\n\n\nJava\n\nSwing\n\n\n\nA desktop application to distribute courses for semester planning, showing live preview of total/distributed credits across faculty ranks. A budgeting system was added later.\n\n\n\n\n\ntimeline\n\n\nMay’17\n\n\n\n\n\n\n\n\n\n\n\n\n\nFixMyStreet for Brac\n\n\n\nJava\n\nAndroid\n\nPHP\n\n\n\nAn Android application enabling Dhaka city citizens to report urban road problems to the appropriate authorities. The project was completed under supervision of Brac IT.\n\n\n\n\n\ntimeline\n\n\nJan’15 - Dec’15\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nBus Route Digitizer\n\n\n\nAndroid\n\nJava\n\nSwing\n\n\n\nAn Android app to view available bus routes in Dhaka including fare and ratings. Users can temporarily report route issues. The server backend was built using pure Java…\n\n\n\n\n\ntimeline\n\n\nJune’15 - Dec’15\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nBarcode Reader\n\n\n\nJava\n\nSwing\n\nTesseract\n\n\n\nA desktop barcode reader that decodes 1D barcode images and identifies corresponding items. Uses Tesseract OCR Engine 3.02.\n\n\n\n\n\ntimeline\n\n\nJan’14 - Mar’14\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOnix AV\n\n\n\nC++\n\nClamWin\n\n\n\nA GUI implementation of the ClamWin Virus Detection Engine. It supports downloading the latest signatures and removing infected files.\n\n\n\n\n\ntimeline\n\n\nApr’13 - Nov’13\n\n\n\n\n\n\n\n\nNo matching items"
+    "text": "Over the past decade (2013–2023), I have designed and delivered more than 10 open-source and commercial software projects, leveraging Python, Java, and C++. These include desktop GUI applications, Android mobile apps, and full-stack web platforms.\n\n\n   \n    \n    \n      Order By\n      Default\n      \n        Title\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nBell-212 Training Module\n\n\n\nCommercial\n\nHTML\n\nPHP\n\nThree.js\n\nSemantic UI\n\n\n\n[Commercial Project] An interactive training platform featuring 3D models of the Bell-212 helicopter, enabling users to explore components in detail with built-in quizzes and assessments.\n\n\n\n\n\ntimeline\n\n\nJun’19 - Mar’20\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAayatun\n\n\n\nOpen-source\n\nPython\n\nFlask\n\nPWA\n\nWhoosh\n\nSemantic UI\n\n\n\n[Open Source • 150K+ monthly visitors] Aayatun (aayatun.com) – a fast, mobile-first Progressive Web App providing word-by-word Quran translation, root-based word definitions, multiple recitations, and comprehensive tafsir.\n\n\n\n\n\ntimeline\n\n\nAug’20 - Present\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFixMyStreet for Brac\n\n\n\nCommercial\n\nJava\n\nAndroid\n\nPHP\n\n\n\n[Commercial Project • Bracathon 2015 Champion ($2,500)] An Android civic reporting app developed under BRAC IT, allowing Dhaka citizens to report road and infrastructure issues directly to responsible authorities.\n\n\n\n\n\ntimeline\n\n\nJan’15 - Dec’15\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPlagiarism Checker\n\n\n\nJavaScript\n\nElectronJS\n\nVueJS\n\nSemantic UI\n\n\n\nA desktop plagiarism detection tool that compares submissions, highlights potential matches using statistical analysis, and generates detailed side-by-side similarity reports.\n\n\n\n\n\ntimeline\n\n\nMar’21\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSocial Media App\n\n\n\nPython\n\nDjango\n\nPWA\n\nVueJS\n\n\n\nA full-featured social media web app showcasing Django capabilities (ORM, authentication), later refactored into a MicroKernel architecture with client-side rendering powered by Vue.js.\n\n\n\n\n\ntimeline\n\n\nAug’21 - Sept’21\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAutomated Attendance Entry\n\n\n\nPython\n\nPyQT5\n\nSelenium\n\n\n\nA desktop automation tool that extracts student IDs from Google Meet chat logs and automatically submits attendance through the university portal using Selenium.\n\n\n\n\n\ntimeline\n\n\nJan’21\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAcademic Calendar Generator for UIU\n\n\n\nJavaScript\n\nVueJS\n\nSemantic UI\n\n\n\nA single-page application for generating academic calendars with live weekday previews, support for single/multi-day holidays and makeup classes, and export options to PDF/Excel.\n\n\n\n\n\ntimeline\n\n\nJan’21\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCO/PO Attainment Tool for MIST\n\n\n\nGoogle Sheets\n\n\n\nAn interactive Google Sheets tool for calculating Course Outcome (CO) and Program Outcome (PO) attainment from marksheets and assessment mappings, with automated reports and visualizations.\n\n\n\n\n\ntimeline\n\n\nOct’19\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nUG Course Distributor for MIST\n\n\n\nJava\n\nSwing\n\n\n\nA Java Swing desktop application for semester course distribution among faculty, featuring real-time credit load previews across ranks and an integrated budgeting system.\n\n\n\n\n\ntimeline\n\n\nMay’17\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nBus Route Digitizer\n\n\n\nAndroid\n\nJava\n\nSwing\n\n\n\nAn Android app for browsing digitized bus routes in Dhaka with fares, timings, and user ratings, plus temporary issue reporting; backed by a custom Java Socket server.\n\n\n\n\n\ntimeline\n\n\nJune’15 - Dec’15\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nBarcode Reader\n\n\n\nJava\n\nSwing\n\nTesseract\n\n\n\nA desktop 1D barcode scanner using Tesseract OCR Engine 3.02 to decode images and retrieve corresponding product/item details.\n\n\n\n\n\ntimeline\n\n\nJan’14 - Mar’14\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOnix AV\n\n\n\nC++\n\nClamWin\n\n\n\nA custom GUI antivirus built on the ClamWin engine, supporting real-time signature updates, on-demand scanning, and automatic removal of infected files.\n\n\n\n\n\ntimeline\n\n\nApr’13 - Nov’13\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "research/others/index.html",
     "href": "research/others/index.html",
-    "title": "Research Work",
+    "title": "Other Research Work",
     "section": "",
-    "text": "This page lists my other research works (NLP and Sensors) done during my graduate and undergraduate studies in Bangladesh."
+    "text": "This page lists my other research works (NLP and Sensors) done during my graduate and undergraduate studies in Bangladesh. See current research works here."
   },
   {
     "objectID": "research/others/index.html#natural-language-processing",
     "href": "research/others/index.html#natural-language-processing",
-    "title": "Research Work",
+    "title": "Other Research Work",
     "section": "Natural Language Processing",
     "text": "Natural Language Processing\n\n\n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nImpact of Workplace Bullying among Physicians of Tertiary Medical College Hospitals\n\n\n\nNLP\n\nAutomation\n\nCollaboration\n\n\n\nThis study examined the prevalence and impact of workplace bullying on stress levels among physicians, finding a significant correlation with symptoms like depression and anxiety. My contribution was developing an automated pipeline to generate Google Forms for efficient survey distribution to 189 physicians, streamlining data collection for the research.\n\n\n\n\n\nOctober 2023\n\n\n\n\n\n\n\n\n\n\n\n\nA Bimodal Longitudinal Investigation on Changes in Sentiments over Social Media Interactions Owing to COVID-19 Pandemic\n\n\n\nNLP\n\nSentiment Analysis\n\nMultimodal\n\nForecasting\n\nHeuristic\n\nGraduate Work\n\n\n\nThis study analyzes sentiment shifts on Twitter during the COVID-19 pandemic, revealing significant changes in both text and image sentiment, with negative text sentiment increasing by 10.55% and positive image sentiment decreasing by 24.52%, and introduces a novel bimodal sentiment analysis framework.\n\n\n\n\n\nAugust 2022\n\n\n\n\n\n\n\n\n\n\n\n\nAn Enhanced RBMT: When RBMT Outperforms Modern Data-Driven Translators\n\n\n\nJournal\n\nCollaboration\n\nNLP\n\nHybrid\n\nDeep Learning\n\nLSTM\n\nMachine Translation\n\nRule-based\n\n\n\nA hybrid approach to machine translation combining both RNN-based and rule-based translators.\n\n\n\n\n\nFebruary 2022\n\n\n\n\n\n\n\n\n\n\n\n\nAn Enhanced RBMT: When RBMT Outperforms Modern Data-Driven Translators\n\n\n\nJournal\n\nNLP\n\nHybrid\n\nDeep Learning\n\nLSTM\n\nMachine Translation\n\nRule-based\n\n\n\nI improved Bengali-to-English translation by evaluating rule-based, SMT, and NMT methods and contributing an RNN seq2seq training pipeline for enhanced low-resource translation performance.\n\n\n\n\n\nMarch 2021\n\n\n\n\n\n\n\n\n\n\n\n\nAn Approach Towards Multilingual Translation By Semantic-Based Verb Identification And Root Word Analysis\n\n\n\nMachine Translation\n\nNLP\n\nNER\n\n\n\nThis study explores a generalized machine translation system for low-resource languages like Bengali, proposing semantic-based verb identification and root word detection algorithms that outperform Google Translator, while comparing various approaches in terms of accuracy, time, and space complexity.\n\n\n\n\n\nApril 2018\n\n\n\n\n\n\n\n\n\n\n\n\nPolygot: An Approach Towards Reliable Translation By Name Identification And Memory Optimization Using Semantic Analysis\n\n\n\nNLP\n\nNER\n\nRule-based\n\n\n\nA rule-based approach for name identification in Bengali Language.\n\n\n\n\n\nDecember 2017\n\n\n\n\n\n\n\n\n\n\n\n\nA Fault Tolerant Neural Machine Translation System\n\n\n\nFault Tolerant\n\nMachine Translation\n\nNLP\n\nTensorflow\n\n\n\nAn effort to improve translation accuracy by combining multiple seq2seq neural machine translation models with augmented training data, completed as part of the CSE6207 project work.\n\n\n\n\n\nAugust 2017\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "research/others/index.html#sensors-and-wireless-networks",
     "href": "research/others/index.html#sensors-and-wireless-networks",
-    "title": "Research Work",
+    "title": "Other Research Work",
     "section": "Sensors and Wireless Networks",
     "text": "Sensors and Wireless Networks"
   },
@@ -543,7 +543,7 @@
     "href": "research/systems/efficient-kge/index.html",
     "title": "A Sparse Approach for Translation-based Training of Knowledge Graph Embeddings",
     "section": "",
-    "text": "NoteNote\n\n\n\n\n\nPhD Research Project\nSC24 Best Poster Finalist Poster (PDF) Paper"
+    "text": "📁 This article is part of the full list of Research Projects"
   },
   {
     "objectID": "research/systems/efficient-kge/index.html#background",
@@ -571,7 +571,7 @@
     "href": "research/systems/gc-lstm/index.html",
     "title": "A Spatio-Temporal Link Prediction Pipeline using GC-LSTM for Dynamic Graphs in PyTorch",
     "section": "",
-    "text": "NoteNote\n\n\n\n\n\nGraduate Course Project\n\nCSCI 565P - Data Mining with Dr. Dongruo Zhou\n\nSlides\nCoursework:"
+    "text": "📁 This article is part of the full list of Research Projects\nCoursework:"
   },
   {
     "objectID": "research/systems/gc-lstm/index.html#background",
@@ -599,7 +599,7 @@
     "href": "research/systems/gpu-tuner-amazon/index.html",
     "title": "Differentiable GPU kernel autotuner with Transfer Learning",
     "section": "",
-    "text": "NoteNote\n\n\n\n\n\nAmazon AWS Internship Summer 2025"
+    "text": "📁 This article is part of the full list of Research Projects"
   },
   {
     "objectID": "research/systems/gpu-tuner-amazon/index.html#overview",
@@ -620,7 +620,7 @@
     "href": "research/systems/isplib/index.html",
     "title": "iSpLib: A library for accelerating graph neural networks using auto-tuned sparse operations",
     "section": "",
-    "text": "NoteNote\n\n\n\n\n\nPhD Research Project\n\nPoster presented in Luddy AI Center (Indiana, 2023) and ICICLE All Hands Meeting (Ohio, 2023)\nPublished in WebConf 2024 (Previously WWW)\n\nWeb Conference 2024 GitHub Paper\nArtifact Available"
+    "text": "📁 This article is part of the full list of Research Projects"
   },
   {
     "objectID": "research/systems/isplib/index.html#background",
@@ -648,7 +648,7 @@
     "href": "research/systems/sp-mat-lib-c/index.html",
     "title": "A C++ Library for Sparse Matrix Data Structure",
     "section": "",
-    "text": "NoteNote\n\n\n\n\n\nGraduate Course Project\n\nGraduate Coursework E-501: Introduction to Computer Engineering\nFaculty: Dr. Lei Jiang\nIndiana University Bloomington, Fall 2022\n\nSlides"
+    "text": "📁 This article is part of the full list of Research Projects"
   },
   {
     "objectID": "research/systems/sp-mat-lib-c/index.html#background",
@@ -676,7 +676,7 @@
     "href": "research/systems/wmd/index.html",
     "title": "Predicting Interactions in the Weapons of Mass Destruction Knowledge Graphs",
     "section": "",
-    "text": "NoteNote\n\n\n\n\n\nPhD collaboration work\n\nBook chapter\nPublished as the second author\n\nComplex Networks 2024"
+    "text": "📁 This article is part of the full list of Research Projects"
   },
   {
     "objectID": "research/systems/wmd/index.html#overview",
