@@ -1,6 +1,6 @@
 ---
 title: "Investigating Spatial-Temporal and Knowledge Graph Machine Learning Algorithms for Dominant Kernels & Potential Scope of Speedup"
-categories: ["Spatio-Temporal Graph", "Knowledge Graph Embedding", "Profiling", "CPU", "Kernel", "Graduate Course Project"]
+categories: ["Spatio-Temporal Graph", "Knowledge Graph", "Profiling", "CPU", "Kernel", "Course Project", "Collaboration"]
 description: "This project aims to identify the functions responsible for the long training times in Spatio-Temporal Graph Neural Networks and Knowledge Graph Embedding algorithms, comparing their frequency to optimize performance for larger graphs or real-time analysis."
 date: "12/01/2023"
 image: bottleneck.png
@@ -12,8 +12,9 @@ image: bottleneck.png
 
 Graduate Course Project
 
-* ENG 503 - Intro to Intelligent Systems with Dr. Ariful Azad
-
+* Graduate Coursework ENG-503: Intro to Intelligent Systems
+* Faculty: Dr. Ariful Azad
+* Indiana University Bloomington, Fall 2023
 
 [Slide](https://docs.google.com/presentation/d/198lUeo7WSKAmXfGlZyW8vGusNF_51PzmqvL_8jLO6bU/edit?usp=sharing){.badge .bg-primary .rounded-pill}
 

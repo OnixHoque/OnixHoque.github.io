@@ -1,6 +1,6 @@
 ---
 title: "A Spatio-Temporal Link Prediction Pipeline using GC-LSTM for Dynamic Graphs in PyTorch"
-categories: ["GCN", "LSTM", "Spatio-Temporal Graph", "PyTorch", "Protein-Protein interaction", "Dynamic Graph"]
+categories: ["Course Project", "GNN", "LSTM", "Spatio-Temporal Graph", "PyTorch", "Protein-Protein interaction", "Dynamic Graph", "PyTorch Temporal", "GC-LSTM", "Neural Architecture Design", "Link Prediction", "Collaboration"]
 description: "Developed a spatio-temporal link prediction pipeline using GC-LSTM for dynamic graphs in PyTorch. Achieved over 75% Hits@100 accuracy for the protein-protein interaction graph sequences of DDPIN dataset."
 date: "12/01/2023"
 image: model.png
@@ -12,13 +12,13 @@ image: model.png
 
 Graduate Course Project
 
-* CSCI 565P - Data Mining with Dr. Dongruo Zhou
+* Graduate Coursework CSCI-565P: Data Mining
+* Faculty: Dr. Dongruo Zhou
+* Indiana University Bloomington, Fall 2023
 
 [Slides](https://docs.google.com/presentation/d/1_LLlMM3nSP5c9BORQjSbJmuwrp3wcx61_yHI0n_ipc0/edit?usp=sharing){.badge .bg-primary .rounded-pill}
 
 :::
-
-Coursework: 
 
 ![](model.png){.lightbox}
 

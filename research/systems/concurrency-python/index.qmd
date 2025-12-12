@@ -1,6 +1,6 @@
 ---
 title: "Concurrency Study of Python 2.7"
-categories: ["Python", "Concurrency", "IronPython", "CPython", "Jython", "Systems", "Profiling"]
+categories: ["Python", "Concurrency", "IronPython", "CPython", "Jython", "Profiling", "Course Project"]
 description: "A comparative study examining how multi-threaded programs perform when written in different Python implementations."
 date: "08/08/2017"
 image: cuncurrency.png
@@ -9,9 +9,14 @@ image: cuncurrency.png
 > 📁 This article is part of the full list of [Research Projects{{< iconify ix:arrow-diagonal-top-right >}}](/research/index.qmd)
 
 ::: {.callout-note appearance="minimal" title="Note" icon=false collapse=false}
-Course Project from CSE6305 (Programming Languages and Systems)
 
-[Project Report](https://drive.google.com/file/d/1v9CG2xLGNi70mX-NQOq6mscgCdShjC4T/view){.btn .btn-outline-primary}
+Graduate Course Project
+
+* Graduate Coursework CSE-6305: Programming Languages and Systems
+* Faculty: Dr. Rifat Shahriyar
+* Bangladesh University of Engineering and Technology, Fall 2017
+
+[Project Report](https://drive.google.com/file/d/1v9CG2xLGNi70mX-NQOq6mscgCdShjC4T/view){.badge .bg-primary .rounded-pill}
 :::
 
 ![Image: CPython is slower than IronPython and Jython due to GIL](cuncurrency.png){.lightbox}

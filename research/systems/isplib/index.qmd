@@ -1,6 +1,6 @@
 ---
 title: "iSpLib: A library for accelerating graph neural networks using auto-tuned sparse operations"
-categories: ["PyTorch", "GNN", "C++", "Auto-tuned", "CPU", "Sparse Linear Algebra", "WebConf2024"]
+categories: ["PyTorch", "GNN", "C++", "Autotuner", "Code-generator", "CPU", "Sparse Linear Algebra", "Publication", "Paper"]
 description: "An auto-tuned Sparse Matrix-multiplcation Library for GNN training and inference."
 date: "04/01/2024"
 image: workflow.png

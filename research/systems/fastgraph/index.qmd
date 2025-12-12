@@ -1,6 +1,6 @@
 ---
 title: "Python Interface of FastGraph (an OpenMP-based sparse-matrix library)"
-categories: ["Pybind11", "OpenMP", "Zero-copy"]
+categories: ["Pybind11", "OpenMP", "Zero-copy", "Sparse Linear Algebra"]
 description: "Developed a PyBind11 interface for FastGraph, an OpenMP-based C++ parallel sparse-matrix library designed as a high-performance alternative to NetworkX."
 date: "04/01/2023"
 image: iu.png

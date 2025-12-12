@@ -1,6 +1,6 @@
 ---
 title: "Accelerating Graph Machine Learning using Auto-tuned Sparse Primitives for GPU"
-categories: ["SpMM", "Code-generator", "CUDA", "GPU"]
+categories: ["SpMM", "Code-generator", "CUDA", "GPU", "PyTorch", "C++", "LibTorch", "Autotuner", "Course Project", "Collaboration"]
 description: "Developed a GPU-compatible auto-tuner for a sparse-dense matrix multiplication (SpMM) library, enabling GPU execution of its kernels."
 date: "04/01/2023"
 image: tuner.png
@@ -12,7 +12,9 @@ image: tuner.png
 
 Graduate Course Project
 
-* Introduction to Intelligent Systems E-536 [Spring 2023] with Dr. Ariful Azad
+* Graduate Coursework E-536: Introduction to Intelligent Systems
+* Faculty: Dr. Ariful Azad
+* Indiana University Bloomington, Spring 2023
 
 [Slides](https://docs.google.com/presentation/d/1TpRyMRgRxGB0mne2j0iVcp_vgEKYuDxTG1_2dkQkUro/edit?usp=sharing){.badge .bg-primary .rounded-pill}
 

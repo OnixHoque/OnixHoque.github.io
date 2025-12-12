@@ -1,7 +1,7 @@
 ---
 title: "Enabling Model Parallelism for Graph Neural Networks with a Scalable Sparse-Dense Matrix Multiplication Operator"
 categories: ["PyTorch", "SpMM", "Distributed", "Differentiable"]
-description: "A distributed, differentiable sparse-matrix library to scale large Graph Neural Networks."
+description: "A new distributed, differentiable PyTorch sparse–dense matrix operator that enables scalable model-parallel training of very large Graph Neural Networks."
 date: "11/01/2025"
 image: presentation.jpeg
 ---

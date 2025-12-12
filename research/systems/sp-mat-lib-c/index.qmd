@@ -1,6 +1,6 @@
 ---
 title: "A C++ Library for Sparse Matrix Data Structure"
-categories: ["Sparse Matrix", "COO", "CSC", "CSR", "C++", "Graduate Coursework"]
+categories: ["Sparse Linear Algebra", "COO", "CSC", "CSR", "C++", "Course Project"]
 description: "A toy project to understand how matrix multiplication can become efficient by using sparse matrix data structures (COO/CSR/CSC)."
 date: "12/01/2022"
 image: mat.png

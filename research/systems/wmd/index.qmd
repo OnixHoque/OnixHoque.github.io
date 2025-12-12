@@ -1,6 +1,6 @@
 ---
 title: "Predicting Interactions in the Weapons of Mass Destruction Knowledge Graphs"
-categories: ["Neo4j", "Knowledge Graph", "Complex Networks 2024", "Book Chapter", "Collaboration"]
+categories: ["Knowledge Graph", "Publication", "Book Chapter", "Collaboration", "Graph Databases (Neo4j)"]
 description: "An applied Knowledge Graph Embedding (KGE) project where I developed the Neo4j interface to facilitate efficient graph data handling and support the training of KGE models."
 date: "12/01/2024"
 image: cn-book.png

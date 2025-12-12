@@ -1,5 +1,6 @@
 ---
 title: "Research Work"
+toc: false
 format: 
   html:
     page-layout: full
@@ -41,10 +42,9 @@ listing:
   #   categories: cloud 
   #   sort: "date desc"
 ---
+I have led and contributed to more than 20 research projects spanning high-performance computing (HPC), graph neural network (GNN) systems, and natural language processing (NLP), with work ranging from system-level optimization to the design of advanced model architectures. Many of these projects began as course projects I initiated and later evolved into posters and publications at venues such as SC and MLSys.
 
-I have worked on 20+ research projects focused on high-performance computing (HPC), graph neural network (GNN) systems, and natural language processing (NLP), covering topics from system optimization to advanced model architectures.
-
-The following lists my research projects on Systems and GNN. For other research projects, please see [this link](others/index.qmd) .
+Below is a selection of my research projects in Systems and GNN. For my other projects, please see [this link](others/index.qmd) .
 
 
 ## Systems and Graph Neural Networks
