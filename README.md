@@ -1,6 +1,6 @@
 # Md Saidul Hoque Anik
 
-PhD candidate in Computer Science & Engineering at **Texas A&M University**, specializing in **high-performance and distributed machine learning systems**. :contentReference[oaicite:1]{index=1}
+PhD candidate in Computer Science & Engineering at **Texas A&M University**, specializing in **high-performance and distributed machine learning systems**.
 
 **Highlights**
 - Researching optimized sparse linear algebra for scalable ML & graph learning. [Link](https://onixhoque.github.io/research/systems/sptransx/)
