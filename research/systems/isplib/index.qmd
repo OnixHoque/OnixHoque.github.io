@@ -1,6 +1,6 @@
 ---
 title: "iSpLib: A library for accelerating graph neural networks using auto-tuned sparse operations"
-categories: ["PyTorch", "GNN", "C++", "Autotuner", "Code-generator", "CPU", "Sparse Linear Algebra", "Publication", "Paper"]
+categories: ["PyTorch", "GNN", "C++", "Autotuner", "Code-generator", "CPU", "Sparse Linear Algebra", "Publication", "Paper", "Kernel"]
 description: "An auto-tuned Sparse Matrix-multiplcation Library for GNN training and inference."
 date: "04/01/2024"
 image: workflow.png
@@ -23,15 +23,16 @@ PhD Research Project
 
 :::
 
-![](presentation.jpeg ){.lightbox width=0.5}
+<!-- ![](presentation.jpeg){.lightbox width=0.5} -->
+
+![](workflow.png){.lightbox}
+
 
 ## Background
 
 Training and inference in Graph Neural Networks (GNNs) often rely on sparse matrix operations, such as sparse-dense matrix multiplication (SpMM). These operations are challenging to optimize manually due to their dependence on the sparsity patterns of input graphs, the architecture of GNN models, and the characteristics of the underlying hardware. Existing frameworks like PyTorch and PyTorch Geometric provide general implementations, but they often fail to fully exploit hardware capabilities or the specific sparsity patterns in GNN workloads, leading to suboptimal performance.
 
 ## Methodology
-
-![](workflow.png){.lightbox}
 
 To address these challenges, we introduce iSpLib, a PyTorch-based C++ library that provides auto-tuned sparse operations specifically designed to accelerate GNN training. Key features of iSpLib include:
 
