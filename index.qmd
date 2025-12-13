@@ -37,7 +37,7 @@ I am a PhD candidate in Computer Science & Engineering at Texas A&M University, 
 ## Research Background
 
 My research centers on **scalable graph learning systems** (GNNs, KGEs, GraphRAG) and custom sparse linear algebra.  
-At **MLSys 2025**, I presented a generalized method for expressing KGE training models through sparse matrix multiplication to improve large-scale efficiency.  
+At **MLSys 2025**, I presented a generalized method for expressing KGE training models through sparse matrix multiplication to improve large-scale efficiency. This led to a speedup of up to 5.3x in CPU performance, 4.2x in GPU model training, and an improvement of up to 11.1x in CUDA memory efficiency.  
 I also built a **high-performance CPU SpMM library** (ACM WebConf 2024) that accelerates PyTorch GNN training by **up to 93×** across Intel, AMD, and ARM CPUs.  
 Currently, I am collaborating with **Oak Ridge National Lab** on a distributed, differentiable framework for large-scale KGE training across hybrid compute tiers.
 
@@ -46,7 +46,7 @@ Currently, I am collaborating with **Oak Ridge National Lab** on a distributed, 
 
 * [SC24 best poster finalist (top-6): Expressed TransE Knowledge Graph Embedding (KGE) training using faster sparse-dense matrix multiplication kernel.](/research/systems/efficient-kge/index.qmd)
 * [MLSys 2025 Paper: Generalized 10 KGE model training using faster sparse-dense matrix multiplication kernel.](/research/systems/sptransx/index.qmd)
-* [Amazon Summer Internship 2025: Developed Differentiable GPU Kernel Autotuner.](/research/systems/gpu-tuner-amazon/index.qmd)
+* [Amazon Summer Internship 2025: Developed Differentiable GPU Kernel Autotuner. Achieved up to 60% higher accuracy in predicting optimal GPU kernel configurations compared to 16 other autotuning models.](/research/systems/gpu-tuner-amazon/index.qmd)
 
 Explore all 20+ research projects [here](/research/index.qmd), or check out a quick progress overview [here](/news/index.qmd).
 
