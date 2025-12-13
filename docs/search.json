@@ -361,14 +361,14 @@
     "href": "index.html#research-background",
     "title": "Md Saidul Hoque Anik",
     "section": "Research Background",
-    "text": "Research Background\nMy research centers on scalable graph learning systems (GNNs, KGEs, GraphRAG) and custom sparse linear algebra.\nAt MLSys 2025, I presented a generalized method for expressing KGE training models through sparse matrix multiplication to improve large-scale efficiency. This led to a speedup of up to 5.3x in CPU performance, 4.2x in GPU model training, and an improvement of up to 11.1x in CUDA memory efficiency.\nI also built a high-performance CPU SpMM library (ACM WebConf 2024) that accelerates PyTorch GNN training by up to 93× across Intel, AMD, and ARM CPUs.\nCurrently, I am collaborating with Oak Ridge National Lab on a distributed, differentiable framework for large-scale KGE training across hybrid compute tiers."
+    "text": "Research Background\nMy research centers on scalable graph learning systems (GNNs, KGEs, GraphRAG) and custom sparse linear algebra.\nAt MLSys 2025, I presented a generalized method for expressing KGE training models through sparse matrix multiplication to improve large-scale efficiency. This led to model training speedup of up to 5.3× in CPU, 4.2× in GPU, and an improvement of up to 11.1× in CUDA memory efficiency.\nI also built a high-performance CPU SpMM library (ACM WebConf 2024) that accelerates PyTorch GNN training by up to 93× across Intel, AMD, and ARM CPUs.\nAdditionally, during my Amazon Summer Internship 2025, I developed a Differentiable GPU Kernel Autotuner, which achieved up to 60% higher accuracy in predicting optimal configurations compared to 16 other autotuning models.\nCurrently, I am collaborating with Oak Ridge National Lab on a distributed, differentiable framework for large-scale KGE training across hybrid compute tiers."
   },
   {
     "objectID": "index.html#featured-research",
     "href": "index.html#featured-research",
     "title": "Md Saidul Hoque Anik",
     "section": "Featured Research",
-    "text": "Featured Research\n\nSC24 best poster finalist (top-6): Expressed TransE Knowledge Graph Embedding (KGE) training using faster sparse-dense matrix multiplication kernel.\nMLSys 2025 Paper: Generalized 10 KGE model training using faster sparse-dense matrix multiplication kernel.\nAmazon Summer Internship 2025: Developed Differentiable GPU Kernel Autotuner. Achieved up to 60% higher accuracy in predicting optimal GPU kernel configurations compared to 16 other autotuning models.\n\nExplore all 20+ research projects here, or check out a quick progress overview here."
+    "text": "Featured Research\n\nSC24 best poster finalist (top-6): Expressed TransE Knowledge Graph Embedding (KGE) training using faster sparse-dense matrix multiplication kernel.\nMLSys 2025 Paper: Generalized 10 KGE model training using faster sparse-dense matrix multiplication kernel.\nAmazon AWS Internship 2025: Developed Differentiable GPU Kernel Autotuner.\n\nExplore all 20+ research projects here, or check out a quick progress overview here."
   },
   {
     "objectID": "projects/index.html",
