@@ -2,12 +2,15 @@
 title: "A Bimodal Longitudinal Investigation on Changes in Sentiments over Social Media Interactions Owing to COVID-19 Pandemic"
 categories: ["NLP", "Sentiment Analysis", "Multimodal", "Forecasting", "Heuristic", "Graduate Work"]
 description: "This study analyzes sentiment shifts on Twitter during the COVID-19 pandemic, revealing significant changes in both text and image sentiment, with negative text sentiment increasing by 10.55% and positive image sentiment decreasing by 24.52%, and introduces a novel bimodal sentiment analysis framework."
-date: "08/01/2022"
+date: "12/01/2025" 
 image: migration.png
 ---
 
 ::: {.callout-note appearance="minimal" title="Note" icon="false" collapse="false"}
-Graduate thesis work
+Graduate Thesis Work
+
+[Nature Scientific Reports (Vol 15)](https://www.nature.com/articles/s41598-025-98700-x){.badge .bg-danger .rounded-pill}
+[Paper](https://www.nature.com/articles/s41598-025-98700-x.pdf){.badge .bg-primary .rounded-pill}
 :::
 
 ![User sentiment migration trend for text and image](migration.png){.lightbox}

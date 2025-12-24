@@ -8,9 +8,13 @@ format:
 
 I am currently on sabbatical from the Department of Computer Science and Engineering at United International University (UIU)[^1], Bangladesh, where I served as a tenured faculty member. Before my sabbatical, I taught advanced computer science topics, including Software Engineering, Computer Architecture, and Web Programming to senior undergraduate students.
 
+/![UIU Project Show 2021. Serving as judge.](uiu.jpg)
+
 [^1]: UIU: Spring 2020 --- Current
 
 Previously, I was a tenured faculty at Military Institute of Science and Technology (MIST)[^2] University, where I began my academic career as an adjunct faculty member. At MIST, I focused on teaching core programming concepts to undergraduate students, delivering courses in Structured Programming, Object-Oriented Programming, and Data Structures & Algorithms for nearly three years. In addition to my teaching responsibilities, I have actively contributed to various administrative roles, including serving as Postgraduate Coordinator, Secretary of the Syllabus Reform Committee, and overseeing departmental software development projects.
+
+/![MIST Inter-University Programming Contest 2019. Serving as technical coordinator.](mist.jpg)
 
 ## Guest Lecture at Texas A&M
 
@@ -22,104 +26,6 @@ In the second session, the focus shifted to multinode DDP training. I demonstrat
 
 The session materials are available in [this GitHub repository](https://github.com/HipGraph/DDP_demo).
 
-## Academic Service
-
-::: {.panel-tabset}
-
-## UIU
-
-
-### External Supervisor, FYDP-II Summer 2021
-
-Nov 2021
-
-Acted as an external supervisor for Final Year Design Project (FYDP) final defense presentation.
-
-### Asst Technical Coordinator, Innobotics 2020
-
-Feb 2020
-
-Provided programming related technical assistance during the competition.
-
-### Asst, OBE Revision Team
-
-Jan 2021 - Present
-
-Revised two course syllabus according to new guideline. Revising rubrics for Final Year Design Project-II.
-
-### Member, Registration Surveillance Team
-
-June 2021
-
-Responsible for increasing section capacity on-demand during course registration of Summer 2021 semester.
-
-### Course Advisor
-
-Jan 2020 - Present
-
-Responsible for course advising and enrollment for several batches of students.
-
-## MIST
-
-### Software Development and Project Planning
-
-Sept 2017 - Jan 2020
-
-High involvement in SRS design, timeline planning, coordination and coding of on-demand software for third-party clients. Specialization in Android and Web App development.
-
-### Coordinator, Postgraduate Program
-
-Jan 2019 - June 2019
-
-Arrangement of BPGS meeting, thesis proposal presentation, Oct 2018 question moderation meeting. Preparation of BPGS agenda and minutes. Coordination of admission test for April 2019 semester including question setting, moderation, script checking, and result publication. Preparation of tabulation sheet for April 2019 Semester.
-
-### Internal Member Secretary, Syllabus Review Committee for OBE
-
-Dec 2018 - Jan 2019
-
-Coordination and compilation of the reviewed syllabus for the adaptation of OBE program. Preparation of a special syllabus with the amendment of old syllabus for 3rd year and 4th year students.
-
-### Member, OBE Steering Committee
-
-July 2018 - Oct 2019
-
-Coordination of the CO-PO mapping and overall PO attainment for CSE department. Developed an automated system to calculate the CO-PO attainment for OBE Accreditation Visit 2019. Presented at the Multi-purpose Hall of MIST on CO-PO mapping methodology and Capstone Project (Dec 2018).
-
-### Instructor, Cyber Security Training Program 2019
-
-July 2019
-
-Conducted a session on web-security and cross-site scripting attack as part of the training module. Also participated in Cyber Security Training Program in 2017.
-
-### Technical Coordinator, MIST IUPC 2019
-
-Jan 2019
-
-Lab preparation for IUPC 2019. Ensured smooth connectivity between computers, servers and printers.
-
-### Instructor, Unicode Training Program
-
-Oct 2018
-
-Conducted a training session on how to write Bengali official letters with Unicode font for the staffs of MIST.
-
-### Member, TO&E Reformation Committee
-
-Dec 2017 - Sept 2018
-
-Preparation of revised organogram tree, charter of duties, pay scale, list of equipment for the lab, and necessary presentation.
-
-### Asst. Coordinator, Comptia A+ Training Program 2017
-
-May 2017
-
-Coordination of the Program, attendance report generation, preparation of lab equipment.
-
-### Miscellaneous
-
-Question setting, invigilation, and script checking of various recruitment examinations. 
-
-:::
 
 ## Course Contents
 

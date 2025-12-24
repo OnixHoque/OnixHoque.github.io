@@ -12,12 +12,12 @@ listing:
   sort-ui: true
   filter-ui: true
   max-description-length: 300
-  grid-columns: 2
+  grid-columns: 3
   contents: 
     - projects.yaml
   type: grid
   categories: cloud
-  fields: [title, categories, description, timeline, image]
+  fields: [title, categories, description, Timeline, image]
 ---
 
 Over the past decade (2013–2023), I have designed and delivered more than 10 open-source and commercial software projects, leveraging Python, Java, and C++. These include desktop GUI applications, Android mobile apps, and full-stack web platforms.

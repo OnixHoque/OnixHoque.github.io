@@ -1,5 +1,31 @@
 [
   {
+    "listing": "/research/others/index.html",
+    "items": [
+      "/research/others/nlp-deep-learning/twitter-sentiment/index.html",
+      "/research/others/nlp-deep-learning/workplace-bullying/index.html",
+      "/research/others/nlp-deep-learning/rbmt/index.html",
+      "/research/others/nlp-deep-learning/delicate/index.html",
+      "/research/others/nlp-deep-learning/mt-heuristic/index.html",
+      "/research/others/nlp-deep-learning/polyglot/index.html",
+      "/research/others/nlp-deep-learning/ft-nmt/index.html",
+      "/research/others/sensors/smoothing-time-series/index.html",
+      "/research/others/sensors/noise-supression/index.html",
+      "/research/others/sensors/automated-traffic-jam/index.html"
+    ]
+  },
+  {
+    "listing": "/news/index.html",
+    "items": []
+  },
+  {
+    "listing": "/blog/index.html",
+    "items": [
+      "/blog/leet-gpu-2/index.html",
+      "/blog/leet-gpu-1/index.html"
+    ]
+  },
+  {
     "listing": "/research/index.html",
     "items": [
       "/research/systems/graph-mp/index.html",
@@ -17,26 +43,7 @@
     ]
   },
   {
-    "listing": "/news/index.html",
+    "listing": "/software/index.html",
     "items": []
-  },
-  {
-    "listing": "/projects/index.html",
-    "items": []
-  },
-  {
-    "listing": "/research/others/index.html",
-    "items": [
-      "/research/others/nlp-deep-learning/workplace-bullying/index.html",
-      "/research/others/nlp-deep-learning/twitter-sentiment/index.html",
-      "/research/others/nlp-deep-learning/rbmt/index.html",
-      "/research/others/nlp-deep-learning/delicate/index.html",
-      "/research/others/nlp-deep-learning/mt-heuristic/index.html",
-      "/research/others/nlp-deep-learning/polyglot/index.html",
-      "/research/others/nlp-deep-learning/ft-nmt/index.html",
-      "/research/others/sensors/smoothing-time-series/index.html",
-      "/research/others/sensors/noise-supression/index.html",
-      "/research/others/sensors/automated-traffic-jam/index.html"
-    ]
   }
 ]

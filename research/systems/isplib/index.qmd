@@ -6,8 +6,6 @@ date: "04/01/2024"
 image: workflow.png
 ---
 
-> 📁 This article is part of the full list of [Research Projects{{< iconify ix:arrow-diagonal-top-right >}}](/research/index.qmd)
-
 ::: {.callout-note appearance="minimal" title="Note" icon=false collapse=false}
 
 PhD Research Project

@@ -1,0 +1,50 @@
+<ul class="list">
+<% for (const item of items) { %>
+  <li <%= metadataAttrs(item) %> >
+    <h3 class="no-anchor listing-title"><a href="<%- item.path %>" class="no-external delink"><%= item.title %></a></h3>
+    <span class="listing-description">
+        <%= item.description %>
+    </span><br>
+    <small class="listing-date"><%= item.date %></small> 
+    <span class="listing-categories">
+    <span class="listing-category">
+      <a href="/blog/#category=<%- item.categories %>" class="category-link badge rounded-pill bg-light"><%= item.categories %></a>
+    </span>
+</span>
+  </li> 
+<% } %>
+</ul>
+
+<style>
+  /* Remove bullet points and reset padding for the list */
+  .list {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  /* Style each list item */
+  .list li {
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    margin-left: 10px;
+  }
+
+  /* Style the title */
+  .listing-title h3 {
+    margin: 0;
+    font-size: 1.5em;
+  }
+
+  /* Style the date and categories */
+  .listing-date, .listing-categories {
+    font-size: 0.8em;
+    margin-right: 20px;
+  }
+
+  /* Style the description */
+  .listing-description {
+    margin-top: 10px;
+    font-size: 1em;
+  }
+  
+</style>

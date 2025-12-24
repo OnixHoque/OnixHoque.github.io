@@ -1,0 +1,67 @@
+---
+title: "LeetGPU-2: Matrix Multiplication"
+description: "Notes and solutions in PyTorch, Triton, and CUDA. NVIDIA Tesla T4"
+categories: ["LeetGPU"]
+author: "Md Saidul Hoque Anik"
+date: "12/17/2025"
+---
+
+# Problem Statement
+
+Write a program that multiplies two matrices of 32-bit floating point numbers on a GPU. Given matrix `A` of dimensions $M \times N$ and matrix `B` of dimensions N x K, compute the product matrix C, which will have dimensions MxK. All matrices are stored in row-major format.
+
+## Constraints
+
+-   1 ≤ `M`, `N`, `K` ≤ 8192
+
+-   Performance is measured with `M` = 8192, `N` = 6144, `K` = 4096
+
+# Solution
+
+## PyTorch
+
+::: callout-note
+-   The solution is straightforward. But can we do blocking?
+:::
+
+### Solution-1
+
+``` python
+import torch
+
+# A, B, C are tensors on the GPU
+def solve(A: torch.Tensor, B: torch.Tensor, C: torch.Tensor, M: int, N: int, K: int):
+    torch.matmul(A, B, out=C)
+```
+
+Runtime: **97.48ms**
+
+> TODO: block matmul
+
+## Triton
+
+::: callout-note
+:::
+
+### Solution
+
+``` python
+```
+
+Runtime: **0.00ms**
+
+## CUDA
+
+::: callout-note
+:::
+
+### Solution
+
+``` cpp
+```
+
+Runtime: **0.00ms**
+
+## Reference
+
+-

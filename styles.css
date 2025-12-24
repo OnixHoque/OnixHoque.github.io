@@ -14,3 +14,21 @@ a.badge {
 .listing-date, .listing-categories {
     white-space: nowrap;
 } */
+
+header div div.description {
+  /* text-align: left; */
+  font-size: 0.90rem;
+  /* line-height: 1.1; */
+}
+
+.listing-description {
+    flex: 1
+}
+
+
+/* Global styles for breadcrumb container */
+.breadcrumb-container {
+  background-color: transparent; /* Transparent background */
+  /* padding: 10px; */
+  /* margin-bottom: 20px; */
+}

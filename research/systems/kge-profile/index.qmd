@@ -6,7 +6,8 @@ date: "12/01/2023"
 image: bottleneck.png
 ---
 
-> 📁 This article is part of the full list of [Research Projects{{< iconify ix:arrow-diagonal-top-right >}}](/research/index.qmd)
+> The continuation of this work was later presented/published in SC24 poster and MLSys 2025. See [[SC24]](/research/systems/efficient-kge/index.qmd) and [[MLSys25]](/research/systems/sptransx/index.qmd)
+
 
 ::: {.callout-note appearance="minimal" title="Note" icon=false collapse=false}
 

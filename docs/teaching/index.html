@@ -76,6 +76,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="https://cdn.jsdelivr.net/npm/charter-webfont@4.1.0/charter.min.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&amp;family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&amp;family=Open+Sans:ital,wght@0,300..800;1,300..800&amp;display=swap" rel="stylesheet">
 <link href="https://fonts.cdnfonts.com/css/palatino" rel="stylesheet">
+<script src="../script.js"></script>
 
 
 <link rel="stylesheet" href="../styles.css">
@@ -259,7 +260,7 @@ ul.task-list li input[type="checkbox"] {
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav navbar-nav-scroll me-auto">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
     <a class="nav-link" href="../index.html"> 
 <span class="menu-text">About</span></a>
@@ -273,13 +274,28 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">News</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../projects"> 
-<span class="menu-text">Softwares</span></a>
-  </li>  
-  <li class="nav-item">
     <a class="nav-link" href="../teaching"> 
 <span class="menu-text">Teaching</span></a>
   </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-more" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">More</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-more">    
+        <li>
+    <a class="dropdown-item" href="../news/#category=Leadership">
+ <span class="dropdown-text">Leadership</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../software">
+ <span class="dropdown-text">Software</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../news/#category=Publication">
+ <span class="dropdown-text">Publications</span></a>
+  </li>  
+    </ul>
+  </li>
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
@@ -298,7 +314,6 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#guest-lecture-at-texas-am" id="toc-guest-lecture-at-texas-am" class="nav-link active" data-scroll-target="#guest-lecture-at-texas-am">Guest Lecture at Texas A&amp;M</a></li>
-  <li><a href="#academic-service" id="toc-academic-service" class="nav-link" data-scroll-target="#academic-service">Academic Service</a></li>
   <li><a href="#course-contents" id="toc-course-contents" class="nav-link" data-scroll-target="#course-contents">Course Contents</a></li>
   </ul>
 </nav>
@@ -327,7 +342,9 @@ ul.task-list li input[type="checkbox"] {
 
 
 <p>I am currently on sabbatical from the Department of Computer Science and Engineering at United International University (UIU)<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>, Bangladesh, where I served as a tenured faculty member. Before my sabbatical, I taught advanced computer science topics, including Software Engineering, Computer Architecture, and Web Programming to senior undergraduate students.</p>
-<div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;UIU: Spring 2020 — Current</p></div><div id="fn2"><p><sup>2</sup>&nbsp;MIST: Spring 2017 — Fall 2019</p></div></div><p>Previously, I was a tenured faculty at Military Institute of Science and Technology (MIST)<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> University, where I began my academic career as an adjunct faculty member. At MIST, I focused on teaching core programming concepts to undergraduate students, delivering courses in Structured Programming, Object-Oriented Programming, and Data Structures &amp; Algorithms for nearly three years. In addition to my teaching responsibilities, I have actively contributed to various administrative roles, including serving as Postgraduate Coordinator, Secretary of the Syllabus Reform Committee, and overseeing departmental software development projects.</p>
+<div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;UIU: Spring 2020 — Current</p></div></div><p>/<img src="uiu.jpg" class="img-fluid" alt="UIU Project Show 2021. Serving as judge."></p>
+<p>Previously, I was a tenured faculty at Military Institute of Science and Technology (MIST)<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> University, where I began my academic career as an adjunct faculty member. At MIST, I focused on teaching core programming concepts to undergraduate students, delivering courses in Structured Programming, Object-Oriented Programming, and Data Structures &amp; Algorithms for nearly three years. In addition to my teaching responsibilities, I have actively contributed to various administrative roles, including serving as Postgraduate Coordinator, Secretary of the Syllabus Reform Committee, and overseeing departmental software development projects.</p>
+<div class="no-row-height column-margin column-container"><div id="fn2"><p><sup>2</sup>&nbsp;MIST: Spring 2017 — Fall 2019</p></div></div><p>/<img src="mist.jpg" class="img-fluid" alt="MIST Inter-University Programming Contest 2019. Serving as technical coordinator."></p>
 <section id="guest-lecture-at-texas-am" class="level2">
 <h2 class="anchored" data-anchor-id="guest-lecture-at-texas-am">Guest Lecture at Texas A&amp;M</h2>
 <p>I delivered a guest lecture at Texas A&amp;M University as part of the Supercomputing graduate course (CSCE-654) in Fall 2025. Over two sessions, I introduced the concept of Data-Distributed Parallel (DDP) techniques for training models on large datasets, providing hands-on demonstrations using PyTorch.</p>
@@ -335,99 +352,13 @@ ul.task-list li input[type="checkbox"] {
 <p>In the second session, the focus shifted to multinode DDP training. I demonstrated how to use HDF5 files to load portions of the dataset into a distributed dataloader.</p>
 <p>The session materials are available in <a href="https://github.com/HipGraph/DDP_demo">this GitHub repository</a>.</p>
 </section>
-<section id="academic-service" class="level2">
-<h2 class="anchored" data-anchor-id="academic-service">Academic Service</h2>
-<div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">UIU</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">MIST</a></li></ul>
-<div class="tab-content">
-<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
-<section id="external-supervisor-fydp-ii-summer-2021" class="level3">
-<h3 class="anchored" data-anchor-id="external-supervisor-fydp-ii-summer-2021">External Supervisor, FYDP-II Summer 2021</h3>
-<p>Nov 2021</p>
-<p>Acted as an external supervisor for Final Year Design Project (FYDP) final defense presentation.</p>
-</section>
-<section id="asst-technical-coordinator-innobotics-2020" class="level3">
-<h3 class="anchored" data-anchor-id="asst-technical-coordinator-innobotics-2020">Asst Technical Coordinator, Innobotics 2020</h3>
-<p>Feb 2020</p>
-<p>Provided programming related technical assistance during the competition.</p>
-</section>
-<section id="asst-obe-revision-team" class="level3">
-<h3 class="anchored" data-anchor-id="asst-obe-revision-team">Asst, OBE Revision Team</h3>
-<p>Jan 2021 - Present</p>
-<p>Revised two course syllabus according to new guideline. Revising rubrics for Final Year Design Project-II.</p>
-</section>
-<section id="member-registration-surveillance-team" class="level3">
-<h3 class="anchored" data-anchor-id="member-registration-surveillance-team">Member, Registration Surveillance Team</h3>
-<p>June 2021</p>
-<p>Responsible for increasing section capacity on-demand during course registration of Summer 2021 semester.</p>
-</section>
-<section id="course-advisor" class="level3">
-<h3 class="anchored" data-anchor-id="course-advisor">Course Advisor</h3>
-<p>Jan 2020 - Present</p>
-<p>Responsible for course advising and enrollment for several batches of students.</p>
-</section>
-</div>
-<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
-<section id="software-development-and-project-planning" class="level3">
-<h3 class="anchored" data-anchor-id="software-development-and-project-planning">Software Development and Project Planning</h3>
-<p>Sept 2017 - Jan 2020</p>
-<p>High involvement in SRS design, timeline planning, coordination and coding of on-demand software for third-party clients. Specialization in Android and Web App development.</p>
-</section>
-<section id="coordinator-postgraduate-program" class="level3">
-<h3 class="anchored" data-anchor-id="coordinator-postgraduate-program">Coordinator, Postgraduate Program</h3>
-<p>Jan 2019 - June 2019</p>
-<p>Arrangement of BPGS meeting, thesis proposal presentation, Oct 2018 question moderation meeting. Preparation of BPGS agenda and minutes. Coordination of admission test for April 2019 semester including question setting, moderation, script checking, and result publication. Preparation of tabulation sheet for April 2019 Semester.</p>
-</section>
-<section id="internal-member-secretary-syllabus-review-committee-for-obe" class="level3">
-<h3 class="anchored" data-anchor-id="internal-member-secretary-syllabus-review-committee-for-obe">Internal Member Secretary, Syllabus Review Committee for OBE</h3>
-<p>Dec 2018 - Jan 2019</p>
-<p>Coordination and compilation of the reviewed syllabus for the adaptation of OBE program. Preparation of a special syllabus with the amendment of old syllabus for 3rd year and 4th year students.</p>
-</section>
-<section id="member-obe-steering-committee" class="level3">
-<h3 class="anchored" data-anchor-id="member-obe-steering-committee">Member, OBE Steering Committee</h3>
-<p>July 2018 - Oct 2019</p>
-<p>Coordination of the CO-PO mapping and overall PO attainment for CSE department. Developed an automated system to calculate the CO-PO attainment for OBE Accreditation Visit 2019. Presented at the Multi-purpose Hall of MIST on CO-PO mapping methodology and Capstone Project (Dec 2018).</p>
-</section>
-<section id="instructor-cyber-security-training-program-2019" class="level3">
-<h3 class="anchored" data-anchor-id="instructor-cyber-security-training-program-2019">Instructor, Cyber Security Training Program 2019</h3>
-<p>July 2019</p>
-<p>Conducted a session on web-security and cross-site scripting attack as part of the training module. Also participated in Cyber Security Training Program in 2017.</p>
-</section>
-<section id="technical-coordinator-mist-iupc-2019" class="level3">
-<h3 class="anchored" data-anchor-id="technical-coordinator-mist-iupc-2019">Technical Coordinator, MIST IUPC 2019</h3>
-<p>Jan 2019</p>
-<p>Lab preparation for IUPC 2019. Ensured smooth connectivity between computers, servers and printers.</p>
-</section>
-<section id="instructor-unicode-training-program" class="level3">
-<h3 class="anchored" data-anchor-id="instructor-unicode-training-program">Instructor, Unicode Training Program</h3>
-<p>Oct 2018</p>
-<p>Conducted a training session on how to write Bengali official letters with Unicode font for the staffs of MIST.</p>
-</section>
-<section id="member-toe-reformation-committee" class="level3">
-<h3 class="anchored" data-anchor-id="member-toe-reformation-committee">Member, TO&amp;E Reformation Committee</h3>
-<p>Dec 2017 - Sept 2018</p>
-<p>Preparation of revised organogram tree, charter of duties, pay scale, list of equipment for the lab, and necessary presentation.</p>
-</section>
-<section id="asst.-coordinator-comptia-a-training-program-2017" class="level3">
-<h3 class="anchored" data-anchor-id="asst.-coordinator-comptia-a-training-program-2017">Asst. Coordinator, Comptia A+ Training Program 2017</h3>
-<p>May 2017</p>
-<p>Coordination of the Program, attendance report generation, preparation of lab equipment.</p>
-</section>
-<section id="miscellaneous" class="level3">
-<h3 class="anchored" data-anchor-id="miscellaneous">Miscellaneous</h3>
-<p>Question setting, invigilation, and script checking of various recruitment examinations.</p>
-</section>
-</div>
-</div>
-</div>
-</section>
 <section id="course-contents" class="level2">
 <h2 class="anchored" data-anchor-id="course-contents">Course Contents</h2>
 <p>Below are some of the courses I’ve taught over five years. I primarily used learning management systems to share course content with my students. <a href="https://sites.google.com/view/cse105june18">This is a link</a> to a sample page from a C programming courses I taught at MIST.</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true" href="">Level-4</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false" href="">Level-3</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-3" role="tab" aria-controls="tabset-2-3" aria-selected="false" href="">Level-2</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-4" role="tab" aria-controls="tabset-2-4" aria-selected="false" href="">Level-1</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">Level-4</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">Level-3</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false" href="">Level-2</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-4" role="tab" aria-controls="tabset-1-4" aria-selected="false" href="">Level-1</a></li></ul>
 <div class="tab-content">
-<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
 <section id="cse-465-web-programming" class="level3">
 <h3 class="anchored" data-anchor-id="cse-465-web-programming">CSE-465 Web Programming</h3>
 <p>Institute: UIU</p>
@@ -449,7 +380,7 @@ ul.task-list li input[type="checkbox"] {
 <p>State Representation using Graph, Local Search, A* Search, Adversarial Search, Constraint Satisfaction Problem</p>
 </section>
 </div>
-<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
 <section id="cse-322-software-engineering-laboratory" class="level3">
 <h3 class="anchored" data-anchor-id="cse-322-software-engineering-laboratory">CSE-322 Software Engineering Laboratory</h3>
 <p>Institute: UIU</p>
@@ -471,7 +402,7 @@ ul.task-list li input[type="checkbox"] {
 <p>Lex, Bison, Yacc</p>
 </section>
 </div>
-<div id="tabset-2-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-3-tab">
+<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
 <section id="cse-226-assembly-language-programming" class="level3">
 <h3 class="anchored" data-anchor-id="cse-226-assembly-language-programming">CSE-226 Assembly Language Programming</h3>
 <p>Institute: UIU</p>
@@ -503,7 +434,7 @@ ul.task-list li input[type="checkbox"] {
 <p>Big-O Notation, Linked List, Stack, Queue, Binary Search, Dequeue, Double Linked List, Graph, Tree</p>
 </section>
 </div>
-<div id="tabset-2-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-4-tab">
+<div id="tabset-1-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-4-tab">
 <section id="cse-1116-object-oriented-programming-sessional" class="level3">
 <h3 class="anchored" data-anchor-id="cse-1116-object-oriented-programming-sessional">CSE-1116 Object Oriented Programming Sessional</h3>
 <p>Institute: UIU, MIST</p>

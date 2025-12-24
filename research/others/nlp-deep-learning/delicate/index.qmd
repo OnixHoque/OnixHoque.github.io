@@ -8,7 +8,7 @@ image: nca.png
 
 ::: {.callout-note appearance="minimal" title="Note" icon=false collapse=false}
 
-* Master's Research Collaboration
+Graduate Research Collaboration
 
 [Neural Computing and Applications 33.18 (2021)](https://link.springer.com/article/10.1007/s00521-021-05895-x){.badge .bg-danger .rounded-pill}
 [Paper](https://drive.google.com/file/d/1e9EvMnBEqkXGDhRDVQ46OrOtrM0YaX3M/view){.badge .bg-primary .rounded-pill}

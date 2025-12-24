@@ -10,7 +10,9 @@ image: models.png
 
 Graduate Course Project
 
-* CSE6207 (Advanced Dependable and Fault-Tolerant Computer Systems) with Dr. Alim Al Islam Razi
+* Graduate Coursework CSE-6207: Advanced Dependable and Fault-Tolerant Computer Systems
+* Faculty: Dr. Alim Al Islam Razi
+* Bangladesh University of Engineering and Technology, Fall 2017
 
 [Slides](https://drive.google.com/file/d/1uNhTc95pGrOf7KVZUhHRYvfSVG4EiIci/view){.badge .bg-primary .rounded-pill}
 

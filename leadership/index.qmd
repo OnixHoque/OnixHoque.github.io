@@ -1,0 +1,105 @@
+---
+title: "Leadership Roles"
+---
+
+I was a 
+At buet -> coordinator. At MIST, At UIU.
+
+## Academic Service
+
+::: {.panel-tabset}
+
+## UIU
+
+
+### External Supervisor, FYDP-II Summer 2021
+
+Nov 2021
+
+Acted as an external supervisor for Final Year Design Project (FYDP) final defense presentation.
+
+### Asst Technical Coordinator, Innobotics 2020
+
+Feb 2020
+
+Provided programming related technical assistance during the competition.
+
+### Asst, OBE Revision Team
+
+Jan 2021 - Present
+
+Revised two course syllabus according to new guideline. Revising rubrics for Final Year Design Project-II.
+
+### Member, Registration Surveillance Team
+
+June 2021
+
+Responsible for increasing section capacity on-demand during course registration of Summer 2021 semester.
+
+### Course Advisor
+
+Jan 2020 - Present
+
+Responsible for course advising and enrollment for several batches of students.
+
+## MIST
+
+### Software Development and Project Planning
+
+Sept 2017 - Jan 2020
+
+High involvement in SRS design, timeline planning, coordination and coding of on-demand software for third-party clients. Specialization in Android and Web App development.
+
+### Coordinator, Postgraduate Program
+
+Jan 2019 - June 2019
+
+Arrangement of BPGS meeting, thesis proposal presentation, Oct 2018 question moderation meeting. Preparation of BPGS agenda and minutes. Coordination of admission test for April 2019 semester including question setting, moderation, script checking, and result publication. Preparation of tabulation sheet for April 2019 Semester.
+
+### Internal Member Secretary, Syllabus Review Committee for OBE
+
+Dec 2018 - Jan 2019
+
+Coordination and compilation of the reviewed syllabus for the adaptation of OBE program. Preparation of a special syllabus with the amendment of old syllabus for 3rd year and 4th year students.
+
+### Member, OBE Steering Committee
+
+July 2018 - Oct 2019
+
+Coordination of the CO-PO mapping and overall PO attainment for CSE department. Developed an automated system to calculate the CO-PO attainment for OBE Accreditation Visit 2019. Presented at the Multi-purpose Hall of MIST on CO-PO mapping methodology and Capstone Project (Dec 2018).
+
+### Instructor, Cyber Security Training Program 2019
+
+July 2019
+
+Conducted a session on web-security and cross-site scripting attack as part of the training module. Also participated in Cyber Security Training Program in 2017.
+
+### Technical Coordinator, MIST IUPC 2019
+
+Jan 2019
+
+Lab preparation for IUPC 2019. Ensured smooth connectivity between computers, servers and printers.
+
+### Instructor, Unicode Training Program
+
+Oct 2018
+
+Conducted a training session on how to write Bengali official letters with Unicode font for the staffs of MIST.
+
+### Member, TO&E Reformation Committee
+
+Dec 2017 - Sept 2018
+
+Preparation of revised organogram tree, charter of duties, pay scale, list of equipment for the lab, and necessary presentation.
+
+### Asst. Coordinator, Comptia A+ Training Program 2017
+
+May 2017
+
+Coordination of the Program, attendance report generation, preparation of lab equipment.
+
+### Miscellaneous
+
+Question setting, invigilation, and script checking of various recruitment examinations. 
+
+:::

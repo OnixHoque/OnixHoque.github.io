@@ -1,0 +1,18 @@
+---
+title: "Blogs and Notes"
+toc: false
+format:
+  html: 
+    page-layout: full 
+listing:
+  template: gallery.ejs
+  date-format: "MMM DD, YYYY" 
+  sort-ui: true 
+  filter-ui: true
+  contents: .
+  type: table
+  categories: true
+  sort: "date desc"
+  fields: [date, categories, title, description]
+---
+

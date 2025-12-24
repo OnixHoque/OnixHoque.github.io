@@ -7,7 +7,7 @@
   description: "[**Commercial Project**] 
     
     An interactive training platform featuring 3D models of the Bell-212 helicopter, enabling users to explore components in detail with built-in quizzes and assessments."
-  timeline: "Jun'19 - Mar'20"
+  Timeline: "Jun'19 - Mar'20"
 
 - title: "Aayatun"
   categories: ["Open-source", "Python", "Flask", "PWA", "Whoosh", "Semantic UI"]
@@ -16,14 +16,14 @@
     - "project-images/aayatun-1.jpg"
     - "project-images/aayatun-2.jpg"
   description: "[**Open Source • 150K+ monthly visitors**] Aayatun (aayatun.com) – a fast, mobile-first Progressive Web App providing word-by-word Quran translation, root-based word definitions, multiple recitations, and comprehensive tafsir."
-  timeline: "Aug'20 - Present"
+  Timeline: "Aug'20 - Present"
 
 - title: "FixMyStreet for Brac"
   categories: ["Commercial", "Java", "Android", "PHP"]
   image: "project-images/brac.png"
   images: []
   description: "[**Commercial Project • Bracathon 2015 Champion ($2,500)**] An Android civic reporting app developed under BRAC IT, allowing Dhaka citizens to report road and infrastructure issues directly to responsible authorities."
-  timeline: "Jan'15 - Dec'15"
+  Timeline: "Jan'15 - Dec'15"
 
 - title: "Plagiarism Checker"
   categories: ["JavaScript", "ElectronJS", "VueJS", "Semantic UI"]
@@ -32,7 +32,7 @@
     - "project-images/plagiarism-1.png"
     - "project-images/plagiarism-2.png"
   description: "A desktop plagiarism detection tool that compares submissions, highlights potential matches using statistical analysis, and generates detailed side-by-side similarity reports."
-  timeline: "Mar'21"
+  Timeline: "Mar'21"
 
 - title: "Social Media App"
   categories: ["Python", "Django", "PWA", "VueJS"]
@@ -41,7 +41,7 @@
     - "project-images/facebook-1.png"
     - "project-images/facebook-2.png"
   description: "A full-featured social media web app showcasing Django capabilities (ORM, authentication), later refactored into a MicroKernel architecture with client-side rendering powered by Vue.js."
-  timeline: "Aug'21 - Sept'21"
+  Timeline: "Aug'21 - Sept'21"
 
 - title: "Automated Attendance Entry"
   categories: ["Python", "PyQT5", "Selenium"]
@@ -50,7 +50,7 @@
     - "project-images/attendance-1.png"
     - "project-images/attendance-2.png"
   description: "A desktop automation tool that extracts student IDs from Google Meet chat logs and automatically submits attendance through the university portal using Selenium."
-  timeline: "Jan'21"
+  Timeline: "Jan'21"
 
 - title: "Academic Calendar Generator for UIU"
   categories: ["JavaScript", "VueJS", "Semantic UI"]
@@ -59,7 +59,7 @@
     - "project-images/calendar-1.png"
     - "project-images/calendar-2.png"
   description: "A single-page application for generating academic calendars with live weekday previews, support for single/multi-day holidays and makeup classes, and export options to PDF/Excel."
-  timeline: "Jan'21"
+  Timeline: "Jan'21"
 
 - title: "CO/PO Attainment Tool for MIST"
   categories: ["Google Sheets"]
@@ -68,7 +68,7 @@
     - "project-images/copo-1.png"
     - "project-images/copo-2.png"
   description: "An interactive Google Sheets tool for calculating Course Outcome (CO) and Program Outcome (PO) attainment from marksheets and assessment mappings, with automated reports and visualizations."
-  timeline: "Oct'19"
+  Timeline: "Oct'19"
 
 - title: "UG Course Distributor for MIST"
   categories: ["Java", "Swing"]
@@ -77,7 +77,7 @@
     - "project-images/course-1.png"
     - "project-images/course-2.png"
   description: "A Java Swing desktop application for semester course distribution among faculty, featuring real-time credit load previews across ranks and an integrated budgeting system."
-  timeline: "May'17"
+  Timeline: "May'17"
 
 - title: "Bus Route Digitizer"
   categories: ["Android", "Java", "Swing"]
@@ -86,7 +86,7 @@
     - "project-images/bus-1.png"
     - "project-images/bus-2.png"
   description: "An Android app for browsing digitized bus routes in Dhaka with fares, timings, and user ratings, plus temporary issue reporting; backed by a custom Java Socket server."
-  timeline: "June'15 - Dec'15"
+  Timeline: "June'15 - Dec'15"
 
 - title: "Barcode Reader"
   categories: ["Java", "Swing", "Tesseract"]
@@ -95,7 +95,7 @@
     - "project-images/barcode-1.png"
     - "project-images/barcode-2.png"
   description: "A desktop 1D barcode scanner using Tesseract OCR Engine 3.02 to decode images and retrieve corresponding product/item details."
-  timeline: "Jan'14 - Mar'14"
+  Timeline: "Jan'14 - Mar'14"
 
 - title: "Onix AV"
   categories: ["C++", "ClamWin"]
@@ -104,4 +104,4 @@
     - "project-images/av-1.png"
     - "project-images/av-2.png"
   description: "A custom GUI antivirus built on the ClamWin engine, supporting real-time signature updates, on-demand scanning, and automatic removal of infected files."
-  timeline: "Apr'13 - Nov'13"
+  Timeline: "Apr'13 - Nov'13"

@@ -2,13 +2,13 @@
 title: "An Approach Towards Multilingual Translation By Semantic-Based Verb Identification And Root Word Analysis"
 categories: ["Machine Translation", "NLP", "NER"]
 description: "This study explores a generalized machine translation system for low-resource languages like Bengali, proposing semantic-based verb identification and root word detection algorithms that outperform Google Translator, while comparing various approaches in terms of accuracy, time, and space complexity."
-date: "04/01/2018"
+date: "12/01/2018"
 image: heuristic.png
 ---
 
 ::: {.callout-note appearance="minimal" title="Note" icon=false collapse=false}
 
-Master's Research Project
+Graduate Research Project
 
 [NSysS 2018](https://ieeexplore.ieee.org/document/8631383){.badge .bg-danger .rounded-pill}
 [Paper](https://drive.google.com/file/d/1S_JrjS5ZLF0hMobw5jvW08XxMz8vlhBM/view){.badge .bg-primary .rounded-pill}

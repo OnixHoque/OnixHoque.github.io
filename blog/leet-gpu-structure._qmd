@@ -1,0 +1,68 @@
+---
+title: "LeetGPU-X: "
+description: "Notes and solutions in PyTorch, Triton, and CUDA"
+categories: ["LeetGPU"]
+author: "Md Saidul Hoque Anik"
+date: "//20"
+---
+
+# Problem Statement
+
+
+
+## Example
+
+```         
+
+```
+
+## Constraints
+
+
+# Solution
+
+## PyTorch
+
+::: callout-note
+
+:::
+
+### Solution
+
+``` python
+
+```
+
+Runtime: **0.00ms**
+
+## Triton
+
+::: callout-note
+
+:::
+
+### Solution
+
+``` python
+
+```
+
+Runtime: **0.00ms**
+
+## CUDA
+
+::: callout-note
+
+:::
+
+### Solution
+
+``` cpp
+
+```
+
+Runtime: **0.00ms**
+
+## Reference
+
+-  

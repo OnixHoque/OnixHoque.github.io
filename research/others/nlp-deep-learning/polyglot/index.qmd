@@ -8,7 +8,7 @@ image: buet.png
 
 ::: {.callout-note appearance="minimal" title="Note" icon=false collapse=false}
 
-Master's Research Collaboration
+Graduate Research Collaboration
 
 [NSysS 2017](https://ieeexplore.ieee.org/document/8267795){.badge .bg-danger .rounded-pill}
 [Paper](https://drive.google.com/file/d/1pNRVHsI-8TivSeEvBdWLj5spfF4YnzQz/view){.badge .bg-primary .rounded-pill}

@@ -8,7 +8,7 @@ image: tf.png
 
 ::: {.callout-note appearance="minimal" title="Note" icon=false collapse=false}
 
-Master's Research Collaboration
+Graduate Research Collaboration
 
 [IETE Technical Review, Volume 39](https://www.tandfonline.com/doi/full/10.1080/02564602.2022.2026828?scroll=top&needAccess=true){.badge .bg-danger .rounded-pill}
 [Paper](https://drive.google.com/file/d/1MWamJLoQ3Op-7zJ_J8Rpmc0xmH58tphM/view?usp=sharing){.badge .bg-primary .rounded-pill}

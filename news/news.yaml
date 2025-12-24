@@ -4,7 +4,7 @@
   path: "/teaching/#guest-lecture-at-texas-am"
 
 - categories: ["Talk", "Poster"]
-  News: "Berlekey talk about our ongoing systems work on **GNN model parallelism**"
+  News: "Berlekey talk about our ongoing systems work on GNN model parallelism"
   date: "11/01/2025"
   path: "/research/systems/graph-mp/"
 
@@ -13,13 +13,13 @@
   date: "05/01/2025"
   path: "/research/systems/gpu-tuner-amazon/"
 
-- categories: ["Conference", "Publication"]
+- categories: ["Publication", "Conference"]
   News: "Paper accepted on **MLSys 2025**! Expressed 10 KGE models using sparse-dense matrix multiplication."
   date: "02/01/2025"
   path: "/research/systems/sptransx/"
 
-- categories: ["Book Chapter", "Publication"]
-  News: "Book Chapter on Complex Networks 2024! Collaboration work. Developed Neo4j interface for KGE application."
+- categories: ["Publication", "Book Chapter"]
+  News: "Book Chapter on **Complex Networks 2024**! Collaboration work. Developed Neo4j interface for KGE application."
   date: "12/01/2024"
   path: "/research/systems/wmd/"
 
@@ -28,13 +28,13 @@
   date: "11/01/2024"
   path: "/research/systems/efficient-kge/"
 
-- categories: ["Conference", "Publication"]
-  News: "Paper accepted at WebConf 2024! Developed CPU PyTorch SpMM operator for GNN training with auto-tuner backend."
+- categories: ["Publication", "Conference"]
+  News: "Paper accepted at **WebConf 2024**! Developed CPU PyTorch SpMM operator for GNN training with auto-tuner backend."
   date: "04/01/2024"
   path: "/research/systems/isplib/"
 
 - categories: ["Recognition"]
-  News: "Received Google Foobar Challenge!"
+  News: "Received **Google Foobar** Challenge!"
   date: "04/01/2023"
   path: ""
 
@@ -44,12 +44,12 @@
   path: ""
 
 - categories: ["Service"]
-  News: "Paper Reviewer, Asian CHI Symposium 2020"
+  News: "Paper Reviewer, **Asian CHI Symposium** 2020"
   date: "05/01/2020"
   path: "https://asian-chi.github.io/2020/organizing/"
 
 - categories: ["Award"]
-  News: "Champion at BRAC Hackathon 2015 Android App Development ($2,500)!"
+  News: "Champion at BRAC Hackathon 2015 Android App Development ($2,500)! Featured in leading newspapers in Bangladesh"
   date: "12/01/2015"
   path: "https://www.prothomalo.com/technology/%E0%A6%B8%E0%A6%BE%E0%A6%AE%E0%A6%BE%E0%A6%9C%E0%A6%BF%E0%A6%95-%E0%A6%B8%E0%A6%AE%E0%A6%B8%E0%A7%8D%E0%A6%AF%E0%A6%BE%E0%A6%B0-%E0%A6%B8%E0%A6%AE%E0%A6%BE%E0%A6%A7%E0%A6%BE%E0%A6%A8%E0%A7%87-%E0%A6%B8%E0%A6%BE%E0%A6%A4-%E0%A6%85%E0%A7%8D%E0%A6%AF%E0%A6%BE%E0%A6%AA"
 
@@ -59,31 +59,31 @@
   path: ""
 
 - categories: ["Milestone"]
-  News: "aayatun.com has reached 100K+ monthly users! Made it open-source!"
+  News: "aayatun.com has reached **100K+** monthly users! Made it open-source!"
   date: "04/01/2025"
   path: "https://www.linkedin.com/feed/update/urn:li:activity:7310688419192471552/"
 
-- categories: ["Service"]
+- categories: ["Leadership"]
   News: "Postgraduate Coordinator at CSE Deptartment, MIST"
   date: "01/01/2019"
   path: ""
 
-- categories: ["Service"]
+- categories: ["Leadership"]
   News: "Coordinator, BUET System Analysis, Design, and Development Community"
   date: "12/01/2015"
   path: "https://cse.buet.ac.bd/bsadd/"
 
-- categories: ["Service"]
+- categories: ["Leadership"]
   News: "Assistant Technical Coordinator, UIU Innobotics"
   date: "02/01/2020"
   path: ""
 
-- categories: ["Service"]
+- categories: ["Leadership"]
   News: "Steering Committee Member, Outcome-Based Education (OBE) Initiative at MIST"
   date: "07/01/2018"
   path: ""
 
-- categories: ["Service"]
+- categories: ["Leadership"]
   News: "Coordinator, CSE Postgraduate Programs, MIST"
   date: "01/01/2019"
   path: ""
@@ -98,24 +98,24 @@
   date: "10/01/2018"
   path: ""
 
-- categories: ["Service"]
+- categories: ["Leadership"]
   News: "Technical Coordinator, Inter-University Programming Contest (IUPC) 2019, MIST"
   date: "01/01/2019"
   path: ""
 
 
-- categories: ["Service"]
+- categories: ["Leadership"]
   News: "Member Secretary, Syllabus Review Committee for OBE Implementation, MIST"
   date: "12/01/2018"
   path: ""
 
 
-- categories: ["Service"]
-  News: "External Supervisor, CSE Dept FYDP-II Summer 2021, MIST"
+- categories: ["Leadership"]
+  News: "External Supervisor, CSE Dept FYDP-II Summer 2021, UIU"
   date: "11/01/2021"
   path: ""
 
-- categories: ["Service"]
+- categories: ["Leadership"]
   News: "Member, Outcome-Based Education (OBE) Revision Team, UIU"
   date: "01/01/2021"
   path: ""
@@ -131,7 +131,7 @@
   path: "https://sites.google.com/site/droidworkshop2016/home"
 
 - categories: ["Video Tutorial"]
-  News: "YouTube Content Creator: Video Tutorials on Programming Concepts, Data Structures & Algorithms, including C++ STL"
+  News: "Started YouTube Content Creation. Mostly make video tutorials on programming concepts, data structures & algorithms. Notable video on C++ STL reached 10K views."
   date: "11/01/2014"
   path: "https://www.youtube.com/@OnixHoque/videos"
 
@@ -171,3 +171,33 @@
   date: "08/01/2024"
   path: ""
 
+- categories: ["Publication", "Journal"]
+  News: "Journal Published at **Nature Scientific Report**! Master's thesis work. We performed bi-modal user activity analysis from pre- and post- COVID and showed that they express different sentiment in Image and Text tweets except during the outbreak."
+  date: "12/01/2025"
+  path: "/research/others/nlp-deep-learning/twitter-sentiment/"
+
+- categories: ["Publication", "Journal"]
+  News: "Collaboration research work published as Journal! This study examined the prevalence and impact of workplace bullying on stress levels among physicians. My contribution was developing an automated pipeline to generate Google Forms for efficient survey distribution."
+  date: "10/01/2023"
+  path: "/research/others/nlp-deep-learning/workplace-bullying/"
+
+- categories: ["Publication", "Journal"]
+  News: "Collaboration research work published in **IETE Technical Review** as second author! A hybrid approach to machine translation combining both RNN-based and rule-based translators. My key contribution to this work was designing a novel heuristic for verb root detection that improved both accuracy and space efficiency."
+  date: "02/01/2022"
+  path: "/research/others/nlp-deep-learning/rbmt/"  
+
+- categories: ["Publication", "Journal"]
+  News: "Collaboration research work published in **Neural Computing and Applications** as second author! This study aims to improve Bengali-to-English translation quality by examining rule-based, SMT-based, and NMT-based approaches individually and in various hybrid configurations. My primary contribution was the design and implementation of the RNN-based seq2seq NMT training pipeline."
+  date: "03/01/2021"
+  path: "/research/others/nlp-deep-learning/delicate/"
+
+- categories: ["Publication", "Conference"]
+  News: "Research work published in **NSysS** 2018! This study explores a generalized machine translation system for low-resource languages like Bengali, proposing semantic-based verb identification and root word detection algorithms that outperform Google Translator"
+  date: "12/01/2018"
+  path: "/research/others/nlp-deep-learning/mt-heuristic/"
+
+- categories: ["Publication", "Conference"]
+  News: "Research work published in **NSysS** 2017! This study explores a rule-based approach for name identification in Bengali Language."
+  date: "12/01/2017"
+  path: "/research/others/nlp-deep-learning/polyglot/"
+  

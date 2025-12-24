@@ -1,6 +1,6 @@
 ---
 title: "Md Saidul Hoque Anik"
-description: "PhD Candidate | Sparse Kernels for Graph Learning | ML Systems & Performance Optimization"
+description: "PhD Candidate at Texas A&amp;M | ML Systems & Performance Optimization | Sparse Kernels for Graph Learning | Dual M.S. (ISE, CSE) — Indiana University Bloomington and BUET | Tenure-Track Faculty (On Sabbatical, UIU)"
 toc: false
 format: 
   html:
@@ -31,12 +31,11 @@ I am a PhD candidate in Computer Science & Engineering at Texas A&M University, 
 > - Integrate custom **C++/CUDA** kernels into PyTorch with LibTorch & PyBind11.  
 > - Develop **distributed training systems** with PyTorch Distributed and efficient disk-based data streaming.  
 > - Profile and optimize Python/C++ pipelines for performance bottlenecks.  
-> - Apply ML for systems optimization (e.g., neural GPU kernel autotuning).  
-
+> - Apply ML for systems optimization (e.g., developed neural GPU kernel autotuner with transfer-learning support).  
 
 ## Research Background
 
-My research centers on **scalable graph learning systems** (GNNs, KGEs, GraphRAG) and custom sparse linear algebra.  
+My PhD research centers on **scalable graph learning systems** (GNNs, KGEs, GraphRAG) and custom sparse linear algebra.  
 At **MLSys 2025**, I presented a generalized method for expressing KGE training models through sparse matrix multiplication to improve large-scale efficiency. This led to model training speedup of up to **5.3×** in CPU, **4.2×** in GPU, and an improvement of up to **11.1×** in CUDA memory efficiency.   
 I also built a **high-performance CPU SpMM library** (ACM WebConf 2024) that accelerates PyTorch GNN training by **up to 93×** across Intel, AMD, and ARM CPUs.  
 Additionally, during my **Amazon Summer Internship** 2025, I developed a Differentiable GPU Kernel Autotuner, which achieved up to **60% higher accuracy** in predicting optimal configurations compared to 16 other autotuning models.  
@@ -51,5 +50,9 @@ Currently, I am collaborating with **Oak Ridge National Lab** on a distributed, 
 
 Explore all 20+ research projects [here](/research/index.qmd), or check out a quick progress overview [here](/news/index.qmd).
 
+
+## Leadership Roles
+
+I led and coordinated various academic and technical initiatives, including curriculum revisions, postgraduate programs, and programming contests at UIU, MIST, and BUET, fostering a culture of innovation and academic excellence across departments. See all my leadership roles and contributions [here](/news/#category=Leadership).
 
 <!-- ::: -->
