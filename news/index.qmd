@@ -7,7 +7,7 @@ listing:
   id: sample-listings
   # image-height: 200%
   image-align: left
-  date-format: "MMM YYYY"
+  date-format: "MMM YYYY" 
   # max-description-length: 100
   sort-ui: true
   filter-ui: true

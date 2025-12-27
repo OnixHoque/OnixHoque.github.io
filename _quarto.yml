@@ -18,14 +18,14 @@ website:
         text: Teaching
       - text: More
         menu:
-            - href: "/news/#category=Leadership"
+            - href: "/leadership/"
               text: Leadership
             - href: software
               text: Software
             - href: "/news/#category=Publication"
               text: Publications
-            # - href: blog
-            #   text: Blog
+            - href: blog
+              text: Blog
       
 
 format:

@@ -172,7 +172,7 @@
   path: ""
 
 - categories: ["Publication", "Journal"]
-  News: "Journal Published at **Nature Scientific Report**! Master's thesis work. We performed bi-modal user activity analysis from pre- and post- COVID and showed that they express different sentiment in Image and Text tweets except during the outbreak."
+  News: "Journal Published at **Nature Scientific Report**! Master's thesis work. I performed bi-modal user activity analysis from pre- and post- COVID and showed that they express different sentiment in Image and Text tweets except during the outbreak."
   date: "12/01/2025"
   path: "/research/others/nlp-deep-learning/twitter-sentiment/"
 
@@ -201,3 +201,7 @@
   date: "12/01/2017"
   path: "/research/others/nlp-deep-learning/polyglot/"
   
+- categories: ["Project"]
+  News: "tinyCUDA released! I wrote a small CUDA wrapper in C++ for automatic memory management ( follows RAII principles and uses C++17 move semantics), kernel timing, and error handling."
+  date: "12/26/2025"
+  path: "/blog/tinycuda-release"

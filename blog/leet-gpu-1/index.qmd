@@ -1,10 +1,12 @@
 ---
 title: "LeetGPU-1: Vector Addition"
-description: "Notes and solutions in PyTorch, Triton, and CUDA"
+description: "Notes and solutions in PyTorch, Triton, and CUDA. Runtime shown for T4 GPU."
 categories: ["LeetGPU"]
 author: "Md Saidul Hoque Anik"
 date: "12/14/2025"
 ---
+
+> Note: This is part of a learning series on CUDA and Triton, focusing on correctness-first implementations rather than performance optimization.
 
 # Problem Statement
 

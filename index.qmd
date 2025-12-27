@@ -53,6 +53,6 @@ Explore all 20+ research projects [here](/research/index.qmd), or check out a qu
 
 ## Leadership Roles
 
-I led and coordinated various academic and technical initiatives, including curriculum revisions, postgraduate programs, and programming contests at UIU, MIST, and BUET, fostering a culture of innovation and academic excellence across departments. See all my leadership roles and contributions [here](/news/#category=Leadership).
+I led and coordinated various academic and technical initiatives, including curriculum revisions, postgraduate programs, and programming contests at UIU, MIST, and BUET, fostering a culture of innovation and academic excellence across departments. See all my leadership roles and initiatives [here](/leadership/).
 
 <!-- ::: -->

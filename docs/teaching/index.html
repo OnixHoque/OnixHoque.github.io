@@ -45,6 +45,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/bootstrap/bootstrap-69585d0cb7eb4d91e1e9639bd63741e7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="../site_libs/bootstrap/bootstrap-dark-435edb4a015d21cda02749244a61383a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <link href="../site_libs/bootstrap/bootstrap-69585d0cb7eb4d91e1e9639bd63741e7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -283,7 +286,7 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-more">    
         <li>
-    <a class="dropdown-item" href="../news/#category=Leadership">
+    <a class="dropdown-item" href="../leadership/">
  <span class="dropdown-text">Leadership</span></a>
   </li>  
         <li>
@@ -293,6 +296,10 @@ ul.task-list li input[type="checkbox"] {
         <li>
     <a class="dropdown-item" href="../news/#category=Publication">
  <span class="dropdown-text">Publications</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../blog">
+ <span class="dropdown-text">Blog</span></a>
   </li>  
     </ul>
   </li>
@@ -341,10 +348,12 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<blockquote class="blockquote">
+<p>For my leadership roles and initiatives as a faculty, see the <a href="../leadership/">Leadership</a> page.</p>
+</blockquote>
+<p><a href="uiu-mist.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="uiu-mist.png" class="img-fluid" style="width:60.0%"></a></p>
 <p>I am currently on sabbatical from the Department of Computer Science and Engineering at United International University (UIU)<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>, Bangladesh, where I served as a tenured faculty member. Before my sabbatical, I taught advanced computer science topics, including Software Engineering, Computer Architecture, and Web Programming to senior undergraduate students.</p>
-<div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;UIU: Spring 2020 — Current</p></div></div><p><a href="uiu.jpg">UIU Project Show 2021. Serving as judge.</a></p>
-<p>Previously, I was a tenured faculty at Military Institute of Science and Technology (MIST)<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> University, where I began my academic career as an adjunct faculty member. At MIST, I focused on teaching core programming concepts to undergraduate students, delivering courses in Structured Programming, Object-Oriented Programming, and Data Structures &amp; Algorithms for nearly three years. In addition to my teaching responsibilities, I have actively contributed to various administrative roles, including serving as Postgraduate Coordinator, Secretary of the Syllabus Reform Committee, and overseeing departmental software development projects.</p>
-<div class="no-row-height column-margin column-container"><div id="fn2"><p><sup>2</sup>&nbsp;MIST: Spring 2017 — Fall 2019</p></div></div><p><a href="mist.jpg">MIST Inter-University Programming Contest 2019. Serving as technical coordinator.</a></p>
+<div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;UIU: Spring 2020 — Current</p></div><div id="fn2"><p><sup>2</sup>&nbsp;MIST: Spring 2017 — Fall 2019</p></div></div><p>Previously, I was a tenured faculty at Military Institute of Science and Technology (MIST)<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> University, where I began my academic career as an adjunct faculty member. At MIST, I focused on teaching core programming concepts to undergraduate students, delivering courses in Structured Programming, Object-Oriented Programming, and Data Structures &amp; Algorithms for nearly three years. In addition to my teaching responsibilities, I have actively contributed to various administrative roles, including serving as Postgraduate Coordinator, Secretary of the Syllabus Reform Committee, and overseeing departmental software development projects.</p>
 <section id="guest-lecture-at-texas-am" class="level2">
 <h2 class="anchored" data-anchor-id="guest-lecture-at-texas-am">Guest Lecture at Texas A&amp;M</h2>
 <p>I delivered a guest lecture at Texas A&amp;M University as part of the Supercomputing graduate course (CSCE-654) in Fall 2025. Over two sessions, I introduced the concept of Data-Distributed Parallel (DDP) techniques for training models on large datasets, providing hands-on demonstrations using PyTorch.</p>
@@ -873,6 +882,38 @@ ul.task-list li input[type="checkbox"] {
   });
   </script>
 </div> <!-- /content -->
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 

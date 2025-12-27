@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Md Saidul Hoque Anik">
-<meta name="description" content="Notes and solutions in PyTorch, Triton, and CUDA">
+<meta name="description" content="Notes and solutions in PyTorch, Triton, and CUDA. Runtime shown for T4 GPU.">
 
 <title>LeetGPU-1: Vector Addition – Md Saidul Hoque Anik</title>
 <style>
@@ -319,7 +319,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </a>
     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-more">    
         <li>
-    <a class="dropdown-item" href="../../news/#category=Leadership">
+    <a class="dropdown-item" href="../../leadership/">
  <span class="dropdown-text">Leadership</span></a>
   </li>  
         <li>
@@ -329,6 +329,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li>
     <a class="dropdown-item" href="../../news/#category=Publication">
  <span class="dropdown-text">Publications</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../blog">
+ <span class="dropdown-text">Blog</span></a>
   </li>  
     </ul>
   </li>
@@ -387,7 +391,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <div>
   <div class="description">
-    Notes and solutions in PyTorch, Triton, and CUDA
+    Notes and solutions in PyTorch, Triton, and CUDA. Runtime shown for T4 GPU.
   </div>
 </div>
 
@@ -416,6 +420,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
+<blockquote class="blockquote">
+<p>Note: This is part of a learning series on CUDA and Triton, focusing on correctness-first implementations rather than performance optimization.</p>
+</blockquote>
 <section id="problem-statement" class="level1">
 <h1>Problem Statement</h1>
 <p>Implement a program that performs element-wise addition of two vectors containing 32-bit floating point numbers on a GPU. The program should take two input vectors of equal length and produce a single output vector containing their sum.</p>

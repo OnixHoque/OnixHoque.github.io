@@ -2,15 +2,21 @@
 title: "Leadership Roles"
 ---
 
-I was a 
-At buet -> coordinator. At MIST, At UIU.
+::: {layout-ncol=2}
 
-## Academic Service
+![UIU Project Show 2021. Serving as judge.](uiu.jpg){.lightbox width=90%}
+
+![MIST Inter-University Programming Contest 2019. Serving as technical coordinator.](mist.jpg){.lightbox width=90%}
+ 
+:::
+
+During my undergraduate studies, I served as the coordinator for the BUET System Analysis, Design, and Development (BSADD) Community. In this role, I organized and conducted a 5-day workshop on Android Mobile App Development. Additionally, I recorded the lectures and uploaded them to the official channel for wider accessibility.
+
+Later, as a faculty member at MIST and UIU, I led efforts in Outcome-Based Education (OBE) and took on technical roles, steering the respective departments through various initiatives and strategic advancements. 
 
 ::: {.panel-tabset}
 
 ## UIU
-
 
 ### External Supervisor, FYDP-II Summer 2021
 
