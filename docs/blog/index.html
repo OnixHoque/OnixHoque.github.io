@@ -372,7 +372,7 @@ window.Quarto = {
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(3)</span></div><div class="category" data-category="TGVldEdQVQ==">LeetGPU <span class="quarto-category-count">(2)</span></div><div class="category" data-category="UHJvamVjdA==">Project <span class="quarto-category-count">(1)</span></div></div></div>
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(4)</span></div><div class="category" data-category="TGVldEdQVQ==">LeetGPU <span class="quarto-category-count">(2)</span></div><div class="category" data-category="UHJvamVjdA==">Project <span class="quarto-category-count">(2)</span></div></div></div>
 <!-- main -->
 <main class="content column-page-left" id="quarto-document-content">
 
@@ -430,13 +430,13 @@ window.Quarto = {
     </div>
 </div>
 <ul class="list">
-<li data-index="0" data-categories="UHJvamVjdA==" data-listing-date-sort="1766728800000" data-listing-file-modified-sort="1766866059733" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="208">
+<li data-index="0" data-categories="UHJvamVjdA==" data-listing-date-sort="1766728800000" data-listing-file-modified-sort="1766873309260" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="925">
 <h3 class="no-anchor listing-title">
-<a href="../blog/tinycuda-release/index.html" class="no-external delink">Introducing tinyCUDA! A CUDA wrapper for memory management and profiler</a>
+<a href="../blog/tinycuda-release/index.html" class="no-external delink">Getting Started with TinyCUDA</a>
 </h3>
-<span class="listing-description"> tinyCUDA strips away the tedium of CUDA development: no more manual cudaMalloc/cudaMemcpy juggling, launch errors, or rough timings. It’s designed for quick prototyping—perfect for new CUDA users or anyone tired of repetitive setup. Not a full framework (no autograd or N-D tensors); just sane defaults for 1D buffers and kernel launches. </span><br> <small class="listing-date">Dec 26, 2025</small> <span class="listing-categories"> <span class="listing-category"> <a href="../blog/#category=Project" class="category-link badge rounded-pill bg-light">Project</a> </span> </span>
+<span class="listing-description"> TinyCUDA is a header-only C++17 wrapper that eliminates CUDA boilerplate—auto-handles cudaMalloc/cudaMemcpy via Buffer, kernel errors with CUDA_CHECK, and timings via KernelProfiler. Ideal for rapid 1D buffer prototyping without full-framework overhead (no autograd or multi-D tensors). </span><br> <small class="listing-date">Dec 26, 2025</small> <span class="listing-categories"> <span class="listing-category"> <a href="../blog/#category=Project" class="category-link badge rounded-pill bg-light">Project</a> </span> </span>
 </li>
-<li data-index="1" data-categories="TGVldEdQVQ==" data-listing-date-sort="1765951200000" data-listing-file-modified-sort="1766865460217" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="594">
+<li data-index="1" data-categories="TGVldEdQVQ==" data-listing-date-sort="1765951200000" data-listing-file-modified-sort="1766873117735" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="595">
 <h3 class="no-anchor listing-title">
 <a href="../blog/leet-gpu-2/index.html" class="no-external delink">LeetGPU-2: Matrix Multiplication</a>
 </h3>
@@ -447,6 +447,12 @@ window.Quarto = {
 <a href="../blog/leet-gpu-1/index.html" class="no-external delink">LeetGPU-1: Vector Addition</a>
 </h3>
 <span class="listing-description"> Notes and solutions in PyTorch, Triton, and CUDA. Runtime shown for T4 GPU. </span><br> <small class="listing-date">Dec 14, 2025</small> <span class="listing-categories"> <span class="listing-category"> <a href="../blog/#category=LeetGPU" class="category-link badge rounded-pill bg-light">LeetGPU</a> </span> </span>
+</li>
+<li data-index="3" data-categories="UHJvamVjdA==" data-listing-date-sort="1726290000000" data-listing-file-modified-sort="1766873935726" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="651">
+<h3 class="no-anchor listing-title">
+<a href="../blog/isplib-story/index.html" class="no-external delink">iSpLib: An Auto-tuned GNN Accelerator for PyTorch</a>
+</h3>
+<span class="listing-description"> [Published in WebConf 2024] iSpLib is a PyTorch library that accelerates Graph Neural Network (GNN) training by integrating auto-tuned sparse matrix operations from FusedMM, delivering up to 93× speedup on large graphs like Reddit and OGBN-Proteins. It features plug-and-play patching for PyTorch Geometric, backpropagation support for semirings, and caching for fixed adjacency matrices, boosting models like GCN (54×), GraphSAGE (23-32×), and GIN (51×). </span><br> <small class="listing-date">Sep 14, 2024</small> <span class="listing-categories"> <span class="listing-category"> <a href="../blog/#category=Project" class="category-link badge rounded-pill bg-light">Project</a> </span> </span>
 </li>
 </ul>
 <style>

@@ -13,6 +13,6 @@ listing:
   type: table
   categories: true
   sort: "date desc"
-  fields: [date, categories, title, description]
+  fields: [date, categories, title, description] 
 ---
 

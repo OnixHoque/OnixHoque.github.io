@@ -380,9 +380,44 @@
   {
     "objectID": "blog/tinycuda-release/index.html",
     "href": "blog/tinycuda-release/index.html",
-    "title": "Introducing tinyCUDA! A CUDA wrapper for memory management and profiler",
+    "title": "Getting Started with TinyCUDA",
     "section": "",
-    "text": "🚀 Writing CUDA kernels from scratch? Take tinyCUDA with you!\nWhile going through CUDA tutorial examples recently, I realized how much boilerplate is needed just to launch a simple kernel. cudaMalloc, two cudaMemcpys, and cudaFree quickly make the code noisy and hard to read. Things get even worse once you add error checking and profiling.\nSo I built tinyCUDA: a small, header-only C++ library that keeps CUDA kernel code clean and focused. The Buffer class follows RAII principles and uses C++17 move semantics, making device memory ownership explicit, safe, and easy to pass across functions and lambdas without worrying about leaks or double frees. PyTorch-style to_cpu() and to_cuda() APIs let you focus on kernel development rather than memory transfers.\n\nDesigned for following CUDA tutorials and teaching, with an emphasis on readability and reduced boilerplate.\n\nWhat tinyCUDA provides:\n\n🧠 A lightweight Buffer class to wrap device memory management\n⏱️ A simple kernel profiler for runtime measurement\n✅ Minimal, explicit CUDA error checking\n\nThat’s it! No heavy abstractions, just enough structure to reduce friction and let you focus on the kernel itself.\n\nIt’s a header-only library. Just include tinycuda.hpp in your .cu file, and you’re ready to go!\n\n📌 GitHub repo: https://github.com/OnixHoque/tinyCUDA\nGive it a try and let me know what you think!"
+    "text": "📌 GitHub Link: https://github.com/OnixHoque/tinyCUDA. 🌟 Please leave a star if you like it!"
+  },
+  {
+    "objectID": "blog/tinycuda-release/index.html#why-tinycuda",
+    "href": "blog/tinycuda-release/index.html#why-tinycuda",
+    "title": "Getting Started with TinyCUDA",
+    "section": "Why TinyCUDA?",
+    "text": "Why TinyCUDA?\nCUDA lets you speed up heavy computations on your GPU, but it often means dealing with a lot of setup code for things like memory copies, error checks, and timing. TinyCUDA is a simple, header-only C++17 library that handles this boilerplate (memory management, profiling, error checking) for you. It lets you focus on writing your kernels, making it great for quick prototypes or learning."
+  },
+  {
+    "objectID": "blog/tinycuda-release/index.html#what-you-need",
+    "href": "blog/tinycuda-release/index.html#what-you-need",
+    "title": "Getting Started with TinyCUDA",
+    "section": "What You Need",
+    "text": "What You Need\n\nCUDA Toolkit 11.0+ with nvcc.\nA C++17 compiler.\nAn NVIDIA GPU."
+  },
+  {
+    "objectID": "blog/tinycuda-release/index.html#setup",
+    "href": "blog/tinycuda-release/index.html#setup",
+    "title": "Getting Started with TinyCUDA",
+    "section": "Setup",
+    "text": "Setup\nNo building required—it’s just headers!\n\nGrab the repo:\ngit clone https://github.com/OnixHoque/tinyCUDA.git\nAdd include/tinycuda/ to your project’s includes (like in a third_party/ folder).\nIn your .cu file:\n#include \"tinycuda/tinycuda.hpp\"  // Gets everything\n// Or pick what you need:\n// #include \"tinycuda/memory.hpp\"\n// #include \"tinycuda/profiler.hpp\"\n// #include \"tinycuda/error.hpp\"\nBuild with nvcc:\nnvcc -std=c++17 -I/path/to/tinycuda/include your_file.cu -o your_output\n\nTest it out with the repo’s scripts:\ncd tinyCUDA\n./scripts/build_and_run.sh  # Tries the vector add example\n./scripts/run_tests.sh      # Runs the tests"
+  },
+  {
+    "objectID": "blog/tinycuda-release/index.html#quick-examples",
+    "href": "blog/tinycuda-release/index.html#quick-examples",
+    "title": "Getting Started with TinyCUDA",
+    "section": "Quick Examples",
+    "text": "Quick Examples\nTinyCUDA has three main helpers: Buffer for memory stuff, KernelProfiler for timing kernels, and CUDA_CHECK for catching errors. We use this simple vector addition kernel across all examples: c[i] = a[i] + b[i] for N elements.\n__global__ void vector_add(const float* a, const float* b, float* c, int N) {\n    int idx = blockIdx.x * blockDim.x + threadIdx.x;\n    if (idx &lt; N) {\n        c[idx] = a[idx] + b[idx];\n    }\n}\n\nHandling Memory with Buffer\nBuffer makes a GPU copy of your host data—easy allocation, copies, and cleanup. Full vector add.\n#include \"tinycuda/tinycuda.hpp\"\n#include &lt;vector&gt;\n#include &lt;cstdio&gt;\n#include &lt;cmath&gt;\n \nint main() {\n    const int N = 1024;\n    const int threads = 256;\n    const int blocks = (N + threads - 1) / threads;\n\n    std::vector&lt;float&gt; h_a(N, 1.0f), h_b(N, 2.0f), h_out(N, 0.0f);\n\n    tinycuda::Buffer&lt;float&gt; buf_a(h_a.data(), N);\n    tinycuda::Buffer&lt;float&gt; buf_b(h_b.data(), N);\n    tinycuda::Buffer&lt;float&gt; buf_out(h_out.data(), N);\n\n    buf_a.to_gpu(); buf_b.to_gpu(); buf_out.to_gpu();\n\n    vector_add&lt;&lt;&lt;blocks, threads&gt;&gt;&gt;(buf_a.gpu_data(), buf_b.gpu_data(), buf_out.gpu_data(), N);\n\n    buf_out.to_cpu();\n\n    // Quick check\n    bool passed = true;\n    for (int i = 0; i &lt; N; ++i) {\n        if (std::abs(h_out[i] - 3.0f) &gt; 1e-5f) { passed = false; break; }\n    }\n    printf(\"%s\\n\", passed ? \"Verified!\" : \"Failed.\");\n\n    return 0;\n}\n\n\nTiming Kernels with KernelProfiler\nTime your kernels with warmups to skip JIT delays, then average a bunch of runs. Full vector add (buffers set up as above).\n#include \"tinycuda/tinycuda.hpp\"\n#include &lt;vector&gt;\n#include &lt;cstdio&gt;\n#include &lt;cmath&gt;\n\nint main() {\n    const int N = 1024;\n    const int threads = 256;\n    const int blocks = (N + threads - 1) / threads;\n\n    std::vector&lt;float&gt; h_a(N, 1.0f), h_b(N, 2.0f), h_out(N, 0.0f);\n\n    tinycuda::Buffer&lt;float&gt; buf_a(h_a.data(), N);\n    tinycuda::Buffer&lt;float&gt; buf_b(h_b.data(), N);\n    tinycuda::Buffer&lt;float&gt; buf_out(h_out.data(), N);\n\n    buf_a.to_gpu(); buf_b.to_gpu(); buf_out.to_gpu();\n\n    // Time kernel (5 warmups, 50 runs)\n    tinycuda::KernelProfiler prof(5, 50);\n    float ms = prof([&] { vector_add&lt;&lt;&lt;blocks, threads&gt;&gt;&gt;(buf_a.gpu_data(), buf_b.gpu_data(), buf_out.gpu_data(), N); });\n\n    buf_out.to_cpu();\n\n    // Quick check (as above)\n    bool passed = true;\n    for (int i = 0; i &lt; N; ++i) {\n        if (std::abs(h_out[i] - 3.0f) &gt; 1e-5f) { passed = false; break; }\n    }\n    printf(\"Avg time: %.4f ms | %s\\n\", ms, passed ? \"Verified!\" : \"Failed.\");\n\n    return 0;\n}\n\n\nCatching Errors with CUDA_CHECK\nJust include the header—it defines CUDA_CHECK for you. Wrap your CUDA calls to auto-check and bail on errors with a nice message. Vector add using raw calls (to demo CUDA_CHECK; Buffer hides these).\n#include \"tinycuda/error.hpp\"  // Brings in CUDA_CHECK\n#include &lt;vector&gt;\n#include &lt;cstdio&gt;\n#include &lt;cmath&gt;\n\nint main() {\n    const int N = 1024;\n    const int threads = 256;\n    const int blocks = (N + threads - 1) / threads;\n\n    std::vector&lt;float&gt; h_a(N, 1.0f), h_b(N, 2.0f), h_out(N, 0.0f);\n\n    float *d_a, *d_b, *d_out;\n    CUDA_CHECK(cudaMalloc(&d_a, N * sizeof(float)));\n    CUDA_CHECK(cudaMalloc(&d_b, N * sizeof(float)));\n    CUDA_CHECK(cudaMalloc(&d_out, N * sizeof(float)));\n\n    CUDA_CHECK(cudaMemcpy(d_a, h_a.data(), N * sizeof(float), cudaMemcpyHostToDevice));\n    CUDA_CHECK(cudaMemcpy(d_b, h_b.data(), N * sizeof(float), cudaMemcpyHostToDevice));\n    CUDA_CHECK(cudaMemset(d_out, 0, N * sizeof(float)));\n\n    vector_add&lt;&lt;&lt;blocks, threads&gt;&gt;&gt;(d_a, d_b, d_out, N);\n    CUDA_CHECK(cudaGetLastError());\n    CUDA_CHECK(cudaDeviceSynchronize());\n\n    CUDA_CHECK(cudaMemcpy(h_out.data(), d_out, N * sizeof(float), cudaMemcpyDeviceToHost));\n\n    CUDA_CHECK(cudaFree(d_a)); CUDA_CHECK(cudaFree(d_b)); CUDA_CHECK(cudaFree(d_out));\n\n    // Quick check (as above)\n    bool passed = true;\n    for (int i = 0; i &lt; N; ++i) {\n        if (std::abs(h_out[i] - 3.0f) &gt; 1e-5f) { passed = false; break; }\n    }\n    printf(\"%s\\n\", passed ? \"Verified!\" : \"Failed.\");\n\n    return 0;\n}"
+  },
+  {
+    "objectID": "blog/tinycuda-release/index.html#whats-next",
+    "href": "blog/tinycuda-release/index.html#whats-next",
+    "title": "Getting Started with TinyCUDA",
+    "section": "What’s Next?",
+    "text": "What’s Next?\nCheck the examples like vector_add.cu and matmul.cu in the repo for full runs with checks and timings. It fits right into bigger projects with almost no extra weight. Dive into the headers for more details!"
   },
   {
     "objectID": "blog/leet-gpu-1/index.html",
@@ -434,11 +469,11 @@
     "text": "Reference\n\nhttps://triton-lang.org/main/getting-started/tutorials/01-vector-add.html"
   },
   {
-    "objectID": "archive/index.html",
-    "href": "archive/index.html",
-    "title": "OnixHoque.github.io",
+    "objectID": "blog/index.html",
+    "href": "blog/index.html",
+    "title": "Blogs and Notes",
     "section": "",
-    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites."
+    "text": "Order By\n      Default\n      \n        Title\n      \n      \n        Description\n      \n      \n        Categories\n      \n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\nGetting Started with TinyCUDA\n\n TinyCUDA is a header-only C++17 wrapper that eliminates CUDA boilerplate—auto-handles cudaMalloc/cudaMemcpy via Buffer, kernel errors with CUDA_CHECK, and timings via KernelProfiler. Ideal for rapid 1D buffer prototyping without full-framework overhead (no autograd or multi-D tensors).  Dec 26, 2025   Project  \n\n\n\nLeetGPU-2: Matrix Multiplication\n\n Notes and solutions in PyTorch, Triton, and CUDA. Runtime shown for T4 GPU.  Dec 17, 2025   LeetGPU  \n\n\n\nLeetGPU-1: Vector Addition\n\n Notes and solutions in PyTorch, Triton, and CUDA. Runtime shown for T4 GPU.  Dec 14, 2025   LeetGPU  \n\n\n\niSpLib: An Auto-tuned GNN Accelerator for PyTorch\n\n [Published in WebConf 2024] iSpLib is a PyTorch library that accelerates Graph Neural Network (GNN) training by integrating auto-tuned sparse matrix operations from FusedMM, delivering up to 93× speedup on large graphs like Reddit and OGBN-Proteins. It features plug-and-play patching for PyTorch Geometric, backpropagation support for semirings, and caching for fixed adjacency matrices, boosting models like GCN (54×), GraphSAGE (23-32×), and GIN (51×).  Sep 14, 2024   Project  \n\n\n\nNo matching items"
   },
   {
     "objectID": "archive/about.html",
@@ -448,11 +483,32 @@
     "text": "About this site"
   },
   {
-    "objectID": "blog/index.html",
-    "href": "blog/index.html",
-    "title": "Blogs and Notes",
+    "objectID": "archive/index.html",
+    "href": "archive/index.html",
+    "title": "OnixHoque.github.io",
     "section": "",
-    "text": "Order By\n      Default\n      \n        Title\n      \n      \n        Description\n      \n      \n        Categories\n      \n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\nIntroducing tinyCUDA! A CUDA wrapper for memory management and profiler\n\n tinyCUDA strips away the tedium of CUDA development: no more manual cudaMalloc/cudaMemcpy juggling, launch errors, or rough timings. It’s designed for quick prototyping—perfect for new CUDA users or anyone tired of repetitive setup. Not a full framework (no autograd or N-D tensors); just sane defaults for 1D buffers and kernel launches.  Dec 26, 2025   Project  \n\n\n\nLeetGPU-2: Matrix Multiplication\n\n Notes and solutions in PyTorch, Triton, and CUDA. Runtime shown for T4 GPU.  Dec 17, 2025   LeetGPU  \n\n\n\nLeetGPU-1: Vector Addition\n\n Notes and solutions in PyTorch, Triton, and CUDA. Runtime shown for T4 GPU.  Dec 14, 2025   LeetGPU  \n\n\n\nNo matching items"
+    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites."
+  },
+  {
+    "objectID": "blog/isplib-story/index.html",
+    "href": "blog/isplib-story/index.html",
+    "title": "iSpLib: An Auto-tuned GNN Accelerator for PyTorch",
+    "section": "",
+    "text": "ArXiv | GitHub | Poster\n\nThe iSpLib project originated from FusedMM, the first initiative I undertook upon joining the Luddy HipGraph Lab in 2022 under Dr. Ariful Azad’s supervision. The lab focuses on developing high-performance sparse kernels for efficient graph computations by mapping graph operations to equivalent linear algebraic functions. FusedMM, developed by two lab researchers in 2021, is a sparse matrix multiplication library that detects system OS flags and supported SIMD (Single Instruction, Multiple Data) instructions to generate optimized BLAS-like kernels—such as sparse-dense matrix multiplication (SpMM) and sampled dense-dense matrix multiplication (SDDMM)—tailored to the host architecture. These kernels deliver comparable performance across Intel, AMD, and ARM processors.\nMy primary contribution was creating a PyTorch front-end for FusedMM to enable seamless integration with standard Graph Neural Network (GNN) training pipelines. To achieve this, I implemented the following enhancements:\n\nDynamic Library Generation: I adapted the FusedMM codebase to produce a dynamic library, linking PyTorch tensor arrays to FusedMM’s low-level C interface. Originally, FusedMM generated a static library bundling all configuration-specific C code. For Python interoperability, I modified the build system to include the -fPIC flag, enabling position-independent code.\nBackpropagation Support for Semirings: I extended FusedMM’s SpMM functionality to return both the reduced value and its index for “min” and “max” operations, which is essential for backpropagation in these semirings. This extension supports diverse aggregation mechanisms (e.g., min, max, mean) required for algorithms like GraphSAGE.\nCaching for Backpropagation: During implementation, I observed that gradients are repeatedly multiplied by the transposed sparse matrix (typically the fixed adjacency matrix in static graphs) across epochs, incurring redundant costs from expensive CSR-to-CSC conversions. I introduced a caching mechanism using a hashtable keyed on tensor pointers to store the transpose, avoiding recomputation and enabling conflict-free handling of multiple sparse matrices in a single session.\n\nThese optimizations, combined with FusedMM’s generated kernels, yielded up to 93× speedup over vanilla PyTorch 2.1 GCN implementations on large datasets like Reddit and OGBN-Proteins. Released as the Intelligent Sparse Kernel Library (iSpLib), it delivered the following speedups relative to PyTorch Geometric 2.4 for two-layer GNNs:\n\n\n\nModel\nSpeedup\n\n\n\n\nGCN\n54×\n\n\nGraphSAGE-SUM\n32×\n\n\nGraphSAGE-MEAN\n23×\n\n\nGIN\n51×\n\n\n\nInspired by the plug-and-play ethos of our funding agency (ICICLE), I developed a simple two-line patching interface for integrating iSpLib into existing PyTorch Geometric GNN codebases. Patching can be reversed via iSpLibPlugin.unpatch_pyg() at any time. Additionally, a @isplib_autotune decorator allows targeted patching of specific PyG functions.\nfrom isplib import *\niSpLibPlugin.patch_pyg()\n\n# Your PyTorch Geometric code here\n\n\nI also built a Python interface for FusedMM’s auto-tuner, compatible with graph datasets in MTX format. The auto-tuner includes fallback kernels for robustness. By benchmarking generated kernels against fallbacks across embedding sizes, we generate speedup curves—typically parabolic, peaking at the optimal embedding dimension before register spilling degrades performance. For most datasets, iSpLib peaks at embedding size 32 on Intel CPUs and 64 on AMD CPUs (e.g., on NERSC supercomputers), largely due to AMD’s larger cache.\n\n\n\nAutotuning Graph for iSpLib on various architectures\n\n\n\n\n\nI extend my deepest gratitude to Dr. Ariful Azad for his unwavering guidance and to Pranav Badhe for his invaluable assistance in experiments, AMD benchmarking, and paper feedback. The project spanned 18 months, culminating in publication at ACM WebConf 2024.\nThrough iSpLib, I gained expertise in high-performance computing (HPC) techniques, including auto-tuning, code generation, loop unrolling, OpenMP primitives, and SIMD vectorization. This experience has motivated further explorations in graph ML optimizations, such as efficient sparse training for knowledge graphs.\n#PyTorch #PyG #Backpropagation #AutoTuning #BLAS #GCN #GIN #GraphSAGE #Semiring #ML #GNN #HPC"
+  },
+  {
+    "objectID": "blog/isplib-story/index.html#auto-tuner-interface",
+    "href": "blog/isplib-story/index.html#auto-tuner-interface",
+    "title": "iSpLib: An Auto-tuned GNN Accelerator for PyTorch",
+    "section": "",
+    "text": "I also built a Python interface for FusedMM’s auto-tuner, compatible with graph datasets in MTX format. The auto-tuner includes fallback kernels for robustness. By benchmarking generated kernels against fallbacks across embedding sizes, we generate speedup curves—typically parabolic, peaking at the optimal embedding dimension before register spilling degrades performance. For most datasets, iSpLib peaks at embedding size 32 on Intel CPUs and 64 on AMD CPUs (e.g., on NERSC supercomputers), largely due to AMD’s larger cache.\n\n\n\nAutotuning Graph for iSpLib on various architectures"
+  },
+  {
+    "objectID": "blog/isplib-story/index.html#acknowledgments-and-impact",
+    "href": "blog/isplib-story/index.html#acknowledgments-and-impact",
+    "title": "iSpLib: An Auto-tuned GNN Accelerator for PyTorch",
+    "section": "",
+    "text": "I extend my deepest gratitude to Dr. Ariful Azad for his unwavering guidance and to Pranav Badhe for his invaluable assistance in experiments, AMD benchmarking, and paper feedback. The project spanned 18 months, culminating in publication at ACM WebConf 2024.\nThrough iSpLib, I gained expertise in high-performance computing (HPC) techniques, including auto-tuning, code generation, loop unrolling, OpenMP primitives, and SIMD vectorization. This experience has motivated further explorations in graph ML optimizations, such as efficient sparse training for knowledge graphs.\n#PyTorch #PyG #Backpropagation #AutoTuning #BLAS #GCN #GIN #GraphSAGE #Semiring #ML #GNN #HPC"
   },
   {
     "objectID": "blog/leet-gpu-2/index.html",
@@ -494,7 +550,7 @@
     "href": "blog/leet-gpu-2/index.html#reference",
     "title": "LeetGPU-2: Matrix Multiplication",
     "section": "Reference",
-    "text": "Reference"
+    "text": "Reference\n\nhttps://triton-lang.org/main/python-api/triton.language.html"
   },
   {
     "objectID": "community/index.html",
