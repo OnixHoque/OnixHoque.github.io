@@ -9,7 +9,7 @@ date: "12/26/2025"
 > 📌 GitHub Link: [https://github.com/OnixHoque/tinyCUDA](https://github.com/OnixHoque/tinyCUDA).<br>
 > 🌟 Please leave a star if you like it!
 
-![](tinycuda.png)
+![](tinycuda.png){.lightbox}
 
 ## Why TinyCUDA?
 

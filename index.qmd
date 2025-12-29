@@ -1,6 +1,6 @@
 ---
 title: "Md Saidul Hoque Anik"
-description: "PhD Candidate at Texas A&amp;M | ML Systems & Performance Optimization | Sparse Kernels for Graph Learning | Dual M.S. (ISE, CSE) — Indiana University Bloomington and BUET | Tenure-Track Faculty (On Sabbatical, UIU)"
+description: "PhD Candidate at Texas A&amp;M | ML Systems & Performance Optimization | Sparse Kernels for Graph Learning | Tenure-Track Faculty (On Sabbatical, Industry Focus)"
 toc: false
 format: 
   html:

@@ -1,9 +1,9 @@
 ---
 title: "LeetGPU-X: "
-description: "Notes and solutions in PyTorch, Triton, and CUDA"
+description: "Notes and solutions in PyTorch, Triton, and CUDA. Runtime shown for T4 GPU."
 categories: ["LeetGPU"]
 author: "Md Saidul Hoque Anik"
-date: "//20"
+date: "//2026"
 ---
 
 # Problem Statement

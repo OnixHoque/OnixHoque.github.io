@@ -21,7 +21,7 @@ listing:
 ---
 I have led and contributed to more than 20 research projects spanning high-performance computing (HPC), graph neural network (GNN) systems, and natural language processing (NLP), with work ranging from system-level optimization to the design of advanced model architectures. Many of these projects began as course projects I initiated and later evolved into posters and publications at venues such as SC and MLSys.
 
-Below is a selection of my research projects in Systems and GNN. For my other projects, please see [this link](others/index.qmd) .
+Below is a selection of my research projects in Systems and GNN. For my NLP and Sensor related projects, please see [this link](others/index.qmd).
 
 
 ## Systems and Graph Neural Networks

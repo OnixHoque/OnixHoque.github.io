@@ -420,6 +420,83 @@
     "text": "What’s Next?\nCheck the examples like vector_add.cu and matmul.cu in the repo for full runs with checks and timings. It fits right into bigger projects with almost no extra weight. Dive into the headers for more details!"
   },
   {
+    "objectID": "blog/leet-gpu-12/leet-gpu-structure.html",
+    "href": "blog/leet-gpu-12/leet-gpu-structure.html",
+    "title": "LeetGPU-12: Simple Inference",
+    "section": "",
+    "text": "Note: This is part of a learning series on CUDA and Triton, focusing on correctness-first implementations rather than performance optimization."
+  },
+  {
+    "objectID": "blog/leet-gpu-12/leet-gpu-structure.html#example",
+    "href": "blog/leet-gpu-12/leet-gpu-structure.html#example",
+    "title": "LeetGPU-12: Simple Inference",
+    "section": "Example",
+    "text": "Example\n Input:  input = [[1.0, 2.0]]  (batch_size=1, input_size=2)\n model: Linear layer with weight=[[0.5, 1.0], [1.5, 0.5]], bias=[0.1, 0.2]\n Output: output = [[2.6, 2.7]]  (batch_size=1, output_size=2)"
+  },
+  {
+    "objectID": "blog/leet-gpu-12/leet-gpu-structure.html#constraints",
+    "href": "blog/leet-gpu-12/leet-gpu-structure.html#constraints",
+    "title": "LeetGPU-12: Simple Inference",
+    "section": "Constraints",
+    "text": "Constraints\n\n1 ≤ batch_size ≤ 1,000\n1 ≤ input_size ≤ 1,000\n1 ≤ output_size ≤ 1,000\n-10.0 ≤ input values ≤ 10.0"
+  },
+  {
+    "objectID": "blog/leet-gpu-12/leet-gpu-structure.html#pytorch",
+    "href": "blog/leet-gpu-12/leet-gpu-structure.html#pytorch",
+    "title": "LeetGPU-12: Simple Inference",
+    "section": "PyTorch",
+    "text": "PyTorch\n\n\n\n\n\n\nNote\n\n\n\nVery straightforward. A few options:\n\nUse set_ instead of copy_\nUse model.forward()\n\n\n\n\nSolution\nimport torch\nimport torch.nn as nn\n\n\n# input, model, and output are on the GPU\ndef solve(input: torch.Tensor, model: nn.Module, output: torch.Tensor):\n    output.copy_(model(input))\nRuntime: 0.19ms"
+  },
+  {
+    "objectID": "blog/leet-gpu-12/leet-gpu-structure.html#jax",
+    "href": "blog/leet-gpu-12/leet-gpu-structure.html#jax",
+    "title": "LeetGPU-12: Simple Inference",
+    "section": "JAX",
+    "text": "JAX\n\n\n\n\n\n\nNote\n\n\n\n\nNeed to copy to numpy to create JAX array. Slower\nTODO: use dlp to perform zero copy and gpu-cpu-gpu transfer\n\n\n\n\nSolution\nimport jax\nimport jax.numpy as jnp\nimport numpy as np\nimport torch\n\n\n# input and model are on the GPU\ndef solve(input: jax.Array, model) -&gt; jax.Array:\n    np_array = np.asarray(input)\n    torch_tensor = torch.from_numpy(np_array).to(next(model.parameters()).device)\n    output = model(torch_tensor)\n    return jnp.asarray(output.detach().cpu().numpy())\nRuntime: 3.04ms"
+  },
+  {
+    "objectID": "blog/isplib-story/index.html",
+    "href": "blog/isplib-story/index.html",
+    "title": "iSpLib: An Auto-tuned GNN Accelerator for PyTorch",
+    "section": "",
+    "text": "ArXiv | GitHub | Poster\n\nThe iSpLib project originated from FusedMM, the first initiative I undertook upon joining the Luddy HipGraph Lab in 2022 under Dr. Ariful Azad’s supervision. The lab focuses on developing high-performance sparse kernels for efficient graph computations by mapping graph operations to equivalent linear algebraic functions. FusedMM, developed by two lab researchers in 2021, is a sparse matrix multiplication library that detects system OS flags and supported SIMD (Single Instruction, Multiple Data) instructions to generate optimized BLAS-like kernels—such as sparse-dense matrix multiplication (SpMM) and sampled dense-dense matrix multiplication (SDDMM)—tailored to the host architecture. These kernels deliver comparable performance across Intel, AMD, and ARM processors.\nMy primary contribution was creating a PyTorch front-end for FusedMM to enable seamless integration with standard Graph Neural Network (GNN) training pipelines. To achieve this, I implemented the following enhancements:\n\nDynamic Library Generation: I adapted the FusedMM codebase to produce a dynamic library, linking PyTorch tensor arrays to FusedMM’s low-level C interface. Originally, FusedMM generated a static library bundling all configuration-specific C code. For Python interoperability, I modified the build system to include the -fPIC flag, enabling position-independent code.\nBackpropagation Support for Semirings: I extended FusedMM’s SpMM functionality to return both the reduced value and its index for “min” and “max” operations, which is essential for backpropagation in these semirings. This extension supports diverse aggregation mechanisms (e.g., min, max, mean) required for algorithms like GraphSAGE.\nCaching for Backpropagation: During implementation, I observed that gradients are repeatedly multiplied by the transposed sparse matrix (typically the fixed adjacency matrix in static graphs) across epochs, incurring redundant costs from expensive CSR-to-CSC conversions. I introduced a caching mechanism using a hashtable keyed on tensor pointers to store the transpose, avoiding recomputation and enabling conflict-free handling of multiple sparse matrices in a single session.\n\nThese optimizations, combined with FusedMM’s generated kernels, yielded up to 93× speedup over vanilla PyTorch 2.1 GCN implementations on large datasets like Reddit and OGBN-Proteins. Released as the Intelligent Sparse Kernel Library (iSpLib), it delivered the following speedups relative to PyTorch Geometric 2.4 for two-layer GNNs:\n\n\n\nModel\nSpeedup\n\n\n\n\nGCN\n54×\n\n\nGraphSAGE-SUM\n32×\n\n\nGraphSAGE-MEAN\n23×\n\n\nGIN\n51×\n\n\n\nInspired by the plug-and-play ethos of our funding agency (ICICLE), I developed a simple two-line patching interface for integrating iSpLib into existing PyTorch Geometric GNN codebases. Patching can be reversed via iSpLibPlugin.unpatch_pyg() at any time. Additionally, a @isplib_autotune decorator allows targeted patching of specific PyG functions.\nfrom isplib import *\niSpLibPlugin.patch_pyg()\n\n# Your PyTorch Geometric code here\n\n\nI also built a Python interface for FusedMM’s auto-tuner, compatible with graph datasets in MTX format. The auto-tuner includes fallback kernels for robustness. By benchmarking generated kernels against fallbacks across embedding sizes, we generate speedup curves—typically parabolic, peaking at the optimal embedding dimension before register spilling degrades performance. For most datasets, iSpLib peaks at embedding size 32 on Intel CPUs and 64 on AMD CPUs (e.g., on NERSC supercomputers), largely due to AMD’s larger cache.\n\n\n\nAutotuning Graph for iSpLib on various architectures\n\n\n\n\n\nI extend my deepest gratitude to Dr. Ariful Azad for his unwavering guidance and to Pranav Badhe for his invaluable assistance in experiments, AMD benchmarking, and paper feedback. The project spanned 18 months, culminating in publication at ACM WebConf 2024.\nThrough iSpLib, I gained expertise in high-performance computing (HPC) techniques, including auto-tuning, code generation, loop unrolling, OpenMP primitives, and SIMD vectorization. This experience has motivated further explorations in graph ML optimizations, such as efficient sparse training for knowledge graphs.\n#PyTorch #PyG #Backpropagation #AutoTuning #BLAS #GCN #GIN #GraphSAGE #Semiring #ML #GNN #HPC"
+  },
+  {
+    "objectID": "blog/isplib-story/index.html#auto-tuner-interface",
+    "href": "blog/isplib-story/index.html#auto-tuner-interface",
+    "title": "iSpLib: An Auto-tuned GNN Accelerator for PyTorch",
+    "section": "",
+    "text": "I also built a Python interface for FusedMM’s auto-tuner, compatible with graph datasets in MTX format. The auto-tuner includes fallback kernels for robustness. By benchmarking generated kernels against fallbacks across embedding sizes, we generate speedup curves—typically parabolic, peaking at the optimal embedding dimension before register spilling degrades performance. For most datasets, iSpLib peaks at embedding size 32 on Intel CPUs and 64 on AMD CPUs (e.g., on NERSC supercomputers), largely due to AMD’s larger cache.\n\n\n\nAutotuning Graph for iSpLib on various architectures"
+  },
+  {
+    "objectID": "blog/isplib-story/index.html#acknowledgments-and-impact",
+    "href": "blog/isplib-story/index.html#acknowledgments-and-impact",
+    "title": "iSpLib: An Auto-tuned GNN Accelerator for PyTorch",
+    "section": "",
+    "text": "I extend my deepest gratitude to Dr. Ariful Azad for his unwavering guidance and to Pranav Badhe for his invaluable assistance in experiments, AMD benchmarking, and paper feedback. The project spanned 18 months, culminating in publication at ACM WebConf 2024.\nThrough iSpLib, I gained expertise in high-performance computing (HPC) techniques, including auto-tuning, code generation, loop unrolling, OpenMP primitives, and SIMD vectorization. This experience has motivated further explorations in graph ML optimizations, such as efficient sparse training for knowledge graphs.\n#PyTorch #PyG #Backpropagation #AutoTuning #BLAS #GCN #GIN #GraphSAGE #Semiring #ML #GNN #HPC"
+  },
+  {
+    "objectID": "archive/index.html",
+    "href": "archive/index.html",
+    "title": "OnixHoque.github.io",
+    "section": "",
+    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites."
+  },
+  {
+    "objectID": "archive/about.html",
+    "href": "archive/about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site"
+  },
+  {
+    "objectID": "blog/index.html",
+    "href": "blog/index.html",
+    "title": "Blogs and Notes",
+    "section": "",
+    "text": "Order By\n      Default\n      \n        Title\n      \n      \n        Description\n      \n      \n        Categories\n      \n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\nLeetGPU-12: Simple Inference\n\n Notes and solutions in PyTorch and JAX. Runtime shown for T4 GPU.  Dec 28, 2025   LeetGPU  \n\n\n\nGetting Started with TinyCUDA\n\n TinyCUDA is a header-only C++17 wrapper that eliminates CUDA boilerplate—auto-handles cudaMalloc/cudaMemcpy via Buffer, kernel errors with CUDA_CHECK, and timings via KernelProfiler. Ideal for rapid 1D buffer prototyping without full-framework overhead (no autograd or multi-D tensors).  Dec 26, 2025   Project  \n\n\n\nLeetGPU-2: Matrix Multiplication\n\n Notes and solutions in PyTorch, Triton, and CUDA. Runtime shown for T4 GPU.  Dec 17, 2025   LeetGPU  \n\n\n\nLeetGPU-1: Vector Addition\n\n Notes and solutions in PyTorch, Triton, and CUDA. Runtime shown for T4 GPU.  Dec 14, 2025   LeetGPU  \n\n\n\niSpLib: An Auto-tuned GNN Accelerator for PyTorch\n\n [Published in WebConf 2024] iSpLib is a PyTorch library that accelerates Graph Neural Network (GNN) training by integrating auto-tuned sparse matrix operations from FusedMM, delivering up to 93× speedup on large graphs like Reddit and OGBN-Proteins. It features plug-and-play patching for PyTorch Geometric, backpropagation support for semirings, and caching for fixed adjacency matrices, boosting models like GCN (54×), GraphSAGE (23-32×), and GIN (51×).  Sep 14, 2024   Project  \n\n\n\nNo matching items"
+  },
+  {
     "objectID": "blog/leet-gpu-1/index.html",
     "href": "blog/leet-gpu-1/index.html",
     "title": "LeetGPU-1: Vector Addition",
@@ -467,48 +544,6 @@
     "title": "LeetGPU-1: Vector Addition",
     "section": "Reference",
     "text": "Reference\n\nhttps://triton-lang.org/main/getting-started/tutorials/01-vector-add.html"
-  },
-  {
-    "objectID": "blog/index.html",
-    "href": "blog/index.html",
-    "title": "Blogs and Notes",
-    "section": "",
-    "text": "Order By\n      Default\n      \n        Title\n      \n      \n        Description\n      \n      \n        Categories\n      \n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\nGetting Started with TinyCUDA\n\n TinyCUDA is a header-only C++17 wrapper that eliminates CUDA boilerplate—auto-handles cudaMalloc/cudaMemcpy via Buffer, kernel errors with CUDA_CHECK, and timings via KernelProfiler. Ideal for rapid 1D buffer prototyping without full-framework overhead (no autograd or multi-D tensors).  Dec 26, 2025   Project  \n\n\n\nLeetGPU-2: Matrix Multiplication\n\n Notes and solutions in PyTorch, Triton, and CUDA. Runtime shown for T4 GPU.  Dec 17, 2025   LeetGPU  \n\n\n\nLeetGPU-1: Vector Addition\n\n Notes and solutions in PyTorch, Triton, and CUDA. Runtime shown for T4 GPU.  Dec 14, 2025   LeetGPU  \n\n\n\niSpLib: An Auto-tuned GNN Accelerator for PyTorch\n\n [Published in WebConf 2024] iSpLib is a PyTorch library that accelerates Graph Neural Network (GNN) training by integrating auto-tuned sparse matrix operations from FusedMM, delivering up to 93× speedup on large graphs like Reddit and OGBN-Proteins. It features plug-and-play patching for PyTorch Geometric, backpropagation support for semirings, and caching for fixed adjacency matrices, boosting models like GCN (54×), GraphSAGE (23-32×), and GIN (51×).  Sep 14, 2024   Project  \n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "archive/about.html",
-    "href": "archive/about.html",
-    "title": "About",
-    "section": "",
-    "text": "About this site"
-  },
-  {
-    "objectID": "archive/index.html",
-    "href": "archive/index.html",
-    "title": "OnixHoque.github.io",
-    "section": "",
-    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites."
-  },
-  {
-    "objectID": "blog/isplib-story/index.html",
-    "href": "blog/isplib-story/index.html",
-    "title": "iSpLib: An Auto-tuned GNN Accelerator for PyTorch",
-    "section": "",
-    "text": "ArXiv | GitHub | Poster\n\nThe iSpLib project originated from FusedMM, the first initiative I undertook upon joining the Luddy HipGraph Lab in 2022 under Dr. Ariful Azad’s supervision. The lab focuses on developing high-performance sparse kernels for efficient graph computations by mapping graph operations to equivalent linear algebraic functions. FusedMM, developed by two lab researchers in 2021, is a sparse matrix multiplication library that detects system OS flags and supported SIMD (Single Instruction, Multiple Data) instructions to generate optimized BLAS-like kernels—such as sparse-dense matrix multiplication (SpMM) and sampled dense-dense matrix multiplication (SDDMM)—tailored to the host architecture. These kernels deliver comparable performance across Intel, AMD, and ARM processors.\nMy primary contribution was creating a PyTorch front-end for FusedMM to enable seamless integration with standard Graph Neural Network (GNN) training pipelines. To achieve this, I implemented the following enhancements:\n\nDynamic Library Generation: I adapted the FusedMM codebase to produce a dynamic library, linking PyTorch tensor arrays to FusedMM’s low-level C interface. Originally, FusedMM generated a static library bundling all configuration-specific C code. For Python interoperability, I modified the build system to include the -fPIC flag, enabling position-independent code.\nBackpropagation Support for Semirings: I extended FusedMM’s SpMM functionality to return both the reduced value and its index for “min” and “max” operations, which is essential for backpropagation in these semirings. This extension supports diverse aggregation mechanisms (e.g., min, max, mean) required for algorithms like GraphSAGE.\nCaching for Backpropagation: During implementation, I observed that gradients are repeatedly multiplied by the transposed sparse matrix (typically the fixed adjacency matrix in static graphs) across epochs, incurring redundant costs from expensive CSR-to-CSC conversions. I introduced a caching mechanism using a hashtable keyed on tensor pointers to store the transpose, avoiding recomputation and enabling conflict-free handling of multiple sparse matrices in a single session.\n\nThese optimizations, combined with FusedMM’s generated kernels, yielded up to 93× speedup over vanilla PyTorch 2.1 GCN implementations on large datasets like Reddit and OGBN-Proteins. Released as the Intelligent Sparse Kernel Library (iSpLib), it delivered the following speedups relative to PyTorch Geometric 2.4 for two-layer GNNs:\n\n\n\nModel\nSpeedup\n\n\n\n\nGCN\n54×\n\n\nGraphSAGE-SUM\n32×\n\n\nGraphSAGE-MEAN\n23×\n\n\nGIN\n51×\n\n\n\nInspired by the plug-and-play ethos of our funding agency (ICICLE), I developed a simple two-line patching interface for integrating iSpLib into existing PyTorch Geometric GNN codebases. Patching can be reversed via iSpLibPlugin.unpatch_pyg() at any time. Additionally, a @isplib_autotune decorator allows targeted patching of specific PyG functions.\nfrom isplib import *\niSpLibPlugin.patch_pyg()\n\n# Your PyTorch Geometric code here\n\n\nI also built a Python interface for FusedMM’s auto-tuner, compatible with graph datasets in MTX format. The auto-tuner includes fallback kernels for robustness. By benchmarking generated kernels against fallbacks across embedding sizes, we generate speedup curves—typically parabolic, peaking at the optimal embedding dimension before register spilling degrades performance. For most datasets, iSpLib peaks at embedding size 32 on Intel CPUs and 64 on AMD CPUs (e.g., on NERSC supercomputers), largely due to AMD’s larger cache.\n\n\n\nAutotuning Graph for iSpLib on various architectures\n\n\n\n\n\nI extend my deepest gratitude to Dr. Ariful Azad for his unwavering guidance and to Pranav Badhe for his invaluable assistance in experiments, AMD benchmarking, and paper feedback. The project spanned 18 months, culminating in publication at ACM WebConf 2024.\nThrough iSpLib, I gained expertise in high-performance computing (HPC) techniques, including auto-tuning, code generation, loop unrolling, OpenMP primitives, and SIMD vectorization. This experience has motivated further explorations in graph ML optimizations, such as efficient sparse training for knowledge graphs.\n#PyTorch #PyG #Backpropagation #AutoTuning #BLAS #GCN #GIN #GraphSAGE #Semiring #ML #GNN #HPC"
-  },
-  {
-    "objectID": "blog/isplib-story/index.html#auto-tuner-interface",
-    "href": "blog/isplib-story/index.html#auto-tuner-interface",
-    "title": "iSpLib: An Auto-tuned GNN Accelerator for PyTorch",
-    "section": "",
-    "text": "I also built a Python interface for FusedMM’s auto-tuner, compatible with graph datasets in MTX format. The auto-tuner includes fallback kernels for robustness. By benchmarking generated kernels against fallbacks across embedding sizes, we generate speedup curves—typically parabolic, peaking at the optimal embedding dimension before register spilling degrades performance. For most datasets, iSpLib peaks at embedding size 32 on Intel CPUs and 64 on AMD CPUs (e.g., on NERSC supercomputers), largely due to AMD’s larger cache.\n\n\n\nAutotuning Graph for iSpLib on various architectures"
-  },
-  {
-    "objectID": "blog/isplib-story/index.html#acknowledgments-and-impact",
-    "href": "blog/isplib-story/index.html#acknowledgments-and-impact",
-    "title": "iSpLib: An Auto-tuned GNN Accelerator for PyTorch",
-    "section": "",
-    "text": "I extend my deepest gratitude to Dr. Ariful Azad for his unwavering guidance and to Pranav Badhe for his invaluable assistance in experiments, AMD benchmarking, and paper feedback. The project spanned 18 months, culminating in publication at ACM WebConf 2024.\nThrough iSpLib, I gained expertise in high-performance computing (HPC) techniques, including auto-tuning, code generation, loop unrolling, OpenMP primitives, and SIMD vectorization. This experience has motivated further explorations in graph ML optimizations, such as efficient sparse training for knowledge graphs.\n#PyTorch #PyG #Backpropagation #AutoTuning #BLAS #GCN #GIN #GraphSAGE #Semiring #ML #GNN #HPC"
   },
   {
     "objectID": "blog/leet-gpu-2/index.html",
@@ -564,14 +599,14 @@
     "href": "leadership/index.html",
     "title": "Leadership Roles",
     "section": "",
-    "text": "UIU Project Show 2021. Serving as judge.\n\n\n\n\n\n\n\nMIST Inter-University Programming Contest 2019. Serving as technical coordinator.\n\n\n\n\n\nDuring my undergraduate studies, I served as the coordinator for the BUET System Analysis, Design, and Development (BSADD) Community. In this role, I organized and conducted a 5-day workshop on Android Mobile App Development. Additionally, I recorded the lectures and uploaded them to the official channel for wider accessibility.\nLater, as a faculty member at MIST and UIU, I led efforts in Outcome-Based Education (OBE) and took on technical roles, steering the respective departments through various initiatives and strategic advancements.\n\nUIUMIST\n\n\n\nExternal Supervisor, FYDP-II Summer 2021\nNov 2021\nActed as an external supervisor for Final Year Design Project (FYDP) final defense presentation.\n\n\nAsst Technical Coordinator, Innobotics 2020\nFeb 2020\nProvided programming related technical assistance during the competition.\n\n\nAsst, OBE Revision Team\nJan 2021 - Present\nRevised two course syllabus according to new guideline. Revising rubrics for Final Year Design Project-II.\n\n\nMember, Registration Surveillance Team\nJune 2021\nResponsible for increasing section capacity on-demand during course registration of Summer 2021 semester.\n\n\nCourse Advisor\nJan 2020 - Present\nResponsible for course advising and enrollment for several batches of students.\n\n\n\n\nSoftware Development and Project Planning\nSept 2017 - Jan 2020\nHigh involvement in SRS design, timeline planning, coordination and coding of on-demand software for third-party clients. Specialization in Android and Web App development.\n\n\nCoordinator, Postgraduate Program\nJan 2019 - June 2019\nArrangement of BPGS meeting, thesis proposal presentation, Oct 2018 question moderation meeting. Preparation of BPGS agenda and minutes. Coordination of admission test for April 2019 semester including question setting, moderation, script checking, and result publication. Preparation of tabulation sheet for April 2019 Semester.\n\n\nInternal Member Secretary, Syllabus Review Committee for OBE\nDec 2018 - Jan 2019\nCoordination and compilation of the reviewed syllabus for the adaptation of OBE program. Preparation of a special syllabus with the amendment of old syllabus for 3rd year and 4th year students.\n\n\nMember, OBE Steering Committee\nJuly 2018 - Oct 2019\nCoordination of the CO-PO mapping and overall PO attainment for CSE department. Developed an automated system to calculate the CO-PO attainment for OBE Accreditation Visit 2019. Presented at the Multi-purpose Hall of MIST on CO-PO mapping methodology and Capstone Project (Dec 2018).\n\n\nInstructor, Cyber Security Training Program 2019\nJuly 2019\nConducted a session on web-security and cross-site scripting attack as part of the training module. Also participated in Cyber Security Training Program in 2017.\n\n\nTechnical Coordinator, MIST IUPC 2019\nJan 2019\nLab preparation for IUPC 2019. Ensured smooth connectivity between computers, servers and printers.\n\n\nInstructor, Unicode Training Program\nOct 2018\nConducted a training session on how to write Bengali official letters with Unicode font for the staffs of MIST.\n\n\nMember, TO&E Reformation Committee\nDec 2017 - Sept 2018\nPreparation of revised organogram tree, charter of duties, pay scale, list of equipment for the lab, and necessary presentation.\n\n\nAsst. Coordinator, Comptia A+ Training Program 2017\nMay 2017\nCoordination of the Program, attendance report generation, preparation of lab equipment.\n\n\nMiscellaneous\nQuestion setting, invigilation, and script checking of various recruitment examinations."
+    "text": "UIU Project Show 2021. Serving as judge.\n\n\n\n\n\n\n\nMIST Inter-University Programming Contest 2019. Serving as technical coordinator.\n\n\n\n\n\nDuring my undergraduate studies, I served as the coordinator for the BUET System Analysis, Design, and Development (BSADD) Community. In this role, I organized and conducted a 5-day workshop on Android Mobile App Development. Additionally, I recorded the lectures and uploaded them to the official channel for wider accessibility (see workshop website).\nLater, as a faculty member at MIST and UIU, I led efforts in Outcome-Based Education (OBE) and took on technical roles, steering the respective departments through various initiatives and strategic advancements.\n\nUIUMIST\n\n\n\nExternal Supervisor, FYDP-II Summer 2021\nNov 2021\nActed as an external supervisor for Final Year Design Project (FYDP) final defense presentation.\n\n\nAsst Technical Coordinator, Innobotics 2020\nFeb 2020\nProvided programming related technical assistance during the competition.\n\n\nAsst, OBE Revision Team\nJan 2021 - Present\nRevised two course syllabus according to new guideline. Revising rubrics for Final Year Design Project-II.\n\n\nMember, Registration Surveillance Team\nJune 2021\nResponsible for increasing section capacity on-demand during course registration of Summer 2021 semester.\n\n\nCourse Advisor\nJan 2020 - Present\nResponsible for course advising and enrollment for several batches of students.\n\n\n\n\nSoftware Development and Project Planning\nSept 2017 - Jan 2020\nHigh involvement in SRS design, timeline planning, coordination and coding of on-demand software for third-party clients. Specialization in Android and Web App development.\n\n\nCoordinator, Postgraduate Program\nJan 2019 - June 2019\nArrangement of BPGS meeting, thesis proposal presentation, Oct 2018 question moderation meeting. Preparation of BPGS agenda and minutes. Coordination of admission test for April 2019 semester including question setting, moderation, script checking, and result publication. Preparation of tabulation sheet for April 2019 Semester.\n\n\nInternal Member Secretary, Syllabus Review Committee for OBE\nDec 2018 - Jan 2019\nCoordination and compilation of the reviewed syllabus for the adaptation of OBE program. Preparation of a special syllabus with the amendment of old syllabus for 3rd year and 4th year students.\n\n\nMember, OBE Steering Committee\nJuly 2018 - Oct 2019\nCoordination of the CO-PO mapping and overall PO attainment for CSE department. Developed an automated system to calculate the CO-PO attainment for OBE Accreditation Visit 2019. Presented at the Multi-purpose Hall of MIST on CO-PO mapping methodology and Capstone Project (Dec 2018).\n\n\nInstructor, Cyber Security Training Program 2019\nJuly 2019\nConducted a session on web-security and cross-site scripting attack as part of the training module. Also participated in Cyber Security Training Program in 2017.\n\n\nTechnical Coordinator, MIST IUPC 2019\nJan 2019\nLab preparation for IUPC 2019. Ensured smooth connectivity between computers, servers and printers.\n\n\nInstructor, Unicode Training Program\nOct 2018\nConducted a training session on how to write Bengali official letters with Unicode font for the staffs of MIST.\n\n\nMember, TO&E Reformation Committee\nDec 2017 - Sept 2018\nPreparation of revised organogram tree, charter of duties, pay scale, list of equipment for the lab, and necessary presentation.\n\n\nAsst. Coordinator, Comptia A+ Training Program 2017\nMay 2017\nCoordination of the Program, attendance report generation, preparation of lab equipment.\n\n\nMiscellaneous\nQuestion setting, invigilation, and script checking of various recruitment examinations."
   },
   {
     "objectID": "research/index.html",
     "href": "research/index.html",
     "title": "Research Work",
     "section": "",
-    "text": "I have led and contributed to more than 20 research projects spanning high-performance computing (HPC), graph neural network (GNN) systems, and natural language processing (NLP), with work ranging from system-level optimization to the design of advanced model architectures. Many of these projects began as course projects I initiated and later evolved into posters and publications at venues such as SC and MLSys.\nBelow is a selection of my research projects in Systems and GNN. For my other projects, please see this link ."
+    "text": "I have led and contributed to more than 20 research projects spanning high-performance computing (HPC), graph neural network (GNN) systems, and natural language processing (NLP), with work ranging from system-level optimization to the design of advanced model architectures. Many of these projects began as course projects I initiated and later evolved into posters and publications at venues such as SC and MLSys.\nBelow is a selection of my research projects in Systems and GNN. For my NLP and Sensor related projects, please see this link."
   },
   {
     "objectID": "research/index.html#systems-and-graph-neural-networks",
