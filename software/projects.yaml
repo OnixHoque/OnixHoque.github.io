@@ -1,3 +1,10 @@
+- title: "TinyCUDA"
+  categories: ["C++", "CUDA"]
+  image: "project-images/tinycuda.png"
+  description: "A lightweight CUDA wrapper for memory management, kernel timing, and error handling—focus on kernels, not boilerplate."
+  Timeline: "Dec'25"
+  path: "/blog/tinycuda-release"
+
 - title: "Bell-212 Training Module"
   categories: ["Commercial", "HTML", "PHP", "Three.js", "Semantic UI"]
   image: "project-images/bell-1.png"
@@ -24,13 +31,6 @@
   images: []
   description: "[**Commercial Project • Bracathon 2015 Champion ($2,500)**] An Android civic reporting app developed under BRAC IT, allowing Dhaka citizens to report road and infrastructure issues directly to responsible authorities."
   Timeline: "Jan'15 - Dec'15"
-
-- title: "TinyCUDA"
-  categories: ["C++", "CUDA"]
-  image: "project-images/tinycuda.png"
-  description: "A lightweight CUDA wrapper for memory management, kernel timing, and error handling—focus on kernels, not boilerplate."
-  Timeline: "Dec'25"
-  path: "/blog/tinycuda-release"
 
 - title: "Plagiarism Checker"
   categories: ["JavaScript", "ElectronJS", "VueJS", "Semantic UI"]

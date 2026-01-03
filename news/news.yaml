@@ -202,6 +202,6 @@
   path: "/research/others/nlp-deep-learning/polyglot/"
   
 - categories: ["Project"]
-  News: "tinyCUDA released! I wrote a small CUDA wrapper in C++ for automatic memory management ( follows RAII principles and uses C++17 move semantics), kernel timing, and error handling."
+  News: "tinyCUDA released! I wrote a small CUDA wrapper in C++ for automatic memory management (follows RAII principles and uses C++17 move semantics), kernel timing, and error handling."
   date: "12/26/2025"
   path: "/blog/tinycuda-release"
