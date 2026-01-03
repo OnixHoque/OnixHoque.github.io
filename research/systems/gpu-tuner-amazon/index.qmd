@@ -1,7 +1,7 @@
 ---
 title: "Differentiable GPU kernel autotuner with Transfer Learning"
 categories: ["Autotuner", "CUDA", "Kernel", "Differentiable", "vLLM", "Transfer Learning", "Amazon Internship", "PyTorch", "SciPy", "GPU"]
-description: "Developed a robust, end-to-end differentiable GPU kernel autotuner for vLLM that requires very little (n<1000) ground truth for tuning."
+description: "Developed a robust, end-to-end differentiable GPU kernel autotuner for vLLM that requires very little ground truth for tuning."
 date: "08/01/2025"
 image: amazon.jpg
 ---

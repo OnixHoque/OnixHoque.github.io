@@ -1,0 +1,145 @@
+---
+title: "LeetGPU-3: Matrix Transpose"
+description: "Notes and solutions in PyTorch, Triton, and CUDA. Runtime shown for T4 GPU."
+categories: ["LeetGPU"]
+author: "Md Saidul Hoque Anik"
+date: "01/03/2026"
+---
+
+# Problem Statement
+
+Write a program that transposes a matrix of 32-bit floating point numbers on a GPU. The transpose of a matrix switches its rows and columns. Given a matrix of dimensions , the transpose will have dimensions . All matrices are stored in row-major format.
+
+## **Implementation Requirements**
+
+-   Use only native features (external libraries are not permitted)
+
+-   The `solve` function signature must remain unchanged
+
+-   The final result must be stored in the matrix `output`
+
+## Constraints
+
+-   1 ≤ `rows`, `cols` ≤ 8192
+
+-   Input matrix dimensions: `rows` × `cols`
+
+-   Output matrix dimensions: `cols` × `rows`
+
+# Solution
+
+## PyTorch
+
+::: callout-note
+Trivial
+:::
+
+### Solution
+
+``` python
+import torch
+
+# input, output are tensors on the GPU
+def solve(input: torch.Tensor, output: torch.Tensor, rows: int, cols: int):
+    output.copy_(input.T)
+```
+
+Runtime: **3.23ms**
+
+## Triton
+
+::: callout-note
+:::
+
+### Solution
+
+``` python
+import torch
+import triton
+import triton.language as tl
+
+
+@triton.jit
+def matrix_transpose_kernel(input, output, rows, cols, BLOCK_ROW: tl.constexpr, BLOCK_COL: tl.constexpr):
+    r = tl.program_id(0)
+    c = tl.program_id(1)
+
+    row_start = r * BLOCK_ROW
+    col_start = c * BLOCK_COL
+
+    row_ptr = row_start + tl.arange(0, BLOCK_ROW)
+    col_ptr = col_start + tl.arange(0, BLOCK_COL)
+
+    r_idx = row_ptr[:, None]
+    c_idx = col_ptr[None, :]
+    
+    inp_idx = input + r_idx * cols + c_idx
+    
+    mask = (r_idx < rows) & (c_idx < cols)
+
+    x = tl.load(inp_idx, mask, 0.0)
+
+    out_idx = output + c_idx * rows + r_idx
+
+    tl.store(out_idx, x, mask)
+
+# input, output are tensors on the GPU
+def solve(input: torch.Tensor, output: torch.Tensor, rows: int, cols: int):
+    BLOCK_ROW = 16
+    BLOCK_COL = 16
+
+    grid = (
+        triton.cdiv(rows, BLOCK_ROW),
+        triton.cdiv(cols, BLOCK_COL),
+    )
+
+    matrix_transpose_kernel[grid](
+        input,
+        output,
+        rows,
+        cols,
+        BLOCK_ROW=BLOCK_ROW,
+        BLOCK_COL=BLOCK_COL,
+    )
+```
+
+Runtime: **2.47ms**
+
+## CUDA
+
+::: callout-note
+-   rows = column_stride
+
+-   cols = row_stride
+:::
+
+### Solution
+
+``` cpp
+#include <cuda_runtime.h>
+
+__global__ void matrix_transpose_kernel(const float* input, float* output, int rows, int cols) {
+    int c = blockIdx.x * blockDim.x + threadIdx.x;
+    int r = blockIdx.y * blockDim.y + threadIdx.y;
+
+    if (r < rows and c < cols) {
+        output[c * rows + r] = input[r * cols + c];
+    }
+}
+
+// input, output are device pointers (i.e. pointers to memory on the GPU)
+extern "C" void solve(const float* input, float* output, int rows, int cols) {
+    dim3 threadsPerBlock(16, 16);
+    dim3 blocksPerGrid((cols + threadsPerBlock.x - 1) / threadsPerBlock.x,
+                       (rows + threadsPerBlock.y - 1) / threadsPerBlock.y);
+
+    matrix_transpose_kernel<<<blocksPerGrid, threadsPerBlock>>>(input, output, rows, cols);
+    cudaDeviceSynchronize();
+}
+```
+
+Runtime: **2.66ms**
+
+## Reference
+
+-   <https://github.com/gpu-mode/lectures/blob/main/lecture_014/A_Practitioners_Guide_to_Triton.ipynb>
