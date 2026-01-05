@@ -7,8 +7,10 @@ format:
 ---
 
 > For my leadership roles and initiatives as a faculty, see the [Leadership](/leadership/) page. 
-
+ 
+:::{style="text-align: center"}
 ![](uiu-mist.png){.lightbox width=60%}
+:::
 
 I am currently on sabbatical from the Department of Computer Science and Engineering at United International University (UIU)[^1], Bangladesh, where I served as a tenured faculty member. Before my sabbatical, I taught advanced computer science topics, including Software Engineering, Computer Architecture, and Web Programming to senior undergraduate students.
 

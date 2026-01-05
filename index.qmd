@@ -22,8 +22,7 @@ about:
 ---
 ## About Me
 
-I am a PhD candidate in Computer Science & Engineering at Texas A&M University, focusing on **high-performance and distributed machine learning systems**. I specialize in optimizing **sparse linear algebra** for efficient ML pipelines. Previously, I interned at **Amazon AWS**, where I built a differentiable GPU kernel autotuner that reduced LLM kernel-tuning time from **days to hours** using transfer learning.
-
+I am a PhD candidate in Computer Science & Engineering at Texas A&M University, focusing on **high-performance and distributed machine learning systems**. I specialize in optimizing **sparse linear algebra** for efficient ML pipelines. Previously, I interned at **Amazon AWS**, where I built a differentiable GPU kernel autotuner that reduced LLM kernel-tuning time from **days to hours** using transfer learning. Prior to my PhD, I was a [tenure-track faculty member](/teaching/), teaching undergraduate courses spanning computer systems, theory, and core programming, including **Computer Architecture**, Theory of Computation, **Programming Languages (C/C++/Java)**, and Data Structures & Algorithms. 
 
 > I can:
 >
@@ -56,7 +55,7 @@ I led and coordinated various academic and technical initiatives, including curr
 
 ## Exploration
 
-I deepen my ML systems expertise by solving [LeetGPU](/leetgpu/) problems across PyTorch, CUDA, and Triton, building intuition for low-level kernel design and performance trade-offs. I stay current with ML infrastructure and systems trends by developing small experimental tools and continuously expanding my [software](/software/) skill set. I also regularly read and distill recent ML systems papers, sharing hands-on tutorials and technical walkthroughs on my [blog](/blog/) to communicate systems concepts clearly and effectively. 
+I deepen my ML systems expertise by solving [LeetGPU](/leetgpu/) problems across PyTorch, CUDA, and Triton, building intuition for low-level kernel design and performance trade-offs. I stay current with ML infrastructure and systems trends by developing small experimental tools and continuously expanding my [software](/software/) skill set, with 12+ open-source and commercial projects in Python, C++, and Java. I also regularly read and distill recent ML systems papers, sharing hands-on tutorials and technical walkthroughs on my [blog](/blog/) to communicate systems concepts clearly and effectively. 
 
 <!-- I deepen my ML systems expertise by solving [LeetGPU](/blog/#category=LeetGPU) problems across PyTorch, CUDA, and Triton, developing intuition for performance trade-offs and low-level kernel design. I stay current with ML infrastructure and systems trends by building small experimental tools and continuously expanding my [software](/blog/#category=LeetGPU) skill set. -->
 <!-- ::: -->
