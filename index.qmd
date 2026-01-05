@@ -1,6 +1,6 @@
 ---
 title: "Md Saidul Hoque Anik"
-description: "PhD Candidate at Texas A&amp;M | ML Systems & Performance Optimization | Sparse Kernels for Graph Learning | Tenure-Track Faculty (On Sabbatical, Industry Focus)"
+description: "PhD Candidate at Texas A&amp;M | ML Systems & Performance Optimization | Sparse Kernels for Graph Learning |"
 toc: false
 format: 
   html:
@@ -22,7 +22,7 @@ about:
 ---
 ## About Me
 
-I am a PhD candidate in Computer Science & Engineering at Texas A&M University, focusing on **high-performance and distributed machine learning systems**. I specialize in optimizing **sparse linear algebra** for efficient ML pipelines. Previously, I interned at **Amazon AWS**, where I built a differentiable GPU kernel autotuner that reduced LLM kernel-tuning time from **days to hours** using transfer learning. Prior to my PhD, I was a [tenure-track faculty member](/teaching/), teaching undergraduate courses spanning computer systems, theory, and core programming, including **Computer Architecture**, Theory of Computation, **Programming Languages (C/C++/Java)**, and Data Structures & Algorithms. 
+I am a PhD candidate in Computer Science & Engineering at Texas A&M University, focusing on **high-performance and distributed machine learning systems**. I specialize in optimizing **sparse linear algebra** for efficient ML pipelines. Previously, I interned at **Amazon AWS**, where I built a differentiable GPU kernel autotuner that reduced LLM kernel-tuning time from **days to hours** using transfer learning.
 
 > I can:
 >
@@ -31,6 +31,8 @@ I am a PhD candidate in Computer Science & Engineering at Texas A&M University, 
 > - Develop **distributed training systems** with PyTorch Distributed and efficient disk-based data streaming.  
 > - Profile and optimize Python/C++ pipelines for performance bottlenecks.  
 > - Apply ML for systems optimization (e.g., developed neural GPU kernel autotuner with transfer-learning support).  
+
+Prior to my PhD, I was a tenure-track faculty member, [teaching](/teaching/) undergraduate courses spanning computer systems, theory, and core programming, including **Computer Architecture**, Theory of Computation, **Programming Languages (C/C++/Java)**, and Data Structures & Algorithms. 
 
 ## Research Background
 
