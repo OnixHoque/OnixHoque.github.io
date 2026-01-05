@@ -21,6 +21,7 @@
   {
     "listing": "/blog/index.html",
     "items": [
+      "/blog/leet-gpu-5/index.html",
       "/blog/leet-gpu-3/index.html",
       "/blog/leet-gpu-12/leet-gpu-structure.html",
       "/blog/tinycuda-release/index.html",

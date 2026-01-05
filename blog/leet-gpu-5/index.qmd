@@ -1,0 +1,131 @@
+---
+title: "LeetGPU-5: Matrix Addition"
+description: "Notes and solutions in PyTorch, Triton, and CUDA. Runtime shown for T4 GPU."
+categories: ["LeetGPU"]
+author: "Md Saidul Hoque Anik"
+date: "01/04/2026"
+---
+
+# Problem Statement
+
+Implement a program that performs element-wise addition of two matrices containing 32-bit floating point numbers on a GPU. The program should take two input matrices of equal dimensions and produce a single output matrix containing their element-wise sum.
+
+## **Implementation Requirements**
+
+-   External libraries are not permitted
+
+-   The `solve` function signature must remain unchanged
+
+-   The final result must be stored in matrix `C`
+
+## Example
+
+```         
+Input:  A = [[1.0, 2.0],
+             [3.0, 4.0]]
+        B = [[5.0, 6.0],
+             [7.0, 8.0]]
+Output: C = [[6.0, 8.0],
+             [10.0, 12.0]]
+```
+
+## Constraints
+
+-   Input matrices `A` and `B` have identical dimensions
+
+-   1 ≤ `N` ≤ 4096
+
+-   All elements are 32-bit floating point numbers
+
+# Solution
+
+## PyTorch
+
+::: callout-note
+Trivial
+:::
+
+### Solution
+
+``` python
+import torch
+
+
+# A, B, C are tensors on the GPU
+def solve(A: torch.Tensor, B: torch.Tensor, C: torch.Tensor, N: int):
+    C.copy_(A + B)
+```
+
+Runtime: **1.41ms**
+
+## Triton
+
+::: callout-note
+Hmm exactly same runtime as cuda. 4x slower than pytorch
+:::
+
+### Solution
+
+``` python
+import torch
+import triton
+import triton.language as tl
+
+
+@triton.jit
+def matrix_add_kernel(a, b, c, n_elements, BLOCK_SIZE: tl.constexpr):
+    x = tl.program_id(0) * BLOCK_SIZE
+    x = x + tl.arange(0, BLOCK_SIZE)
+    mask = x < (n_elements * n_elements)
+    row = x % n_elements
+    col = x // n_elements
+    pos = row * n_elements + col
+    t0 = tl.load(a + pos, mask)
+    t1 = tl.load(b + pos, mask)
+    tl.store(c + pos, t0+t1, mask)
+
+
+# a, b, c are tensors on the GPU
+def solve(a: torch.Tensor, b: torch.Tensor, c: torch.Tensor, N: int):
+    BLOCK_SIZE = 1024
+    n_elements = N * N
+    grid = (triton.cdiv(n_elements, BLOCK_SIZE),)
+    matrix_add_kernel[grid](a, b, c, N, BLOCK_SIZE)
+```
+
+Runtime: **5.30ms**
+
+## CUDA
+
+::: callout-note
+The given template code was 1-d so used that. Almost 4x slower than pytorch
+:::
+
+### Solution
+
+``` cpp
+#include <cuda_runtime.h>
+
+__global__ void matrix_add(const float* A, const float* B, float* C, int N) {
+    int x = blockIdx.x * blockDim.x + threadIdx.x;
+    int row = x % N;
+    int col = int(x / N);
+
+    if (x < N * N) {
+        C[row * N + col] = A[row * N + col] + B[row * N + col];
+    }
+}
+
+// A, B, C are device pointers (i.e. pointers to memory on the GPU)
+extern "C" void solve(const float* A, const float* B, float* C, int N) {
+    int threadsPerBlock = 256;
+    int blocksPerGrid = (N * N + threadsPerBlock - 1) / threadsPerBlock;
+
+    matrix_add<<<blocksPerGrid, threadsPerBlock>>>(A, B, C, N);
+    cudaDeviceSynchronize();
+}
+```
+
+Runtime: **5.30ms**
+
+##

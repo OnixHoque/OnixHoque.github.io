@@ -420,46 +420,130 @@
     "text": "What’s Next?\nCheck the examples like vector_add.cu and matmul.cu in the repo for full runs with checks and timings. It fits right into bigger projects with almost no extra weight. Dive into the headers for more details!"
   },
   {
-    "objectID": "blog/leet-gpu-2/index.html",
-    "href": "blog/leet-gpu-2/index.html",
-    "title": "LeetGPU-2: Matrix Multiplication",
+    "objectID": "blog/leet-gpu-3/index.html",
+    "href": "blog/leet-gpu-3/index.html",
+    "title": "LeetGPU-3: Matrix Transpose",
+    "section": "",
+    "text": "Write a program that transposes a matrix of 32-bit floating point numbers on a GPU. The transpose of a matrix switches its rows and columns. Given a matrix of dimensions , the transpose will have dimensions . All matrices are stored in row-major format.\n\n\n\nUse only native features (external libraries are not permitted)\nThe solve function signature must remain unchanged\nThe final result must be stored in the matrix output\n\n\n\n\n\n1 ≤ rows, cols ≤ 8192\nInput matrix dimensions: rows × cols\nOutput matrix dimensions: cols × rows"
+  },
+  {
+    "objectID": "blog/leet-gpu-3/index.html#implementation-requirements",
+    "href": "blog/leet-gpu-3/index.html#implementation-requirements",
+    "title": "LeetGPU-3: Matrix Transpose",
+    "section": "",
+    "text": "Use only native features (external libraries are not permitted)\nThe solve function signature must remain unchanged\nThe final result must be stored in the matrix output"
+  },
+  {
+    "objectID": "blog/leet-gpu-3/index.html#constraints",
+    "href": "blog/leet-gpu-3/index.html#constraints",
+    "title": "LeetGPU-3: Matrix Transpose",
+    "section": "",
+    "text": "1 ≤ rows, cols ≤ 8192\nInput matrix dimensions: rows × cols\nOutput matrix dimensions: cols × rows"
+  },
+  {
+    "objectID": "blog/leet-gpu-3/index.html#pytorch",
+    "href": "blog/leet-gpu-3/index.html#pytorch",
+    "title": "LeetGPU-3: Matrix Transpose",
+    "section": "PyTorch",
+    "text": "PyTorch\n\n\n\n\n\n\nNote\n\n\n\nTrivial\n\n\n\nSolution\nimport torch\n\n# input, output are tensors on the GPU\ndef solve(input: torch.Tensor, output: torch.Tensor, rows: int, cols: int):\n    output.copy_(input.T)\nRuntime: 3.23ms"
+  },
+  {
+    "objectID": "blog/leet-gpu-3/index.html#triton",
+    "href": "blog/leet-gpu-3/index.html#triton",
+    "title": "LeetGPU-3: Matrix Transpose",
+    "section": "Triton",
+    "text": "Triton\n\n\n\n\n\n\nNote\n\n\n\n\n\n\n\nSolution\nimport torch\nimport triton\nimport triton.language as tl\n\n\n@triton.jit\ndef matrix_transpose_kernel(input, output, rows, cols, BLOCK_ROW: tl.constexpr, BLOCK_COL: tl.constexpr):\n    r = tl.program_id(0)\n    c = tl.program_id(1)\n\n    row_start = r * BLOCK_ROW\n    col_start = c * BLOCK_COL\n\n    row_ptr = row_start + tl.arange(0, BLOCK_ROW)\n    col_ptr = col_start + tl.arange(0, BLOCK_COL)\n\n    r_idx = row_ptr[:, None]\n    c_idx = col_ptr[None, :]\n    \n    inp_idx = input + r_idx * cols + c_idx\n    \n    mask = (r_idx &lt; rows) & (c_idx &lt; cols)\n\n    x = tl.load(inp_idx, mask, 0.0)\n\n    out_idx = output + c_idx * rows + r_idx\n\n    tl.store(out_idx, x, mask)\n\n# input, output are tensors on the GPU\ndef solve(input: torch.Tensor, output: torch.Tensor, rows: int, cols: int):\n    BLOCK_ROW = 16\n    BLOCK_COL = 16\n\n    grid = (\n        triton.cdiv(rows, BLOCK_ROW),\n        triton.cdiv(cols, BLOCK_COL),\n    )\n\n    matrix_transpose_kernel[grid](\n        input,\n        output,\n        rows,\n        cols,\n        BLOCK_ROW=BLOCK_ROW,\n        BLOCK_COL=BLOCK_COL,\n    )\nRuntime: 2.47ms"
+  },
+  {
+    "objectID": "blog/leet-gpu-3/index.html#cuda",
+    "href": "blog/leet-gpu-3/index.html#cuda",
+    "title": "LeetGPU-3: Matrix Transpose",
+    "section": "CUDA",
+    "text": "CUDA\n\n\n\n\n\n\nNote\n\n\n\n\nrows = column_stride\ncols = row_stride\n\n\n\n\nSolution\n#include &lt;cuda_runtime.h&gt;\n\n__global__ void matrix_transpose_kernel(const float* input, float* output, int rows, int cols) {\n    int c = blockIdx.x * blockDim.x + threadIdx.x;\n    int r = blockIdx.y * blockDim.y + threadIdx.y;\n\n    if (r &lt; rows and c &lt; cols) {\n        output[c * rows + r] = input[r * cols + c];\n    }\n}\n\n// input, output are device pointers (i.e. pointers to memory on the GPU)\nextern \"C\" void solve(const float* input, float* output, int rows, int cols) {\n    dim3 threadsPerBlock(16, 16);\n    dim3 blocksPerGrid((cols + threadsPerBlock.x - 1) / threadsPerBlock.x,\n                       (rows + threadsPerBlock.y - 1) / threadsPerBlock.y);\n\n    matrix_transpose_kernel&lt;&lt;&lt;blocksPerGrid, threadsPerBlock&gt;&gt;&gt;(input, output, rows, cols);\n    cudaDeviceSynchronize();\n}\nRuntime: 2.66ms"
+  },
+  {
+    "objectID": "blog/leet-gpu-3/index.html#reference",
+    "href": "blog/leet-gpu-3/index.html#reference",
+    "title": "LeetGPU-3: Matrix Transpose",
+    "section": "Reference",
+    "text": "Reference\n\nhttps://github.com/gpu-mode/lectures/blob/main/lecture_014/A_Practitioners_Guide_to_Triton.ipynb"
+  },
+  {
+    "objectID": "blog/leet-gpu-12/leet-gpu-structure.html",
+    "href": "blog/leet-gpu-12/leet-gpu-structure.html",
+    "title": "LeetGPU-12: Simple Inference",
     "section": "",
     "text": "Note: This is part of a learning series on CUDA and Triton, focusing on correctness-first implementations rather than performance optimization."
   },
   {
-    "objectID": "blog/leet-gpu-2/index.html#constraints",
-    "href": "blog/leet-gpu-2/index.html#constraints",
-    "title": "LeetGPU-2: Matrix Multiplication",
+    "objectID": "blog/leet-gpu-12/leet-gpu-structure.html#example",
+    "href": "blog/leet-gpu-12/leet-gpu-structure.html#example",
+    "title": "LeetGPU-12: Simple Inference",
+    "section": "Example",
+    "text": "Example\n Input:  input = [[1.0, 2.0]]  (batch_size=1, input_size=2)\n model: Linear layer with weight=[[0.5, 1.0], [1.5, 0.5]], bias=[0.1, 0.2]\n Output: output = [[2.6, 2.7]]  (batch_size=1, output_size=2)"
+  },
+  {
+    "objectID": "blog/leet-gpu-12/leet-gpu-structure.html#constraints",
+    "href": "blog/leet-gpu-12/leet-gpu-structure.html#constraints",
+    "title": "LeetGPU-12: Simple Inference",
     "section": "Constraints",
-    "text": "Constraints\n\n1 ≤ M, N, K ≤ 8192\nPerformance is measured with M = 8192, N = 6144, K = 4096"
+    "text": "Constraints\n\n1 ≤ batch_size ≤ 1,000\n1 ≤ input_size ≤ 1,000\n1 ≤ output_size ≤ 1,000\n-10.0 ≤ input values ≤ 10.0"
   },
   {
-    "objectID": "blog/leet-gpu-2/index.html#pytorch",
-    "href": "blog/leet-gpu-2/index.html#pytorch",
-    "title": "LeetGPU-2: Matrix Multiplication",
+    "objectID": "blog/leet-gpu-12/leet-gpu-structure.html#pytorch",
+    "href": "blog/leet-gpu-12/leet-gpu-structure.html#pytorch",
+    "title": "LeetGPU-12: Simple Inference",
     "section": "PyTorch",
-    "text": "PyTorch\n\n\n\n\n\n\nNote\n\n\n\n\nThe solution is straightforward. But can we do blocking?\n\n\n\n\nSolution-1\nimport torch\n\n# A, B, C are tensors on the GPU\ndef solve(A: torch.Tensor, B: torch.Tensor, C: torch.Tensor, M: int, N: int, K: int):\n    torch.matmul(A, B, out=C)\nRuntime: 97.48ms\n\nTODO: block matmul"
+    "text": "PyTorch\n\n\n\n\n\n\nNote\n\n\n\nVery straightforward. A few options:\n\nUse set_ instead of copy_\nUse model.forward()\n\n\n\n\nSolution\nimport torch\nimport torch.nn as nn\n\n\n# input, model, and output are on the GPU\ndef solve(input: torch.Tensor, model: nn.Module, output: torch.Tensor):\n    output.copy_(model(input))\nRuntime: 0.19ms"
   },
   {
-    "objectID": "blog/leet-gpu-2/index.html#triton",
-    "href": "blog/leet-gpu-2/index.html#triton",
-    "title": "LeetGPU-2: Matrix Multiplication",
-    "section": "Triton",
-    "text": "Triton\n\n\n\n\n\n\nNote\n\n\n\n\n\n\n\nSolution\n\nCorrect but slow. Will come back to this later in sha Allah!\n\nimport torch\nimport triton\nimport triton.language as tl\n\n\n@triton.jit\ndef matrix_multiplication_kernel(\n    a, b, c, M, N, K, stride_am, stride_an, stride_bn, stride_bk, stride_cm, stride_ck\n):\n    row = tl.program_id(0)\n    col = tl.program_id(1)\n\n    # BLOCK_SIZE: tl.constexpr = 16\n    acc = 0.0\n    for i in range(0, N):\n        a_val = tl.load(a + row * N + i)\n        b_val = tl.load(b + col + i * K)\n        acc += a_val * b_val\n\n    tl.store(c + K * row + col, acc)\n\n\n# a, b, c are tensors on the GPU\ndef solve(a: torch.Tensor, b: torch.Tensor, c: torch.Tensor, M: int, N: int, K: int):\n    stride_am, stride_an = N, 1\n    stride_bn, stride_bk = K, 1\n    stride_cm, stride_ck = K, 1\n\n    grid = (M, K)\n    matrix_multiplication_kernel[grid](\n        a, b, c, M, N, K, stride_am, stride_an, stride_bn, stride_bk, stride_cm, stride_ck\n    )\nRuntime: 0.00ms"
+    "objectID": "blog/leet-gpu-12/leet-gpu-structure.html#jax",
+    "href": "blog/leet-gpu-12/leet-gpu-structure.html#jax",
+    "title": "LeetGPU-12: Simple Inference",
+    "section": "JAX",
+    "text": "JAX\n\n\n\n\n\n\nNote\n\n\n\n\nNeed to copy to numpy to create JAX array. Slower\nTODO: use dlp to perform zero copy and gpu-cpu-gpu transfer\n\n\n\n\nSolution\nimport jax\nimport jax.numpy as jnp\nimport numpy as np\nimport torch\n\n\n# input and model are on the GPU\ndef solve(input: jax.Array, model) -&gt; jax.Array:\n    np_array = np.asarray(input)\n    torch_tensor = torch.from_numpy(np_array).to(next(model.parameters()).device)\n    output = model(torch_tensor)\n    return jnp.asarray(output.detach().cpu().numpy())\nRuntime: 3.04ms"
   },
   {
-    "objectID": "blog/leet-gpu-2/index.html#cuda",
-    "href": "blog/leet-gpu-2/index.html#cuda",
-    "title": "LeetGPU-2: Matrix Multiplication",
-    "section": "CUDA",
-    "text": "CUDA\n\n\n\n\n\n\nNote\n\n\n\n\n\n\n\nSolution\n#include &lt;cuda_runtime.h&gt;\n\n__global__ void matrix_multiplication_kernel(const float* A, const float* B, float* C, int M, int N, int K) \n{\n    int row = blockIdx.y * blockDim.y + threadIdx.y;\n    int col = blockIdx.x * blockDim.x + threadIdx.x;\n\n    if (row &gt;= M or col &gt;= K) {\n        return;\n    }\n\n    //now take the ith row from A and jth col from B and do a dot product\n    float sum = 0.0f;\n    for (int k = 0; k &lt; N; k++)\n    {\n        sum += A[row * N + k] * B[k * K + col];\n    }\n    C[row * K + col] = sum;\n\n}\n\n// A, B, C are device pointers (i.e. pointers to memory on the GPU)\nextern \"C\" void solve(const float* A, const float* B, float* C, int M, int N, int K) {\n    dim3 threadsPerBlock(16, 16);\n    dim3 blocksPerGrid((K + threadsPerBlock.x - 1) / threadsPerBlock.x,\n                       (M + threadsPerBlock.y - 1) / threadsPerBlock.y);\n\n    matrix_multiplication_kernel&lt;&lt;&lt;blocksPerGrid, threadsPerBlock&gt;&gt;&gt;(A, B, C, M, N, K);\n    cudaDeviceSynchronize();\n}\n\nNote: Timeout when C[row * K + col] is used as accumulator!\n\nRuntime: 953.89 ms"
+    "objectID": "blog/isplib-story/index.html",
+    "href": "blog/isplib-story/index.html",
+    "title": "iSpLib: An Auto-tuned GNN Accelerator for PyTorch",
+    "section": "",
+    "text": "ArXiv | GitHub | Poster\n\nThe iSpLib project originated from FusedMM, the first initiative I undertook upon joining the Luddy HipGraph Lab in 2022 under Dr. Ariful Azad’s supervision. The lab focuses on developing high-performance sparse kernels for efficient graph computations by mapping graph operations to equivalent linear algebraic functions. FusedMM, developed by two lab researchers in 2021, is a sparse matrix multiplication library that detects system OS flags and supported SIMD (Single Instruction, Multiple Data) instructions to generate optimized BLAS-like kernels—such as sparse-dense matrix multiplication (SpMM) and sampled dense-dense matrix multiplication (SDDMM)—tailored to the host architecture. These kernels deliver comparable performance across Intel, AMD, and ARM processors.\nMy primary contribution was creating a PyTorch front-end for FusedMM to enable seamless integration with standard Graph Neural Network (GNN) training pipelines. To achieve this, I implemented the following enhancements:\n\nDynamic Library Generation: I adapted the FusedMM codebase to produce a dynamic library, linking PyTorch tensor arrays to FusedMM’s low-level C interface. Originally, FusedMM generated a static library bundling all configuration-specific C code. For Python interoperability, I modified the build system to include the -fPIC flag, enabling position-independent code.\nBackpropagation Support for Semirings: I extended FusedMM’s SpMM functionality to return both the reduced value and its index for “min” and “max” operations, which is essential for backpropagation in these semirings. This extension supports diverse aggregation mechanisms (e.g., min, max, mean) required for algorithms like GraphSAGE.\nCaching for Backpropagation: During implementation, I observed that gradients are repeatedly multiplied by the transposed sparse matrix (typically the fixed adjacency matrix in static graphs) across epochs, incurring redundant costs from expensive CSR-to-CSC conversions. I introduced a caching mechanism using a hashtable keyed on tensor pointers to store the transpose, avoiding recomputation and enabling conflict-free handling of multiple sparse matrices in a single session.\n\nThese optimizations, combined with FusedMM’s generated kernels, yielded up to 93× speedup over vanilla PyTorch 2.1 GCN implementations on large datasets like Reddit and OGBN-Proteins. Released as the Intelligent Sparse Kernel Library (iSpLib), it delivered the following speedups relative to PyTorch Geometric 2.4 for two-layer GNNs:\n\n\n\nModel\nSpeedup\n\n\n\n\nGCN\n54×\n\n\nGraphSAGE-SUM\n32×\n\n\nGraphSAGE-MEAN\n23×\n\n\nGIN\n51×\n\n\n\nInspired by the plug-and-play ethos of our funding agency (ICICLE), I developed a simple two-line patching interface for integrating iSpLib into existing PyTorch Geometric GNN codebases. Patching can be reversed via iSpLibPlugin.unpatch_pyg() at any time. Additionally, a @isplib_autotune decorator allows targeted patching of specific PyG functions.\nfrom isplib import *\niSpLibPlugin.patch_pyg()\n\n# Your PyTorch Geometric code here\n\n\nI also built a Python interface for FusedMM’s auto-tuner, compatible with graph datasets in MTX format. The auto-tuner includes fallback kernels for robustness. By benchmarking generated kernels against fallbacks across embedding sizes, we generate speedup curves—typically parabolic, peaking at the optimal embedding dimension before register spilling degrades performance. For most datasets, iSpLib peaks at embedding size 32 on Intel CPUs and 64 on AMD CPUs (e.g., on NERSC supercomputers), largely due to AMD’s larger cache.\n\n\n\nAutotuning Graph for iSpLib on various architectures\n\n\n\n\n\nI extend my deepest gratitude to Dr. Ariful Azad for his unwavering guidance and to Pranav Badhe for his invaluable assistance in experiments, AMD benchmarking, and paper feedback. The project spanned 18 months, culminating in publication at ACM WebConf 2024.\nThrough iSpLib, I gained expertise in high-performance computing (HPC) techniques, including auto-tuning, code generation, loop unrolling, OpenMP primitives, and SIMD vectorization. This experience has motivated further explorations in graph ML optimizations, such as efficient sparse training for knowledge graphs.\n#PyTorch #PyG #Backpropagation #AutoTuning #BLAS #GCN #GIN #GraphSAGE #Semiring #ML #GNN #HPC"
   },
   {
-    "objectID": "blog/leet-gpu-2/index.html#reference",
-    "href": "blog/leet-gpu-2/index.html#reference",
-    "title": "LeetGPU-2: Matrix Multiplication",
-    "section": "Reference",
-    "text": "Reference\n\nhttps://triton-lang.org/main/python-api/triton.language.html"
+    "objectID": "blog/isplib-story/index.html#auto-tuner-interface",
+    "href": "blog/isplib-story/index.html#auto-tuner-interface",
+    "title": "iSpLib: An Auto-tuned GNN Accelerator for PyTorch",
+    "section": "",
+    "text": "I also built a Python interface for FusedMM’s auto-tuner, compatible with graph datasets in MTX format. The auto-tuner includes fallback kernels for robustness. By benchmarking generated kernels against fallbacks across embedding sizes, we generate speedup curves—typically parabolic, peaking at the optimal embedding dimension before register spilling degrades performance. For most datasets, iSpLib peaks at embedding size 32 on Intel CPUs and 64 on AMD CPUs (e.g., on NERSC supercomputers), largely due to AMD’s larger cache.\n\n\n\nAutotuning Graph for iSpLib on various architectures"
+  },
+  {
+    "objectID": "blog/isplib-story/index.html#acknowledgments-and-impact",
+    "href": "blog/isplib-story/index.html#acknowledgments-and-impact",
+    "title": "iSpLib: An Auto-tuned GNN Accelerator for PyTorch",
+    "section": "",
+    "text": "I extend my deepest gratitude to Dr. Ariful Azad for his unwavering guidance and to Pranav Badhe for his invaluable assistance in experiments, AMD benchmarking, and paper feedback. The project spanned 18 months, culminating in publication at ACM WebConf 2024.\nThrough iSpLib, I gained expertise in high-performance computing (HPC) techniques, including auto-tuning, code generation, loop unrolling, OpenMP primitives, and SIMD vectorization. This experience has motivated further explorations in graph ML optimizations, such as efficient sparse training for knowledge graphs.\n#PyTorch #PyG #Backpropagation #AutoTuning #BLAS #GCN #GIN #GraphSAGE #Semiring #ML #GNN #HPC"
+  },
+  {
+    "objectID": "archive/index.html",
+    "href": "archive/index.html",
+    "title": "OnixHoque.github.io",
+    "section": "",
+    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites."
+  },
+  {
+    "objectID": "archive/about.html",
+    "href": "archive/about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site"
+  },
+  {
+    "objectID": "blog/index.html",
+    "href": "blog/index.html",
+    "title": "Blogs and Notes",
+    "section": "",
+    "text": "Order By\n      Default\n      \n        Title\n      \n      \n        Description\n      \n      \n        Categories\n      \n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\nLeetGPU-5: Matrix Addition\n\n Notes and solutions in PyTorch, Triton, and CUDA. Runtime shown for T4 GPU.  Jan 04, 2026   LeetGPU  \n\n\n\nLeetGPU-3: Matrix Transpose\n\n Notes and solutions in PyTorch, Triton, and CUDA. Runtime shown for T4 GPU.  Jan 03, 2026   LeetGPU  \n\n\n\nLeetGPU-12: Simple Inference\n\n Notes and solutions in PyTorch and JAX. Runtime shown for T4 GPU.  Dec 28, 2025   LeetGPU  \n\n\n\nGetting Started with TinyCUDA\n\n TinyCUDA is a header-only C++17 wrapper that eliminates CUDA boilerplate—auto-handles cudaMalloc/cudaMemcpy via Buffer, kernel errors with CUDA_CHECK, and timings via KernelProfiler. Ideal for rapid 1D buffer prototyping without full-framework overhead (no autograd or multi-D tensors).  Dec 26, 2025   Project  \n\n\n\nLeetGPU-2: Matrix Multiplication\n\n Notes and solutions in PyTorch, Triton, and CUDA. Runtime shown for T4 GPU.  Dec 17, 2025   LeetGPU  \n\n\n\nLeetGPU-1: Vector Addition\n\n Notes and solutions in PyTorch, Triton, and CUDA. Runtime shown for T4 GPU.  Dec 14, 2025   LeetGPU  \n\n\n\niSpLib: An Auto-tuned GNN Accelerator for PyTorch\n\n [Published in WebConf 2024] iSpLib is a PyTorch library that accelerates Graph Neural Network (GNN) training by integrating auto-tuned sparse matrix operations from FusedMM, delivering up to 93× speedup on large graphs like Reddit and OGBN-Proteins. It features plug-and-play patching for PyTorch Geometric, backpropagation support for semirings, and caching for fixed adjacency matrices, boosting models like GCN (54×), GraphSAGE (23-32×), and GIN (51×).  Sep 14, 2024   Project  \n\n\n\nNo matching items"
   },
   {
     "objectID": "blog/leet-gpu-1/index.html",
@@ -511,130 +595,95 @@
     "text": "Reference\n\nhttps://triton-lang.org/main/getting-started/tutorials/01-vector-add.html"
   },
   {
-    "objectID": "blog/index.html",
-    "href": "blog/index.html",
-    "title": "Blogs and Notes",
-    "section": "",
-    "text": "Order By\n      Default\n      \n        Title\n      \n      \n        Description\n      \n      \n        Categories\n      \n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\nLeetGPU-3: Matrix Transpose\n\n Notes and solutions in PyTorch, Triton, and CUDA. Runtime shown for T4 GPU.  Jan 03, 2026   LeetGPU  \n\n\n\nLeetGPU-12: Simple Inference\n\n Notes and solutions in PyTorch and JAX. Runtime shown for T4 GPU.  Dec 28, 2025   LeetGPU  \n\n\n\nGetting Started with TinyCUDA\n\n TinyCUDA is a header-only C++17 wrapper that eliminates CUDA boilerplate—auto-handles cudaMalloc/cudaMemcpy via Buffer, kernel errors with CUDA_CHECK, and timings via KernelProfiler. Ideal for rapid 1D buffer prototyping without full-framework overhead (no autograd or multi-D tensors).  Dec 26, 2025   Project  \n\n\n\nLeetGPU-2: Matrix Multiplication\n\n Notes and solutions in PyTorch, Triton, and CUDA. Runtime shown for T4 GPU.  Dec 17, 2025   LeetGPU  \n\n\n\nLeetGPU-1: Vector Addition\n\n Notes and solutions in PyTorch, Triton, and CUDA. Runtime shown for T4 GPU.  Dec 14, 2025   LeetGPU  \n\n\n\niSpLib: An Auto-tuned GNN Accelerator for PyTorch\n\n [Published in WebConf 2024] iSpLib is a PyTorch library that accelerates Graph Neural Network (GNN) training by integrating auto-tuned sparse matrix operations from FusedMM, delivering up to 93× speedup on large graphs like Reddit and OGBN-Proteins. It features plug-and-play patching for PyTorch Geometric, backpropagation support for semirings, and caching for fixed adjacency matrices, boosting models like GCN (54×), GraphSAGE (23-32×), and GIN (51×).  Sep 14, 2024   Project  \n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "archive/about.html",
-    "href": "archive/about.html",
-    "title": "About",
-    "section": "",
-    "text": "About this site"
-  },
-  {
-    "objectID": "archive/index.html",
-    "href": "archive/index.html",
-    "title": "OnixHoque.github.io",
-    "section": "",
-    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites."
-  },
-  {
-    "objectID": "blog/isplib-story/index.html",
-    "href": "blog/isplib-story/index.html",
-    "title": "iSpLib: An Auto-tuned GNN Accelerator for PyTorch",
-    "section": "",
-    "text": "ArXiv | GitHub | Poster\n\nThe iSpLib project originated from FusedMM, the first initiative I undertook upon joining the Luddy HipGraph Lab in 2022 under Dr. Ariful Azad’s supervision. The lab focuses on developing high-performance sparse kernels for efficient graph computations by mapping graph operations to equivalent linear algebraic functions. FusedMM, developed by two lab researchers in 2021, is a sparse matrix multiplication library that detects system OS flags and supported SIMD (Single Instruction, Multiple Data) instructions to generate optimized BLAS-like kernels—such as sparse-dense matrix multiplication (SpMM) and sampled dense-dense matrix multiplication (SDDMM)—tailored to the host architecture. These kernels deliver comparable performance across Intel, AMD, and ARM processors.\nMy primary contribution was creating a PyTorch front-end for FusedMM to enable seamless integration with standard Graph Neural Network (GNN) training pipelines. To achieve this, I implemented the following enhancements:\n\nDynamic Library Generation: I adapted the FusedMM codebase to produce a dynamic library, linking PyTorch tensor arrays to FusedMM’s low-level C interface. Originally, FusedMM generated a static library bundling all configuration-specific C code. For Python interoperability, I modified the build system to include the -fPIC flag, enabling position-independent code.\nBackpropagation Support for Semirings: I extended FusedMM’s SpMM functionality to return both the reduced value and its index for “min” and “max” operations, which is essential for backpropagation in these semirings. This extension supports diverse aggregation mechanisms (e.g., min, max, mean) required for algorithms like GraphSAGE.\nCaching for Backpropagation: During implementation, I observed that gradients are repeatedly multiplied by the transposed sparse matrix (typically the fixed adjacency matrix in static graphs) across epochs, incurring redundant costs from expensive CSR-to-CSC conversions. I introduced a caching mechanism using a hashtable keyed on tensor pointers to store the transpose, avoiding recomputation and enabling conflict-free handling of multiple sparse matrices in a single session.\n\nThese optimizations, combined with FusedMM’s generated kernels, yielded up to 93× speedup over vanilla PyTorch 2.1 GCN implementations on large datasets like Reddit and OGBN-Proteins. Released as the Intelligent Sparse Kernel Library (iSpLib), it delivered the following speedups relative to PyTorch Geometric 2.4 for two-layer GNNs:\n\n\n\nModel\nSpeedup\n\n\n\n\nGCN\n54×\n\n\nGraphSAGE-SUM\n32×\n\n\nGraphSAGE-MEAN\n23×\n\n\nGIN\n51×\n\n\n\nInspired by the plug-and-play ethos of our funding agency (ICICLE), I developed a simple two-line patching interface for integrating iSpLib into existing PyTorch Geometric GNN codebases. Patching can be reversed via iSpLibPlugin.unpatch_pyg() at any time. Additionally, a @isplib_autotune decorator allows targeted patching of specific PyG functions.\nfrom isplib import *\niSpLibPlugin.patch_pyg()\n\n# Your PyTorch Geometric code here\n\n\nI also built a Python interface for FusedMM’s auto-tuner, compatible with graph datasets in MTX format. The auto-tuner includes fallback kernels for robustness. By benchmarking generated kernels against fallbacks across embedding sizes, we generate speedup curves—typically parabolic, peaking at the optimal embedding dimension before register spilling degrades performance. For most datasets, iSpLib peaks at embedding size 32 on Intel CPUs and 64 on AMD CPUs (e.g., on NERSC supercomputers), largely due to AMD’s larger cache.\n\n\n\nAutotuning Graph for iSpLib on various architectures\n\n\n\n\n\nI extend my deepest gratitude to Dr. Ariful Azad for his unwavering guidance and to Pranav Badhe for his invaluable assistance in experiments, AMD benchmarking, and paper feedback. The project spanned 18 months, culminating in publication at ACM WebConf 2024.\nThrough iSpLib, I gained expertise in high-performance computing (HPC) techniques, including auto-tuning, code generation, loop unrolling, OpenMP primitives, and SIMD vectorization. This experience has motivated further explorations in graph ML optimizations, such as efficient sparse training for knowledge graphs.\n#PyTorch #PyG #Backpropagation #AutoTuning #BLAS #GCN #GIN #GraphSAGE #Semiring #ML #GNN #HPC"
-  },
-  {
-    "objectID": "blog/isplib-story/index.html#auto-tuner-interface",
-    "href": "blog/isplib-story/index.html#auto-tuner-interface",
-    "title": "iSpLib: An Auto-tuned GNN Accelerator for PyTorch",
-    "section": "",
-    "text": "I also built a Python interface for FusedMM’s auto-tuner, compatible with graph datasets in MTX format. The auto-tuner includes fallback kernels for robustness. By benchmarking generated kernels against fallbacks across embedding sizes, we generate speedup curves—typically parabolic, peaking at the optimal embedding dimension before register spilling degrades performance. For most datasets, iSpLib peaks at embedding size 32 on Intel CPUs and 64 on AMD CPUs (e.g., on NERSC supercomputers), largely due to AMD’s larger cache.\n\n\n\nAutotuning Graph for iSpLib on various architectures"
-  },
-  {
-    "objectID": "blog/isplib-story/index.html#acknowledgments-and-impact",
-    "href": "blog/isplib-story/index.html#acknowledgments-and-impact",
-    "title": "iSpLib: An Auto-tuned GNN Accelerator for PyTorch",
-    "section": "",
-    "text": "I extend my deepest gratitude to Dr. Ariful Azad for his unwavering guidance and to Pranav Badhe for his invaluable assistance in experiments, AMD benchmarking, and paper feedback. The project spanned 18 months, culminating in publication at ACM WebConf 2024.\nThrough iSpLib, I gained expertise in high-performance computing (HPC) techniques, including auto-tuning, code generation, loop unrolling, OpenMP primitives, and SIMD vectorization. This experience has motivated further explorations in graph ML optimizations, such as efficient sparse training for knowledge graphs.\n#PyTorch #PyG #Backpropagation #AutoTuning #BLAS #GCN #GIN #GraphSAGE #Semiring #ML #GNN #HPC"
-  },
-  {
-    "objectID": "blog/leet-gpu-12/leet-gpu-structure.html",
-    "href": "blog/leet-gpu-12/leet-gpu-structure.html",
-    "title": "LeetGPU-12: Simple Inference",
+    "objectID": "blog/leet-gpu-2/index.html",
+    "href": "blog/leet-gpu-2/index.html",
+    "title": "LeetGPU-2: Matrix Multiplication",
     "section": "",
     "text": "Note: This is part of a learning series on CUDA and Triton, focusing on correctness-first implementations rather than performance optimization."
   },
   {
-    "objectID": "blog/leet-gpu-12/leet-gpu-structure.html#example",
-    "href": "blog/leet-gpu-12/leet-gpu-structure.html#example",
-    "title": "LeetGPU-12: Simple Inference",
-    "section": "Example",
-    "text": "Example\n Input:  input = [[1.0, 2.0]]  (batch_size=1, input_size=2)\n model: Linear layer with weight=[[0.5, 1.0], [1.5, 0.5]], bias=[0.1, 0.2]\n Output: output = [[2.6, 2.7]]  (batch_size=1, output_size=2)"
-  },
-  {
-    "objectID": "blog/leet-gpu-12/leet-gpu-structure.html#constraints",
-    "href": "blog/leet-gpu-12/leet-gpu-structure.html#constraints",
-    "title": "LeetGPU-12: Simple Inference",
+    "objectID": "blog/leet-gpu-2/index.html#constraints",
+    "href": "blog/leet-gpu-2/index.html#constraints",
+    "title": "LeetGPU-2: Matrix Multiplication",
     "section": "Constraints",
-    "text": "Constraints\n\n1 ≤ batch_size ≤ 1,000\n1 ≤ input_size ≤ 1,000\n1 ≤ output_size ≤ 1,000\n-10.0 ≤ input values ≤ 10.0"
+    "text": "Constraints\n\n1 ≤ M, N, K ≤ 8192\nPerformance is measured with M = 8192, N = 6144, K = 4096"
   },
   {
-    "objectID": "blog/leet-gpu-12/leet-gpu-structure.html#pytorch",
-    "href": "blog/leet-gpu-12/leet-gpu-structure.html#pytorch",
-    "title": "LeetGPU-12: Simple Inference",
+    "objectID": "blog/leet-gpu-2/index.html#pytorch",
+    "href": "blog/leet-gpu-2/index.html#pytorch",
+    "title": "LeetGPU-2: Matrix Multiplication",
     "section": "PyTorch",
-    "text": "PyTorch\n\n\n\n\n\n\nNote\n\n\n\nVery straightforward. A few options:\n\nUse set_ instead of copy_\nUse model.forward()\n\n\n\n\nSolution\nimport torch\nimport torch.nn as nn\n\n\n# input, model, and output are on the GPU\ndef solve(input: torch.Tensor, model: nn.Module, output: torch.Tensor):\n    output.copy_(model(input))\nRuntime: 0.19ms"
+    "text": "PyTorch\n\n\n\n\n\n\nNote\n\n\n\n\nThe solution is straightforward. But can we do blocking?\n\n\n\n\nSolution-1\nimport torch\n\n# A, B, C are tensors on the GPU\ndef solve(A: torch.Tensor, B: torch.Tensor, C: torch.Tensor, M: int, N: int, K: int):\n    torch.matmul(A, B, out=C)\nRuntime: 97.48ms\n\nTODO: block matmul"
   },
   {
-    "objectID": "blog/leet-gpu-12/leet-gpu-structure.html#jax",
-    "href": "blog/leet-gpu-12/leet-gpu-structure.html#jax",
-    "title": "LeetGPU-12: Simple Inference",
-    "section": "JAX",
-    "text": "JAX\n\n\n\n\n\n\nNote\n\n\n\n\nNeed to copy to numpy to create JAX array. Slower\nTODO: use dlp to perform zero copy and gpu-cpu-gpu transfer\n\n\n\n\nSolution\nimport jax\nimport jax.numpy as jnp\nimport numpy as np\nimport torch\n\n\n# input and model are on the GPU\ndef solve(input: jax.Array, model) -&gt; jax.Array:\n    np_array = np.asarray(input)\n    torch_tensor = torch.from_numpy(np_array).to(next(model.parameters()).device)\n    output = model(torch_tensor)\n    return jnp.asarray(output.detach().cpu().numpy())\nRuntime: 3.04ms"
-  },
-  {
-    "objectID": "blog/leet-gpu-3/index.html",
-    "href": "blog/leet-gpu-3/index.html",
-    "title": "LeetGPU-3: Matrix Transpose",
-    "section": "",
-    "text": "Write a program that transposes a matrix of 32-bit floating point numbers on a GPU. The transpose of a matrix switches its rows and columns. Given a matrix of dimensions , the transpose will have dimensions . All matrices are stored in row-major format.\n\n\n\nUse only native features (external libraries are not permitted)\nThe solve function signature must remain unchanged\nThe final result must be stored in the matrix output\n\n\n\n\n\n1 ≤ rows, cols ≤ 8192\nInput matrix dimensions: rows × cols\nOutput matrix dimensions: cols × rows"
-  },
-  {
-    "objectID": "blog/leet-gpu-3/index.html#implementation-requirements",
-    "href": "blog/leet-gpu-3/index.html#implementation-requirements",
-    "title": "LeetGPU-3: Matrix Transpose",
-    "section": "",
-    "text": "Use only native features (external libraries are not permitted)\nThe solve function signature must remain unchanged\nThe final result must be stored in the matrix output"
-  },
-  {
-    "objectID": "blog/leet-gpu-3/index.html#constraints",
-    "href": "blog/leet-gpu-3/index.html#constraints",
-    "title": "LeetGPU-3: Matrix Transpose",
-    "section": "",
-    "text": "1 ≤ rows, cols ≤ 8192\nInput matrix dimensions: rows × cols\nOutput matrix dimensions: cols × rows"
-  },
-  {
-    "objectID": "blog/leet-gpu-3/index.html#pytorch",
-    "href": "blog/leet-gpu-3/index.html#pytorch",
-    "title": "LeetGPU-3: Matrix Transpose",
-    "section": "PyTorch",
-    "text": "PyTorch\n\n\n\n\n\n\nNote\n\n\n\nTrivial\n\n\n\nSolution\nimport torch\n\n# input, output are tensors on the GPU\ndef solve(input: torch.Tensor, output: torch.Tensor, rows: int, cols: int):\n    output.copy_(input.T)\nRuntime: 3.23ms"
-  },
-  {
-    "objectID": "blog/leet-gpu-3/index.html#triton",
-    "href": "blog/leet-gpu-3/index.html#triton",
-    "title": "LeetGPU-3: Matrix Transpose",
+    "objectID": "blog/leet-gpu-2/index.html#triton",
+    "href": "blog/leet-gpu-2/index.html#triton",
+    "title": "LeetGPU-2: Matrix Multiplication",
     "section": "Triton",
-    "text": "Triton\n\n\n\n\n\n\nNote\n\n\n\n\n\n\n\nSolution\nimport torch\nimport triton\nimport triton.language as tl\n\n\n@triton.jit\ndef matrix_transpose_kernel(input, output, rows, cols, BLOCK_ROW: tl.constexpr, BLOCK_COL: tl.constexpr):\n    r = tl.program_id(0)\n    c = tl.program_id(1)\n\n    row_start = r * BLOCK_ROW\n    col_start = c * BLOCK_COL\n\n    row_ptr = row_start + tl.arange(0, BLOCK_ROW)\n    col_ptr = col_start + tl.arange(0, BLOCK_COL)\n\n    r_idx = row_ptr[:, None]\n    c_idx = col_ptr[None, :]\n    \n    inp_idx = input + r_idx * cols + c_idx\n    \n    mask = (r_idx &lt; rows) & (c_idx &lt; cols)\n\n    x = tl.load(inp_idx, mask, 0.0)\n\n    out_idx = output + c_idx * rows + r_idx\n\n    tl.store(out_idx, x, mask)\n\n# input, output are tensors on the GPU\ndef solve(input: torch.Tensor, output: torch.Tensor, rows: int, cols: int):\n    BLOCK_ROW = 16\n    BLOCK_COL = 16\n\n    grid = (\n        triton.cdiv(rows, BLOCK_ROW),\n        triton.cdiv(cols, BLOCK_COL),\n    )\n\n    matrix_transpose_kernel[grid](\n        input,\n        output,\n        rows,\n        cols,\n        BLOCK_ROW=BLOCK_ROW,\n        BLOCK_COL=BLOCK_COL,\n    )\nRuntime: 2.47ms"
+    "text": "Triton\n\n\n\n\n\n\nNote\n\n\n\n\n\n\n\nSolution\n\nCorrect but slow. Will come back to this later in sha Allah!\n\nimport torch\nimport triton\nimport triton.language as tl\n\n\n@triton.jit\ndef matrix_multiplication_kernel(\n    a, b, c, M, N, K, stride_am, stride_an, stride_bn, stride_bk, stride_cm, stride_ck\n):\n    row = tl.program_id(0)\n    col = tl.program_id(1)\n\n    # BLOCK_SIZE: tl.constexpr = 16\n    acc = 0.0\n    for i in range(0, N):\n        a_val = tl.load(a + row * N + i)\n        b_val = tl.load(b + col + i * K)\n        acc += a_val * b_val\n\n    tl.store(c + K * row + col, acc)\n\n\n# a, b, c are tensors on the GPU\ndef solve(a: torch.Tensor, b: torch.Tensor, c: torch.Tensor, M: int, N: int, K: int):\n    stride_am, stride_an = N, 1\n    stride_bn, stride_bk = K, 1\n    stride_cm, stride_ck = K, 1\n\n    grid = (M, K)\n    matrix_multiplication_kernel[grid](\n        a, b, c, M, N, K, stride_am, stride_an, stride_bn, stride_bk, stride_cm, stride_ck\n    )\nRuntime: 0.00ms"
   },
   {
-    "objectID": "blog/leet-gpu-3/index.html#cuda",
-    "href": "blog/leet-gpu-3/index.html#cuda",
-    "title": "LeetGPU-3: Matrix Transpose",
+    "objectID": "blog/leet-gpu-2/index.html#cuda",
+    "href": "blog/leet-gpu-2/index.html#cuda",
+    "title": "LeetGPU-2: Matrix Multiplication",
     "section": "CUDA",
-    "text": "CUDA\n\n\n\n\n\n\nNote\n\n\n\n\nrows = column_stride\ncols = row_stride\n\n\n\n\nSolution\n#include &lt;cuda_runtime.h&gt;\n\n__global__ void matrix_transpose_kernel(const float* input, float* output, int rows, int cols) {\n    int c = blockIdx.x * blockDim.x + threadIdx.x;\n    int r = blockIdx.y * blockDim.y + threadIdx.y;\n\n    if (r &lt; rows and c &lt; cols) {\n        output[c * rows + r] = input[r * cols + c];\n    }\n}\n\n// input, output are device pointers (i.e. pointers to memory on the GPU)\nextern \"C\" void solve(const float* input, float* output, int rows, int cols) {\n    dim3 threadsPerBlock(16, 16);\n    dim3 blocksPerGrid((cols + threadsPerBlock.x - 1) / threadsPerBlock.x,\n                       (rows + threadsPerBlock.y - 1) / threadsPerBlock.y);\n\n    matrix_transpose_kernel&lt;&lt;&lt;blocksPerGrid, threadsPerBlock&gt;&gt;&gt;(input, output, rows, cols);\n    cudaDeviceSynchronize();\n}\nRuntime: 2.66ms"
+    "text": "CUDA\n\n\n\n\n\n\nNote\n\n\n\n\n\n\n\nSolution\n#include &lt;cuda_runtime.h&gt;\n\n__global__ void matrix_multiplication_kernel(const float* A, const float* B, float* C, int M, int N, int K) \n{\n    int row = blockIdx.y * blockDim.y + threadIdx.y;\n    int col = blockIdx.x * blockDim.x + threadIdx.x;\n\n    if (row &gt;= M or col &gt;= K) {\n        return;\n    }\n\n    //now take the ith row from A and jth col from B and do a dot product\n    float sum = 0.0f;\n    for (int k = 0; k &lt; N; k++)\n    {\n        sum += A[row * N + k] * B[k * K + col];\n    }\n    C[row * K + col] = sum;\n\n}\n\n// A, B, C are device pointers (i.e. pointers to memory on the GPU)\nextern \"C\" void solve(const float* A, const float* B, float* C, int M, int N, int K) {\n    dim3 threadsPerBlock(16, 16);\n    dim3 blocksPerGrid((K + threadsPerBlock.x - 1) / threadsPerBlock.x,\n                       (M + threadsPerBlock.y - 1) / threadsPerBlock.y);\n\n    matrix_multiplication_kernel&lt;&lt;&lt;blocksPerGrid, threadsPerBlock&gt;&gt;&gt;(A, B, C, M, N, K);\n    cudaDeviceSynchronize();\n}\n\nNote: Timeout when C[row * K + col] is used as accumulator!\n\nRuntime: 953.89 ms"
   },
   {
-    "objectID": "blog/leet-gpu-3/index.html#reference",
-    "href": "blog/leet-gpu-3/index.html#reference",
-    "title": "LeetGPU-3: Matrix Transpose",
+    "objectID": "blog/leet-gpu-2/index.html#reference",
+    "href": "blog/leet-gpu-2/index.html#reference",
+    "title": "LeetGPU-2: Matrix Multiplication",
     "section": "Reference",
-    "text": "Reference\n\nhttps://github.com/gpu-mode/lectures/blob/main/lecture_014/A_Practitioners_Guide_to_Triton.ipynb"
+    "text": "Reference\n\nhttps://triton-lang.org/main/python-api/triton.language.html"
+  },
+  {
+    "objectID": "blog/leet-gpu-5/index.html",
+    "href": "blog/leet-gpu-5/index.html",
+    "title": "LeetGPU-5: Matrix Addition",
+    "section": "",
+    "text": "Implement a program that performs element-wise addition of two matrices containing 32-bit floating point numbers on a GPU. The program should take two input matrices of equal dimensions and produce a single output matrix containing their element-wise sum.\n\n\n\nExternal libraries are not permitted\nThe solve function signature must remain unchanged\nThe final result must be stored in matrix C\n\n\n\n\nInput:  A = [[1.0, 2.0],\n             [3.0, 4.0]]\n        B = [[5.0, 6.0],\n             [7.0, 8.0]]\nOutput: C = [[6.0, 8.0],\n             [10.0, 12.0]]\n\n\n\n\nInput matrices A and B have identical dimensions\n1 ≤ N ≤ 4096\nAll elements are 32-bit floating point numbers"
+  },
+  {
+    "objectID": "blog/leet-gpu-5/index.html#implementation-requirements",
+    "href": "blog/leet-gpu-5/index.html#implementation-requirements",
+    "title": "LeetGPU-5: Matrix Addition",
+    "section": "",
+    "text": "External libraries are not permitted\nThe solve function signature must remain unchanged\nThe final result must be stored in matrix C"
+  },
+  {
+    "objectID": "blog/leet-gpu-5/index.html#example",
+    "href": "blog/leet-gpu-5/index.html#example",
+    "title": "LeetGPU-5: Matrix Addition",
+    "section": "",
+    "text": "Input:  A = [[1.0, 2.0],\n             [3.0, 4.0]]\n        B = [[5.0, 6.0],\n             [7.0, 8.0]]\nOutput: C = [[6.0, 8.0],\n             [10.0, 12.0]]"
+  },
+  {
+    "objectID": "blog/leet-gpu-5/index.html#constraints",
+    "href": "blog/leet-gpu-5/index.html#constraints",
+    "title": "LeetGPU-5: Matrix Addition",
+    "section": "",
+    "text": "Input matrices A and B have identical dimensions\n1 ≤ N ≤ 4096\nAll elements are 32-bit floating point numbers"
+  },
+  {
+    "objectID": "blog/leet-gpu-5/index.html#pytorch",
+    "href": "blog/leet-gpu-5/index.html#pytorch",
+    "title": "LeetGPU-5: Matrix Addition",
+    "section": "PyTorch",
+    "text": "PyTorch\n\n\n\n\n\n\nNote\n\n\n\nTrivial\n\n\n\nSolution\nimport torch\n\n\n# A, B, C are tensors on the GPU\ndef solve(A: torch.Tensor, B: torch.Tensor, C: torch.Tensor, N: int):\n    C.copy_(A + B)\nRuntime: 1.41ms"
+  },
+  {
+    "objectID": "blog/leet-gpu-5/index.html#triton",
+    "href": "blog/leet-gpu-5/index.html#triton",
+    "title": "LeetGPU-5: Matrix Addition",
+    "section": "Triton",
+    "text": "Triton\n\n\n\n\n\n\nNote\n\n\n\nHmm exactly same runtime as cuda. 4x slower than pytorch\n\n\n\nSolution\nimport torch\nimport triton\nimport triton.language as tl\n\n\n@triton.jit\ndef matrix_add_kernel(a, b, c, n_elements, BLOCK_SIZE: tl.constexpr):\n    x = tl.program_id(0) * BLOCK_SIZE\n    x = x + tl.arange(0, BLOCK_SIZE)\n    mask = x &lt; (n_elements * n_elements)\n    row = x % n_elements\n    col = x // n_elements\n    pos = row * n_elements + col\n    t0 = tl.load(a + pos, mask)\n    t1 = tl.load(b + pos, mask)\n    tl.store(c + pos, t0+t1, mask)\n\n\n# a, b, c are tensors on the GPU\ndef solve(a: torch.Tensor, b: torch.Tensor, c: torch.Tensor, N: int):\n    BLOCK_SIZE = 1024\n    n_elements = N * N\n    grid = (triton.cdiv(n_elements, BLOCK_SIZE),)\n    matrix_add_kernel[grid](a, b, c, N, BLOCK_SIZE)\nRuntime: 5.30ms"
+  },
+  {
+    "objectID": "blog/leet-gpu-5/index.html#cuda",
+    "href": "blog/leet-gpu-5/index.html#cuda",
+    "title": "LeetGPU-5: Matrix Addition",
+    "section": "CUDA",
+    "text": "CUDA\n\n\n\n\n\n\nNote\n\n\n\nThe given template code was 1-d so used that. Almost 4x slower than pytorch\n\n\n\nSolution\n#include &lt;cuda_runtime.h&gt;\n\n__global__ void matrix_add(const float* A, const float* B, float* C, int N) {\n    int x = blockIdx.x * blockDim.x + threadIdx.x;\n    int row = x % N;\n    int col = int(x / N);\n\n    if (x &lt; N * N) {\n        C[row * N + col] = A[row * N + col] + B[row * N + col];\n    }\n}\n\n// A, B, C are device pointers (i.e. pointers to memory on the GPU)\nextern \"C\" void solve(const float* A, const float* B, float* C, int N) {\n    int threadsPerBlock = 256;\n    int blocksPerGrid = (N * N + threadsPerBlock - 1) / threadsPerBlock;\n\n    matrix_add&lt;&lt;&lt;blocksPerGrid, threadsPerBlock&gt;&gt;&gt;(A, B, C, N);\n    cudaDeviceSynchronize();\n}\nRuntime: 5.30ms"
   },
   {
     "objectID": "community/index.html",
