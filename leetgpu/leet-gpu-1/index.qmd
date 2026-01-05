@@ -1,6 +1,7 @@
 ---
 title: "LeetGPU-1: Vector Addition"
 description: "Notes and solutions in PyTorch, Triton, and CUDA. Runtime shown for T4 GPU."
+statement: Implement a program that performs element-wise addition of two vectors containing 32-bit floating point numbers on a GPU. The program should take two input vectors of equal length and produce a single output vector containing their sum.
 categories: ["LeetGPU"]
 author: "Md Saidul Hoque Anik"
 date: "12/14/2025"

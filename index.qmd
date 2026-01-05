@@ -48,11 +48,15 @@ Currently, I am collaborating with **Oak Ridge National Lab** on a distributed, 
 * [MLSys 2025 Paper: Generalized 10 KGE model training using faster sparse-dense matrix multiplication kernel.](/research/systems/sptransx/index.qmd)
 * [Amazon AWS Internship 2025: Developed Differentiable GPU Kernel Autotuner.](/research/systems/gpu-tuner-amazon/index.qmd) 
 
-Explore all 20+ research projects [here](/research/index.qmd), or check out a quick progress overview [here](/news/index.qmd).
-
+> Explore our 20+ [research projects](/research/index.qmd), browse the full list of [publications](/news/#category=Publication), or catch up on the latest [news](/news/index.qmd).
 
 ## Leadership Roles
 
 I led and coordinated various academic and technical initiatives, including curriculum revisions, postgraduate programs, and programming contests at UIU, MIST, and BUET, fostering a culture of innovation and academic excellence across departments. See all my leadership roles and initiatives [here](/leadership/).
 
+## Exploration
+
+I deepen my ML systems expertise by solving [LeetGPU](/leetgpu/) problems across PyTorch, CUDA, and Triton, building intuition for low-level kernel design and performance trade-offs. I stay current with ML infrastructure and systems trends by developing small experimental tools and continuously expanding my [software](/software/) skill set. I also regularly read and distill recent ML systems papers, sharing hands-on tutorials and technical walkthroughs on my [blog](/blog/) to communicate systems concepts clearly and effectively. 
+
+<!-- I deepen my ML systems expertise by solving [LeetGPU](/blog/#category=LeetGPU) problems across PyTorch, CUDA, and Triton, developing intuition for performance trade-offs and low-level kernel design. I stay current with ML infrastructure and systems trends by building small experimental tools and continuously expanding my [software](/blog/#category=LeetGPU) skill set. -->
 <!-- ::: -->

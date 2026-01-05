@@ -1,6 +1,7 @@
 ---
 title: "LeetGPU-5: Matrix Addition"
 description: "Notes and solutions in PyTorch, Triton, and CUDA. Runtime shown for T4 GPU."
+statement: Implement a program that performs element-wise addition of two matrices containing 32-bit floating point numbers on a GPU. The program should take two input matrices of equal dimensions and produce a single output matrix containing their element-wise sum.
 categories: ["LeetGPU"]
 author: "Md Saidul Hoque Anik"
 date: "01/04/2026"

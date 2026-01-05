@@ -1,0 +1,66 @@
+<ul class="list">
+<% for (const item of items) { %>
+  <li <%= metadataAttrs(item) %> >
+    <span class="listing-header">
+      <h3 class="no-anchor listing-title">
+        <a href="<%- item.path %>" class="no-external delink">
+          <%= item.title %>
+        </a>
+      </h3>
+      <small class="listing-date"><%= item.date %></small>
+    </span>
+    <span class="listing-description">
+        <%= item.statement %>
+    </span><br>
+  </li> 
+<% } %>
+</ul>
+
+<style>
+  /* Remove bullet points and reset padding for the list */
+  .list {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  /* Style each list item */
+  .list li {
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    margin-left: 10px;
+  }
+
+  /* Style the title */
+  .listing-title h3 {
+    margin: 0;
+    font-size: 1.5em;
+  }
+
+  /* Style the date and categories */
+  .listing-date, .listing-categories {
+    font-size: 0.8em;
+    margin-right: 20px;
+  }
+
+  /* Style the description */
+  .listing-description {
+    margin-top: 10px;
+    font-size: 1em;
+  }
+
+  .listing-header {
+    display: flex;              /* span becomes a flex container */
+    align-items: baseline;
+    justify-content: space-between;
+    width: 100%;                /* important so date can reach right */
+  }
+
+  .listing-title {
+    margin: 0;
+  }
+
+  .listing-date {
+    white-space: nowrap;
+  }
+  
+</style>

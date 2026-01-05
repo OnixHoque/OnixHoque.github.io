@@ -1,6 +1,7 @@
 ---
 title: "LeetGPU-12: Simple Inference"
 description: "Notes and solutions in PyTorch and JAX. Runtime shown for T4 GPU."
+statement: Run inference on a PyTorch model. Given an input tensor and a trained torch.nn.Linear model, compute the forward pass and store the result in the output tensor.
 categories: ["LeetGPU"]
 author: "Md Saidul Hoque Anik"
 date: "12/28/2025"

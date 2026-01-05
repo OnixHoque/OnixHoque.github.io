@@ -18,6 +18,8 @@ website:
         text: Teaching
       - text: More
         menu:
+            - href: leetgpu
+              text: LeetGPU
             - href: "/leadership/"
               text: Leadership
             - href: software

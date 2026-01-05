@@ -1,0 +1,25 @@
+---
+title: "LeetGPU Solutions and Notes"
+toc: false 
+# format:
+#   html: 
+#     page-layout: full 
+listing:
+  id: listings-leetgpu
+  template: gallery.ejs
+  date-format: "MMM DD, YYYY" 
+  # sort-ui: true 
+  # filter-ui: true
+  contents: .
+  # type: table
+  # categories: true
+  sort: "date desc"
+  fields: [date, title, statement] 
+---
+
+Notes and solutions in PyTorch, Triton, and CUDA. Runtime shown for T4 GPU.
+
+:::{#listings-leetgpu}
+
+:::
+

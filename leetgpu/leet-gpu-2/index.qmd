@@ -1,6 +1,7 @@
 ---
 title: "LeetGPU-2: Matrix Multiplication"
 description: "Notes and solutions in PyTorch, Triton, and CUDA. Runtime shown for T4 GPU."
+statement: Write a program that multiplies two matrices of 32-bit floating point numbers on a GPU. Given matrix `A` of dimensions $M \times N$ and matrix `B` of dimensions N x K, compute the product matrix C, which will have dimensions MxK. All matrices are stored in row-major format.
 categories: ["LeetGPU"]
 author: "Md Saidul Hoque Anik"
 date: "12/17/2025"

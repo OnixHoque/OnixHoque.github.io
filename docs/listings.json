@@ -19,14 +19,19 @@
     "items": []
   },
   {
+    "listing": "/leetgpu/index.html",
+    "items": [
+      "/leetgpu/leet-gpu-5/index.html",
+      "/leetgpu/leet-gpu-3/index.html",
+      "/leetgpu/leet-gpu-12/index.html",
+      "/leetgpu/leet-gpu-2/index.html",
+      "/leetgpu/leet-gpu-1/index.html"
+    ]
+  },
+  {
     "listing": "/blog/index.html",
     "items": [
-      "/blog/leet-gpu-5/index.html",
-      "/blog/leet-gpu-3/index.html",
-      "/blog/leet-gpu-12/leet-gpu-structure.html",
       "/blog/tinycuda-release/index.html",
-      "/blog/leet-gpu-2/index.html",
-      "/blog/leet-gpu-1/index.html",
       "/blog/isplib-story/index.html"
     ]
   },

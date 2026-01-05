@@ -343,6 +343,97 @@
     "text": "Order By\n      Default\n      \n        Categories\n      \n      \n        News\n      \n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\nDate\n\n\n\nCategories\n\n\n\nNews\n\n\n\n\n\n\n\n\nDec 2025\n\n\nProject\n\n\ntinyCUDA released! I wrote a small CUDA wrapper in C++ for automatic memory management (follows RAII principles and uses C++17 move semantics), kernel timing, and error handling.\n\n\n\n\n\n\nDec 2025\n\n\nPublication, Journal\n\n\nJournal Published at Nature Scientific Report! Master’s thesis work. I performed bi-modal user activity analysis from pre- and post- COVID and showed that they express different sentiment in Image and Text tweets except during the outbreak.\n\n\n\n\n\n\nNov 2025\n\n\nTalk, Poster\n\n\nBerlekey talk about our ongoing systems work on GNN model parallelism\n\n\n\n\n\n\nOct 2025\n\n\nTalk\n\n\nTwo-Day Session on Distributed Data Parallel (DDP) for TAMU CSCE-654: Supercomputing Course\n\n\n\n\n\n\nMay 2025\n\n\nInternship, Job\n\n\nSummer Internship at Amazon Sagemaker on vLLM Systems. Designed a differentiable kernel tuner with transfer learning feature.\n\n\n\n\n\n\nApr 2025\n\n\nMilestone\n\n\naayatun.com has reached 100K+ monthly users! Made it open-source!\n\n\n\n\n\n\nFeb 2025\n\n\nPublication, Conference\n\n\nPaper accepted on MLSys 2025! Expressed 10 KGE models using sparse-dense matrix multiplication.\n\n\n\n\n\n\nJan 2025\n\n\nGraduate Studies, Job\n\n\nStarted PhD in Computer Science and Engineering at Texas A&M University\n\n\n\n\n\n\nDec 2024\n\n\nPublication, Book Chapter\n\n\nBook Chapter on Complex Networks 2024! Collaboration work. Developed Neo4j interface for KGE application.\n\n\n\n\n\n\nNov 2024\n\n\nPoster, Recognition\n\n\nBest poster finalist (top-6) at SC24! Expressed TransE KGE model using sparse-dense matrix multiplication.\n\n\n\n\n\n\nAug 2024\n\n\nGraduate Studies, Job\n\n\nCompleted graduate studies in Indiana University Bloomington (IUB) with a CGPA of 4.00/4.00\n\n\n\n\n\n\nApr 2024\n\n\nPublication, Conference\n\n\nPaper accepted at WebConf 2024! Developed CPU PyTorch SpMM operator for GNN training with auto-tuner backend.\n\n\n\n\n\n\nOct 2023\n\n\nPublication, Journal\n\n\nCollaboration research work published as Journal! This study examined the prevalence and impact of workplace bullying on stress levels among physicians. My contribution was developing an automated pipeline to generate Google Forms for efficient survey distribution.\n\n\n\n\n\n\nApr 2023\n\n\nRecognition\n\n\nReceived Google Foobar Challenge!\n\n\n\n\n\n\nAug 2022\n\n\nAward\n\n\nReceived Luddy Summer Fellowship ($8,400)!\n\n\n\n\n\n\nAug 2022\n\n\nGraduate Studies, Job\n\n\nStarted graduate studies in Computer Science at Indiana University Bloomington (IUB)\n\n\n\n\n\n\nAug 2022\n\n\nGraduate Studies\n\n\nCompleted part-time graduate studies in Computer Science at Bangladesh University of Engineering and Technology (BUET)\n\n\n\n\n\n\nFeb 2022\n\n\nPublication, Journal\n\n\nCollaboration research work published in IETE Technical Review as second author! A hybrid approach to machine translation combining both RNN-based and rule-based translators. My key contribution to this work was designing a novel heuristic for verb root detection that improved both accuracy and space efficiency.\n\n\n\n\n\n\nNov 2021\n\n\nLeadership\n\n\nExternal Supervisor, CSE Dept FYDP-II Summer 2021, UIU\n\n\n\n\n\n\nMar 2021\n\n\nPublication, Journal\n\n\nCollaboration research work published in Neural Computing and Applications as second author! This study aims to improve Bengali-to-English translation quality by examining rule-based, SMT-based, and NMT-based approaches individually and in various hybrid configurations. My primary contribution was the design and implementation of the RNN-based seq2seq NMT training pipeline.\n\n\n\n\n\n\nJan 2021\n\n\nLeadership\n\n\nMember, Outcome-Based Education (OBE) Revision Team, UIU\n\n\n\n\n\n\nMay 2020\n\n\nService\n\n\nPaper Reviewer, Asian CHI Symposium 2020\n\n\n\n\n\n\nFeb 2020\n\n\nLeadership\n\n\nAssistant Technical Coordinator, UIU Innobotics\n\n\n\n\n\n\nJan 2020\n\n\nJob\n\n\nJoined United International University (UIU) as a Faculty in Department of CSE\n\n\n\n\n\n\nJul 2019\n\n\nTalk\n\n\nSpeaker at Cyber Security Training Program 2019, MIST. Talked about web-security and cross-site scripting attacks.\n\n\n\n\n\n\nJan 2019\n\n\nLeadership\n\n\nPostgraduate Coordinator at CSE Deptartment, MIST\n\n\n\n\n\n\nJan 2019\n\n\nLeadership\n\n\nCoordinator, CSE Postgraduate Programs, MIST\n\n\n\n\n\n\nJan 2019\n\n\nLeadership\n\n\nTechnical Coordinator, Inter-University Programming Contest (IUPC) 2019, MIST\n\n\n\n\n\n\nDec 2018\n\n\nLeadership\n\n\nMember Secretary, Syllabus Review Committee for OBE Implementation, MIST\n\n\n\n\n\n\nDec 2018\n\n\nPublication, Conference\n\n\nResearch work published in NSysS 2018! This study explores a generalized machine translation system for low-resource languages like Bengali, proposing semantic-based verb identification and root word detection algorithms that outperform Google Translator\n\n\n\n\n\n\nOct 2018\n\n\nWorkshop\n\n\nWorkshop Instructor, Unicode Typing Training Program 2018, MIST\n\n\n\n\n\n\nJul 2018\n\n\nLeadership\n\n\nSteering Committee Member, Outcome-Based Education (OBE) Initiative at MIST\n\n\n\n\n\n\nApr 2018\n\n\nBook\n\n\nAuthor, 42-Page Guide on Java for C++ Programmers (Self-Published). Shared online as a free resource for programmers transitioning from C++ to Java.\n\n\n\n\n\n\nDec 2017\n\n\nPublication, Conference\n\n\nResearch work published in NSysS 2017! This study explores a rule-based approach for name identification in Bengali Language.\n\n\n\n\n\n\nApr 2017\n\n\nGraduate Studies\n\n\nStarted part-time graduate studies in Computer Science at Bangladesh University of Engineering and Technology (BUET)\n\n\n\n\n\n\nFeb 2017\n\n\nJob\n\n\nStarted first job as adjunt Faculty in Department of CSE, MIST\n\n\n\n\n\n\nMar 2016\n\n\nWorkshop, Video Tutorial\n\n\nOrganizer & Instructor, 5-Day Android Workshop at Samsung R&D Lab, BUET for System Analysis, Design, and Development (BSADD). Conducted tutorial classes and made full workshop content available online for free.\n\n\n\n\n\n\nDec 2015\n\n\nAward\n\n\nChampion at BRAC Hackathon 2015 Android App Development ($2,500)! Featured in leading newspapers in Bangladesh\n\n\n\n\n\n\nDec 2015\n\n\nLeadership\n\n\nCoordinator, BUET System Analysis, Design, and Development Community\n\n\n\n\n\n\nNov 2014\n\n\nVideo Tutorial\n\n\nStarted YouTube Content Creation. Mostly make video tutorials on programming concepts, data structures & algorithms. Notable video on C++ STL reached 10K views.\n\n\n\n\n\n\nApr 2013\n\n\nAward\n\n\nReceived BUET Undergraduate Scholarship\n\n\n\n\n\n\nNo matching items"
   },
   {
+    "objectID": "leetgpu/leet-gpu-3/index.html",
+    "href": "leetgpu/leet-gpu-3/index.html",
+    "title": "LeetGPU-3: Matrix Transpose",
+    "section": "",
+    "text": "Write a program that transposes a matrix of 32-bit floating point numbers on a GPU. The transpose of a matrix switches its rows and columns. Given a matrix of dimensions , the transpose will have dimensions . All matrices are stored in row-major format.\n\n\n\nUse only native features (external libraries are not permitted)\nThe solve function signature must remain unchanged\nThe final result must be stored in the matrix output\n\n\n\n\n\n1 ≤ rows, cols ≤ 8192\nInput matrix dimensions: rows × cols\nOutput matrix dimensions: cols × rows"
+  },
+  {
+    "objectID": "leetgpu/leet-gpu-3/index.html#implementation-requirements",
+    "href": "leetgpu/leet-gpu-3/index.html#implementation-requirements",
+    "title": "LeetGPU-3: Matrix Transpose",
+    "section": "",
+    "text": "Use only native features (external libraries are not permitted)\nThe solve function signature must remain unchanged\nThe final result must be stored in the matrix output"
+  },
+  {
+    "objectID": "leetgpu/leet-gpu-3/index.html#constraints",
+    "href": "leetgpu/leet-gpu-3/index.html#constraints",
+    "title": "LeetGPU-3: Matrix Transpose",
+    "section": "",
+    "text": "1 ≤ rows, cols ≤ 8192\nInput matrix dimensions: rows × cols\nOutput matrix dimensions: cols × rows"
+  },
+  {
+    "objectID": "leetgpu/leet-gpu-3/index.html#pytorch",
+    "href": "leetgpu/leet-gpu-3/index.html#pytorch",
+    "title": "LeetGPU-3: Matrix Transpose",
+    "section": "PyTorch",
+    "text": "PyTorch\n\n\n\n\n\n\nNote\n\n\n\nTrivial\n\n\n\nSolution\nimport torch\n\n# input, output are tensors on the GPU\ndef solve(input: torch.Tensor, output: torch.Tensor, rows: int, cols: int):\n    output.copy_(input.T)\nRuntime: 3.23ms"
+  },
+  {
+    "objectID": "leetgpu/leet-gpu-3/index.html#triton",
+    "href": "leetgpu/leet-gpu-3/index.html#triton",
+    "title": "LeetGPU-3: Matrix Transpose",
+    "section": "Triton",
+    "text": "Triton\n\n\n\n\n\n\nNote\n\n\n\n\n\n\n\nSolution\nimport torch\nimport triton\nimport triton.language as tl\n\n\n@triton.jit\ndef matrix_transpose_kernel(input, output, rows, cols, BLOCK_ROW: tl.constexpr, BLOCK_COL: tl.constexpr):\n    r = tl.program_id(0)\n    c = tl.program_id(1)\n\n    row_start = r * BLOCK_ROW\n    col_start = c * BLOCK_COL\n\n    row_ptr = row_start + tl.arange(0, BLOCK_ROW)\n    col_ptr = col_start + tl.arange(0, BLOCK_COL)\n\n    r_idx = row_ptr[:, None]\n    c_idx = col_ptr[None, :]\n    \n    inp_idx = input + r_idx * cols + c_idx\n    \n    mask = (r_idx &lt; rows) & (c_idx &lt; cols)\n\n    x = tl.load(inp_idx, mask, 0.0)\n\n    out_idx = output + c_idx * rows + r_idx\n\n    tl.store(out_idx, x, mask)\n\n# input, output are tensors on the GPU\ndef solve(input: torch.Tensor, output: torch.Tensor, rows: int, cols: int):\n    BLOCK_ROW = 16\n    BLOCK_COL = 16\n\n    grid = (\n        triton.cdiv(rows, BLOCK_ROW),\n        triton.cdiv(cols, BLOCK_COL),\n    )\n\n    matrix_transpose_kernel[grid](\n        input,\n        output,\n        rows,\n        cols,\n        BLOCK_ROW=BLOCK_ROW,\n        BLOCK_COL=BLOCK_COL,\n    )\nRuntime: 2.47ms"
+  },
+  {
+    "objectID": "leetgpu/leet-gpu-3/index.html#cuda",
+    "href": "leetgpu/leet-gpu-3/index.html#cuda",
+    "title": "LeetGPU-3: Matrix Transpose",
+    "section": "CUDA",
+    "text": "CUDA\n\n\n\n\n\n\nNote\n\n\n\n\nrows = column_stride\ncols = row_stride\n\n\n\n\nSolution\n#include &lt;cuda_runtime.h&gt;\n\n__global__ void matrix_transpose_kernel(const float* input, float* output, int rows, int cols) {\n    int c = blockIdx.x * blockDim.x + threadIdx.x;\n    int r = blockIdx.y * blockDim.y + threadIdx.y;\n\n    if (r &lt; rows and c &lt; cols) {\n        output[c * rows + r] = input[r * cols + c];\n    }\n}\n\n// input, output are device pointers (i.e. pointers to memory on the GPU)\nextern \"C\" void solve(const float* input, float* output, int rows, int cols) {\n    dim3 threadsPerBlock(16, 16);\n    dim3 blocksPerGrid((cols + threadsPerBlock.x - 1) / threadsPerBlock.x,\n                       (rows + threadsPerBlock.y - 1) / threadsPerBlock.y);\n\n    matrix_transpose_kernel&lt;&lt;&lt;blocksPerGrid, threadsPerBlock&gt;&gt;&gt;(input, output, rows, cols);\n    cudaDeviceSynchronize();\n}\nRuntime: 2.66ms"
+  },
+  {
+    "objectID": "leetgpu/leet-gpu-3/index.html#reference",
+    "href": "leetgpu/leet-gpu-3/index.html#reference",
+    "title": "LeetGPU-3: Matrix Transpose",
+    "section": "Reference",
+    "text": "Reference\n\nhttps://github.com/gpu-mode/lectures/blob/main/lecture_014/A_Practitioners_Guide_to_Triton.ipynb"
+  },
+  {
+    "objectID": "leetgpu/leet-gpu-12/index.html",
+    "href": "leetgpu/leet-gpu-12/index.html",
+    "title": "LeetGPU-12: Simple Inference",
+    "section": "",
+    "text": "Note: This is part of a learning series on CUDA and Triton, focusing on correctness-first implementations rather than performance optimization."
+  },
+  {
+    "objectID": "leetgpu/leet-gpu-12/index.html#example",
+    "href": "leetgpu/leet-gpu-12/index.html#example",
+    "title": "LeetGPU-12: Simple Inference",
+    "section": "Example",
+    "text": "Example\n Input:  input = [[1.0, 2.0]]  (batch_size=1, input_size=2)\n model: Linear layer with weight=[[0.5, 1.0], [1.5, 0.5]], bias=[0.1, 0.2]\n Output: output = [[2.6, 2.7]]  (batch_size=1, output_size=2)"
+  },
+  {
+    "objectID": "leetgpu/leet-gpu-12/index.html#constraints",
+    "href": "leetgpu/leet-gpu-12/index.html#constraints",
+    "title": "LeetGPU-12: Simple Inference",
+    "section": "Constraints",
+    "text": "Constraints\n\n1 ≤ batch_size ≤ 1,000\n1 ≤ input_size ≤ 1,000\n1 ≤ output_size ≤ 1,000\n-10.0 ≤ input values ≤ 10.0"
+  },
+  {
+    "objectID": "leetgpu/leet-gpu-12/index.html#pytorch",
+    "href": "leetgpu/leet-gpu-12/index.html#pytorch",
+    "title": "LeetGPU-12: Simple Inference",
+    "section": "PyTorch",
+    "text": "PyTorch\n\n\n\n\n\n\nNote\n\n\n\nVery straightforward. A few options:\n\nUse set_ instead of copy_\nUse model.forward()\n\n\n\n\nSolution\nimport torch\nimport torch.nn as nn\n\n\n# input, model, and output are on the GPU\ndef solve(input: torch.Tensor, model: nn.Module, output: torch.Tensor):\n    output.copy_(model(input))\nRuntime: 0.19ms"
+  },
+  {
+    "objectID": "leetgpu/leet-gpu-12/index.html#jax",
+    "href": "leetgpu/leet-gpu-12/index.html#jax",
+    "title": "LeetGPU-12: Simple Inference",
+    "section": "JAX",
+    "text": "JAX\n\n\n\n\n\n\nNote\n\n\n\n\nNeed to copy to numpy to create JAX array. Slower\nTODO: use dlp to perform zero copy and gpu-cpu-gpu transfer\n\n\n\n\nSolution\nimport jax\nimport jax.numpy as jnp\nimport numpy as np\nimport torch\n\n\n# input and model are on the GPU\ndef solve(input: jax.Array, model) -&gt; jax.Array:\n    np_array = np.asarray(input)\n    torch_tensor = torch.from_numpy(np_array).to(next(model.parameters()).device)\n    output = model(torch_tensor)\n    return jnp.asarray(output.detach().cpu().numpy())\nRuntime: 3.04ms"
+  },
+  {
+    "objectID": "leetgpu/index.html",
+    "href": "leetgpu/index.html",
+    "title": "LeetGPU Solutions and Notes",
+    "section": "",
+    "text": "Notes and solutions in PyTorch, Triton, and CUDA. Runtime shown for T4 GPU.\n\n\n\n\n\n LeetGPU-5: Matrix Addition \n\nJan 04, 2026   Implement a program that performs element-wise addition of two matrices containing 32-bit floating point numbers on a GPU. The program should take two input matrices of equal dimensions and produce a single output matrix containing their element-wise sum. \n\n\n\n\n LeetGPU-3: Matrix Transpose \n\nJan 03, 2026   Write a program that transposes a matrix of 32-bit floating point numbers on a GPU. The transpose of a matrix switches its rows and columns. Given a matrix of dimensions , the transpose will have dimensions . All matrices are stored in row-major format. \n\n\n\n\n LeetGPU-12: Simple Inference \n\nDec 28, 2025   Run inference on a PyTorch model. Given an input tensor and a trained torch.nn.Linear model, compute the forward pass and store the result in the output tensor. \n\n\n\n\n LeetGPU-2: Matrix Multiplication \n\nDec 17, 2025   Write a program that multiplies two matrices of 32-bit floating point numbers on a GPU. Given matrix A of dimensions \\(M \\times N\\) and matrix B of dimensions N x K, compute the product matrix C, which will have dimensions MxK. All matrices are stored in row-major format. \n\n\n\n\n LeetGPU-1: Vector Addition \n\nDec 14, 2025   Implement a program that performs element-wise addition of two vectors containing 32-bit floating point numbers on a GPU. The program should take two input vectors of equal length and produce a single output vector containing their sum. \n\n\n\nNo matching items"
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Md Saidul Hoque Anik",
@@ -368,7 +459,7 @@
     "href": "index.html#featured-research",
     "title": "Md Saidul Hoque Anik",
     "section": "Featured Research",
-    "text": "Featured Research\n\nSC24 best poster finalist (top-6): Expressed TransE Knowledge Graph Embedding (KGE) training using faster sparse-dense matrix multiplication kernel.\nMLSys 2025 Paper: Generalized 10 KGE model training using faster sparse-dense matrix multiplication kernel.\nAmazon AWS Internship 2025: Developed Differentiable GPU Kernel Autotuner.\n\nExplore all 20+ research projects here, or check out a quick progress overview here."
+    "text": "Featured Research\n\nSC24 best poster finalist (top-6): Expressed TransE Knowledge Graph Embedding (KGE) training using faster sparse-dense matrix multiplication kernel.\nMLSys 2025 Paper: Generalized 10 KGE model training using faster sparse-dense matrix multiplication kernel.\nAmazon AWS Internship 2025: Developed Differentiable GPU Kernel Autotuner.\n\n\nExplore our 20+ research projects, browse the full list of publications, or catch up on the latest news."
   },
   {
     "objectID": "index.html#leadership-roles",
@@ -376,6 +467,13 @@
     "title": "Md Saidul Hoque Anik",
     "section": "Leadership Roles",
     "text": "Leadership Roles\nI led and coordinated various academic and technical initiatives, including curriculum revisions, postgraduate programs, and programming contests at UIU, MIST, and BUET, fostering a culture of innovation and academic excellence across departments. See all my leadership roles and initiatives here."
+  },
+  {
+    "objectID": "index.html#exploration",
+    "href": "index.html#exploration",
+    "title": "Md Saidul Hoque Anik",
+    "section": "Exploration",
+    "text": "Exploration\nI deepen my ML systems expertise by solving LeetGPU problems across PyTorch, CUDA, and Triton, building intuition for low-level kernel design and performance trade-offs. I stay current with ML infrastructure and systems trends by developing small experimental tools and continuously expanding my software skill set. I also regularly read and distill recent ML systems papers, sharing hands-on tutorials and technical walkthroughs on my blog to communicate systems concepts clearly and effectively."
   },
   {
     "objectID": "blog/tinycuda-release/index.html",
@@ -420,88 +518,25 @@
     "text": "What’s Next?\nCheck the examples like vector_add.cu and matmul.cu in the repo for full runs with checks and timings. It fits right into bigger projects with almost no extra weight. Dive into the headers for more details!"
   },
   {
-    "objectID": "blog/leet-gpu-3/index.html",
-    "href": "blog/leet-gpu-3/index.html",
-    "title": "LeetGPU-3: Matrix Transpose",
+    "objectID": "blog/index.html",
+    "href": "blog/index.html",
+    "title": "Blogs and Notes",
     "section": "",
-    "text": "Write a program that transposes a matrix of 32-bit floating point numbers on a GPU. The transpose of a matrix switches its rows and columns. Given a matrix of dimensions , the transpose will have dimensions . All matrices are stored in row-major format.\n\n\n\nUse only native features (external libraries are not permitted)\nThe solve function signature must remain unchanged\nThe final result must be stored in the matrix output\n\n\n\n\n\n1 ≤ rows, cols ≤ 8192\nInput matrix dimensions: rows × cols\nOutput matrix dimensions: cols × rows"
+    "text": "Order By\n      Default\n      \n        Title\n      \n      \n        Description\n      \n      \n        Categories\n      \n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\nGetting Started with TinyCUDA\n\n TinyCUDA is a header-only C++17 wrapper that eliminates CUDA boilerplate—auto-handles cudaMalloc/cudaMemcpy via Buffer, kernel errors with CUDA_CHECK, and timings via KernelProfiler. Ideal for rapid 1D buffer prototyping without full-framework overhead (no autograd or multi-D tensors).  Dec 26, 2025   Project  \n\n\n\niSpLib: An Auto-tuned GNN Accelerator for PyTorch\n\n [Published in WebConf 2024] iSpLib is a PyTorch library that accelerates Graph Neural Network (GNN) training by integrating auto-tuned sparse matrix operations from FusedMM, delivering up to 93× speedup on large graphs like Reddit and OGBN-Proteins. It features plug-and-play patching for PyTorch Geometric, backpropagation support for semirings, and caching for fixed adjacency matrices, boosting models like GCN (54×), GraphSAGE (23-32×), and GIN (51×).  Sep 14, 2024   Project  \n\n\n\nNo matching items"
   },
   {
-    "objectID": "blog/leet-gpu-3/index.html#implementation-requirements",
-    "href": "blog/leet-gpu-3/index.html#implementation-requirements",
-    "title": "LeetGPU-3: Matrix Transpose",
+    "objectID": "archive/about.html",
+    "href": "archive/about.html",
+    "title": "About",
     "section": "",
-    "text": "Use only native features (external libraries are not permitted)\nThe solve function signature must remain unchanged\nThe final result must be stored in the matrix output"
+    "text": "About this site"
   },
   {
-    "objectID": "blog/leet-gpu-3/index.html#constraints",
-    "href": "blog/leet-gpu-3/index.html#constraints",
-    "title": "LeetGPU-3: Matrix Transpose",
+    "objectID": "archive/index.html",
+    "href": "archive/index.html",
+    "title": "OnixHoque.github.io",
     "section": "",
-    "text": "1 ≤ rows, cols ≤ 8192\nInput matrix dimensions: rows × cols\nOutput matrix dimensions: cols × rows"
-  },
-  {
-    "objectID": "blog/leet-gpu-3/index.html#pytorch",
-    "href": "blog/leet-gpu-3/index.html#pytorch",
-    "title": "LeetGPU-3: Matrix Transpose",
-    "section": "PyTorch",
-    "text": "PyTorch\n\n\n\n\n\n\nNote\n\n\n\nTrivial\n\n\n\nSolution\nimport torch\n\n# input, output are tensors on the GPU\ndef solve(input: torch.Tensor, output: torch.Tensor, rows: int, cols: int):\n    output.copy_(input.T)\nRuntime: 3.23ms"
-  },
-  {
-    "objectID": "blog/leet-gpu-3/index.html#triton",
-    "href": "blog/leet-gpu-3/index.html#triton",
-    "title": "LeetGPU-3: Matrix Transpose",
-    "section": "Triton",
-    "text": "Triton\n\n\n\n\n\n\nNote\n\n\n\n\n\n\n\nSolution\nimport torch\nimport triton\nimport triton.language as tl\n\n\n@triton.jit\ndef matrix_transpose_kernel(input, output, rows, cols, BLOCK_ROW: tl.constexpr, BLOCK_COL: tl.constexpr):\n    r = tl.program_id(0)\n    c = tl.program_id(1)\n\n    row_start = r * BLOCK_ROW\n    col_start = c * BLOCK_COL\n\n    row_ptr = row_start + tl.arange(0, BLOCK_ROW)\n    col_ptr = col_start + tl.arange(0, BLOCK_COL)\n\n    r_idx = row_ptr[:, None]\n    c_idx = col_ptr[None, :]\n    \n    inp_idx = input + r_idx * cols + c_idx\n    \n    mask = (r_idx &lt; rows) & (c_idx &lt; cols)\n\n    x = tl.load(inp_idx, mask, 0.0)\n\n    out_idx = output + c_idx * rows + r_idx\n\n    tl.store(out_idx, x, mask)\n\n# input, output are tensors on the GPU\ndef solve(input: torch.Tensor, output: torch.Tensor, rows: int, cols: int):\n    BLOCK_ROW = 16\n    BLOCK_COL = 16\n\n    grid = (\n        triton.cdiv(rows, BLOCK_ROW),\n        triton.cdiv(cols, BLOCK_COL),\n    )\n\n    matrix_transpose_kernel[grid](\n        input,\n        output,\n        rows,\n        cols,\n        BLOCK_ROW=BLOCK_ROW,\n        BLOCK_COL=BLOCK_COL,\n    )\nRuntime: 2.47ms"
-  },
-  {
-    "objectID": "blog/leet-gpu-3/index.html#cuda",
-    "href": "blog/leet-gpu-3/index.html#cuda",
-    "title": "LeetGPU-3: Matrix Transpose",
-    "section": "CUDA",
-    "text": "CUDA\n\n\n\n\n\n\nNote\n\n\n\n\nrows = column_stride\ncols = row_stride\n\n\n\n\nSolution\n#include &lt;cuda_runtime.h&gt;\n\n__global__ void matrix_transpose_kernel(const float* input, float* output, int rows, int cols) {\n    int c = blockIdx.x * blockDim.x + threadIdx.x;\n    int r = blockIdx.y * blockDim.y + threadIdx.y;\n\n    if (r &lt; rows and c &lt; cols) {\n        output[c * rows + r] = input[r * cols + c];\n    }\n}\n\n// input, output are device pointers (i.e. pointers to memory on the GPU)\nextern \"C\" void solve(const float* input, float* output, int rows, int cols) {\n    dim3 threadsPerBlock(16, 16);\n    dim3 blocksPerGrid((cols + threadsPerBlock.x - 1) / threadsPerBlock.x,\n                       (rows + threadsPerBlock.y - 1) / threadsPerBlock.y);\n\n    matrix_transpose_kernel&lt;&lt;&lt;blocksPerGrid, threadsPerBlock&gt;&gt;&gt;(input, output, rows, cols);\n    cudaDeviceSynchronize();\n}\nRuntime: 2.66ms"
-  },
-  {
-    "objectID": "blog/leet-gpu-3/index.html#reference",
-    "href": "blog/leet-gpu-3/index.html#reference",
-    "title": "LeetGPU-3: Matrix Transpose",
-    "section": "Reference",
-    "text": "Reference\n\nhttps://github.com/gpu-mode/lectures/blob/main/lecture_014/A_Practitioners_Guide_to_Triton.ipynb"
-  },
-  {
-    "objectID": "blog/leet-gpu-12/leet-gpu-structure.html",
-    "href": "blog/leet-gpu-12/leet-gpu-structure.html",
-    "title": "LeetGPU-12: Simple Inference",
-    "section": "",
-    "text": "Note: This is part of a learning series on CUDA and Triton, focusing on correctness-first implementations rather than performance optimization."
-  },
-  {
-    "objectID": "blog/leet-gpu-12/leet-gpu-structure.html#example",
-    "href": "blog/leet-gpu-12/leet-gpu-structure.html#example",
-    "title": "LeetGPU-12: Simple Inference",
-    "section": "Example",
-    "text": "Example\n Input:  input = [[1.0, 2.0]]  (batch_size=1, input_size=2)\n model: Linear layer with weight=[[0.5, 1.0], [1.5, 0.5]], bias=[0.1, 0.2]\n Output: output = [[2.6, 2.7]]  (batch_size=1, output_size=2)"
-  },
-  {
-    "objectID": "blog/leet-gpu-12/leet-gpu-structure.html#constraints",
-    "href": "blog/leet-gpu-12/leet-gpu-structure.html#constraints",
-    "title": "LeetGPU-12: Simple Inference",
-    "section": "Constraints",
-    "text": "Constraints\n\n1 ≤ batch_size ≤ 1,000\n1 ≤ input_size ≤ 1,000\n1 ≤ output_size ≤ 1,000\n-10.0 ≤ input values ≤ 10.0"
-  },
-  {
-    "objectID": "blog/leet-gpu-12/leet-gpu-structure.html#pytorch",
-    "href": "blog/leet-gpu-12/leet-gpu-structure.html#pytorch",
-    "title": "LeetGPU-12: Simple Inference",
-    "section": "PyTorch",
-    "text": "PyTorch\n\n\n\n\n\n\nNote\n\n\n\nVery straightforward. A few options:\n\nUse set_ instead of copy_\nUse model.forward()\n\n\n\n\nSolution\nimport torch\nimport torch.nn as nn\n\n\n# input, model, and output are on the GPU\ndef solve(input: torch.Tensor, model: nn.Module, output: torch.Tensor):\n    output.copy_(model(input))\nRuntime: 0.19ms"
-  },
-  {
-    "objectID": "blog/leet-gpu-12/leet-gpu-structure.html#jax",
-    "href": "blog/leet-gpu-12/leet-gpu-structure.html#jax",
-    "title": "LeetGPU-12: Simple Inference",
-    "section": "JAX",
-    "text": "JAX\n\n\n\n\n\n\nNote\n\n\n\n\nNeed to copy to numpy to create JAX array. Slower\nTODO: use dlp to perform zero copy and gpu-cpu-gpu transfer\n\n\n\n\nSolution\nimport jax\nimport jax.numpy as jnp\nimport numpy as np\nimport torch\n\n\n# input and model are on the GPU\ndef solve(input: jax.Array, model) -&gt; jax.Array:\n    np_array = np.asarray(input)\n    torch_tensor = torch.from_numpy(np_array).to(next(model.parameters()).device)\n    output = model(torch_tensor)\n    return jnp.asarray(output.detach().cpu().numpy())\nRuntime: 3.04ms"
+    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites."
   },
   {
     "objectID": "blog/isplib-story/index.html",
@@ -525,167 +560,6 @@
     "text": "I extend my deepest gratitude to Dr. Ariful Azad for his unwavering guidance and to Pranav Badhe for his invaluable assistance in experiments, AMD benchmarking, and paper feedback. The project spanned 18 months, culminating in publication at ACM WebConf 2024.\nThrough iSpLib, I gained expertise in high-performance computing (HPC) techniques, including auto-tuning, code generation, loop unrolling, OpenMP primitives, and SIMD vectorization. This experience has motivated further explorations in graph ML optimizations, such as efficient sparse training for knowledge graphs.\n#PyTorch #PyG #Backpropagation #AutoTuning #BLAS #GCN #GIN #GraphSAGE #Semiring #ML #GNN #HPC"
   },
   {
-    "objectID": "archive/index.html",
-    "href": "archive/index.html",
-    "title": "OnixHoque.github.io",
-    "section": "",
-    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites."
-  },
-  {
-    "objectID": "archive/about.html",
-    "href": "archive/about.html",
-    "title": "About",
-    "section": "",
-    "text": "About this site"
-  },
-  {
-    "objectID": "blog/index.html",
-    "href": "blog/index.html",
-    "title": "Blogs and Notes",
-    "section": "",
-    "text": "Order By\n      Default\n      \n        Title\n      \n      \n        Description\n      \n      \n        Categories\n      \n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\nLeetGPU-5: Matrix Addition\n\n Notes and solutions in PyTorch, Triton, and CUDA. Runtime shown for T4 GPU.  Jan 04, 2026   LeetGPU  \n\n\n\nLeetGPU-3: Matrix Transpose\n\n Notes and solutions in PyTorch, Triton, and CUDA. Runtime shown for T4 GPU.  Jan 03, 2026   LeetGPU  \n\n\n\nLeetGPU-12: Simple Inference\n\n Notes and solutions in PyTorch and JAX. Runtime shown for T4 GPU.  Dec 28, 2025   LeetGPU  \n\n\n\nGetting Started with TinyCUDA\n\n TinyCUDA is a header-only C++17 wrapper that eliminates CUDA boilerplate—auto-handles cudaMalloc/cudaMemcpy via Buffer, kernel errors with CUDA_CHECK, and timings via KernelProfiler. Ideal for rapid 1D buffer prototyping without full-framework overhead (no autograd or multi-D tensors).  Dec 26, 2025   Project  \n\n\n\nLeetGPU-2: Matrix Multiplication\n\n Notes and solutions in PyTorch, Triton, and CUDA. Runtime shown for T4 GPU.  Dec 17, 2025   LeetGPU  \n\n\n\nLeetGPU-1: Vector Addition\n\n Notes and solutions in PyTorch, Triton, and CUDA. Runtime shown for T4 GPU.  Dec 14, 2025   LeetGPU  \n\n\n\niSpLib: An Auto-tuned GNN Accelerator for PyTorch\n\n [Published in WebConf 2024] iSpLib is a PyTorch library that accelerates Graph Neural Network (GNN) training by integrating auto-tuned sparse matrix operations from FusedMM, delivering up to 93× speedup on large graphs like Reddit and OGBN-Proteins. It features plug-and-play patching for PyTorch Geometric, backpropagation support for semirings, and caching for fixed adjacency matrices, boosting models like GCN (54×), GraphSAGE (23-32×), and GIN (51×).  Sep 14, 2024   Project  \n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "blog/leet-gpu-1/index.html",
-    "href": "blog/leet-gpu-1/index.html",
-    "title": "LeetGPU-1: Vector Addition",
-    "section": "",
-    "text": "Note: This is part of a learning series on CUDA and Triton, focusing on correctness-first implementations rather than performance optimization."
-  },
-  {
-    "objectID": "blog/leet-gpu-1/index.html#example",
-    "href": "blog/leet-gpu-1/index.html#example",
-    "title": "LeetGPU-1: Vector Addition",
-    "section": "Example",
-    "text": "Example\nInput:  A = [1.0, 2.0, 3.0, 4.0]\n        B = [5.0, 6.0, 7.0, 8.0]\nOutput: C = [6.0, 8.0, 10.0, 12.0]"
-  },
-  {
-    "objectID": "blog/leet-gpu-1/index.html#constraints",
-    "href": "blog/leet-gpu-1/index.html#constraints",
-    "title": "LeetGPU-1: Vector Addition",
-    "section": "Constraints",
-    "text": "Constraints\n\nInput vectors A and B have identical lengths\n1 ≤ N ≤ 100,000,000"
-  },
-  {
-    "objectID": "blog/leet-gpu-1/index.html#pytorch",
-    "href": "blog/leet-gpu-1/index.html#pytorch",
-    "title": "LeetGPU-1: Vector Addition",
-    "section": "PyTorch",
-    "text": "PyTorch\n\n\n\n\n\n\nNote\n\n\n\nFor this signature def solve(A: torch.Tensor, B: torch.Tensor, C: torch.Tensor, N: int), the solution C = A + B won’t work because C is being passed in the input argument. We need to copy the the result to C instead of creating a new variable C.\n\nOption-1: C._copy(A + B)\nOption-2: torch.add(A, B, out=C)\n\n\n\n\nSolution\nimport torch\n\n# A, B, C are tensors on the GPU\ndef solve(A: torch.Tensor, B: torch.Tensor, C: torch.Tensor, N: int):\n    torch.add(A, B, out=C)\nRuntime: 1.25ms"
-  },
-  {
-    "objectID": "blog/leet-gpu-1/index.html#triton",
-    "href": "blog/leet-gpu-1/index.html#triton",
-    "title": "LeetGPU-1: Vector Addition",
-    "section": "Triton",
-    "text": "Triton\nSimilar to SIMD vectorized load and store.\n\n\n\n\n\n\nNote\n\n\n\n\ntl.program_id(0): Get current block id\ntl.arange(0, BLOCK_SIZE): Similar to np.arange(). List of offset numbers to add.\ntl.load(a + block_offset, mask = mask): a is the starting pointer address to the data. mask handles uneven block.\ntl.store(c + block_offset, output, mask = mask): store takes a middle argument on what to write.\n\n\n\n\nSolution\nimport torch\nimport triton\nimport triton.language as tl\n\n@triton.jit\ndef vector_add_kernel(a, b, c, n_elements, BLOCK_SIZE: tl.constexpr):\n    block_start = tl.program_id(0) * BLOCK_SIZE\n    block_offset = block_start + tl.arange(0, BLOCK_SIZE)\n    mask = block_offset &lt; n_elements\n    a_val = tl.load(a + block_offset, mask = mask)\n    b_val = tl.load(b + block_offset, mask = mask)\n    output = a_val + b_val\n    tl.store(c + block_offset, output, mask = mask)\n\n   \n# a, b, c are tensors on the GPU\ndef solve(a: torch.Tensor, b: torch.Tensor, c: torch.Tensor, N: int):    \n    BLOCK_SIZE = 1024\n    grid = (triton.cdiv(N, BLOCK_SIZE),)\n    vector_add_kernel[grid](a, b, c, N, BLOCK_SIZE) \nRuntime: 1.34ms"
-  },
-  {
-    "objectID": "blog/leet-gpu-1/index.html#cuda",
-    "href": "blog/leet-gpu-1/index.html#cuda",
-    "title": "LeetGPU-1: Vector Addition",
-    "section": "CUDA",
-    "text": "CUDA\n\n\n\n\n\n\nNote\n\n\n\n\nblockIdx.x: Current block id. Similar to tl.program_id(0)\nblockDim.x: Block size\nthreadIdx.x: Thread id inside a block. Generated by CUDA runtime so arange is not needed.\nA[threadId] is same as *(A + threadId) in C programming language\n\n\n\n\nSolution\n#include &lt;cuda_runtime.h&gt;\n\n__global__ void vector_add(const float* A, const float* B, float* C, int N) {\n    int threadId = blockIdx.x * blockDim.x + threadIdx.x;\n    if (threadId &gt;= N)\n        return;\n    \n    C[threadId] = A[threadId] + B[threadId];\n}\n\n// A, B, C are device pointers (i.e. pointers to memory on the GPU)\nextern \"C\" void solve(const float* A, const float* B, float* C, int N) {\n    int threadsPerBlock = 256;\n    int blocksPerGrid = (N + threadsPerBlock - 1) / threadsPerBlock;\n\n    vector_add&lt;&lt;&lt;blocksPerGrid, threadsPerBlock&gt;&gt;&gt;(A, B, C, N);\n    cudaDeviceSynchronize();\n}\nRuntime: 1.18ms\n\nC[threadId] = A[threadId]; C[threadId] += B[threadId]; is actually slower (1.24ms) than C[threadId] = A[threadId] + B[threadId]; since it involves two write operations in HBM. But both are faster than PyTorch and Triton!"
-  },
-  {
-    "objectID": "blog/leet-gpu-1/index.html#reference",
-    "href": "blog/leet-gpu-1/index.html#reference",
-    "title": "LeetGPU-1: Vector Addition",
-    "section": "Reference",
-    "text": "Reference\n\nhttps://triton-lang.org/main/getting-started/tutorials/01-vector-add.html"
-  },
-  {
-    "objectID": "blog/leet-gpu-2/index.html",
-    "href": "blog/leet-gpu-2/index.html",
-    "title": "LeetGPU-2: Matrix Multiplication",
-    "section": "",
-    "text": "Note: This is part of a learning series on CUDA and Triton, focusing on correctness-first implementations rather than performance optimization."
-  },
-  {
-    "objectID": "blog/leet-gpu-2/index.html#constraints",
-    "href": "blog/leet-gpu-2/index.html#constraints",
-    "title": "LeetGPU-2: Matrix Multiplication",
-    "section": "Constraints",
-    "text": "Constraints\n\n1 ≤ M, N, K ≤ 8192\nPerformance is measured with M = 8192, N = 6144, K = 4096"
-  },
-  {
-    "objectID": "blog/leet-gpu-2/index.html#pytorch",
-    "href": "blog/leet-gpu-2/index.html#pytorch",
-    "title": "LeetGPU-2: Matrix Multiplication",
-    "section": "PyTorch",
-    "text": "PyTorch\n\n\n\n\n\n\nNote\n\n\n\n\nThe solution is straightforward. But can we do blocking?\n\n\n\n\nSolution-1\nimport torch\n\n# A, B, C are tensors on the GPU\ndef solve(A: torch.Tensor, B: torch.Tensor, C: torch.Tensor, M: int, N: int, K: int):\n    torch.matmul(A, B, out=C)\nRuntime: 97.48ms\n\nTODO: block matmul"
-  },
-  {
-    "objectID": "blog/leet-gpu-2/index.html#triton",
-    "href": "blog/leet-gpu-2/index.html#triton",
-    "title": "LeetGPU-2: Matrix Multiplication",
-    "section": "Triton",
-    "text": "Triton\n\n\n\n\n\n\nNote\n\n\n\n\n\n\n\nSolution\n\nCorrect but slow. Will come back to this later in sha Allah!\n\nimport torch\nimport triton\nimport triton.language as tl\n\n\n@triton.jit\ndef matrix_multiplication_kernel(\n    a, b, c, M, N, K, stride_am, stride_an, stride_bn, stride_bk, stride_cm, stride_ck\n):\n    row = tl.program_id(0)\n    col = tl.program_id(1)\n\n    # BLOCK_SIZE: tl.constexpr = 16\n    acc = 0.0\n    for i in range(0, N):\n        a_val = tl.load(a + row * N + i)\n        b_val = tl.load(b + col + i * K)\n        acc += a_val * b_val\n\n    tl.store(c + K * row + col, acc)\n\n\n# a, b, c are tensors on the GPU\ndef solve(a: torch.Tensor, b: torch.Tensor, c: torch.Tensor, M: int, N: int, K: int):\n    stride_am, stride_an = N, 1\n    stride_bn, stride_bk = K, 1\n    stride_cm, stride_ck = K, 1\n\n    grid = (M, K)\n    matrix_multiplication_kernel[grid](\n        a, b, c, M, N, K, stride_am, stride_an, stride_bn, stride_bk, stride_cm, stride_ck\n    )\nRuntime: 0.00ms"
-  },
-  {
-    "objectID": "blog/leet-gpu-2/index.html#cuda",
-    "href": "blog/leet-gpu-2/index.html#cuda",
-    "title": "LeetGPU-2: Matrix Multiplication",
-    "section": "CUDA",
-    "text": "CUDA\n\n\n\n\n\n\nNote\n\n\n\n\n\n\n\nSolution\n#include &lt;cuda_runtime.h&gt;\n\n__global__ void matrix_multiplication_kernel(const float* A, const float* B, float* C, int M, int N, int K) \n{\n    int row = blockIdx.y * blockDim.y + threadIdx.y;\n    int col = blockIdx.x * blockDim.x + threadIdx.x;\n\n    if (row &gt;= M or col &gt;= K) {\n        return;\n    }\n\n    //now take the ith row from A and jth col from B and do a dot product\n    float sum = 0.0f;\n    for (int k = 0; k &lt; N; k++)\n    {\n        sum += A[row * N + k] * B[k * K + col];\n    }\n    C[row * K + col] = sum;\n\n}\n\n// A, B, C are device pointers (i.e. pointers to memory on the GPU)\nextern \"C\" void solve(const float* A, const float* B, float* C, int M, int N, int K) {\n    dim3 threadsPerBlock(16, 16);\n    dim3 blocksPerGrid((K + threadsPerBlock.x - 1) / threadsPerBlock.x,\n                       (M + threadsPerBlock.y - 1) / threadsPerBlock.y);\n\n    matrix_multiplication_kernel&lt;&lt;&lt;blocksPerGrid, threadsPerBlock&gt;&gt;&gt;(A, B, C, M, N, K);\n    cudaDeviceSynchronize();\n}\n\nNote: Timeout when C[row * K + col] is used as accumulator!\n\nRuntime: 953.89 ms"
-  },
-  {
-    "objectID": "blog/leet-gpu-2/index.html#reference",
-    "href": "blog/leet-gpu-2/index.html#reference",
-    "title": "LeetGPU-2: Matrix Multiplication",
-    "section": "Reference",
-    "text": "Reference\n\nhttps://triton-lang.org/main/python-api/triton.language.html"
-  },
-  {
-    "objectID": "blog/leet-gpu-5/index.html",
-    "href": "blog/leet-gpu-5/index.html",
-    "title": "LeetGPU-5: Matrix Addition",
-    "section": "",
-    "text": "Implement a program that performs element-wise addition of two matrices containing 32-bit floating point numbers on a GPU. The program should take two input matrices of equal dimensions and produce a single output matrix containing their element-wise sum.\n\n\n\nExternal libraries are not permitted\nThe solve function signature must remain unchanged\nThe final result must be stored in matrix C\n\n\n\n\nInput:  A = [[1.0, 2.0],\n             [3.0, 4.0]]\n        B = [[5.0, 6.0],\n             [7.0, 8.0]]\nOutput: C = [[6.0, 8.0],\n             [10.0, 12.0]]\n\n\n\n\nInput matrices A and B have identical dimensions\n1 ≤ N ≤ 4096\nAll elements are 32-bit floating point numbers"
-  },
-  {
-    "objectID": "blog/leet-gpu-5/index.html#implementation-requirements",
-    "href": "blog/leet-gpu-5/index.html#implementation-requirements",
-    "title": "LeetGPU-5: Matrix Addition",
-    "section": "",
-    "text": "External libraries are not permitted\nThe solve function signature must remain unchanged\nThe final result must be stored in matrix C"
-  },
-  {
-    "objectID": "blog/leet-gpu-5/index.html#example",
-    "href": "blog/leet-gpu-5/index.html#example",
-    "title": "LeetGPU-5: Matrix Addition",
-    "section": "",
-    "text": "Input:  A = [[1.0, 2.0],\n             [3.0, 4.0]]\n        B = [[5.0, 6.0],\n             [7.0, 8.0]]\nOutput: C = [[6.0, 8.0],\n             [10.0, 12.0]]"
-  },
-  {
-    "objectID": "blog/leet-gpu-5/index.html#constraints",
-    "href": "blog/leet-gpu-5/index.html#constraints",
-    "title": "LeetGPU-5: Matrix Addition",
-    "section": "",
-    "text": "Input matrices A and B have identical dimensions\n1 ≤ N ≤ 4096\nAll elements are 32-bit floating point numbers"
-  },
-  {
-    "objectID": "blog/leet-gpu-5/index.html#pytorch",
-    "href": "blog/leet-gpu-5/index.html#pytorch",
-    "title": "LeetGPU-5: Matrix Addition",
-    "section": "PyTorch",
-    "text": "PyTorch\n\n\n\n\n\n\nNote\n\n\n\nTrivial\n\n\n\nSolution\nimport torch\n\n\n# A, B, C are tensors on the GPU\ndef solve(A: torch.Tensor, B: torch.Tensor, C: torch.Tensor, N: int):\n    C.copy_(A + B)\nRuntime: 1.41ms"
-  },
-  {
-    "objectID": "blog/leet-gpu-5/index.html#triton",
-    "href": "blog/leet-gpu-5/index.html#triton",
-    "title": "LeetGPU-5: Matrix Addition",
-    "section": "Triton",
-    "text": "Triton\n\n\n\n\n\n\nNote\n\n\n\nHmm exactly same runtime as cuda. 4x slower than pytorch\n\n\n\nSolution\nimport torch\nimport triton\nimport triton.language as tl\n\n\n@triton.jit\ndef matrix_add_kernel(a, b, c, n_elements, BLOCK_SIZE: tl.constexpr):\n    x = tl.program_id(0) * BLOCK_SIZE\n    x = x + tl.arange(0, BLOCK_SIZE)\n    mask = x &lt; (n_elements * n_elements)\n    row = x % n_elements\n    col = x // n_elements\n    pos = row * n_elements + col\n    t0 = tl.load(a + pos, mask)\n    t1 = tl.load(b + pos, mask)\n    tl.store(c + pos, t0+t1, mask)\n\n\n# a, b, c are tensors on the GPU\ndef solve(a: torch.Tensor, b: torch.Tensor, c: torch.Tensor, N: int):\n    BLOCK_SIZE = 1024\n    n_elements = N * N\n    grid = (triton.cdiv(n_elements, BLOCK_SIZE),)\n    matrix_add_kernel[grid](a, b, c, N, BLOCK_SIZE)\nRuntime: 5.30ms"
-  },
-  {
-    "objectID": "blog/leet-gpu-5/index.html#cuda",
-    "href": "blog/leet-gpu-5/index.html#cuda",
-    "title": "LeetGPU-5: Matrix Addition",
-    "section": "CUDA",
-    "text": "CUDA\n\n\n\n\n\n\nNote\n\n\n\nThe given template code was 1-d so used that. Almost 4x slower than pytorch\n\n\n\nSolution\n#include &lt;cuda_runtime.h&gt;\n\n__global__ void matrix_add(const float* A, const float* B, float* C, int N) {\n    int x = blockIdx.x * blockDim.x + threadIdx.x;\n    int row = x % N;\n    int col = int(x / N);\n\n    if (x &lt; N * N) {\n        C[row * N + col] = A[row * N + col] + B[row * N + col];\n    }\n}\n\n// A, B, C are device pointers (i.e. pointers to memory on the GPU)\nextern \"C\" void solve(const float* A, const float* B, float* C, int N) {\n    int threadsPerBlock = 256;\n    int blocksPerGrid = (N * N + threadsPerBlock - 1) / threadsPerBlock;\n\n    matrix_add&lt;&lt;&lt;blocksPerGrid, threadsPerBlock&gt;&gt;&gt;(A, B, C, N);\n    cudaDeviceSynchronize();\n}\nRuntime: 5.30ms"
-  },
-  {
     "objectID": "community/index.html",
     "href": "community/index.html",
     "title": "Community",
@@ -698,6 +572,146 @@
     "title": "Leadership Roles",
     "section": "",
     "text": "UIU Project Show 2021. Serving as judge.\n\n\n\n\n\n\n\nMIST Inter-University Programming Contest 2019. Serving as technical coordinator.\n\n\n\n\n\nDuring my undergraduate studies, I served as the coordinator for the BUET System Analysis, Design, and Development (BSADD) Community. In this role, I organized and conducted a 5-day workshop on Android Mobile App Development. Additionally, I recorded the lectures and uploaded them to the official channel for wider accessibility (see workshop website).\nLater, as a faculty member at MIST and UIU, I led efforts in Outcome-Based Education (OBE) and took on technical roles, steering the respective departments through various initiatives and strategic advancements.\n\nUIUMIST\n\n\n\nExternal Supervisor, FYDP-II Summer 2021\nNov 2021\nActed as an external supervisor for Final Year Design Project (FYDP) final defense presentation.\n\n\nAsst Technical Coordinator, Innobotics 2020\nFeb 2020\nProvided programming related technical assistance during the competition.\n\n\nAsst, OBE Revision Team\nJan 2021 - Present\nRevised two course syllabus according to new guideline. Revising rubrics for Final Year Design Project-II.\n\n\nMember, Registration Surveillance Team\nJune 2021\nResponsible for increasing section capacity on-demand during course registration of Summer 2021 semester.\n\n\nCourse Advisor\nJan 2020 - Present\nResponsible for course advising and enrollment for several batches of students.\n\n\n\n\nSoftware Development and Project Planning\nSept 2017 - Jan 2020\nHigh involvement in SRS design, timeline planning, coordination and coding of on-demand software for third-party clients. Specialization in Android and Web App development.\n\n\nCoordinator, Postgraduate Program\nJan 2019 - June 2019\nArrangement of BPGS meeting, thesis proposal presentation, Oct 2018 question moderation meeting. Preparation of BPGS agenda and minutes. Coordination of admission test for April 2019 semester including question setting, moderation, script checking, and result publication. Preparation of tabulation sheet for April 2019 Semester.\n\n\nInternal Member Secretary, Syllabus Review Committee for OBE\nDec 2018 - Jan 2019\nCoordination and compilation of the reviewed syllabus for the adaptation of OBE program. Preparation of a special syllabus with the amendment of old syllabus for 3rd year and 4th year students.\n\n\nMember, OBE Steering Committee\nJuly 2018 - Oct 2019\nCoordination of the CO-PO mapping and overall PO attainment for CSE department. Developed an automated system to calculate the CO-PO attainment for OBE Accreditation Visit 2019. Presented at the Multi-purpose Hall of MIST on CO-PO mapping methodology and Capstone Project (Dec 2018).\n\n\nInstructor, Cyber Security Training Program 2019\nJuly 2019\nConducted a session on web-security and cross-site scripting attack as part of the training module. Also participated in Cyber Security Training Program in 2017.\n\n\nTechnical Coordinator, MIST IUPC 2019\nJan 2019\nLab preparation for IUPC 2019. Ensured smooth connectivity between computers, servers and printers.\n\n\nInstructor, Unicode Training Program\nOct 2018\nConducted a training session on how to write Bengali official letters with Unicode font for the staffs of MIST.\n\n\nMember, TO&E Reformation Committee\nDec 2017 - Sept 2018\nPreparation of revised organogram tree, charter of duties, pay scale, list of equipment for the lab, and necessary presentation.\n\n\nAsst. Coordinator, Comptia A+ Training Program 2017\nMay 2017\nCoordination of the Program, attendance report generation, preparation of lab equipment.\n\n\nMiscellaneous\nQuestion setting, invigilation, and script checking of various recruitment examinations."
+  },
+  {
+    "objectID": "leetgpu/leet-gpu-1/index.html",
+    "href": "leetgpu/leet-gpu-1/index.html",
+    "title": "LeetGPU-1: Vector Addition",
+    "section": "",
+    "text": "Note: This is part of a learning series on CUDA and Triton, focusing on correctness-first implementations rather than performance optimization."
+  },
+  {
+    "objectID": "leetgpu/leet-gpu-1/index.html#example",
+    "href": "leetgpu/leet-gpu-1/index.html#example",
+    "title": "LeetGPU-1: Vector Addition",
+    "section": "Example",
+    "text": "Example\nInput:  A = [1.0, 2.0, 3.0, 4.0]\n        B = [5.0, 6.0, 7.0, 8.0]\nOutput: C = [6.0, 8.0, 10.0, 12.0]"
+  },
+  {
+    "objectID": "leetgpu/leet-gpu-1/index.html#constraints",
+    "href": "leetgpu/leet-gpu-1/index.html#constraints",
+    "title": "LeetGPU-1: Vector Addition",
+    "section": "Constraints",
+    "text": "Constraints\n\nInput vectors A and B have identical lengths\n1 ≤ N ≤ 100,000,000"
+  },
+  {
+    "objectID": "leetgpu/leet-gpu-1/index.html#pytorch",
+    "href": "leetgpu/leet-gpu-1/index.html#pytorch",
+    "title": "LeetGPU-1: Vector Addition",
+    "section": "PyTorch",
+    "text": "PyTorch\n\n\n\n\n\n\nNote\n\n\n\nFor this signature def solve(A: torch.Tensor, B: torch.Tensor, C: torch.Tensor, N: int), the solution C = A + B won’t work because C is being passed in the input argument. We need to copy the the result to C instead of creating a new variable C.\n\nOption-1: C._copy(A + B)\nOption-2: torch.add(A, B, out=C)\n\n\n\n\nSolution\nimport torch\n\n# A, B, C are tensors on the GPU\ndef solve(A: torch.Tensor, B: torch.Tensor, C: torch.Tensor, N: int):\n    torch.add(A, B, out=C)\nRuntime: 1.25ms"
+  },
+  {
+    "objectID": "leetgpu/leet-gpu-1/index.html#triton",
+    "href": "leetgpu/leet-gpu-1/index.html#triton",
+    "title": "LeetGPU-1: Vector Addition",
+    "section": "Triton",
+    "text": "Triton\nSimilar to SIMD vectorized load and store.\n\n\n\n\n\n\nNote\n\n\n\n\ntl.program_id(0): Get current block id\ntl.arange(0, BLOCK_SIZE): Similar to np.arange(). List of offset numbers to add.\ntl.load(a + block_offset, mask = mask): a is the starting pointer address to the data. mask handles uneven block.\ntl.store(c + block_offset, output, mask = mask): store takes a middle argument on what to write.\n\n\n\n\nSolution\nimport torch\nimport triton\nimport triton.language as tl\n\n@triton.jit\ndef vector_add_kernel(a, b, c, n_elements, BLOCK_SIZE: tl.constexpr):\n    block_start = tl.program_id(0) * BLOCK_SIZE\n    block_offset = block_start + tl.arange(0, BLOCK_SIZE)\n    mask = block_offset &lt; n_elements\n    a_val = tl.load(a + block_offset, mask = mask)\n    b_val = tl.load(b + block_offset, mask = mask)\n    output = a_val + b_val\n    tl.store(c + block_offset, output, mask = mask)\n\n   \n# a, b, c are tensors on the GPU\ndef solve(a: torch.Tensor, b: torch.Tensor, c: torch.Tensor, N: int):    \n    BLOCK_SIZE = 1024\n    grid = (triton.cdiv(N, BLOCK_SIZE),)\n    vector_add_kernel[grid](a, b, c, N, BLOCK_SIZE) \nRuntime: 1.34ms"
+  },
+  {
+    "objectID": "leetgpu/leet-gpu-1/index.html#cuda",
+    "href": "leetgpu/leet-gpu-1/index.html#cuda",
+    "title": "LeetGPU-1: Vector Addition",
+    "section": "CUDA",
+    "text": "CUDA\n\n\n\n\n\n\nNote\n\n\n\n\nblockIdx.x: Current block id. Similar to tl.program_id(0)\nblockDim.x: Block size\nthreadIdx.x: Thread id inside a block. Generated by CUDA runtime so arange is not needed.\nA[threadId] is same as *(A + threadId) in C programming language\n\n\n\n\nSolution\n#include &lt;cuda_runtime.h&gt;\n\n__global__ void vector_add(const float* A, const float* B, float* C, int N) {\n    int threadId = blockIdx.x * blockDim.x + threadIdx.x;\n    if (threadId &gt;= N)\n        return;\n    \n    C[threadId] = A[threadId] + B[threadId];\n}\n\n// A, B, C are device pointers (i.e. pointers to memory on the GPU)\nextern \"C\" void solve(const float* A, const float* B, float* C, int N) {\n    int threadsPerBlock = 256;\n    int blocksPerGrid = (N + threadsPerBlock - 1) / threadsPerBlock;\n\n    vector_add&lt;&lt;&lt;blocksPerGrid, threadsPerBlock&gt;&gt;&gt;(A, B, C, N);\n    cudaDeviceSynchronize();\n}\nRuntime: 1.18ms\n\nC[threadId] = A[threadId]; C[threadId] += B[threadId]; is actually slower (1.24ms) than C[threadId] = A[threadId] + B[threadId]; since it involves two write operations in HBM. But both are faster than PyTorch and Triton!"
+  },
+  {
+    "objectID": "leetgpu/leet-gpu-1/index.html#reference",
+    "href": "leetgpu/leet-gpu-1/index.html#reference",
+    "title": "LeetGPU-1: Vector Addition",
+    "section": "Reference",
+    "text": "Reference\n\nhttps://triton-lang.org/main/getting-started/tutorials/01-vector-add.html"
+  },
+  {
+    "objectID": "leetgpu/leet-gpu-2/index.html",
+    "href": "leetgpu/leet-gpu-2/index.html",
+    "title": "LeetGPU-2: Matrix Multiplication",
+    "section": "",
+    "text": "Note: This is part of a learning series on CUDA and Triton, focusing on correctness-first implementations rather than performance optimization."
+  },
+  {
+    "objectID": "leetgpu/leet-gpu-2/index.html#constraints",
+    "href": "leetgpu/leet-gpu-2/index.html#constraints",
+    "title": "LeetGPU-2: Matrix Multiplication",
+    "section": "Constraints",
+    "text": "Constraints\n\n1 ≤ M, N, K ≤ 8192\nPerformance is measured with M = 8192, N = 6144, K = 4096"
+  },
+  {
+    "objectID": "leetgpu/leet-gpu-2/index.html#pytorch",
+    "href": "leetgpu/leet-gpu-2/index.html#pytorch",
+    "title": "LeetGPU-2: Matrix Multiplication",
+    "section": "PyTorch",
+    "text": "PyTorch\n\n\n\n\n\n\nNote\n\n\n\n\nThe solution is straightforward. But can we do blocking?\n\n\n\n\nSolution-1\nimport torch\n\n# A, B, C are tensors on the GPU\ndef solve(A: torch.Tensor, B: torch.Tensor, C: torch.Tensor, M: int, N: int, K: int):\n    torch.matmul(A, B, out=C)\nRuntime: 97.48ms\n\nTODO: block matmul"
+  },
+  {
+    "objectID": "leetgpu/leet-gpu-2/index.html#triton",
+    "href": "leetgpu/leet-gpu-2/index.html#triton",
+    "title": "LeetGPU-2: Matrix Multiplication",
+    "section": "Triton",
+    "text": "Triton\n\n\n\n\n\n\nNote\n\n\n\n\n\n\n\nSolution\n\nCorrect but slow. Will come back to this later in sha Allah!\n\nimport torch\nimport triton\nimport triton.language as tl\n\n\n@triton.jit\ndef matrix_multiplication_kernel(\n    a, b, c, M, N, K, stride_am, stride_an, stride_bn, stride_bk, stride_cm, stride_ck\n):\n    row = tl.program_id(0)\n    col = tl.program_id(1)\n\n    # BLOCK_SIZE: tl.constexpr = 16\n    acc = 0.0\n    for i in range(0, N):\n        a_val = tl.load(a + row * N + i)\n        b_val = tl.load(b + col + i * K)\n        acc += a_val * b_val\n\n    tl.store(c + K * row + col, acc)\n\n\n# a, b, c are tensors on the GPU\ndef solve(a: torch.Tensor, b: torch.Tensor, c: torch.Tensor, M: int, N: int, K: int):\n    stride_am, stride_an = N, 1\n    stride_bn, stride_bk = K, 1\n    stride_cm, stride_ck = K, 1\n\n    grid = (M, K)\n    matrix_multiplication_kernel[grid](\n        a, b, c, M, N, K, stride_am, stride_an, stride_bn, stride_bk, stride_cm, stride_ck\n    )\nRuntime: 0.00ms"
+  },
+  {
+    "objectID": "leetgpu/leet-gpu-2/index.html#cuda",
+    "href": "leetgpu/leet-gpu-2/index.html#cuda",
+    "title": "LeetGPU-2: Matrix Multiplication",
+    "section": "CUDA",
+    "text": "CUDA\n\n\n\n\n\n\nNote\n\n\n\n\n\n\n\nSolution\n#include &lt;cuda_runtime.h&gt;\n\n__global__ void matrix_multiplication_kernel(const float* A, const float* B, float* C, int M, int N, int K) \n{\n    int row = blockIdx.y * blockDim.y + threadIdx.y;\n    int col = blockIdx.x * blockDim.x + threadIdx.x;\n\n    if (row &gt;= M or col &gt;= K) {\n        return;\n    }\n\n    //now take the ith row from A and jth col from B and do a dot product\n    float sum = 0.0f;\n    for (int k = 0; k &lt; N; k++)\n    {\n        sum += A[row * N + k] * B[k * K + col];\n    }\n    C[row * K + col] = sum;\n\n}\n\n// A, B, C are device pointers (i.e. pointers to memory on the GPU)\nextern \"C\" void solve(const float* A, const float* B, float* C, int M, int N, int K) {\n    dim3 threadsPerBlock(16, 16);\n    dim3 blocksPerGrid((K + threadsPerBlock.x - 1) / threadsPerBlock.x,\n                       (M + threadsPerBlock.y - 1) / threadsPerBlock.y);\n\n    matrix_multiplication_kernel&lt;&lt;&lt;blocksPerGrid, threadsPerBlock&gt;&gt;&gt;(A, B, C, M, N, K);\n    cudaDeviceSynchronize();\n}\n\nNote: Timeout when C[row * K + col] is used as accumulator!\n\nRuntime: 953.89 ms"
+  },
+  {
+    "objectID": "leetgpu/leet-gpu-2/index.html#reference",
+    "href": "leetgpu/leet-gpu-2/index.html#reference",
+    "title": "LeetGPU-2: Matrix Multiplication",
+    "section": "Reference",
+    "text": "Reference\n\nhttps://triton-lang.org/main/python-api/triton.language.html"
+  },
+  {
+    "objectID": "leetgpu/leet-gpu-5/index.html",
+    "href": "leetgpu/leet-gpu-5/index.html",
+    "title": "LeetGPU-5: Matrix Addition",
+    "section": "",
+    "text": "Implement a program that performs element-wise addition of two matrices containing 32-bit floating point numbers on a GPU. The program should take two input matrices of equal dimensions and produce a single output matrix containing their element-wise sum.\n\n\n\nExternal libraries are not permitted\nThe solve function signature must remain unchanged\nThe final result must be stored in matrix C\n\n\n\n\nInput:  A = [[1.0, 2.0],\n             [3.0, 4.0]]\n        B = [[5.0, 6.0],\n             [7.0, 8.0]]\nOutput: C = [[6.0, 8.0],\n             [10.0, 12.0]]\n\n\n\n\nInput matrices A and B have identical dimensions\n1 ≤ N ≤ 4096\nAll elements are 32-bit floating point numbers"
+  },
+  {
+    "objectID": "leetgpu/leet-gpu-5/index.html#implementation-requirements",
+    "href": "leetgpu/leet-gpu-5/index.html#implementation-requirements",
+    "title": "LeetGPU-5: Matrix Addition",
+    "section": "",
+    "text": "External libraries are not permitted\nThe solve function signature must remain unchanged\nThe final result must be stored in matrix C"
+  },
+  {
+    "objectID": "leetgpu/leet-gpu-5/index.html#example",
+    "href": "leetgpu/leet-gpu-5/index.html#example",
+    "title": "LeetGPU-5: Matrix Addition",
+    "section": "",
+    "text": "Input:  A = [[1.0, 2.0],\n             [3.0, 4.0]]\n        B = [[5.0, 6.0],\n             [7.0, 8.0]]\nOutput: C = [[6.0, 8.0],\n             [10.0, 12.0]]"
+  },
+  {
+    "objectID": "leetgpu/leet-gpu-5/index.html#constraints",
+    "href": "leetgpu/leet-gpu-5/index.html#constraints",
+    "title": "LeetGPU-5: Matrix Addition",
+    "section": "",
+    "text": "Input matrices A and B have identical dimensions\n1 ≤ N ≤ 4096\nAll elements are 32-bit floating point numbers"
+  },
+  {
+    "objectID": "leetgpu/leet-gpu-5/index.html#pytorch",
+    "href": "leetgpu/leet-gpu-5/index.html#pytorch",
+    "title": "LeetGPU-5: Matrix Addition",
+    "section": "PyTorch",
+    "text": "PyTorch\n\n\n\n\n\n\nNote\n\n\n\nTrivial\n\n\n\nSolution\nimport torch\n\n\n# A, B, C are tensors on the GPU\ndef solve(A: torch.Tensor, B: torch.Tensor, C: torch.Tensor, N: int):\n    C.copy_(A + B)\nRuntime: 1.41ms"
+  },
+  {
+    "objectID": "leetgpu/leet-gpu-5/index.html#triton",
+    "href": "leetgpu/leet-gpu-5/index.html#triton",
+    "title": "LeetGPU-5: Matrix Addition",
+    "section": "Triton",
+    "text": "Triton\n\n\n\n\n\n\nNote\n\n\n\nHmm exactly same runtime as cuda. 4x slower than pytorch\n\n\n\nSolution\nimport torch\nimport triton\nimport triton.language as tl\n\n\n@triton.jit\ndef matrix_add_kernel(a, b, c, n_elements, BLOCK_SIZE: tl.constexpr):\n    x = tl.program_id(0) * BLOCK_SIZE\n    x = x + tl.arange(0, BLOCK_SIZE)\n    mask = x &lt; (n_elements * n_elements)\n    row = x % n_elements\n    col = x // n_elements\n    pos = row * n_elements + col\n    t0 = tl.load(a + pos, mask)\n    t1 = tl.load(b + pos, mask)\n    tl.store(c + pos, t0+t1, mask)\n\n\n# a, b, c are tensors on the GPU\ndef solve(a: torch.Tensor, b: torch.Tensor, c: torch.Tensor, N: int):\n    BLOCK_SIZE = 1024\n    n_elements = N * N\n    grid = (triton.cdiv(n_elements, BLOCK_SIZE),)\n    matrix_add_kernel[grid](a, b, c, N, BLOCK_SIZE)\nRuntime: 5.30ms"
+  },
+  {
+    "objectID": "leetgpu/leet-gpu-5/index.html#cuda",
+    "href": "leetgpu/leet-gpu-5/index.html#cuda",
+    "title": "LeetGPU-5: Matrix Addition",
+    "section": "CUDA",
+    "text": "CUDA\n\n\n\n\n\n\nNote\n\n\n\nThe given template code was 1-d so used that. Almost 4x slower than pytorch\n\n\n\nSolution\n#include &lt;cuda_runtime.h&gt;\n\n__global__ void matrix_add(const float* A, const float* B, float* C, int N) {\n    int x = blockIdx.x * blockDim.x + threadIdx.x;\n    int row = x % N;\n    int col = int(x / N);\n\n    if (x &lt; N * N) {\n        C[row * N + col] = A[row * N + col] + B[row * N + col];\n    }\n}\n\n// A, B, C are device pointers (i.e. pointers to memory on the GPU)\nextern \"C\" void solve(const float* A, const float* B, float* C, int N) {\n    int threadsPerBlock = 256;\n    int blocksPerGrid = (N * N + threadsPerBlock - 1) / threadsPerBlock;\n\n    matrix_add&lt;&lt;&lt;blocksPerGrid, threadsPerBlock&gt;&gt;&gt;(A, B, C, N);\n    cudaDeviceSynchronize();\n}\nRuntime: 5.30ms"
   },
   {
     "objectID": "research/index.html",

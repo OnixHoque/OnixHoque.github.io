@@ -6,9 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="We expressed and reformulated 10 KG embedding models using Sparse-dense matrix mutliplication speeding up the training for CPU and GPU while making them significantly memory efficient.">
+<meta name="author" content="Md Saidul Hoque Anik">
+<meta name="description" content="Notes and solutions in PyTorch, Triton, and CUDA. Runtime shown for T4 GPU.">
 
-<title>SparseTransX: Efficient Training of Translation-Based Knowledge Graph Embeddings Using Sparse Matrix Operations – Md Saidul Hoque Anik</title>
+<title>LeetGPU-2: Matrix Multiplication – Md Saidul Hoque Anik</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,34 +22,66 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../../../">
-<script src="../../../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="../../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b758ccaa5987ceb1b75504551e579abf.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
-<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap-69585d0cb7eb4d91e1e9639bd63741e7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../../site_libs/bootstrap/bootstrap-dark-435edb4a015d21cda02749244a61383a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../../site_libs/bootstrap/bootstrap-69585d0cb7eb4d91e1e9639bd63741e7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
-<script src="../../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
-<link href="../../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b758ccaa5987ceb1b75504551e579abf.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-69585d0cb7eb4d91e1e9639bd63741e7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-435edb4a015d21cda02749244a61383a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-69585d0cb7eb4d91e1e9639bd63741e7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -79,10 +112,39 @@ ul.task-list li input[type="checkbox"] {
 <link href="https://cdn.jsdelivr.net/npm/charter-webfont@4.1.0/charter.min.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&amp;family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&amp;family=Open+Sans:ital,wght@0,300..800;1,300..800&amp;display=swap" rel="stylesheet">
 <link href="https://fonts.cdnfonts.com/css/palatino" rel="stylesheet">
-<script src="../../../script.js"></script>
+<script src="../../script.js"></script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<link rel="stylesheet" href="../../../styles.css">
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
 <body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
@@ -254,7 +316,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../../../index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Md Saidul Hoque Anik</span>
     </a>
   </div>
@@ -265,19 +327,19 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../../index.html"> 
+    <a class="nav-link" href="../../index.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../research"> 
+    <a class="nav-link" href="../../research"> 
 <span class="menu-text">Research</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../news"> 
+    <a class="nav-link" href="../../news"> 
 <span class="menu-text">News</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../teaching"> 
+    <a class="nav-link" href="../../teaching"> 
 <span class="menu-text">Teaching</span></a>
   </li>  
   <li class="nav-item dropdown ">
@@ -286,23 +348,23 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-more">    
         <li>
-    <a class="dropdown-item" href="../../../leetgpu">
+    <a class="dropdown-item" href="../../leetgpu">
  <span class="dropdown-text">LeetGPU</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../leadership/">
+    <a class="dropdown-item" href="../../leadership/">
  <span class="dropdown-text">Leadership</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../software">
+    <a class="dropdown-item" href="../../software">
  <span class="dropdown-text">Software</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../news/#category=Publication">
+    <a class="dropdown-item" href="../../news/#category=Publication">
  <span class="dropdown-text">Publications</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../blog">
+    <a class="dropdown-item" href="../../blog">
  <span class="dropdown-text">Blog</span></a>
   </li>  
     </ul>
@@ -324,9 +386,26 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#background" id="toc-background" class="nav-link active" data-scroll-target="#background">Background</a></li>
-  <li><a href="#methodology" id="toc-methodology" class="nav-link" data-scroll-target="#methodology">Methodology</a></li>
-  <li><a href="#findings" id="toc-findings" class="nav-link" data-scroll-target="#findings">Findings</a></li>
+  <li><a href="#problem-statement" id="toc-problem-statement" class="nav-link active" data-scroll-target="#problem-statement">Problem Statement</a>
+  <ul class="collapse">
+  <li><a href="#constraints" id="toc-constraints" class="nav-link" data-scroll-target="#constraints">Constraints</a></li>
+  </ul></li>
+  <li><a href="#solution" id="toc-solution" class="nav-link" data-scroll-target="#solution">Solution</a>
+  <ul class="collapse">
+  <li><a href="#pytorch" id="toc-pytorch" class="nav-link" data-scroll-target="#pytorch">PyTorch</a>
+  <ul class="collapse">
+  <li><a href="#solution-1" id="toc-solution-1" class="nav-link" data-scroll-target="#solution-1">Solution-1</a></li>
+  </ul></li>
+  <li><a href="#triton" id="toc-triton" class="nav-link" data-scroll-target="#triton">Triton</a>
+  <ul class="collapse">
+  <li><a href="#solution-2" id="toc-solution-2" class="nav-link" data-scroll-target="#solution-2">Solution</a></li>
+  </ul></li>
+  <li><a href="#cuda" id="toc-cuda" class="nav-link" data-scroll-target="#cuda">CUDA</a>
+  <ul class="collapse">
+  <li><a href="#solution-3" id="toc-solution-3" class="nav-link" data-scroll-target="#solution-3">Solution</a></li>
+  </ul></li>
+  <li><a href="#reference" id="toc-reference" class="nav-link" data-scroll-target="#reference">Reference</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -336,35 +415,32 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">SparseTransX: Efficient Training of Translation-Based Knowledge Graph Embeddings Using Sparse Matrix Operations</h1>
+<h1 class="title">LeetGPU-2: Matrix Multiplication</h1>
   <div class="quarto-categories">
-    <div class="quarto-category">Knowledge Graph</div>
-    <div class="quarto-category">SpMM</div>
-    <div class="quarto-category">Publication</div>
-    <div class="quarto-category">Paper</div>
-    <div class="quarto-category">CPU</div>
-    <div class="quarto-category">GPU</div>
-    <div class="quarto-category">PyTorch</div>
-    <div class="quarto-category">Distributed</div>
-    <div class="quarto-category">DDP</div>
-    <div class="quarto-category">FSDP</div>
+    <div class="quarto-category">LeetGPU</div>
   </div>
   </div>
 
 <div>
   <div class="description">
-    We expressed and reformulated 10 KG embedding models using Sparse-dense matrix mutliplication speeding up the training for CPU and GPU while making them significantly memory efficient.
+    Notes and solutions in PyTorch, Triton, and CUDA. Runtime shown for T4 GPU.
   </div>
 </div>
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Md Saidul Hoque Anik </p>
+          </div>
+  </div>
     
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">May 2025</p>
+      <p class="date">December 2025</p>
     </div>
   </div>
   
@@ -376,41 +452,168 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Note">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="true" aria-label="Toggle callout">
+<blockquote class="blockquote">
+<p>Note: This is part of a learning series on CUDA and Triton, focusing on correctness-first implementations rather than performance optimization.</p>
+</blockquote>
+<section id="problem-statement" class="level1">
+<h1>Problem Statement</h1>
+<p>Write a program that multiplies two matrices of 32-bit floating point numbers on a GPU. Given matrix <code>A</code> of dimensions <span class="math inline">\(M \times N\)</span> and matrix <code>B</code> of dimensions N x K, compute the product matrix C, which will have dimensions MxK. All matrices are stored in row-major format.</p>
+<section id="constraints" class="level2">
+<h2 class="anchored" data-anchor-id="constraints">Constraints</h2>
+<ul>
+<li><p>1 ≤ <code>M</code>, <code>N</code>, <code>K</code> ≤ 8192</p></li>
+<li><p>Performance is measured with <code>M</code> = 8192, <code>N</code> = 6144, <code>K</code> = 4096</p></li>
+</ul>
+</section>
+</section>
+<section id="solution" class="level1">
+<h1>Solution</h1>
+<section id="pytorch" class="level2">
+<h2 class="anchored" data-anchor-id="pytorch">PyTorch</h2>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Note
+Note
 </div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
-<p>PhD Research Project</p>
-<p><a href="https://mlsys.org/virtual/2025/poster/3282" class="badge bg-danger rounded-pill">MLSys 2025</a> <a href="https://mlsys.org/virtual/2025/poster/3282" class="badge bg-primary rounded-pill">Talk</a> <a href="https://mlsys.org/media/mlsys-2025/Slides/3282_xccc5UA.pdf" class="badge bg-primary rounded-pill">Slide</a> <a href="https://openreview.net/pdf?id=73tG7ZDSBT" class="badge bg-primary rounded-pill">Paper</a> <a href="https://github.com/HipGraph/SpTransX" class="badge bg-primary rounded-pill">GitHub</a></p>
-<p><a href="https://openreview.net/pdf?id=73tG7ZDSBT" class="badge bg-success">Artifact Available</a> <a href="https://openreview.net/pdf?id=73tG7ZDSBT" class="badge bg-danger">Artifact Evaluated</a></p>
+<ul>
+<li>The solution is straightforward. But can we do blocking?</li>
+</ul>
 </div>
 </div>
-</div>
-<p><a href="presentation-1.jpeg" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="presentation-1.jpeg" class="img-fluid" style="width:45.0%"></a> <a href="presentation-2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="presentation-2.png" class="img-fluid" style="width:45.0%"></a></p>
-<section id="background" class="level2">
-<h2 class="anchored" data-anchor-id="background">Background</h2>
-<p><a href="bottleneck.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="bottleneck.png" class="img-fluid"></a></p>
-<p>Knowledge Graph (KG) learning plays a critical role in enabling machines to generate new knowledge and make inferences based on relational data. However, training KG embeddings can be time-consuming, particularly for larger datasets. One of the primary bottlenecks in the training process is the gradient computation during embedding updates, which dominates the overall training time. In this context, we aim to accelerate the training process by replacing the core embedding computation with Sparse-Dense Matrix Multiplication (SpMM) kernels. This approach allows us to optimize the computation by consolidating multiple scatter (and gather) operations into a single, more efficient operation, reducing both training time and memory usage.</p>
+<section id="solution-1" class="level3">
+<h3 class="anchored" data-anchor-id="solution-1">Solution-1</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># A, B, C are tensors on the GPU</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> solve(A: torch.Tensor, B: torch.Tensor, C: torch.Tensor, M: <span class="bu">int</span>, N: <span class="bu">int</span>, K: <span class="bu">int</span>):</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    torch.matmul(A, B, out<span class="op">=</span>C)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Runtime: <strong>97.48ms</strong></p>
+<blockquote class="blockquote">
+<p>TODO: block matmul</p>
+</blockquote>
 </section>
-<section id="methodology" class="level2">
-<h2 class="anchored" data-anchor-id="methodology">Methodology</h2>
-<p><a href="method.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="method.png" class="img-fluid"></a></p>
-<p>We propose a framework that integrates sparse matmul kernels into the training of KGE models, enhancing the efficiency of the translation-based embedding techniques. Specifically, we implement sparse versions of four popular KG models: TransE, TransR, TransH, and TorusE. By leveraging SpMM kernels, we replace the traditional dense matrix multiplication operations, significantly improving the performance of the training loop. Our framework unifies various scatter and gather operations, which are typically separate, into a single operation, leading to a reduction in both computational time and memory footprint. We evaluate the performance of our sparse implementations on both CPU and GPU platforms, testing across various datasets, both large and small, to assess the generalizability of our approach.</p>
 </section>
-<section id="findings" class="level2">
-<h2 class="anchored" data-anchor-id="findings">Findings</h2>
-<p><a href="results.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img src="results.png" class="img-fluid"></a></p>
-<p>Our sparse implementations deliver impressive speedups across different hardware platforms. On the CPU, we observe up to 5.3x speedup, while on the GPU, the speedup reaches 4.2x, all while significantly reducing GPU memory usage. These performance improvements are consistent regardless of dataset size, demonstrating the effectiveness of our approach across both small and large-scale datasets. The results indicate that our sparse kernel-based framework can substantially accelerate the training of translation-based KG models, with potential applications extending to other translation-based models (such as TransC and TransM) and non-translation models (like DistMult, ComplEx, and RotatE). This work lays the groundwork for more efficient and scalable KG embedding training methods.</p>
+<section id="triton" class="level2">
+<h2 class="anchored" data-anchor-id="triton">Triton</h2>
+<div class="callout callout-style-default callout-note callout-empty-content callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+
+</div>
+</div>
+<section id="solution-2" class="level3">
+<h3 class="anchored" data-anchor-id="solution-2">Solution</h3>
+<blockquote class="blockquote">
+<p>Correct but slow. Will come back to this later in sha Allah!</p>
+</blockquote>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> triton</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> triton.language <span class="im">as</span> tl</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="at">@triton.jit</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> matrix_multiplication_kernel(</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    a, b, c, M, N, K, stride_am, stride_an, stride_bn, stride_bk, stride_cm, stride_ck</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>):</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    row <span class="op">=</span> tl.program_id(<span class="dv">0</span>)</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    col <span class="op">=</span> tl.program_id(<span class="dv">1</span>)</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    <span class="co"># BLOCK_SIZE: tl.constexpr = 16</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    acc <span class="op">=</span> <span class="fl">0.0</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, N):</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>        a_val <span class="op">=</span> tl.load(a <span class="op">+</span> row <span class="op">*</span> N <span class="op">+</span> i)</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>        b_val <span class="op">=</span> tl.load(b <span class="op">+</span> col <span class="op">+</span> i <span class="op">*</span> K)</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>        acc <span class="op">+=</span> a_val <span class="op">*</span> b_val</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>    tl.store(c <span class="op">+</span> K <span class="op">*</span> row <span class="op">+</span> col, acc)</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a><span class="co"># a, b, c are tensors on the GPU</span></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> solve(a: torch.Tensor, b: torch.Tensor, c: torch.Tensor, M: <span class="bu">int</span>, N: <span class="bu">int</span>, K: <span class="bu">int</span>):</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>    stride_am, stride_an <span class="op">=</span> N, <span class="dv">1</span></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>    stride_bn, stride_bk <span class="op">=</span> K, <span class="dv">1</span></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>    stride_cm, stride_ck <span class="op">=</span> K, <span class="dv">1</span></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>    grid <span class="op">=</span> (M, K)</span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>    matrix_multiplication_kernel[grid](</span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>        a, b, c, M, N, K, stride_am, stride_an, stride_bn, stride_bk, stride_cm, stride_ck</span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>    )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Runtime: <strong>0.00ms</strong></p>
+</section>
+</section>
+<section id="cuda" class="level2">
+<h2 class="anchored" data-anchor-id="cuda">CUDA</h2>
+<div class="callout callout-style-default callout-note callout-empty-content callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+
+</div>
+</div>
+<section id="solution-3" class="level3">
+<h3 class="anchored" data-anchor-id="solution-3">Solution</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;cuda_runtime.h&gt;</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>__global__ <span class="dt">void</span> matrix_multiplication_kernel<span class="op">(</span><span class="at">const</span> <span class="dt">float</span><span class="op">*</span> A<span class="op">,</span> <span class="at">const</span> <span class="dt">float</span><span class="op">*</span> B<span class="op">,</span> <span class="dt">float</span><span class="op">*</span> C<span class="op">,</span> <span class="dt">int</span> M<span class="op">,</span> <span class="dt">int</span> N<span class="op">,</span> <span class="dt">int</span> K<span class="op">)</span> </span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> row <span class="op">=</span> blockIdx<span class="op">.</span>y <span class="op">*</span> blockDim<span class="op">.</span>y <span class="op">+</span> threadIdx<span class="op">.</span>y<span class="op">;</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> col <span class="op">=</span> blockIdx<span class="op">.</span>x <span class="op">*</span> blockDim<span class="op">.</span>x <span class="op">+</span> threadIdx<span class="op">.</span>x<span class="op">;</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>row <span class="op">&gt;=</span> M <span class="kw">or</span> col <span class="op">&gt;=</span> K<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span><span class="op">;</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    <span class="co">//now take the ith row from A and jth col from B and do a dot product</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    <span class="dt">float</span> sum <span class="op">=</span> <span class="fl">0.0</span><span class="bu">f</span><span class="op">;</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> k <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> k <span class="op">&lt;</span> N<span class="op">;</span> k<span class="op">++)</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>        sum <span class="op">+=</span> A<span class="op">[</span>row <span class="op">*</span> N <span class="op">+</span> k<span class="op">]</span> <span class="op">*</span> B<span class="op">[</span>k <span class="op">*</span> K <span class="op">+</span> col<span class="op">];</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>    C<span class="op">[</span>row <span class="op">*</span> K <span class="op">+</span> col<span class="op">]</span> <span class="op">=</span> sum<span class="op">;</span></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a><span class="co">// A, B, C are device pointers (i.e. pointers to memory on the GPU)</span></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a><span class="at">extern</span> <span class="st">"C"</span> <span class="dt">void</span> solve<span class="op">(</span><span class="at">const</span> <span class="dt">float</span><span class="op">*</span> A<span class="op">,</span> <span class="at">const</span> <span class="dt">float</span><span class="op">*</span> B<span class="op">,</span> <span class="dt">float</span><span class="op">*</span> C<span class="op">,</span> <span class="dt">int</span> M<span class="op">,</span> <span class="dt">int</span> N<span class="op">,</span> <span class="dt">int</span> K<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>    dim3 threadsPerBlock<span class="op">(</span><span class="dv">16</span><span class="op">,</span> <span class="dv">16</span><span class="op">);</span></span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>    dim3 blocksPerGrid<span class="op">((</span>K <span class="op">+</span> threadsPerBlock<span class="op">.</span>x <span class="op">-</span> <span class="dv">1</span><span class="op">)</span> <span class="op">/</span> threadsPerBlock<span class="op">.</span>x<span class="op">,</span></span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>                       <span class="op">(</span>M <span class="op">+</span> threadsPerBlock<span class="op">.</span>y <span class="op">-</span> <span class="dv">1</span><span class="op">)</span> <span class="op">/</span> threadsPerBlock<span class="op">.</span>y<span class="op">);</span></span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>    matrix_multiplication_kernel<span class="op">&lt;&lt;&lt;</span>blocksPerGrid<span class="op">,</span> threadsPerBlock<span class="op">&gt;&gt;&gt;(</span>A<span class="op">,</span> B<span class="op">,</span> C<span class="op">,</span> M<span class="op">,</span> N<span class="op">,</span> K<span class="op">);</span></span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>    cudaDeviceSynchronize<span class="op">();</span></span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<blockquote class="blockquote">
+<p>Note: Timeout when <code>C[row * K + col]</code> is used as accumulator!</p>
+</blockquote>
+<p>Runtime: <strong>953.89 ms</strong></p>
+</section>
+</section>
+<section id="reference" class="level2">
+<h2 class="anchored" data-anchor-id="reference">Reference</h2>
+<ul>
+<li><a href="https://triton-lang.org/main/python-api/triton.language.html">https://triton-lang.org/main/python-api/triton.language.html</a></li>
+</ul>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -828,38 +1031,6 @@ ul.task-list li input[type="checkbox"] {
   });
   </script>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
-(function() {
-  let previousOnload = window.onload;
-  window.onload = () => {
-    if (previousOnload) {
-      previousOnload();
-    }
-    lightboxQuarto.on('slide_before_load', (data) => {
-      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
-      const href = trigger.getAttribute('href');
-      if (href !== null) {
-        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
-        if (imgEl !== null) {
-          const srcAttr = imgEl.getAttribute("src");
-          if (srcAttr && srcAttr.startsWith("data:")) {
-            slideConfig.href = srcAttr;
-          }
-        }
-      } 
-    });
-  
-    lightboxQuarto.on('slide_after_load', (data) => {
-      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
-      if (window.Quarto?.typesetMath) {
-        window.Quarto.typesetMath(slideNode);
-      }
-    });
-  
-  };
-  
-})();
-          </script>
 
 
 

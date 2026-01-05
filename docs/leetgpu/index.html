@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Md Saidul Hoque Anik">
-<meta name="description" content="Notes and solutions in PyTorch, Triton, and CUDA. Runtime shown for T4 GPU.">
 
-<title>LeetGPU-5: Matrix Addition – Md Saidul Hoque Anik</title>
+<title>LeetGPU Solutions and Notes – Md Saidul Hoque Anik</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,66 +20,33 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
-<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../../">
-<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b758ccaa5987ceb1b75504551e579abf.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
-<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-69585d0cb7eb4d91e1e9639bd63741e7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-435edb4a015d21cda02749244a61383a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/bootstrap/bootstrap-69585d0cb7eb4d91e1e9639bd63741e7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-listing/list.min.js"></script>
+<script src="../site_libs/quarto-listing/quarto-listing.js"></script>
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b758ccaa5987ceb1b75504551e579abf.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-69585d0cb7eb4d91e1e9639bd63741e7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-435edb4a015d21cda02749244a61383a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-69585d0cb7eb4d91e1e9639bd63741e7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -109,16 +74,74 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+<script>
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-listings-leetgpu .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-date','listing-title','listing-statement',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-date-modified-sort'] },{ data: ['listing-file-modified-sort'] },{ data: ['listing-reading-time-sort'] },{ data: ['listing-word-count-sort'] }],
+      
+      searchColumns: ["listing-project","listing-website","listing-format","listing-execute","listing-reference-location","listing-citation-location","listing-language","listing-title","listing-description","listing-statement","listing-categories","listing-author","listing-date","listing-path","listing-outputHref","listing-date-modified","listing-filename","listing-file-modified","listing-reading-time","listing-word-count"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-listings-leetgpu'] = new List('listing-listings-leetgpu', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  </script>
 <link href="https://cdn.jsdelivr.net/npm/charter-webfont@4.1.0/charter.min.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&amp;family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&amp;family=Open+Sans:ital,wght@0,300..800;1,300..800&amp;display=swap" rel="stylesheet">
 <link href="https://fonts.cdnfonts.com/css/palatino" rel="stylesheet">
-<script src="../../script.js"></script>
+<script src="../script.js"></script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<link rel="stylesheet" href="../../styles.css">
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../styles.css">
 </head>
 
-<body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+<body class="nav-fixed fullcontent quarto-light"><script id="quarto-html-before-body" type="application/javascript">
     const toggleBodyColorMode = (bsSheetEl) => {
       const mode = bsSheetEl.getAttribute("data-mode");
       const bodyEl = window.document.querySelector("body");
@@ -287,7 +310,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../../index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">Md Saidul Hoque Anik</span>
     </a>
   </div>
@@ -298,19 +321,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../index.html"> 
+    <a class="nav-link" href="../index.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../research"> 
+    <a class="nav-link" href="../research"> 
 <span class="menu-text">Research</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../news"> 
+    <a class="nav-link" href="../news"> 
 <span class="menu-text">News</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../teaching"> 
+    <a class="nav-link" href="../teaching"> 
 <span class="menu-text">Teaching</span></a>
   </li>  
   <li class="nav-item dropdown ">
@@ -319,19 +342,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </a>
     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-more">    
         <li>
-    <a class="dropdown-item" href="../../leadership/">
+    <a class="dropdown-item" href="../leetgpu">
+ <span class="dropdown-text">LeetGPU</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../leadership/">
  <span class="dropdown-text">Leadership</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../software">
+    <a class="dropdown-item" href="../software">
  <span class="dropdown-text">Software</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../news/#category=Publication">
+    <a class="dropdown-item" href="../news/#category=Publication">
  <span class="dropdown-text">Publications</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../blog">
+    <a class="dropdown-item" href="../blog">
  <span class="dropdown-text">Blog</span></a>
   </li>  
     </ul>
@@ -348,70 +375,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#problem-statement" id="toc-problem-statement" class="nav-link active" data-scroll-target="#problem-statement">Problem Statement</a>
-  <ul class="collapse">
-  <li><a href="#implementation-requirements" id="toc-implementation-requirements" class="nav-link" data-scroll-target="#implementation-requirements"><strong>Implementation Requirements</strong></a></li>
-  <li><a href="#example" id="toc-example" class="nav-link" data-scroll-target="#example">Example</a></li>
-  <li><a href="#constraints" id="toc-constraints" class="nav-link" data-scroll-target="#constraints">Constraints</a></li>
-  </ul></li>
-  <li><a href="#solution" id="toc-solution" class="nav-link" data-scroll-target="#solution">Solution</a>
-  <ul class="collapse">
-  <li><a href="#pytorch" id="toc-pytorch" class="nav-link" data-scroll-target="#pytorch">PyTorch</a>
-  <ul class="collapse">
-  <li><a href="#solution-1" id="toc-solution-1" class="nav-link" data-scroll-target="#solution-1">Solution</a></li>
-  </ul></li>
-  <li><a href="#triton" id="toc-triton" class="nav-link" data-scroll-target="#triton">Triton</a>
-  <ul class="collapse">
-  <li><a href="#solution-2" id="toc-solution-2" class="nav-link" data-scroll-target="#solution-2">Solution</a></li>
-  </ul></li>
-  <li><a href="#cuda" id="toc-cuda" class="nav-link" data-scroll-target="#cuda">CUDA</a>
-  <ul class="collapse">
-  <li><a href="#solution-3" id="toc-solution-3" class="nav-link" data-scroll-target="#solution-3">Solution</a></li>
-  </ul></li>
-  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"></a></li>
-  </ul></li>
-  </ul>
-</nav>
-    </div>
+    
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">LeetGPU-5: Matrix Addition</h1>
-  <div class="quarto-categories">
-    <div class="quarto-category">LeetGPU</div>
-  </div>
-  </div>
-
-<div>
-  <div class="description">
-    Notes and solutions in PyTorch, Triton, and CUDA. Runtime shown for T4 GPU.
-  </div>
+<h1 class="title">LeetGPU Solutions and Notes</h1>
 </div>
+
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Md Saidul Hoque Anik </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">January 2026</p>
-    </div>
-  </div>
   
     
   </div>
@@ -421,153 +399,98 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="problem-statement" class="level1">
-<h1>Problem Statement</h1>
-<p>Implement a program that performs element-wise addition of two matrices containing 32-bit floating point numbers on a GPU. The program should take two input matrices of equal dimensions and produce a single output matrix containing their element-wise sum.</p>
-<section id="implementation-requirements" class="level2">
-<h2 class="anchored" data-anchor-id="implementation-requirements"><strong>Implementation Requirements</strong></h2>
-<ul>
-<li><p>External libraries are not permitted</p></li>
-<li><p>The <code>solve</code> function signature must remain unchanged</p></li>
-<li><p>The final result must be stored in matrix <code>C</code></p></li>
+<p>Notes and solutions in PyTorch, Triton, and CUDA. Runtime shown for T4 GPU.</p>
+<div id="listing-listings-leetgpu" class="quarto-listing quarto-listing-container-custom">
+<ul class="list">
+<li data-index="0" data-categories="TGVldEdQVQ==" data-listing-date-sort="1767506400000" data-listing-file-modified-sort="1767636130318" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="502">
+<span class="listing-header">
+<h3 class="no-anchor listing-title">
+<a href="../leetgpu/leet-gpu-5/index.html" class="no-external delink"> LeetGPU-5: Matrix Addition </a>
+</h3>
+<small class="listing-date">Jan 04, 2026</small> </span> <span class="listing-description"> Implement a program that performs element-wise addition of two matrices containing 32-bit floating point numbers on a GPU. The program should take two input matrices of equal dimensions and produce a single output matrix containing their element-wise sum. </span><br>
+</li>
+<li data-index="1" data-categories="TGVldEdQVQ==" data-listing-date-sort="1767420000000" data-listing-file-modified-sort="1767636119316" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="544">
+<span class="listing-header">
+<h3 class="no-anchor listing-title">
+<a href="../leetgpu/leet-gpu-3/index.html" class="no-external delink"> LeetGPU-3: Matrix Transpose </a>
+</h3>
+<small class="listing-date">Jan 03, 2026</small> </span> <span class="listing-description"> Write a program that transposes a matrix of 32-bit floating point numbers on a GPU. The transpose of a matrix switches its rows and columns. Given a matrix of dimensions , the transpose will have dimensions . All matrices are stored in row-major format. </span><br>
+</li>
+<li data-index="2" data-categories="TGVldEdQVQ==" data-listing-date-sort="1766901600000" data-listing-file-modified-sort="1767636154202" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="285">
+<span class="listing-header">
+<h3 class="no-anchor listing-title">
+<a href="../leetgpu/leet-gpu-12/index.html" class="no-external delink"> LeetGPU-12: Simple Inference </a>
+</h3>
+<small class="listing-date">Dec 28, 2025</small> </span> <span class="listing-description"> Run inference on a PyTorch model. Given an input tensor and a trained torch.nn.Linear model, compute the forward pass and store the result in the output tensor. </span><br>
+</li>
+<li data-index="3" data-categories="TGVldEdQVQ==" data-listing-date-sort="1765951200000" data-listing-file-modified-sort="1767636108910" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="595">
+<span class="listing-header">
+<h3 class="no-anchor listing-title">
+<a href="../leetgpu/leet-gpu-2/index.html" class="no-external delink"> LeetGPU-2: Matrix Multiplication </a>
+</h3>
+<small class="listing-date">Dec 17, 2025</small> </span> <span class="listing-description"> Write a program that multiplies two matrices of 32-bit floating point numbers on a GPU. Given matrix <code>A</code> of dimensions <span class="math inline">\(M \times N\)</span> and matrix <code>B</code> of dimensions N x K, compute the product matrix C, which will have dimensions MxK. All matrices are stored in row-major format. </span><br>
+</li>
+<li data-index="4" data-categories="TGVldEdQVQ==" data-listing-date-sort="1765692000000" data-listing-file-modified-sort="1767636086965" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="581">
+<span class="listing-header">
+<h3 class="no-anchor listing-title">
+<a href="../leetgpu/leet-gpu-1/index.html" class="no-external delink"> LeetGPU-1: Vector Addition </a>
+</h3>
+<small class="listing-date">Dec 14, 2025</small> </span> <span class="listing-description"> Implement a program that performs element-wise addition of two vectors containing 32-bit floating point numbers on a GPU. The program should take two input vectors of equal length and produce a single output vector containing their sum. </span><br>
+</li>
 </ul>
-</section>
-<section id="example" class="level2">
-<h2 class="anchored" data-anchor-id="example">Example</h2>
-<pre><code>Input:  A = [[1.0, 2.0],
-             [3.0, 4.0]]
-        B = [[5.0, 6.0],
-             [7.0, 8.0]]
-Output: C = [[6.0, 8.0],
-             [10.0, 12.0]]</code></pre>
-</section>
-<section id="constraints" class="level2">
-<h2 class="anchored" data-anchor-id="constraints">Constraints</h2>
-<ul>
-<li><p>Input matrices <code>A</code> and <code>B</code> have identical dimensions</p></li>
-<li><p>1 ≤ <code>N</code> ≤ 4096</p></li>
-<li><p>All elements are 32-bit floating point numbers</p></li>
-</ul>
-</section>
-</section>
-<section id="solution" class="level1">
-<h1>Solution</h1>
-<section id="pytorch" class="level2">
-<h2 class="anchored" data-anchor-id="pytorch">PyTorch</h2>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
+<style>
+  /* Remove bullet points and reset padding for the list */
+  .list {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  /* Style each list item */
+  .list li {
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    margin-left: 10px;
+  }
+
+  /* Style the title */
+  .listing-title h3 {
+    margin: 0;
+    font-size: 1.5em;
+  }
+
+  /* Style the date and categories */
+  .listing-date, .listing-categories {
+    font-size: 0.8em;
+    margin-right: 20px;
+  }
+
+  /* Style the description */
+  .listing-description {
+    margin-top: 10px;
+    font-size: 1em;
+  }
+
+  .listing-header {
+    display: flex;              /* span becomes a flex container */
+    align-items: baseline;
+    justify-content: space-between;
+    width: 100%;                /* important so date can reach right */
+  }
+
+  .listing-title {
+    margin: 0;
+  }
+
+  .listing-date {
+    white-space: nowrap;
+  }
+  
+</style>
+<div class="listing-no-matching d-none">No matching items</div>
 </div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Trivial</p>
-</div>
-</div>
-<section id="solution-1" class="level3">
-<h3 class="anchored" data-anchor-id="solution-1">Solution</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># A, B, C are tensors on the GPU</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> solve(A: torch.Tensor, B: torch.Tensor, C: torch.Tensor, N: <span class="bu">int</span>):</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    C.copy_(A <span class="op">+</span> B)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Runtime: <strong>1.41ms</strong></p>
-</section>
-</section>
-<section id="triton" class="level2">
-<h2 class="anchored" data-anchor-id="triton">Triton</h2>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Hmm exactly same runtime as cuda. 4x slower than pytorch</p>
-</div>
-</div>
-<section id="solution-2" class="level3">
-<h3 class="anchored" data-anchor-id="solution-2">Solution</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> triton</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> triton.language <span class="im">as</span> tl</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="at">@triton.jit</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> matrix_add_kernel(a, b, c, n_elements, BLOCK_SIZE: tl.constexpr):</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> tl.program_id(<span class="dv">0</span>) <span class="op">*</span> BLOCK_SIZE</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> x <span class="op">+</span> tl.arange(<span class="dv">0</span>, BLOCK_SIZE)</span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    mask <span class="op">=</span> x <span class="op">&lt;</span> (n_elements <span class="op">*</span> n_elements)</span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    row <span class="op">=</span> x <span class="op">%</span> n_elements</span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    col <span class="op">=</span> x <span class="op">//</span> n_elements</span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    pos <span class="op">=</span> row <span class="op">*</span> n_elements <span class="op">+</span> col</span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    t0 <span class="op">=</span> tl.load(a <span class="op">+</span> pos, mask)</span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    t1 <span class="op">=</span> tl.load(b <span class="op">+</span> pos, mask)</span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>    tl.store(c <span class="op">+</span> pos, t0<span class="op">+</span>t1, mask)</span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="co"># a, b, c are tensors on the GPU</span></span>
-<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> solve(a: torch.Tensor, b: torch.Tensor, c: torch.Tensor, N: <span class="bu">int</span>):</span>
-<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>    BLOCK_SIZE <span class="op">=</span> <span class="dv">1024</span></span>
-<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>    n_elements <span class="op">=</span> N <span class="op">*</span> N</span>
-<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>    grid <span class="op">=</span> (triton.cdiv(n_elements, BLOCK_SIZE),)</span>
-<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>    matrix_add_kernel[grid](a, b, c, N, BLOCK_SIZE)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Runtime: <strong>5.30ms</strong></p>
-</section>
-</section>
-<section id="cuda" class="level2">
-<h2 class="anchored" data-anchor-id="cuda">CUDA</h2>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>The given template code was 1-d so used that. Almost 4x slower than pytorch</p>
-</div>
-</div>
-<section id="solution-3" class="level3">
-<h3 class="anchored" data-anchor-id="solution-3">Solution</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;cuda_runtime.h&gt;</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>__global__ <span class="dt">void</span> matrix_add<span class="op">(</span><span class="at">const</span> <span class="dt">float</span><span class="op">*</span> A<span class="op">,</span> <span class="at">const</span> <span class="dt">float</span><span class="op">*</span> B<span class="op">,</span> <span class="dt">float</span><span class="op">*</span> C<span class="op">,</span> <span class="dt">int</span> N<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> x <span class="op">=</span> blockIdx<span class="op">.</span>x <span class="op">*</span> blockDim<span class="op">.</span>x <span class="op">+</span> threadIdx<span class="op">.</span>x<span class="op">;</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> row <span class="op">=</span> x <span class="op">%</span> N<span class="op">;</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> col <span class="op">=</span> <span class="dt">int</span><span class="op">(</span>x <span class="op">/</span> N<span class="op">);</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>x <span class="op">&lt;</span> N <span class="op">*</span> N<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>        C<span class="op">[</span>row <span class="op">*</span> N <span class="op">+</span> col<span class="op">]</span> <span class="op">=</span> A<span class="op">[</span>row <span class="op">*</span> N <span class="op">+</span> col<span class="op">]</span> <span class="op">+</span> B<span class="op">[</span>row <span class="op">*</span> N <span class="op">+</span> col<span class="op">];</span></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="co">// A, B, C are device pointers (i.e. pointers to memory on the GPU)</span></span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="at">extern</span> <span class="st">"C"</span> <span class="dt">void</span> solve<span class="op">(</span><span class="at">const</span> <span class="dt">float</span><span class="op">*</span> A<span class="op">,</span> <span class="at">const</span> <span class="dt">float</span><span class="op">*</span> B<span class="op">,</span> <span class="dt">float</span><span class="op">*</span> C<span class="op">,</span> <span class="dt">int</span> N<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> threadsPerBlock <span class="op">=</span> <span class="dv">256</span><span class="op">;</span></span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> blocksPerGrid <span class="op">=</span> <span class="op">(</span>N <span class="op">*</span> N <span class="op">+</span> threadsPerBlock <span class="op">-</span> <span class="dv">1</span><span class="op">)</span> <span class="op">/</span> threadsPerBlock<span class="op">;</span></span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>    matrix_add<span class="op">&lt;&lt;&lt;</span>blocksPerGrid<span class="op">,</span> threadsPerBlock<span class="op">&gt;&gt;&gt;(</span>A<span class="op">,</span> B<span class="op">,</span> C<span class="op">,</span> N<span class="op">);</span></span>
-<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>    cudaDeviceSynchronize<span class="op">();</span></span>
-<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Runtime: <strong>5.30ms</strong></p>
-</section>
-</section>
-<section id="section" class="level2">
-<h2 class="anchored" data-anchor-id="section"></h2>
 
 
-</section>
-</section>
+
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

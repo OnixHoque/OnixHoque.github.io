@@ -9,7 +9,7 @@
 <meta name="author" content="Md Saidul Hoque Anik">
 <meta name="description" content="Notes and solutions in PyTorch, Triton, and CUDA. Runtime shown for T4 GPU.">
 
-<title>LeetGPU-2: Matrix Multiplication – Md Saidul Hoque Anik</title>
+<title>LeetGPU-5: Matrix Addition – Md Saidul Hoque Anik</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -114,35 +114,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="https://fonts.cdnfonts.com/css/palatino" rel="stylesheet">
 <script src="../../script.js"></script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="../../styles.css">
 </head>
@@ -348,6 +319,10 @@ window.Quarto = {
     </a>
     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-more">    
         <li>
+    <a class="dropdown-item" href="../../leetgpu">
+ <span class="dropdown-text">LeetGPU</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="../../leadership/">
  <span class="dropdown-text">Leadership</span></a>
   </li>  
@@ -384,13 +359,15 @@ window.Quarto = {
   <ul>
   <li><a href="#problem-statement" id="toc-problem-statement" class="nav-link active" data-scroll-target="#problem-statement">Problem Statement</a>
   <ul class="collapse">
+  <li><a href="#implementation-requirements" id="toc-implementation-requirements" class="nav-link" data-scroll-target="#implementation-requirements"><strong>Implementation Requirements</strong></a></li>
+  <li><a href="#example" id="toc-example" class="nav-link" data-scroll-target="#example">Example</a></li>
   <li><a href="#constraints" id="toc-constraints" class="nav-link" data-scroll-target="#constraints">Constraints</a></li>
   </ul></li>
   <li><a href="#solution" id="toc-solution" class="nav-link" data-scroll-target="#solution">Solution</a>
   <ul class="collapse">
   <li><a href="#pytorch" id="toc-pytorch" class="nav-link" data-scroll-target="#pytorch">PyTorch</a>
   <ul class="collapse">
-  <li><a href="#solution-1" id="toc-solution-1" class="nav-link" data-scroll-target="#solution-1">Solution-1</a></li>
+  <li><a href="#solution-1" id="toc-solution-1" class="nav-link" data-scroll-target="#solution-1">Solution</a></li>
   </ul></li>
   <li><a href="#triton" id="toc-triton" class="nav-link" data-scroll-target="#triton">Triton</a>
   <ul class="collapse">
@@ -400,7 +377,7 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#solution-3" id="toc-solution-3" class="nav-link" data-scroll-target="#solution-3">Solution</a></li>
   </ul></li>
-  <li><a href="#reference" id="toc-reference" class="nav-link" data-scroll-target="#reference">Reference</a></li>
+  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"></a></li>
   </ul></li>
   </ul>
 </nav>
@@ -411,7 +388,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">LeetGPU-2: Matrix Multiplication</h1>
+<h1 class="title">LeetGPU-5: Matrix Addition</h1>
   <div class="quarto-categories">
     <div class="quarto-category">LeetGPU</div>
   </div>
@@ -436,7 +413,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">December 2025</p>
+      <p class="date">January 2026</p>
     </div>
   </div>
   
@@ -448,17 +425,32 @@ window.Quarto = {
 </header>
 
 
-<blockquote class="blockquote">
-<p>Note: This is part of a learning series on CUDA and Triton, focusing on correctness-first implementations rather than performance optimization.</p>
-</blockquote>
 <section id="problem-statement" class="level1">
 <h1>Problem Statement</h1>
-<p>Write a program that multiplies two matrices of 32-bit floating point numbers on a GPU. Given matrix <code>A</code> of dimensions <span class="math inline">\(M \times N\)</span> and matrix <code>B</code> of dimensions N x K, compute the product matrix C, which will have dimensions MxK. All matrices are stored in row-major format.</p>
+<p>Implement a program that performs element-wise addition of two matrices containing 32-bit floating point numbers on a GPU. The program should take two input matrices of equal dimensions and produce a single output matrix containing their element-wise sum.</p>
+<section id="implementation-requirements" class="level2">
+<h2 class="anchored" data-anchor-id="implementation-requirements"><strong>Implementation Requirements</strong></h2>
+<ul>
+<li><p>External libraries are not permitted</p></li>
+<li><p>The <code>solve</code> function signature must remain unchanged</p></li>
+<li><p>The final result must be stored in matrix <code>C</code></p></li>
+</ul>
+</section>
+<section id="example" class="level2">
+<h2 class="anchored" data-anchor-id="example">Example</h2>
+<pre><code>Input:  A = [[1.0, 2.0],
+             [3.0, 4.0]]
+        B = [[5.0, 6.0],
+             [7.0, 8.0]]
+Output: C = [[6.0, 8.0],
+             [10.0, 12.0]]</code></pre>
+</section>
 <section id="constraints" class="level2">
 <h2 class="anchored" data-anchor-id="constraints">Constraints</h2>
 <ul>
-<li><p>1 ≤ <code>M</code>, <code>N</code>, <code>K</code> ≤ 8192</p></li>
-<li><p>Performance is measured with <code>M</code> = 8192, <code>N</code> = 6144, <code>K</code> = 4096</p></li>
+<li><p>Input matrices <code>A</code> and <code>B</code> have identical dimensions</p></li>
+<li><p>1 ≤ <code>N</code> ≤ 4096</p></li>
+<li><p>All elements are 32-bit floating point numbers</p></li>
 </ul>
 </section>
 </section>
@@ -476,27 +468,23 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<ul>
-<li>The solution is straightforward. But can we do blocking?</li>
-</ul>
+<p>Trivial</p>
 </div>
 </div>
 <section id="solution-1" class="level3">
-<h3 class="anchored" data-anchor-id="solution-1">Solution-1</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># A, B, C are tensors on the GPU</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> solve(A: torch.Tensor, B: torch.Tensor, C: torch.Tensor, M: <span class="bu">int</span>, N: <span class="bu">int</span>, K: <span class="bu">int</span>):</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    torch.matmul(A, B, out<span class="op">=</span>C)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Runtime: <strong>97.48ms</strong></p>
-<blockquote class="blockquote">
-<p>TODO: block matmul</p>
-</blockquote>
+<h3 class="anchored" data-anchor-id="solution-1">Solution</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># A, B, C are tensors on the GPU</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> solve(A: torch.Tensor, B: torch.Tensor, C: torch.Tensor, N: <span class="bu">int</span>):</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    C.copy_(A <span class="op">+</span> B)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Runtime: <strong>1.41ms</strong></p>
 </section>
 </section>
 <section id="triton" class="level2">
 <h2 class="anchored" data-anchor-id="triton">Triton</h2>
-<div class="callout callout-style-default callout-note callout-empty-content callout-titled">
+<div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
@@ -506,52 +494,41 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-
+<p>Hmm exactly same runtime as cuda. 4x slower than pytorch</p>
 </div>
 </div>
 <section id="solution-2" class="level3">
 <h3 class="anchored" data-anchor-id="solution-2">Solution</h3>
-<blockquote class="blockquote">
-<p>Correct but slow. Will come back to this later in sha Allah!</p>
-</blockquote>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> triton</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> triton.language <span class="im">as</span> tl</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="at">@triton.jit</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> matrix_multiplication_kernel(</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    a, b, c, M, N, K, stride_am, stride_an, stride_bn, stride_bk, stride_cm, stride_ck</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>):</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    row <span class="op">=</span> tl.program_id(<span class="dv">0</span>)</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    col <span class="op">=</span> tl.program_id(<span class="dv">1</span>)</span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    <span class="co"># BLOCK_SIZE: tl.constexpr = 16</span></span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    acc <span class="op">=</span> <span class="fl">0.0</span></span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, N):</span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>        a_val <span class="op">=</span> tl.load(a <span class="op">+</span> row <span class="op">*</span> N <span class="op">+</span> i)</span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>        b_val <span class="op">=</span> tl.load(b <span class="op">+</span> col <span class="op">+</span> i <span class="op">*</span> K)</span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>        acc <span class="op">+=</span> a_val <span class="op">*</span> b_val</span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>    tl.store(c <span class="op">+</span> K <span class="op">*</span> row <span class="op">+</span> col, acc)</span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a><span class="co"># a, b, c are tensors on the GPU</span></span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> solve(a: torch.Tensor, b: torch.Tensor, c: torch.Tensor, M: <span class="bu">int</span>, N: <span class="bu">int</span>, K: <span class="bu">int</span>):</span>
-<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>    stride_am, stride_an <span class="op">=</span> N, <span class="dv">1</span></span>
-<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>    stride_bn, stride_bk <span class="op">=</span> K, <span class="dv">1</span></span>
-<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>    stride_cm, stride_ck <span class="op">=</span> K, <span class="dv">1</span></span>
-<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>    grid <span class="op">=</span> (M, K)</span>
-<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>    matrix_multiplication_kernel[grid](</span>
-<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>        a, b, c, M, N, K, stride_am, stride_an, stride_bn, stride_bk, stride_cm, stride_ck</span>
-<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>    )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Runtime: <strong>0.00ms</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> triton</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> triton.language <span class="im">as</span> tl</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="at">@triton.jit</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> matrix_add_kernel(a, b, c, n_elements, BLOCK_SIZE: tl.constexpr):</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> tl.program_id(<span class="dv">0</span>) <span class="op">*</span> BLOCK_SIZE</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> x <span class="op">+</span> tl.arange(<span class="dv">0</span>, BLOCK_SIZE)</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    mask <span class="op">=</span> x <span class="op">&lt;</span> (n_elements <span class="op">*</span> n_elements)</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    row <span class="op">=</span> x <span class="op">%</span> n_elements</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    col <span class="op">=</span> x <span class="op">//</span> n_elements</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    pos <span class="op">=</span> row <span class="op">*</span> n_elements <span class="op">+</span> col</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    t0 <span class="op">=</span> tl.load(a <span class="op">+</span> pos, mask)</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    t1 <span class="op">=</span> tl.load(b <span class="op">+</span> pos, mask)</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>    tl.store(c <span class="op">+</span> pos, t0<span class="op">+</span>t1, mask)</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="co"># a, b, c are tensors on the GPU</span></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> solve(a: torch.Tensor, b: torch.Tensor, c: torch.Tensor, N: <span class="bu">int</span>):</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>    BLOCK_SIZE <span class="op">=</span> <span class="dv">1024</span></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>    n_elements <span class="op">=</span> N <span class="op">*</span> N</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>    grid <span class="op">=</span> (triton.cdiv(n_elements, BLOCK_SIZE),)</span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>    matrix_add_kernel[grid](a, b, c, N, BLOCK_SIZE)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Runtime: <strong>5.30ms</strong></p>
 </section>
 </section>
 <section id="cuda" class="level2">
 <h2 class="anchored" data-anchor-id="cuda">CUDA</h2>
-<div class="callout callout-style-default callout-note callout-empty-content callout-titled">
+<div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
@@ -561,52 +538,36 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-
+<p>The given template code was 1-d so used that. Almost 4x slower than pytorch</p>
 </div>
 </div>
 <section id="solution-3" class="level3">
 <h3 class="anchored" data-anchor-id="solution-3">Solution</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;cuda_runtime.h&gt;</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>__global__ <span class="dt">void</span> matrix_multiplication_kernel<span class="op">(</span><span class="at">const</span> <span class="dt">float</span><span class="op">*</span> A<span class="op">,</span> <span class="at">const</span> <span class="dt">float</span><span class="op">*</span> B<span class="op">,</span> <span class="dt">float</span><span class="op">*</span> C<span class="op">,</span> <span class="dt">int</span> M<span class="op">,</span> <span class="dt">int</span> N<span class="op">,</span> <span class="dt">int</span> K<span class="op">)</span> </span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> row <span class="op">=</span> blockIdx<span class="op">.</span>y <span class="op">*</span> blockDim<span class="op">.</span>y <span class="op">+</span> threadIdx<span class="op">.</span>y<span class="op">;</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> col <span class="op">=</span> blockIdx<span class="op">.</span>x <span class="op">*</span> blockDim<span class="op">.</span>x <span class="op">+</span> threadIdx<span class="op">.</span>x<span class="op">;</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>row <span class="op">&gt;=</span> M <span class="kw">or</span> col <span class="op">&gt;=</span> K<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span><span class="op">;</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    <span class="co">//now take the ith row from A and jth col from B and do a dot product</span></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    <span class="dt">float</span> sum <span class="op">=</span> <span class="fl">0.0</span><span class="bu">f</span><span class="op">;</span></span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> k <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> k <span class="op">&lt;</span> N<span class="op">;</span> k<span class="op">++)</span></span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>        sum <span class="op">+=</span> A<span class="op">[</span>row <span class="op">*</span> N <span class="op">+</span> k<span class="op">]</span> <span class="op">*</span> B<span class="op">[</span>k <span class="op">*</span> K <span class="op">+</span> col<span class="op">];</span></span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>    C<span class="op">[</span>row <span class="op">*</span> K <span class="op">+</span> col<span class="op">]</span> <span class="op">=</span> sum<span class="op">;</span></span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a><span class="co">// A, B, C are device pointers (i.e. pointers to memory on the GPU)</span></span>
-<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a><span class="at">extern</span> <span class="st">"C"</span> <span class="dt">void</span> solve<span class="op">(</span><span class="at">const</span> <span class="dt">float</span><span class="op">*</span> A<span class="op">,</span> <span class="at">const</span> <span class="dt">float</span><span class="op">*</span> B<span class="op">,</span> <span class="dt">float</span><span class="op">*</span> C<span class="op">,</span> <span class="dt">int</span> M<span class="op">,</span> <span class="dt">int</span> N<span class="op">,</span> <span class="dt">int</span> K<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>    dim3 threadsPerBlock<span class="op">(</span><span class="dv">16</span><span class="op">,</span> <span class="dv">16</span><span class="op">);</span></span>
-<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>    dim3 blocksPerGrid<span class="op">((</span>K <span class="op">+</span> threadsPerBlock<span class="op">.</span>x <span class="op">-</span> <span class="dv">1</span><span class="op">)</span> <span class="op">/</span> threadsPerBlock<span class="op">.</span>x<span class="op">,</span></span>
-<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>                       <span class="op">(</span>M <span class="op">+</span> threadsPerBlock<span class="op">.</span>y <span class="op">-</span> <span class="dv">1</span><span class="op">)</span> <span class="op">/</span> threadsPerBlock<span class="op">.</span>y<span class="op">);</span></span>
-<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>    matrix_multiplication_kernel<span class="op">&lt;&lt;&lt;</span>blocksPerGrid<span class="op">,</span> threadsPerBlock<span class="op">&gt;&gt;&gt;(</span>A<span class="op">,</span> B<span class="op">,</span> C<span class="op">,</span> M<span class="op">,</span> N<span class="op">,</span> K<span class="op">);</span></span>
-<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>    cudaDeviceSynchronize<span class="op">();</span></span>
-<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<blockquote class="blockquote">
-<p>Note: Timeout when <code>C[row * K + col]</code> is used as accumulator!</p>
-</blockquote>
-<p>Runtime: <strong>953.89 ms</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;cuda_runtime.h&gt;</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>__global__ <span class="dt">void</span> matrix_add<span class="op">(</span><span class="at">const</span> <span class="dt">float</span><span class="op">*</span> A<span class="op">,</span> <span class="at">const</span> <span class="dt">float</span><span class="op">*</span> B<span class="op">,</span> <span class="dt">float</span><span class="op">*</span> C<span class="op">,</span> <span class="dt">int</span> N<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> x <span class="op">=</span> blockIdx<span class="op">.</span>x <span class="op">*</span> blockDim<span class="op">.</span>x <span class="op">+</span> threadIdx<span class="op">.</span>x<span class="op">;</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> row <span class="op">=</span> x <span class="op">%</span> N<span class="op">;</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> col <span class="op">=</span> <span class="dt">int</span><span class="op">(</span>x <span class="op">/</span> N<span class="op">);</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>x <span class="op">&lt;</span> N <span class="op">*</span> N<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>        C<span class="op">[</span>row <span class="op">*</span> N <span class="op">+</span> col<span class="op">]</span> <span class="op">=</span> A<span class="op">[</span>row <span class="op">*</span> N <span class="op">+</span> col<span class="op">]</span> <span class="op">+</span> B<span class="op">[</span>row <span class="op">*</span> N <span class="op">+</span> col<span class="op">];</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="co">// A, B, C are device pointers (i.e. pointers to memory on the GPU)</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="at">extern</span> <span class="st">"C"</span> <span class="dt">void</span> solve<span class="op">(</span><span class="at">const</span> <span class="dt">float</span><span class="op">*</span> A<span class="op">,</span> <span class="at">const</span> <span class="dt">float</span><span class="op">*</span> B<span class="op">,</span> <span class="dt">float</span><span class="op">*</span> C<span class="op">,</span> <span class="dt">int</span> N<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> threadsPerBlock <span class="op">=</span> <span class="dv">256</span><span class="op">;</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> blocksPerGrid <span class="op">=</span> <span class="op">(</span>N <span class="op">*</span> N <span class="op">+</span> threadsPerBlock <span class="op">-</span> <span class="dv">1</span><span class="op">)</span> <span class="op">/</span> threadsPerBlock<span class="op">;</span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>    matrix_add<span class="op">&lt;&lt;&lt;</span>blocksPerGrid<span class="op">,</span> threadsPerBlock<span class="op">&gt;&gt;&gt;(</span>A<span class="op">,</span> B<span class="op">,</span> C<span class="op">,</span> N<span class="op">);</span></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>    cudaDeviceSynchronize<span class="op">();</span></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Runtime: <strong>5.30ms</strong></p>
 </section>
 </section>
-<section id="reference" class="level2">
-<h2 class="anchored" data-anchor-id="reference">Reference</h2>
-<ul>
-<li><a href="https://triton-lang.org/main/python-api/triton.language.html">https://triton-lang.org/main/python-api/triton.language.html</a></li>
-</ul>
+<section id="section" class="level2">
+<h2 class="anchored" data-anchor-id="section"></h2>
 
 
 </section>
