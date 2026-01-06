@@ -1,6 +1,6 @@
 ---
 title: "Md Saidul Hoque Anik"
-description: "PhD Candidate at Texas A&amp;M | ML Systems & Performance Optimization | Scalable and Differentiable Sparse Kernels for Graph Learning"
+description: "PhD Candidate at Texas A&amp;M | ML Systems & Performance Optimization | Scalable and Differentiable Sparse Kernels for Graph Learning<br><br>Contact: anik[at]tamu[dot]edu"
 toc: false
 format: 
   html:
@@ -20,7 +20,7 @@ about:
 # linestretch: 1.7
 
 ---
-## About Me
+## About Me 
 
 I am a PhD candidate in Computer Science & Engineering at Texas A&M University, focusing on **high-performance and distributed machine learning systems**. I specialize in optimizing **sparse linear algebra** for efficient ML pipelines. Previously, I interned at **Amazon AWS**, where I built a differentiable GPU kernel autotuner that reduced LLM kernel-tuning time from **days to hours** using transfer learning. After completing my PhD (tentatively in **Fall 2027**), I plan to pursue **industry roles** as an ML systems engineer or researcher, focusing on building high-performance and scalable machine learning infrastructure.  
 
