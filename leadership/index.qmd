@@ -2,12 +2,12 @@
 title: "Leadership Roles"
 ---
 
-::: {layout-ncol=2}
+::: {layout-ncol=2 layout-valign="bottom"}
 
 ![UIU Project Show 2021. Serving as judge.](uiu.jpg){.lightbox}
 
 ![MIST Inter-University Programming Contest 2019. Serving as technical coordinator.](mist.jpg){.lightbox}
- 
+  
 :::
 
 During my undergraduate studies, I served as the coordinator for the BUET System Analysis, Design, and Development (BSADD) Community. In this role, I organized and conducted a 5-day workshop on Android Mobile App Development. Additionally, I recorded the lectures and uploaded them to the official channel for wider accessibility (see [workshop website](https://sites.google.com/site/droidworkshop2016/home)).
@@ -64,7 +64,7 @@ Jan 2019 - June 2019
 
 Arrangement of BPGS meeting, thesis proposal presentation, Oct 2018 question moderation meeting. Preparation of BPGS agenda and minutes. Coordination of admission test for April 2019 semester including question setting, moderation, script checking, and result publication. Preparation of tabulation sheet for April 2019 Semester.
 
-### Internal Member Secretary, Syllabus Review Committee for OBE
+### Member Secretary, Syllabus Review Committee for OBE
 
 Dec 2018 - Jan 2019
 

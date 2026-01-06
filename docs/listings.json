@@ -32,6 +32,7 @@
     "listing": "/blog/index.html",
     "items": [
       "/blog/tinycuda-release/index.html",
+      "/blog/paper-refrag/index.html",
       "/blog/isplib-story/index.html"
     ]
   },

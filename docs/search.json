@@ -438,14 +438,14 @@
     "href": "index.html",
     "title": "Md Saidul Hoque Anik",
     "section": "",
-    "text": "I am a PhD candidate in Computer Science & Engineering at Texas A&M University, focusing on high-performance and distributed machine learning systems. I specialize in optimizing sparse linear algebra for efficient ML pipelines. Previously, I interned at Amazon AWS, where I built a differentiable GPU kernel autotuner that reduced LLM kernel-tuning time from days to hours using transfer learning.\n\nI can:\n\nBuild custom PyTorch GNN training pipelines backed by optimized sparse linear algebra.\n\nIntegrate custom C++/CUDA kernels into PyTorch with LibTorch & PyBind11.\n\nDevelop distributed training systems with PyTorch Distributed and efficient disk-based data streaming.\n\nProfile and optimize Python/C++ pipelines for performance bottlenecks.\n\nApply ML for systems optimization (e.g., developed neural GPU kernel autotuner with transfer-learning support).\n\n\nPrior to my PhD, I was a tenure-track faculty member, teaching undergraduate courses spanning computer systems, theory, and core programming, including Computer Architecture, Theory of Computation, Programming Languages (C/C++/Java), and Data Structures & Algorithms."
+    "text": "I am a PhD candidate in Computer Science & Engineering at Texas A&M University, focusing on high-performance and distributed machine learning systems. I specialize in optimizing sparse linear algebra for efficient ML pipelines. Previously, I interned at Amazon AWS, where I built a differentiable GPU kernel autotuner that reduced LLM kernel-tuning time from days to hours using transfer learning. After completing my PhD (tentatively in Fall 2027), I plan to pursue industry roles as an ML systems engineer or researcher, focusing on building high-performance and scalable machine learning infrastructure.\n\nI can:\n\nBuild custom PyTorch GNN training pipelines backed by optimized sparse linear algebra.\n\nIntegrate custom C++/CUDA kernels into PyTorch with LibTorch & PyBind11.\n\nDevelop distributed training systems with PyTorch Distributed and efficient disk-based data streaming.\n\nProfile and optimize Python/C++ pipelines for performance bottlenecks.\n\nApply ML for systems optimization (e.g., developed neural GPU kernel autotuner with transfer-learning support).\n\n\nPrior to my PhD, I was a tenure-track faculty member, teaching undergraduate courses over 5+ years spanning computer systems, theory, and core programming, including Computer Architecture, Theory of Computation, Programming Languages (C/C++/Java), and Data Structures & Algorithms."
   },
   {
     "objectID": "index.html#about-me",
     "href": "index.html#about-me",
     "title": "Md Saidul Hoque Anik",
     "section": "",
-    "text": "I am a PhD candidate in Computer Science & Engineering at Texas A&M University, focusing on high-performance and distributed machine learning systems. I specialize in optimizing sparse linear algebra for efficient ML pipelines. Previously, I interned at Amazon AWS, where I built a differentiable GPU kernel autotuner that reduced LLM kernel-tuning time from days to hours using transfer learning.\n\nI can:\n\nBuild custom PyTorch GNN training pipelines backed by optimized sparse linear algebra.\n\nIntegrate custom C++/CUDA kernels into PyTorch with LibTorch & PyBind11.\n\nDevelop distributed training systems with PyTorch Distributed and efficient disk-based data streaming.\n\nProfile and optimize Python/C++ pipelines for performance bottlenecks.\n\nApply ML for systems optimization (e.g., developed neural GPU kernel autotuner with transfer-learning support).\n\n\nPrior to my PhD, I was a tenure-track faculty member, teaching undergraduate courses spanning computer systems, theory, and core programming, including Computer Architecture, Theory of Computation, Programming Languages (C/C++/Java), and Data Structures & Algorithms."
+    "text": "I am a PhD candidate in Computer Science & Engineering at Texas A&M University, focusing on high-performance and distributed machine learning systems. I specialize in optimizing sparse linear algebra for efficient ML pipelines. Previously, I interned at Amazon AWS, where I built a differentiable GPU kernel autotuner that reduced LLM kernel-tuning time from days to hours using transfer learning. After completing my PhD (tentatively in Fall 2027), I plan to pursue industry roles as an ML systems engineer or researcher, focusing on building high-performance and scalable machine learning infrastructure.\n\nI can:\n\nBuild custom PyTorch GNN training pipelines backed by optimized sparse linear algebra.\n\nIntegrate custom C++/CUDA kernels into PyTorch with LibTorch & PyBind11.\n\nDevelop distributed training systems with PyTorch Distributed and efficient disk-based data streaming.\n\nProfile and optimize Python/C++ pipelines for performance bottlenecks.\n\nApply ML for systems optimization (e.g., developed neural GPU kernel autotuner with transfer-learning support).\n\n\nPrior to my PhD, I was a tenure-track faculty member, teaching undergraduate courses over 5+ years spanning computer systems, theory, and core programming, including Computer Architecture, Theory of Computation, Programming Languages (C/C++/Java), and Data Structures & Algorithms."
   },
   {
     "objectID": "index.html#research-background",
@@ -459,7 +459,7 @@
     "href": "index.html#featured-research",
     "title": "Md Saidul Hoque Anik",
     "section": "Featured Research",
-    "text": "Featured Research\n\nSC24 best poster finalist (top-6): Expressed TransE Knowledge Graph Embedding (KGE) training using faster sparse-dense matrix multiplication kernel.\nMLSys 2025 Paper: Generalized 10 KGE model training using faster sparse-dense matrix multiplication kernel.\nAmazon AWS Internship 2025: Developed Differentiable GPU Kernel Autotuner.\n\n\nExplore our 20+ research projects, browse the full list of publications, or catch up on the latest news."
+    "text": "Featured Research\n\nAmazon AWS Internship 2025: Developed Differentiable GPU Kernel Autotuner.\nMLSys 2025 Paper: Generalized 10 KGE model training using faster sparse-dense matrix multiplication kernel.\nSC24 best poster finalist (top-6): Expressed TransE Knowledge Graph Embedding (KGE) training using faster sparse-dense matrix multiplication kernel.\n\n\nExplore my 20+ research projects, browse the full list of publications, or catch up on the latest news."
   },
   {
     "objectID": "index.html#leadership-roles",
@@ -473,7 +473,7 @@
     "href": "index.html#exploration",
     "title": "Md Saidul Hoque Anik",
     "section": "Exploration",
-    "text": "Exploration\nI deepen my ML systems expertise by solving LeetGPU problems across PyTorch, CUDA, and Triton, building intuition for low-level kernel design and performance trade-offs. I stay current with ML infrastructure and systems trends by developing small experimental tools and continuously expanding my software skill set, with 12+ open-source and commercial projects in Python, C++, and Java. I also regularly read and distill recent ML systems papers, sharing hands-on tutorials and technical walkthroughs on my blog to communicate systems concepts clearly and effectively."
+    "text": "Exploration\nI deepen my ML systems expertise by solving LeetGPU problems across PyTorch, CUDA, and Triton, building intuition for low-level kernel design and performance trade-offs. I stay current with ML infrastructure and systems trends by developing small experimental tools and continuously expanding my software skill set, with 12+ open-source and commercial projects in Python, C++, and Java. I also regularly read and distill recent ML systems papers, sharing relevant hands-on tutorials and technical walkthroughs on my blog to communicate systems concepts clearly and effectively."
   },
   {
     "objectID": "blog/tinycuda-release/index.html",
@@ -518,27 +518,6 @@
     "text": "What’s Next?\nCheck the examples like vector_add.cu and matmul.cu in the repo for full runs with checks and timings. It fits right into bigger projects with almost no extra weight. Dive into the headers for more details!"
   },
   {
-    "objectID": "blog/index.html",
-    "href": "blog/index.html",
-    "title": "Blogs and Notes",
-    "section": "",
-    "text": "Order By\n      Default\n      \n        Title\n      \n      \n        Description\n      \n      \n        Categories\n      \n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\nGetting Started with TinyCUDA\n\n TinyCUDA is a header-only C++17 wrapper that eliminates CUDA boilerplate—auto-handles cudaMalloc/cudaMemcpy via Buffer, kernel errors with CUDA_CHECK, and timings via KernelProfiler. Ideal for rapid 1D buffer prototyping without full-framework overhead (no autograd or multi-D tensors).  Dec 26, 2025   Project  \n\n\n\niSpLib: An Auto-tuned GNN Accelerator for PyTorch\n\n [Published in WebConf 2024] iSpLib is a PyTorch library that accelerates Graph Neural Network (GNN) training by integrating auto-tuned sparse matrix operations from FusedMM, delivering up to 93× speedup on large graphs like Reddit and OGBN-Proteins. It features plug-and-play patching for PyTorch Geometric, backpropagation support for semirings, and caching for fixed adjacency matrices, boosting models like GCN (54×), GraphSAGE (23-32×), and GIN (51×).  Sep 14, 2024   Project  \n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "archive/about.html",
-    "href": "archive/about.html",
-    "title": "About",
-    "section": "",
-    "text": "About this site"
-  },
-  {
-    "objectID": "archive/index.html",
-    "href": "archive/index.html",
-    "title": "OnixHoque.github.io",
-    "section": "",
-    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites."
-  },
-  {
     "objectID": "blog/isplib-story/index.html",
     "href": "blog/isplib-story/index.html",
     "title": "iSpLib: An Auto-tuned GNN Accelerator for PyTorch",
@@ -560,6 +539,76 @@
     "text": "I extend my deepest gratitude to Dr. Ariful Azad for his unwavering guidance and to Pranav Badhe for his invaluable assistance in experiments, AMD benchmarking, and paper feedback. The project spanned 18 months, culminating in publication at ACM WebConf 2024.\nThrough iSpLib, I gained expertise in high-performance computing (HPC) techniques, including auto-tuning, code generation, loop unrolling, OpenMP primitives, and SIMD vectorization. This experience has motivated further explorations in graph ML optimizations, such as efficient sparse training for knowledge graphs.\n#PyTorch #PyG #Backpropagation #AutoTuning #BLAS #GCN #GIN #GraphSAGE #Semiring #ML #GNN #HPC"
   },
   {
+    "objectID": "archive/index.html",
+    "href": "archive/index.html",
+    "title": "OnixHoque.github.io",
+    "section": "",
+    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites."
+  },
+  {
+    "objectID": "archive/about.html",
+    "href": "archive/about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site"
+  },
+  {
+    "objectID": "blog/index.html",
+    "href": "blog/index.html",
+    "title": "Blogs and Notes",
+    "section": "",
+    "text": "Order By\n      Default\n      \n        Title\n      \n      \n        Description\n      \n      \n        Categories\n      \n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\nGetting Started with TinyCUDA\n\n TinyCUDA is a header-only C++17 wrapper that eliminates CUDA boilerplate—auto-handles cudaMalloc/cudaMemcpy via Buffer, kernel errors with CUDA_CHECK, and timings via KernelProfiler. Ideal for rapid 1D buffer prototyping without full-framework overhead (no autograd or multi-D tensors).  Dec 26, 2025   Project  \n\n\n\n[Paper Summary] REFRAG: Rethinking RAG based Decoding\n\n This paper from Meta Superintelligence Labs proposes an efficient decoding framework that optimizes Retrieval-Augmented Generation (RAG) by addressing latency and memory bottlenecks associated with long-context inputs. It achieves this through a novel approach involving compressed chunk embeddings and a reinforcement learning-based selective expansion policy, exploiting attention sparsity. The framework demonstrates substantial improvements in time-to-first-token (TTFT) acceleration and effective context window extension while maintaining perplexity and downstream task accuracy.  Oct 24, 2025   Paper Reading  \n\n\n\niSpLib: An Auto-tuned GNN Accelerator for PyTorch\n\n [Published in WebConf 2024] iSpLib is a PyTorch library that accelerates Graph Neural Network (GNN) training by integrating auto-tuned sparse matrix operations from FusedMM, delivering up to 93× speedup on large graphs like Reddit and OGBN-Proteins. It features plug-and-play patching for PyTorch Geometric, backpropagation support for semirings, and caching for fixed adjacency matrices, boosting models like GCN (54×), GraphSAGE (23-32×), and GIN (51×).  Sep 14, 2024   Project  \n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "blog/paper-refrag/index.html",
+    "href": "blog/paper-refrag/index.html",
+    "title": "[Paper Summary] REFRAG: Rethinking RAG based Decoding",
+    "section": "",
+    "text": "ArXiv | GitHub | Discussion | AlphaXiv"
+  },
+  {
+    "objectID": "blog/paper-refrag/index.html#what-is-this-paper-about",
+    "href": "blog/paper-refrag/index.html#what-is-this-paper-about",
+    "title": "[Paper Summary] REFRAG: Rethinking RAG based Decoding",
+    "section": "What is this paper about?",
+    "text": "What is this paper about?\n\nAn efficient decoding framework that optimizes Retrieval-Augmented Generation (RAG) by exploiting attention sparsity within long-context inputs.\nUtilizes pre-computed, compressed chunk embeddings as approximate representations, feeding these into the decoder to reduce input sequence length and attention computation complexity, which then scales quadratically with the number of chunks rather than tokens.\nAchieves substantial time-to-first-token (TTFT) acceleration (up to \\(30.85x\\)) and extends the effective context size of LLMs by \\(16x\\) without perplexity loss, supported by a reinforcement learning (RL) policy for selective chunk expansion."
+  },
+  {
+    "objectID": "blog/paper-refrag/index.html#how-is-this-paper-different-from-prior-work",
+    "href": "blog/paper-refrag/index.html#how-is-this-paper-different-from-prior-work",
+    "title": "[Paper Summary] REFRAG: Rethinking RAG based Decoding",
+    "section": "How is this paper different from prior work?",
+    "text": "How is this paper different from prior work?\n\nFirst to enable pre-computation of chunk embeddings and their use at arbitrary positions within the prompt, preserving the autoregressive property of the decoder and supporting diverse applications beyond prefix contexts (e.g., multi-turn RAG, summarization).\nIntroduces a lightweight reinforcement learning (RL) policy for selective token compression, which adaptively determines when to use full chunk token input versus low-cost, approximate chunk embeddings at inference time, optimizing for both latency and performance.\nUnlike previous methods that either reduce KV cache memory or improve TTFT, it simultaneously achieves significant gains in both TTFT (up to 30.85x acceleration) and effective context window extension (16x), while maintaining accuracy."
+  },
+  {
+    "objectID": "blog/paper-refrag/index.html#what-experiments-were-run-to-support-the-arguments-in-this-paper",
+    "href": "blog/paper-refrag/index.html#what-experiments-were-run-to-support-the-arguments-in-this-paper",
+    "title": "[Paper Summary] REFRAG: Rethinking RAG based Decoding",
+    "section": "What experiments were run to support the arguments in this paper?",
+    "text": "What experiments were run to support the arguments in this paper?\n\nPerplexity Evaluation: The effectiveness was rigorously validated through perplexity evaluations on long-context tasks using datasets like Slimpajama (Book, ArXiv domains), PG19, and Proof-pile, comparing various compression rates and against baselines like LLaMA-Full Context, CEPE, and REPLUG.\nLatency and Throughput Benchmarking: Empirical measurements of time-to-first-token (TTFT), time-to-iterative-token (TTIT), and overall throughput were conducted to quantify the acceleration achieved by REFRAG (with and without caching) at different input lengths and compression rates (e.g., k=8, 16, 32), demonstrating substantial speedups over LLaMA and CEPE.\nDownstream Application Performance: REFRAG’s performance was assessed on practical long-context applications, including Retrieval-Augmented Generation (RAG) using various QA datasets, multi-turn conversations (TopiOCQA, ORConvQA, QReCC), and long document summarization (Arxiv, Pubmed), comparing its accuracy and efficiency against fine-tuned LLaMA models and other state-of-the-art methods under both strong and weak retriever scenarios."
+  },
+  {
+    "objectID": "blog/paper-refrag/index.html#what-are-the-shortcomingslimitations-of-this-paper",
+    "href": "blog/paper-refrag/index.html#what-are-the-shortcomingslimitations-of-this-paper",
+    "title": "[Paper Summary] REFRAG: Rethinking RAG based Decoding",
+    "section": "What are the shortcomings/limitations of this paper?",
+    "text": "What are the shortcomings/limitations of this paper?\n\nCompression Rate Limits: The paper notes a practical limit to the compression rate (e.g., k=64 shows diminished performance), indicating that overly aggressive compression can significantly reduce model capability, suggesting a trade-off between compression and information retention.\nEncoder Generalizability: While varying encoder-decoder combinations were explored, the paper indicates that larger encoders (e.g., RoBERTa-Large vs. RoBERTa-Base) offer only modest improvements, and can even negatively impact performance with limited data, raising questions about optimal encoder scaling.\nRL Policy Training Cost: The selective compression policy relies on RL, which can be computationally intensive and complex to train, potentially posing a barrier to adoption or requiring significant resources to fine-tune for new applications or domains."
+  },
+  {
+    "objectID": "blog/paper-refrag/index.html#what-is-a-reasonable-next-step-to-build-upon-this-paper",
+    "href": "blog/paper-refrag/index.html#what-is-a-reasonable-next-step-to-build-upon-this-paper",
+    "title": "[Paper Summary] REFRAG: Rethinking RAG based Decoding",
+    "section": "What is a reasonable next step to build upon this paper?",
+    "text": "What is a reasonable next step to build upon this paper?\n\nHierarchical, Content-Aware Compression: Develop a multi-granular compression scheme that dynamically compresses sub-chunk units based on their contextual importance, moving beyond fixed-size chunking and potentially leveraging external knowledge graphs or semantic embeddings to inform compression decisions.\nAdaptive Encoder-Decoder Co-design: Explore joint optimization of encoder and decoder architectures, focusing on lightweight, specialized encoders that can dynamically adjust their expressiveness based on context complexity, rather than simply scaling parameters, to maximize information retention at high compression rates."
+  },
+  {
+    "objectID": "blog/paper-refrag/index.html#appendix",
+    "href": "blog/paper-refrag/index.html#appendix",
+    "title": "[Paper Summary] REFRAG: Rethinking RAG based Decoding",
+    "section": "Appendix",
+    "text": "Appendix\n\nRetrieval-Augmented Generation (RAG): A system where a language model retrieves relevant information from external sources to improve its generation.\nKey-Value (KV) Cache: Memory used in transformer models to store previously computed keys and values, accelerating decoding but increasing memory usage with context length.\nTime-to-First-Token (TTFT): The latency experienced from the input prompt being received to the first output token being generated.\nTime-to-Iterative-Token (TTIT): The latency for generating each subsequent token after the first token.\nChunk Embedding: A compact vector representation of a segment (chunk) of input text, used to reduce the effective input length for the decoder.\nAttention Sparsity: A property of attention mechanisms where most interactions between tokens or chunks are zero or negligible, allowing for computational optimizations.\nPerplexity: A measure of how well a probability model predicts a sample; lower perplexity indicates better performance in language models.\nContinual Pre-training (CPT): The process of further training a pre-trained language model on new data or tasks to adapt it to specific requirements.\nReinforcement Learning (RL) Policy: An algorithm trained to make sequential decisions, in this context, to selectively determine which context chunks to expand.\nAutoregressive Nature: The property of a model where each output token is generated based on the preceding tokens in the sequence."
+  },
+  {
     "objectID": "community/index.html",
     "href": "community/index.html",
     "title": "Community",
@@ -571,7 +620,7 @@
     "href": "leadership/index.html",
     "title": "Leadership Roles",
     "section": "",
-    "text": "UIU Project Show 2021. Serving as judge.\n\n\n\n\n\n\n\nMIST Inter-University Programming Contest 2019. Serving as technical coordinator.\n\n\n\n\n\nDuring my undergraduate studies, I served as the coordinator for the BUET System Analysis, Design, and Development (BSADD) Community. In this role, I organized and conducted a 5-day workshop on Android Mobile App Development. Additionally, I recorded the lectures and uploaded them to the official channel for wider accessibility (see workshop website).\nLater, as a faculty member at MIST and UIU, I led efforts in Outcome-Based Education (OBE) and took on technical roles, steering the respective departments through various initiatives and strategic advancements.\nDuring my PhD, I mentored three master’s students, providing hands-on research guidance and supporting their academic and professional development.\n\nUIUMIST\n\n\n\nExternal Supervisor, FYDP-II Summer 2021\nNov 2021\nActed as an external supervisor for Final Year Design Project (FYDP) final defense presentation.\n\n\nAsst Technical Coordinator, Innobotics 2020\nFeb 2020\nProvided programming related technical assistance during the competition.\n\n\nAsst, OBE Revision Team\nJan 2021 - Present\nRevised two course syllabus according to new guideline. Revising rubrics for Final Year Design Project-II.\n\n\nMember, Registration Surveillance Team\nJune 2021\nResponsible for increasing section capacity on-demand during course registration of Summer 2021 semester.\n\n\nCourse Advisor\nJan 2020 - Present\nResponsible for course advising and enrollment for several batches of students.\n\n\n\n\nSoftware Development and Project Planning\nSept 2017 - Jan 2020\nHigh involvement in SRS design, timeline planning, coordination and coding of on-demand software for third-party clients. Specialization in Android and Web App development.\n\n\nCoordinator, Postgraduate Program\nJan 2019 - June 2019\nArrangement of BPGS meeting, thesis proposal presentation, Oct 2018 question moderation meeting. Preparation of BPGS agenda and minutes. Coordination of admission test for April 2019 semester including question setting, moderation, script checking, and result publication. Preparation of tabulation sheet for April 2019 Semester.\n\n\nInternal Member Secretary, Syllabus Review Committee for OBE\nDec 2018 - Jan 2019\nCoordination and compilation of the reviewed syllabus for the adaptation of OBE program. Preparation of a special syllabus with the amendment of old syllabus for 3rd year and 4th year students.\n\n\nMember, OBE Steering Committee\nJuly 2018 - Oct 2019\nCoordination of the CO-PO mapping and overall PO attainment for CSE department. Developed an automated system to calculate the CO-PO attainment for OBE Accreditation Visit 2019. Presented at the Multi-purpose Hall of MIST on CO-PO mapping methodology and Capstone Project (Dec 2018).\n\n\nInstructor, Cyber Security Training Program 2019\nJuly 2019\nConducted a session on web-security and cross-site scripting attack as part of the training module. Also participated in Cyber Security Training Program in 2017.\n\n\nTechnical Coordinator, MIST IUPC 2019\nJan 2019\nLab preparation for IUPC 2019. Ensured smooth connectivity between computers, servers and printers.\n\n\nInstructor, Unicode Training Program\nOct 2018\nConducted a training session on how to write Bengali official letters with Unicode font for the staffs of MIST.\n\n\nMember, TO&E Reformation Committee\nDec 2017 - Sept 2018\nPreparation of revised organogram tree, charter of duties, pay scale, list of equipment for the lab, and necessary presentation.\n\n\nAsst. Coordinator, Comptia A+ Training Program 2017\nMay 2017\nCoordination of the Program, attendance report generation, preparation of lab equipment.\n\n\nMiscellaneous\nQuestion setting, invigilation, and script checking of various recruitment examinations."
+    "text": "UIU Project Show 2021. Serving as judge.\n\n\n\n\n\n\n\nMIST Inter-University Programming Contest 2019. Serving as technical coordinator.\n\n\n\n\n\nDuring my undergraduate studies, I served as the coordinator for the BUET System Analysis, Design, and Development (BSADD) Community. In this role, I organized and conducted a 5-day workshop on Android Mobile App Development. Additionally, I recorded the lectures and uploaded them to the official channel for wider accessibility (see workshop website).\nLater, as a faculty member at MIST and UIU, I led efforts in Outcome-Based Education (OBE) and took on technical roles, steering the respective departments through various initiatives and strategic advancements.\nDuring my PhD, I mentored three master’s students, providing hands-on research guidance and supporting their academic and professional development.\n\nUIUMIST\n\n\n\nExternal Supervisor, FYDP-II Summer 2021\nNov 2021\nActed as an external supervisor for Final Year Design Project (FYDP) final defense presentation.\n\n\nAsst Technical Coordinator, Innobotics 2020\nFeb 2020\nProvided programming related technical assistance during the competition.\n\n\nAsst, OBE Revision Team\nJan 2021 - Present\nRevised two course syllabus according to new guideline. Revising rubrics for Final Year Design Project-II.\n\n\nMember, Registration Surveillance Team\nJune 2021\nResponsible for increasing section capacity on-demand during course registration of Summer 2021 semester.\n\n\nCourse Advisor\nJan 2020 - Present\nResponsible for course advising and enrollment for several batches of students.\n\n\n\n\nSoftware Development and Project Planning\nSept 2017 - Jan 2020\nHigh involvement in SRS design, timeline planning, coordination and coding of on-demand software for third-party clients. Specialization in Android and Web App development.\n\n\nCoordinator, Postgraduate Program\nJan 2019 - June 2019\nArrangement of BPGS meeting, thesis proposal presentation, Oct 2018 question moderation meeting. Preparation of BPGS agenda and minutes. Coordination of admission test for April 2019 semester including question setting, moderation, script checking, and result publication. Preparation of tabulation sheet for April 2019 Semester.\n\n\nMember Secretary, Syllabus Review Committee for OBE\nDec 2018 - Jan 2019\nCoordination and compilation of the reviewed syllabus for the adaptation of OBE program. Preparation of a special syllabus with the amendment of old syllabus for 3rd year and 4th year students.\n\n\nMember, OBE Steering Committee\nJuly 2018 - Oct 2019\nCoordination of the CO-PO mapping and overall PO attainment for CSE department. Developed an automated system to calculate the CO-PO attainment for OBE Accreditation Visit 2019. Presented at the Multi-purpose Hall of MIST on CO-PO mapping methodology and Capstone Project (Dec 2018).\n\n\nInstructor, Cyber Security Training Program 2019\nJuly 2019\nConducted a session on web-security and cross-site scripting attack as part of the training module. Also participated in Cyber Security Training Program in 2017.\n\n\nTechnical Coordinator, MIST IUPC 2019\nJan 2019\nLab preparation for IUPC 2019. Ensured smooth connectivity between computers, servers and printers.\n\n\nInstructor, Unicode Training Program\nOct 2018\nConducted a training session on how to write Bengali official letters with Unicode font for the staffs of MIST.\n\n\nMember, TO&E Reformation Committee\nDec 2017 - Sept 2018\nPreparation of revised organogram tree, charter of duties, pay scale, list of equipment for the lab, and necessary presentation.\n\n\nAsst. Coordinator, Comptia A+ Training Program 2017\nMay 2017\nCoordination of the Program, attendance report generation, preparation of lab equipment.\n\n\nMiscellaneous\nQuestion setting, invigilation, and script checking of various recruitment examinations."
   },
   {
     "objectID": "leetgpu/leet-gpu-1/index.html",

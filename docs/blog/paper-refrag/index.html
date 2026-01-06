@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Md Saidul Hoque Anik">
+<meta name="description" content="This paper from Meta Superintelligence Labs proposes an efficient decoding framework that optimizes Retrieval-Augmented Generation (RAG) by addressing latency and memory bottlenecks associated with long-context inputs. It achieves this through a novel approach involving compressed chunk embeddings and a reinforcement learning-based selective expansion policy, exploiting attention sparsity. The framework demonstrates substantial improvements in time-to-first-token (TTFT) acceleration and effective context window extension while maintaining perplexity and downstream task accuracy.">
 
-<title>Blogs and Notes – Md Saidul Hoque Anik</title>
+<title>[Paper Summary] REFRAG: Rethinking RAG based Decoding – Md Saidul Hoque Anik</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,30 +25,28 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<script src="../site_libs/quarto-listing/list.min.js"></script>
-<script src="../site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b758ccaa5987ceb1b75504551e579abf.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-69585d0cb7eb4d91e1e9639bd63741e7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-435edb4a015d21cda02749244a61383a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-69585d0cb7eb4d91e1e9639bd63741e7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b758ccaa5987ceb1b75504551e579abf.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-69585d0cb7eb4d91e1e9639bd63741e7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-435edb4a015d21cda02749244a61383a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-69585d0cb7eb4d91e1e9639bd63741e7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -74,39 +74,10 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-date','listing-categories','listing-title','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-date-modified-sort'] },{ data: ['listing-file-modified-sort'] },{ data: ['listing-reading-time-sort'] },{ data: ['listing-word-count-sort'] }],
-      
-      searchColumns: ["listing-project","listing-website","listing-format","listing-execute","listing-reference-location","listing-citation-location","listing-language","listing-title","listing-description","listing-categories","listing-author","listing-date","listing-path","listing-outputHref","listing-date-modified","listing-filename","listing-file-modified","listing-reading-time","listing-word-count"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
 <link href="https://cdn.jsdelivr.net/npm/charter-webfont@4.1.0/charter.min.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&amp;family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&amp;family=Open+Sans:ital,wght@0,300..800;1,300..800&amp;display=swap" rel="stylesheet">
 <link href="https://fonts.cdnfonts.com/css/palatino" rel="stylesheet">
-<script src="../script.js"></script>
+<script src="../../script.js"></script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -138,7 +109,7 @@ window.Quarto = {
 };
 </script>
 
-<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
 <body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
@@ -310,7 +281,7 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Md Saidul Hoque Anik</span>
     </a>
   </div>
@@ -321,19 +292,19 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../index.html"> 
+    <a class="nav-link" href="../../index.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../research"> 
+    <a class="nav-link" href="../../research"> 
 <span class="menu-text">Research</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../news"> 
+    <a class="nav-link" href="../../news"> 
 <span class="menu-text">News</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../teaching"> 
+    <a class="nav-link" href="../../teaching"> 
 <span class="menu-text">Teaching</span></a>
   </li>  
   <li class="nav-item dropdown ">
@@ -342,23 +313,23 @@ window.Quarto = {
     </a>
     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-more">    
         <li>
-    <a class="dropdown-item" href="../leetgpu">
+    <a class="dropdown-item" href="../../leetgpu">
  <span class="dropdown-text">LeetGPU</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../leadership/">
+    <a class="dropdown-item" href="../../leadership/">
  <span class="dropdown-text">Leadership</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../software">
+    <a class="dropdown-item" href="../../software">
  <span class="dropdown-text">Software</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../news/#category=Publication">
+    <a class="dropdown-item" href="../../news/#category=Publication">
  <span class="dropdown-text">Publications</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../blog">
+    <a class="dropdown-item" href="../../blog">
  <span class="dropdown-text">Blog</span></a>
   </li>  
     </ul>
@@ -372,25 +343,57 @@ window.Quarto = {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(3)</span></div><div class="category" data-category="UGFwZXIlMjBSZWFkaW5n">Paper Reading <span class="quarto-category-count">(1)</span></div><div class="category" data-category="UHJvamVjdA==">Project <span class="quarto-category-count">(2)</span></div></div></div>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#what-is-this-paper-about" id="toc-what-is-this-paper-about" class="nav-link active" data-scroll-target="#what-is-this-paper-about">What is this paper about?</a></li>
+  <li><a href="#how-is-this-paper-different-from-prior-work" id="toc-how-is-this-paper-different-from-prior-work" class="nav-link" data-scroll-target="#how-is-this-paper-different-from-prior-work">How is this paper different from prior work?</a></li>
+  <li><a href="#what-experiments-were-run-to-support-the-arguments-in-this-paper" id="toc-what-experiments-were-run-to-support-the-arguments-in-this-paper" class="nav-link" data-scroll-target="#what-experiments-were-run-to-support-the-arguments-in-this-paper">What experiments were run to support the arguments in this paper?</a></li>
+  <li><a href="#what-are-the-shortcomingslimitations-of-this-paper" id="toc-what-are-the-shortcomingslimitations-of-this-paper" class="nav-link" data-scroll-target="#what-are-the-shortcomingslimitations-of-this-paper">What are the shortcomings/limitations of this paper?</a></li>
+  <li><a href="#what-is-a-reasonable-next-step-to-build-upon-this-paper" id="toc-what-is-a-reasonable-next-step-to-build-upon-this-paper" class="nav-link" data-scroll-target="#what-is-a-reasonable-next-step-to-build-upon-this-paper">What is a reasonable next step to build upon this paper?</a></li>
+  <li><a href="#appendix" id="toc-appendix" class="nav-link" data-scroll-target="#appendix">Appendix</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
-<main class="content column-page-left" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
 
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Blogs and Notes</h1>
+<h1 class="title">[Paper Summary] REFRAG: Rethinking RAG based Decoding</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">Paper Reading</div>
+  </div>
+  </div>
+
+<div>
+  <div class="description">
+    This paper from Meta Superintelligence Labs proposes an efficient decoding framework that optimizes Retrieval-Augmented Generation (RAG) by addressing latency and memory bottlenecks associated with long-context inputs. It achieves this through a novel approach involving compressed chunk embeddings and a reinforcement learning-based selective expansion policy, exploiting attention sparsity. The framework demonstrates substantial improvements in time-to-first-token (TTFT) acceleration and effective context window extension while maintaining perplexity and downstream task accuracy.
+  </div>
 </div>
 
 
+<div class="quarto-title-meta">
 
-<div class="quarto-title-meta column-page-left">
-
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Md Saidul Hoque Anik </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">October 2025</p>
+    </div>
+  </div>
   
     
   </div>
@@ -400,94 +403,72 @@ window.Quarto = {
 </header>
 
 
-
-
-
-
-<div class="quarto-listing quarto-listing-container-custom" id="listing-listing">
-<div class="listing-actions-group">
-   <div class="input-group input-group-sm quarto-listing-sort">
-    <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
-    <select id="listing-listing-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-listing'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
-      <option value="" disabled="" selected="" hidden="">Order By</option>
-      <option value="index" data-direction="asc">Default</option>
-      <option value="listing-title" data-direction="asc">
-        Title
-      </option>
-      <option value="listing-description" data-direction="asc">
-        Description
-      </option>
-      <option value="listing-categories" data-direction="asc">
-        Categories
-      </option>
-      <option value="listing-date-sort" data-direction="asc">
-        Date - Oldest
-      </option>
-      <option value="listing-date-sort" data-direction="desc">
-        Date - Newest
-      </option>
-    </select>
-  </div>
-    <div class="input-group input-group-sm quarto-listing-filter">
-      <span class="input-group-text"><i class="bi bi-search"></i></span>
-      <input type="text" class="search form-control" placeholder="Filter">
-    </div>
+<blockquote class="blockquote">
+<p><a href="https://arxiv.org/abs/2509.01092">ArXiv</a> | <a href="https://github.com/simulanics/REFRAG">GitHub</a> | <a href="https://ai.plainenglish.io/rethinking-rag-based-decoding-refrag-e38ce07a6021">Discussion</a> | <a href="https://www.alphaxiv.org/abs/2509.01092v2">AlphaXiv</a></p>
+</blockquote>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="refrag.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
 </div>
-<ul class="list">
-<li data-index="0" data-categories="UHJvamVjdA==" data-listing-date-sort="1766728800000" data-listing-file-modified-sort="1766976001363" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="925">
-<h3 class="no-anchor listing-title">
-<a href="../blog/tinycuda-release/index.html" class="no-external delink">Getting Started with TinyCUDA</a>
-</h3>
-<span class="listing-description"> TinyCUDA is a header-only C++17 wrapper that eliminates CUDA boilerplate—auto-handles cudaMalloc/cudaMemcpy via Buffer, kernel errors with CUDA_CHECK, and timings via KernelProfiler. Ideal for rapid 1D buffer prototyping without full-framework overhead (no autograd or multi-D tensors). </span><br> <small class="listing-date">Dec 26, 2025</small> <span class="listing-categories"> <span class="listing-category"> <a href="../blog/#category=Project" class="category-link badge rounded-pill bg-light">Project</a> </span> </span>
-</li>
-<li data-index="1" data-categories="UGFwZXIlMjBSZWFkaW5n" data-listing-date-sort="1761282000000" data-listing-file-modified-sort="1767666484585" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="798">
-<h3 class="no-anchor listing-title">
-<a href="../blog/paper-refrag/index.html" class="no-external delink">[Paper Summary] REFRAG: Rethinking RAG based Decoding</a>
-</h3>
-<span class="listing-description"> This paper from Meta Superintelligence Labs proposes an efficient decoding framework that optimizes Retrieval-Augmented Generation (RAG) by addressing latency and memory bottlenecks associated with long-context inputs. It achieves this through a novel approach involving compressed chunk embeddings and a reinforcement learning-based selective expansion policy, exploiting attention sparsity. The framework demonstrates substantial improvements in time-to-first-token (TTFT) acceleration and effective context window extension while maintaining perplexity and downstream task accuracy. </span><br> <small class="listing-date">Oct 24, 2025</small> <span class="listing-categories"> <span class="listing-category"> <a href="../blog/#category=Paper Reading" class="category-link badge rounded-pill bg-light">Paper Reading</a> </span> </span>
-</li>
-<li data-index="2" data-categories="UHJvamVjdA==" data-listing-date-sort="1726290000000" data-listing-file-modified-sort="1766873935726" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="651">
-<h3 class="no-anchor listing-title">
-<a href="../blog/isplib-story/index.html" class="no-external delink">iSpLib: An Auto-tuned GNN Accelerator for PyTorch</a>
-</h3>
-<span class="listing-description"> [Published in WebConf 2024] iSpLib is a PyTorch library that accelerates Graph Neural Network (GNN) training by integrating auto-tuned sparse matrix operations from FusedMM, delivering up to 93× speedup on large graphs like Reddit and OGBN-Proteins. It features plug-and-play patching for PyTorch Geometric, backpropagation support for semirings, and caching for fixed adjacency matrices, boosting models like GCN (54×), GraphSAGE (23-32×), and GIN (51×). </span><br> <small class="listing-date">Sep 14, 2024</small> <span class="listing-categories"> <span class="listing-category"> <a href="../blog/#category=Project" class="category-link badge rounded-pill bg-light">Project</a> </span> </span>
-</li>
+<section id="what-is-this-paper-about" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-this-paper-about">What is this paper about?</h2>
+<ul>
+<li>An efficient decoding framework that optimizes Retrieval-Augmented Generation (RAG) by exploiting attention sparsity within long-context inputs.</li>
+<li>Utilizes pre-computed, compressed chunk embeddings as approximate representations, feeding these into the decoder to reduce input sequence length and attention computation complexity, which then scales quadratically with the number of chunks rather than tokens.</li>
+<li>Achieves substantial time-to-first-token (TTFT) acceleration (up to <span class="math inline">\(30.85x\)</span>) and extends the effective context size of LLMs by <span class="math inline">\(16x\)</span> without perplexity loss, supported by a reinforcement learning (RL) policy for selective chunk expansion.</li>
 </ul>
-<style>
-  /* Remove bullet points and reset padding for the list */
-  .list {
-    list-style-type: none;
-    padding: 0;
-  }
+</section>
+<section id="how-is-this-paper-different-from-prior-work" class="level2">
+<h2 class="anchored" data-anchor-id="how-is-this-paper-different-from-prior-work">How is this paper different from prior work?</h2>
+<ul>
+<li>First to enable pre-computation of chunk embeddings and their use at arbitrary positions within the prompt, preserving the autoregressive property of the decoder and supporting diverse applications beyond prefix contexts (e.g., multi-turn RAG, summarization).</li>
+<li>Introduces a lightweight reinforcement learning (RL) policy for selective token compression, which adaptively determines when to use full chunk token input versus low-cost, approximate chunk embeddings at inference time, optimizing for both latency and performance.</li>
+<li>Unlike previous methods that either reduce KV cache memory or improve TTFT, it simultaneously achieves significant gains in both TTFT (up to 30.85x acceleration) and effective context window extension (16x), while maintaining accuracy.</li>
+</ul>
+</section>
+<section id="what-experiments-were-run-to-support-the-arguments-in-this-paper" class="level2">
+<h2 class="anchored" data-anchor-id="what-experiments-were-run-to-support-the-arguments-in-this-paper">What experiments were run to support the arguments in this paper?</h2>
+<ul>
+<li><p><strong>Perplexity Evaluation:</strong> The effectiveness was rigorously validated through perplexity evaluations on long-context tasks using datasets like Slimpajama (Book, ArXiv domains), PG19, and Proof-pile, comparing various compression rates and against baselines like LLaMA-Full Context, CEPE, and REPLUG.</p></li>
+<li><p><strong>Latency and Throughput Benchmarking:</strong> Empirical measurements of time-to-first-token (TTFT), time-to-iterative-token (TTIT), and overall throughput were conducted to quantify the acceleration achieved by REFRAG (with and without caching) at different input lengths and compression rates (e.g., k=8, 16, 32), demonstrating substantial speedups over LLaMA and CEPE.</p></li>
+<li><p><strong>Downstream Application Performance:</strong> REFRAG’s performance was assessed on practical long-context applications, including Retrieval-Augmented Generation (RAG) using various QA datasets, multi-turn conversations (TopiOCQA, ORConvQA, QReCC), and long document summarization (Arxiv, Pubmed), comparing its accuracy and efficiency against fine-tuned LLaMA models and other state-of-the-art methods under both strong and weak retriever scenarios.</p></li>
+</ul>
+</section>
+<section id="what-are-the-shortcomingslimitations-of-this-paper" class="level2">
+<h2 class="anchored" data-anchor-id="what-are-the-shortcomingslimitations-of-this-paper">What are the shortcomings/limitations of this paper?</h2>
+<ul>
+<li><strong>Compression Rate Limits:</strong> The paper notes a practical limit to the compression rate (e.g., k=64 shows diminished performance), indicating that overly aggressive compression can significantly reduce model capability, suggesting a trade-off between compression and information retention.</li>
+<li><strong>Encoder Generalizability:</strong> While varying encoder-decoder combinations were explored, the paper indicates that larger encoders (e.g., RoBERTa-Large vs.&nbsp;RoBERTa-Base) offer only modest improvements, and can even negatively impact performance with limited data, raising questions about optimal encoder scaling.</li>
+<li><strong>RL Policy Training Cost:</strong> The selective compression policy relies on RL, which can be computationally intensive and complex to train, potentially posing a barrier to adoption or requiring significant resources to fine-tune for new applications or domains.</li>
+</ul>
+</section>
+<section id="what-is-a-reasonable-next-step-to-build-upon-this-paper" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-a-reasonable-next-step-to-build-upon-this-paper">What is a reasonable next step to build upon this paper?</h2>
+<ul>
+<li><p><strong>Hierarchical, Content-Aware Compression:</strong> Develop a multi-granular compression scheme that dynamically compresses sub-chunk units based on their contextual importance, moving beyond fixed-size chunking and potentially leveraging external knowledge graphs or semantic embeddings to inform compression decisions.</p></li>
+<li><p><strong>Adaptive Encoder-Decoder Co-design:</strong> Explore joint optimization of encoder and decoder architectures, focusing on lightweight, specialized encoders that can dynamically adjust their expressiveness based on context complexity, rather than simply scaling parameters, to maximize information retention at high compression rates.</p></li>
+</ul>
+</section>
+<section id="appendix" class="level2">
+<h2 class="anchored" data-anchor-id="appendix">Appendix</h2>
+<ul>
+<li><p><strong>Retrieval-Augmented Generation (RAG):</strong> A system where a language model retrieves relevant information from external sources to improve its generation.</p></li>
+<li><p><strong>Key-Value (KV) Cache:</strong> Memory used in transformer models to store previously computed keys and values, accelerating decoding but increasing memory usage with context length.</p></li>
+<li><p><strong>Time-to-First-Token (TTFT):</strong> The latency experienced from the input prompt being received to the first output token being generated.</p></li>
+<li><p><strong>Time-to-Iterative-Token (TTIT):</strong> The latency for generating each subsequent token after the first token.</p></li>
+<li><p><strong>Chunk Embedding:</strong> A compact vector representation of a segment (chunk) of input text, used to reduce the effective input length for the decoder.</p></li>
+<li><p><strong>Attention Sparsity:</strong> A property of attention mechanisms where most interactions between tokens or chunks are zero or negligible, allowing for computational optimizations.</p></li>
+<li><p><strong>Perplexity:</strong> A measure of how well a probability model predicts a sample; lower perplexity indicates better performance in language models.</p></li>
+<li><p><strong>Continual Pre-training (CPT):</strong> The process of further training a pre-trained language model on new data or tasks to adapt it to specific requirements.</p></li>
+<li><p><strong>Reinforcement Learning (RL) Policy:</strong> An algorithm trained to make sequential decisions, in this context, to selectively determine which context chunks to expand.</p></li>
+<li><p><strong>Autoregressive Nature:</strong> The property of a model where each output token is generated based on the preceding tokens in the sequence.</p></li>
+</ul>
 
-  /* Style each list item */
-  .list li {
-    margin-bottom: 20px;
-    padding-bottom: 10px;
-    margin-left: 10px;
-  }
 
-  /* Style the title */
-  .listing-title h3 {
-    margin: 0;
-    font-size: 1.5em;
-  }
+</section>
 
-  /* Style the date and categories */
-  .listing-date, .listing-categories {
-    font-size: 0.8em;
-    margin-right: 20px;
-  }
-
-  /* Style the description */
-  .listing-description {
-    margin-top: 10px;
-    font-size: 1em;
-  }
-  
-</style>
-<div class="listing-no-matching d-none">No matching items</div>
-</div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right
