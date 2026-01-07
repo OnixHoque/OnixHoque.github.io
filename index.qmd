@@ -29,10 +29,10 @@ I am a PhD candidate in Computer Science & Engineering at Texas A&M University, 
 > - Build custom **PyTorch GNN** training pipelines backed by optimized sparse linear algebra.  
 > - Integrate custom **C++/CUDA** kernels into PyTorch with LibTorch & PyBind11.  
 > - Develop **distributed training systems** with PyTorch Distributed and efficient disk-based data streaming.  
-> - Profile and optimize Python/C++ pipelines for performance bottlenecks.  
-> - Apply ML for systems optimization (e.g., developed neural GPU kernel autotuner with transfer-learning support).  
+> - Profile and optimize Python/C++ pipelines for **performance bottlenecks**.  
+> - Apply ML for **systems optimization** (e.g., developed neural **GPU kernel autotuner** with **transfer-learning** support).  
 
-Prior to my PhD, I was a tenure-track faculty member, [teaching](/teaching/) undergraduate courses over **5+ years** spanning computer systems, theory, and core programming, including **Computer Architecture**, Theory of Computation, **Programming Languages (C/C++/Java)**, and Data Structures & Algorithms. 
+Prior to my PhD, I [taught](/teaching/) undergraduate courses for over **5 years**, including in tenure-track roles, spanning computer systems, theory, and core programming, such as Web Programming, **Computer Architecture**, Theory of Computation, **Programming Languages (C/C++/Java)**, and Data Structures & Algorithms.
 
 ## Research Background
 
