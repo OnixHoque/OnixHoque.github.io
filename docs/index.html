@@ -629,51 +629,64 @@ Nov 2024
     }
     table.insertAdjacentHTML('afterend', '<div style="text-align: right;"><a href="/news/">See All ⟶ </a></div>');
   }
-  document.querySelectorAll('.quarto-grid-item.card').forEach(function(card) {
-    const imgP = card.querySelector('p.card-img-top');
-    if (!imgP) return;
-    const img = imgP.querySelector('img');
-    const body = card.querySelector('.card-body');
-    if (!img || !body) return;
-    // Remove original image paragraph and extract img
-    card.removeChild(imgP);
-    // Use flexbox for reliable horizontal layout
-    card.style.display = 'flex';
-    card.style.flexDirection = 'row';
-    card.style.overflow = 'hidden';
-    // card.style.alignItems = 'center';
-    // Create a square container for the image
-    const imgContainer = document.createElement('div');
-    imgContainer.style.width = '150px'; // Fixed side length for square; adjust as needed
-    imgContainer.style.height = '150px';
-    imgContainer.style.flexShrink = '0'; 
-    imgContainer.style.overflow = 'hidden';
-    imgContainer.style.marginLeft = '0.5rem'; 
-    imgContainer.style.marginRight = '0.5rem'; 
-    imgContainer.style.display = 'flex';
-    imgContainer.style.alignItems = 'center'; // Vertical centering
-    imgContainer.style.justifyContent = 'center'; // Horizontal centering
-    // imgContainer.style.backgroundColor = '#f8f9fa'; // Optional: light bg for letterboxing
-    // Style image to fit container entirely without cropping
-    img.style.maxWidth = '100%';
-    img.style.maxHeight = '100%';
-    img.style.width = 'auto';
-    img.style.height = 'auto';
-    img.style.objectFit = 'contain'; // Scale to fit within container, preserving aspect ratio
-    img.style.display = 'block';
-    // Append img to container, then container to card
-    imgContainer.appendChild(img);
-    card.insertBefore(imgContainer, body);
-    // Body takes remaining space
-    body.style.flex = '1';
-    body.style.display = 'flex';
-    body.style.flexDirection = 'column';
-    body.style.justifyContent = 'space-between';
-    body.style.padding = '10px';
-    // Zero out margin-bottom on the description p
-    const descP = body.querySelector('.listing-description p');
-    if (descP) descP.style.marginBottom = '0';
-  });  
+  function applyLayout() {
+    document.querySelectorAll('.quarto-grid-item.card').forEach(function(card) {
+      const imgP = card.querySelector('p.card-img-top');
+      if (!imgP) return;
+      const img = imgP.querySelector('img');
+      const body = card.querySelector('.card-body');
+      if (!img || !body) return;
+      // Style image to fit container entirely without cropping
+      img.style.maxWidth = '100%';
+      img.style.maxHeight = '100%';
+      img.style.width = 'auto';
+      img.style.height = 'auto';
+      img.style.objectFit = 'contain'; // Scale to fit within container, preserving aspect ratio
+      img.style.display = 'block';
+      if (window.innerWidth < 768) return; // Skip on mobile (< md breakpoint)
+      // Remove original image paragraph and extract img
+      card.removeChild(imgP);
+      // Use flexbox for reliable horizontal layout
+      card.style.display = 'flex';
+      card.style.flexDirection = 'row';
+      card.style.overflow = 'hidden';
+      // card.style.alignItems = 'center';
+      // Create a square container for the image
+      const imgContainer = document.createElement('div');
+      imgContainer.style.width = '150px'; // Fixed side length for square; adjust as needed
+      imgContainer.style.height = '150px';
+      imgContainer.style.flexShrink = '0'; 
+      imgContainer.style.overflow = 'hidden';
+      imgContainer.style.marginLeft = '0.5rem'; 
+      imgContainer.style.marginRight = '0.5rem'; 
+      imgContainer.style.display = 'flex';
+      imgContainer.style.alignItems = 'center'; // Vertical centering
+      imgContainer.style.justifyContent = 'center'; // Horizontal centering
+      // imgContainer.style.backgroundColor = '#f8f9fa'; // Optional: light bg for letterboxing
+      // Append img to container, then container to card
+      imgContainer.appendChild(img);
+      card.insertBefore(imgContainer, body);
+      // Body takes remaining space
+      body.style.flex = '1';
+      body.style.display = 'flex';
+      body.style.flexDirection = 'column';
+      body.style.justifyContent = 'space-between';
+      body.style.padding = '10px';
+      // Zero out margin-bottom on the description p
+      const descP = body.querySelector('.listing-description p');
+      if (descP) descP.style.marginBottom = '0';
+    }); 
+  }
+  applyLayout(); // Initial apply on load
+  // Re-apply on resize (debounced for performance)
+  let resizeTimeout;
+  window.addEventListener('resize', function() {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(applyLayout, 250);
+  });
+  // Optional: Listen to media query changes for more precision
+  const mediaQuery = window.matchMedia('(min-width: 768px)');
+  mediaQuery.addEventListener('change', applyLayout);
 });
 </script>
 
