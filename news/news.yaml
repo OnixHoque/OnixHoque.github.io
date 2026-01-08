@@ -1,20 +1,28 @@
 - categories: ["Talk"]
   News: "Two-Day Session on Distributed Data Parallel (DDP) for TAMU CSCE-654: Supercomputing Course"
+  caption: "DDP Lecture Session for TAMU Graduate Supercomputing Course"
+  recent: "true"
   date: "10/01/2025"
   path: "/teaching/#guest-lecture-at-texas-am"
 
 - categories: ["Talk", "Poster"]
-  News: "Berlekey talk about our ongoing systems work on GNN model parallelism"
+  News: "Presented ongoing systems research on GNN model parallelism at the Sparstitute meeting in Berkeley."
+  caption: "Sparstitute project debrief (Berkeley) on GNN model-parallel systems"
+  recent: "true"
   date: "11/01/2025"
   path: "/research/systems/graph-mp/"
 
 - categories: ["Internship", "Job"]
   News: "Summer Internship at **Amazon Sagemaker** on vLLM Systems. Designed a differentiable kernel tuner with transfer learning feature."
+  caption: "Summer Intern at Amazon SageMaker"
+  recent: "true"  
   date: "05/01/2025"
   path: "/research/systems/gpu-tuner-amazon/"
 
 - categories: ["Publication", "Conference"]
   News: "Paper accepted on **MLSys 2025**! Expressed 10 KGE models using sparse-dense matrix multiplication."
+  caption: "Paper accepted at MLSys 2025"
+  recent: "true"
   date: "02/01/2025"
   path: "/research/systems/sptransx/"
 
@@ -25,6 +33,7 @@
 
 - categories: ["Poster", "Recognition"]
   News: "Best poster finalist (top-6) at **SC24**! Expressed TransE KGE model using sparse-dense matrix multiplication."
+  caption: "Best Poster Finalist (Top-6) at SC24"
   date: "11/01/2024"
   path: "/research/systems/efficient-kge/"
 
@@ -203,5 +212,7 @@
   
 - categories: ["Project"]
   News: "tinyCUDA released! I wrote a small CUDA wrapper in C++ for automatic memory management (follows RAII principles and uses C++17 move semantics), kernel timing, and error handling."
+  caption: "Released tinyCUDA, a lightweight C++ CUDA memory management and profiling library"
+  recent: "true"
   date: "12/26/2025"
   path: "/blog/tinycuda-release"

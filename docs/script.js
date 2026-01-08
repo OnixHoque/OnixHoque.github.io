@@ -81,14 +81,17 @@ document.addEventListener("DOMContentLoaded", function() {
   createBreadcrumb('blog', charLimit);
   createBreadcrumb('research', charLimit);
   createBreadcrumb('leetgpu', charLimit, 'LeetGPU');
+  
   createCategoryNotice('blog');
   createCategoryNotice('news');
+  createCategoryNotice('software');
   let currentUrl = window.location.href;
   setInterval(function() {
     if (window.location.href !== currentUrl) {
       currentUrl = window.location.href;
       createCategoryNotice('blog');
       createCategoryNotice('news');
+      createCategoryNotice('software');
     }
   }, 100);
 });

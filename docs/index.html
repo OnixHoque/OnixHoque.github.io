@@ -31,6 +31,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-listing/list.min.js"></script>
+<script src="site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -72,11 +74,69 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script>
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-listings-news .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-date','listing-caption',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-caption-sort'] },{ data: ['listing-date-sort'] }],
+      
+      searchColumns: ["listing-categories","listing-News","listing-caption","listing-recent","listing-date"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-listings-news'] = new List('listing-listings-news', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  </script>
 <link href="https://cdn.jsdelivr.net/npm/charter-webfont@4.1.0/charter.min.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&amp;family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&amp;family=Open+Sans:ital,wght@0,300..800;1,300..800&amp;display=swap" rel="stylesheet">
 <link href="https://fonts.cdnfonts.com/css/palatino" rel="stylesheet">
 <script src="./script.js"></script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -346,6 +406,66 @@ ul.task-list li input[type="checkbox"] {
   </div>
   <div class="about-contents"><main class="content column-page" id="quarto-document-content">
 
+<section id="recent-news" class="level4">
+<h4 data-anchor-id="recent-news">Recent News</h4>
+<div id="listing-listings-news" class="quarto-listing quarto-listing-container-table">
+<table class="quarto-listing-table table">
+<thead>
+<tr>
+<th>
+Date
+</th>
+<th>
+caption
+</th>
+</tr>
+</thead>
+<tbody class="list">
+<tr data-index="0" data-categories="UHJvamVjdA==" data-listing-date-sort="1766728800000" data-listing-caption-sort="Released tinyCUDA, a lightweight C++ CUDA memory management and profiling library">
+<td>
+<span class="listing-date">12/25</span>
+</td>
+<td>
+<a href="./blog/tinycuda-release" class="caption listing-caption">Released tinyCUDA, a lightweight C++ CUDA memory management and profiling library</a>
+</td>
+</tr>
+<tr data-index="1" data-categories="VGFsayUyQ1Bvc3Rlcg==" data-listing-date-sort="1761973200000" data-listing-caption-sort="Sparstitute project debrief (Berkeley) on GNN model-parallel systems">
+<td>
+<span class="listing-date">11/25</span>
+</td>
+<td>
+<a href="./research/systems/graph-mp/" class="caption listing-caption">Sparstitute project debrief (Berkeley) on GNN model-parallel systems</a>
+</td>
+</tr>
+<tr data-index="2" data-categories="VGFsaw==" data-listing-date-sort="1759294800000" data-listing-caption-sort="DDP Lecture Session for TAMU Graduate Supercomputing Course">
+<td>
+<span class="listing-date">10/25</span>
+</td>
+<td>
+<a href="./teaching/#guest-lecture-at-texas-am" class="caption listing-caption">DDP Lecture Session for TAMU Graduate Supercomputing Course</a>
+</td>
+</tr>
+<tr data-index="3" data-categories="SW50ZXJuc2hpcCUyQ0pvYg==" data-listing-date-sort="1746075600000" data-listing-caption-sort="Summer Intern at Amazon SageMaker">
+<td>
+<span class="listing-date">05/25</span>
+</td>
+<td>
+<a href="./research/systems/gpu-tuner-amazon/" class="caption listing-caption">Summer Intern at Amazon SageMaker</a>
+</td>
+</tr>
+<tr data-index="4" data-categories="UHVibGljYXRpb24lMkNDb25mZXJlbmNl" data-listing-date-sort="1738389600000" data-listing-caption-sort="Paper accepted at MLSys 2025">
+<td>
+<span class="listing-date">02/25</span>
+</td>
+<td>
+<a href="./research/systems/sptransx/" class="caption listing-caption">Paper accepted at MLSys 2025</a>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="listing-no-matching d-none">No matching items</div>
+</div>
+</section>
 <section id="about-me" class="level2">
 <h2 data-anchor-id="about-me">About Me</h2>
 <p>I am a PhD candidate in Computer Science &amp; Engineering at Texas A&amp;M University, focusing on <strong>high-performance and distributed machine learning systems</strong>. I specialize in optimizing <strong>sparse linear algebra</strong> for efficient ML pipelines. Previously, I interned at <strong>Amazon AWS</strong>, where I built a differentiable GPU kernel autotuner that reduced LLM kernel-tuning time from <strong>days to hours</strong> using transfer learning. After completing my PhD (tentatively in <strong>Fall 2027</strong>), I plan to pursue <strong>industry roles</strong> as an ML systems engineer or researcher, focusing on building high-performance and scalable machine learning infrastructure.</p>
@@ -382,7 +502,7 @@ Currently, I am collaborating with <strong>Oak Ridge National Lab</strong> on a 
 <li><a href="./research/systems/efficient-kge/index.html">SC24 best poster finalist (top-6): Expressed TransE Knowledge Graph Embedding (KGE) training using faster sparse-dense matrix multiplication kernel.</a></li>
 </ul>
 <blockquote class="blockquote">
-<p>Explore my 20+ <a href="./research/index.html">research projects</a>, browse the full list of <a href="./news/#category=Publication">publications</a>, or catch up on the latest <a href="./news/index.html">news</a>.</p>
+<p>Discover 20+ <a href="./research/index.html">research projects</a> or view the full list of <a href="./news/#category=Publication">publications</a></p>
 </blockquote>
 </section>
 <section id="leadership-roles" class="level2">
@@ -394,6 +514,26 @@ Currently, I am collaborating with <strong>Oak Ridge National Lab</strong> on a 
 <p>I deepen my <strong>ML systems</strong> expertise by solving <a href="./leetgpu/">LeetGPU</a> problems across <strong>PyTorch</strong>, <strong>CUDA</strong>, and <strong>Triton</strong>, building intuition for low-level <strong>kernel design</strong> and <strong>performance trade-offs</strong>. I stay current with <strong>ML infrastructure</strong> and <strong>systems trends</strong> by developing small experimental tools and continuously expanding my <a href="./software/">software</a> skill set, with <strong>12+ open-source</strong> and commercial projects in <strong>Python</strong>, <strong>C++</strong>, and <strong>Java</strong>. I also regularly read and distill recent <strong>ML systems papers</strong>, sharing relevant hands-on tutorials and technical walkthroughs on my <a href="./blog/">blog</a> to communicate systems concepts clearly and effectively.</p>
 <!-- I deepen my ML systems expertise by solving [LeetGPU](/blog/#category=LeetGPU) problems across PyTorch, CUDA, and Triton, developing intuition for performance trade-offs and low-level kernel design. I stay current with ML infrastructure and systems trends by building small experimental tools and continuously expanding my [software](/blog/#category=LeetGPU) skill set. -->
 <!-- ::: -->
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+  const section = document.getElementById('recent-news');
+  const targetDiv = document.querySelector('.about-entity');
+  if (section && targetDiv) {
+    section.remove();
+    targetDiv.appendChild(section);
+    section.style.textAlign = 'left';
+    section.style.fontSize = '0.9em';
+    const table = section.querySelector('table');
+    if (table) {
+      const thead = table.querySelector('thead');
+      if (thead) {
+        thead.remove();
+      }
+    }
+    table.insertAdjacentHTML('afterend', '<div style="text-align: right;"><a href="/news/">See All ⟶ </a></div>');
+  }
+});
+</script>
 
 
 </section>

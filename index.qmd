@@ -5,9 +5,22 @@ toc: false
 format: 
   html:
     page-layout: full
+listing:
+  - id: listings-news
+    sort-ui: false
+    filter-ui: false
+    date-format: "MM/YY"
+    contents:
+    - news/news.yaml
+    type: table
+    sort: "date desc"
+    fields: [date, caption]
+    field-links: [caption]
+    include:
+      recent: "true"
 about:
   template: trestles
-  image: images/propic2.png
+  image: images/propic2.png 
   image-title: "At MLSys 2025"
   links:
     - icon: github
@@ -17,9 +30,12 @@ about:
       text: LinkedIn 
       href: https://www.linkedin.com/in/onixhoque/
 
-# linestretch: 1.7
-
 ---
+ 
+#### Recent News
+::: {#listings-news}
+:::
+
 ## About Me 
 
 I am a PhD candidate in Computer Science & Engineering at Texas A&M University, focusing on **high-performance and distributed machine learning systems**. I specialize in optimizing **sparse linear algebra** for efficient ML pipelines. Previously, I interned at **Amazon AWS**, where I built a differentiable GPU kernel autotuner that reduced LLM kernel-tuning time from **days to hours** using transfer learning. After completing my PhD (tentatively in **Fall 2027**), I plan to pursue **industry roles** as an ML systems engineer or researcher, focusing on building high-performance and scalable machine learning infrastructure.  
@@ -43,16 +59,16 @@ Additionally, during my **Amazon Summer Internship** 2025, I developed a Differe
 Currently, I am collaborating with **Oak Ridge National Lab** on a distributed, differentiable framework for large-scale KGE training across hybrid compute tiers.
 
 <!-- :::{.column-margin} -->
-## Featured Research
+## Featured Research 
 
 * [Amazon AWS Internship 2025: Developed Differentiable GPU Kernel Autotuner.](/research/systems/gpu-tuner-amazon/index.qmd) 
 * [MLSys 2025 Paper: Generalized 10 KGE model training using faster sparse-dense matrix multiplication kernel.](/research/systems/sptransx/index.qmd)
 * [SC24 best poster finalist (top-6): Expressed TransE Knowledge Graph Embedding (KGE) training using faster sparse-dense matrix multiplication kernel.](/research/systems/efficient-kge/index.qmd)
 
-> Explore my 20+ [research projects](/research/index.qmd), browse the full list of [publications](/news/#category=Publication), or catch up on the latest [news](/news/index.qmd).
+> Discover 20+ [research projects](/research/index.qmd) or view the full list of [publications](/news/#category=Publication)
 
 ## Leadership Roles
-
+ 
 I **led** and **coordinated** various academic and technical initiatives, including **curriculum revisions**, **postgraduate programs**, and **programming contests** at UIU, MIST, and BUET, fostering a culture of **innovation** and academic excellence across departments. See all my leadership roles and initiatives [here](/leadership/).
 
 ## Exploration
@@ -61,3 +77,25 @@ I deepen my **ML systems** expertise by solving [LeetGPU](/leetgpu/) problems ac
 
 <!-- I deepen my ML systems expertise by solving [LeetGPU](/blog/#category=LeetGPU) problems across PyTorch, CUDA, and Triton, developing intuition for performance trade-offs and low-level kernel design. I stay current with ML infrastructure and systems trends by building small experimental tools and continuously expanding my [software](/blog/#category=LeetGPU) skill set. -->
 <!-- ::: -->
+ 
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+  const section = document.getElementById('recent-news');
+  const targetDiv = document.querySelector('.about-entity');
+  if (section && targetDiv) {
+    section.remove();
+    targetDiv.appendChild(section);
+    section.style.textAlign = 'left';
+    section.style.fontSize = '0.9em';
+    const table = section.querySelector('table');
+    if (table) {
+      const thead = table.querySelector('thead');
+      if (thead) {
+        thead.remove();
+      }
+    }
+    table.insertAdjacentHTML('afterend', '<div style="text-align: right;"><a href="/news/">See All ⟶ </a></div>');
+  }
+});
+</script> 
+  
