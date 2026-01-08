@@ -1,9 +1,10 @@
 ---
 title: "SparseTransX: Efficient Training of Translation-Based Knowledge Graph Embeddings Using Sparse Matrix Operations"
 categories: ["Knowledge Graph", "SpMM", "Publication", "Paper", "CPU", "GPU", "PyTorch", "Distributed", "DDP", "FSDP"]
-description: "We expressed and reformulated 10 KG embedding models using Sparse-dense matrix mutliplication speeding up the training for CPU and GPU while making them significantly memory efficient."
+description: "[**MLSys 2025**] I expressed and reformulated 10 KG embedding models using sparse–dense matrix multiplication (SpMM), achieving up to 5.3× CPU speedup, 4.2× GPU speedup, and up to 11.1× reduction in GPU memory footprint."
 date: "05/01/2025"
 image: mlsys.png
+featured: "true"
 ---
 
 ::: {.callout-note appearance="minimal" title="Note" icon=false collapse=false}

@@ -30,7 +30,11 @@
   },
   {
     "listing": "/index.html",
-    "items": []
+    "items": [
+      "/research/systems/gpu-tuner-amazon/index.html",
+      "/research/systems/sptransx/index.html",
+      "/research/systems/efficient-kge/index.html"
+    ]
   },
   {
     "listing": "/blog/index.html",

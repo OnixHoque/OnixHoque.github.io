@@ -8,10 +8,10 @@ image: presentation.jpeg
 
 ::: {.callout-note appearance="minimal" title="Note" icon=false collapse=false}
 
-PhD project ongoing work
+* PhD project ongoing work
+* Presented at Sparstitute All Member Meeting (Barkeley, CA)
 
-* Presented at Sparstitute All Hands Meeting (Barkeley, CA)
-
+[Sparsitute Meeting 2025](https://sparsitute.lbl.gov/2025-in-person-meeting){.badge .bg-primary .rounded-pill} 
 :::
 
 ![](presentation.jpeg){.lightbox}

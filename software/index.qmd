@@ -20,7 +20,7 @@ listing:
   fields: [title, categories, description, Timeline, image]
 ---
 
-Over the past decade (2013–2023), I have designed and delivered more than 10 open-source and commercial software projects, leveraging Python, Java, and C++. These include desktop GUI applications, Android mobile apps, and full-stack web platforms.
+Over the past decade, I have designed and delivered 12+ open-source and commercial software projects, leveraging Python, Java, and C++. These include desktop GUI applications, Android mobile apps, and full-stack web platforms.
 
 ::: {#sample-listings}
 :::

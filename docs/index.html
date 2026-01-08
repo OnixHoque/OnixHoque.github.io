@@ -86,11 +86,39 @@ ul.task-list li input[type="checkbox"] {
     const options = {
       valueNames: ['listing-date','listing-caption',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-caption-sort'] },{ data: ['listing-date-sort'] }],
       
-      searchColumns: ["listing-categories","listing-News","listing-caption","listing-recent","listing-date"],
+      searchColumns: ["listing-categories","listing-News","listing-caption","listing-highlight","listing-date"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
     window['quarto-listings']['listing-listings-news'] = new List('listing-listings-news', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-listings-research .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-image','listing-title','listing-description','listing-date',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      
+      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-listings-research'] = new List('listing-listings-research', options);
 
     if (window['quarto-listing-loaded']) {
       window['quarto-listing-loaded']();
@@ -468,7 +496,8 @@ caption
 </section>
 <section id="about-me" class="level2">
 <h2 data-anchor-id="about-me">About Me</h2>
-<p>I am a PhD candidate in Computer Science &amp; Engineering at Texas A&amp;M University, focusing on <strong>high-performance and distributed machine learning systems</strong>. I specialize in optimizing <strong>sparse linear algebra</strong> for efficient ML pipelines. Previously, I interned at <strong>Amazon AWS</strong>, where I built a differentiable GPU kernel autotuner that reduced LLM kernel-tuning time from <strong>days to hours</strong> using transfer learning. After completing my PhD (tentatively in <strong>Fall 2027</strong>), I plan to pursue <strong>industry roles</strong> as an ML systems engineer or researcher, focusing on building high-performance and scalable machine learning infrastructure.</p>
+<p>I am a PhD candidate in Computer Science &amp; Engineering at Texas A&amp;M University, focusing on <strong>high-performance and distributed machine learning systems</strong>. I specialize in optimizing <strong>sparse linear algebra</strong> for efficient ML pipelines. Previously, I interned at <strong>Amazon AWS</strong>, where I built a differentiable GPU kernel autotuner that reduced LLM kernel-tuning time from <strong>days to hours</strong> using transfer learning.</p>
+<p>After completing my PhD (tentatively in <strong>Fall 2027</strong>), I plan to pursue <strong>industry roles</strong> as an ML systems engineer or researcher, focusing on building high-performance and scalable machine learning infrastructure.</p>
 <blockquote class="blockquote">
 <p>I can:</p>
 <ul>
@@ -496,14 +525,81 @@ Currently, I am collaborating with <strong>Oak Ridge National Lab</strong> on a 
 </section>
 <section id="featured-research" class="level2">
 <h2 data-anchor-id="featured-research">Featured Research</h2>
-<ul>
-<li><a href="./research/systems/gpu-tuner-amazon/index.html">Amazon AWS Internship 2025: Developed Differentiable GPU Kernel Autotuner.</a></li>
-<li><a href="./research/systems/sptransx/index.html">MLSys 2025 Paper: Generalized 10 KGE model training using faster sparse-dense matrix multiplication kernel.</a></li>
-<li><a href="./research/systems/efficient-kge/index.html">SC24 best poster finalist (top-6): Expressed TransE Knowledge Graph Embedding (KGE) training using faster sparse-dense matrix multiplication kernel.</a></li>
-</ul>
+<div id="listing-listings-research" class="quarto-listing quarto-listing-container-grid">
+<div class="list grid quarto-listing-cols-1">
+<div class="g-col-1" data-index="0" data-categories="QXV0b3R1bmVyJTJDQ1VEQSUyQ0tlcm5lbCUyQ0RpZmZlcmVudGlhYmxlJTJDdkxMTSUyQ1RyYW5zZmVyJTIwTGVhcm5pbmclMkNBbWF6b24lMjBJbnRlcm5zaGlwJTJDUHlUb3JjaCUyQ1NjaVB5JTJDR1BV" data-listing-date-sort="1754024400000" data-listing-file-modified-sort="1767852672804" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="148">
+<a href="./research/systems/gpu-tuner-amazon/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="./research/systems/gpu-tuner-amazon/amazon.jpg" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Differentiable GPU kernel autotuner with Transfer Learning
+</h5>
+<div class="card-text listing-description delink">
+<p>[<strong>Amazon AWS Internship 2025</strong>] I developed a robust, end-to-end differentiable GPU kernel autotuner for vLLM that achieves up to 1.6× higher accuracy using only 1% ground-truth data and enables transfer learning with up to 12.7% accuracy gains, reducing kernel tuning time from days to hours.</p>
+</div>
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
+Aug 2025
+</div>
+</div>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="1" data-categories="S25vd2xlZGdlJTIwR3JhcGglMkNTcE1NJTJDUHVibGljYXRpb24lMkNQYXBlciUyQ0NQVSUyQ0dQVSUyQ1B5VG9yY2glMkNEaXN0cmlidXRlZCUyQ0REUCUyQ0ZTRFA=" data-listing-date-sort="1746075600000" data-listing-file-modified-sort="1767852726116" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="352">
+<a href="./research/systems/sptransx/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="./research/systems/sptransx/mlsys.png" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+SparseTransX: Efficient Training of Translation-Based Knowledge Graph Embeddings Using Sparse Matrix Operations
+</h5>
+<div class="card-text listing-description delink">
+<p>[<strong>MLSys 2025</strong>] I expressed and reformulated 10 KG embedding models using sparse–dense matrix multiplication (SpMM), achieving up to 5.3× CPU speedup, 4.2× GPU speedup, and up to 11.1× reduction in GPU memory footprint.</p>
+</div>
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
+May 2025
+</div>
+</div>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="2" data-categories="VHJhbnNFJTJDS25vd2xlZGdlJTIwR3JhcGglMkNTcE1NJTJDU3BhcnNlJTIwTGluZWFyJTIwQWxnZWJyYQ==" data-listing-date-sort="1732514400000" data-listing-file-modified-sort="1767850278291" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="251">
+<a href="./research/systems/efficient-kge/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="./research/systems/efficient-kge/sc24.png" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+A Sparse Approach for Translation-based Training of Knowledge Graph Embeddings
+</h5>
+<div class="card-text listing-description delink">
+<p>[<strong>SC24 Best Poster Finalist</strong>] In this work, I accelerated knowledge-graph embedding training by replacing traditional scatter/gather operations with sparse–dense matrix multiplication, reducing memory usage and achieving significant CPU, GPU, and multi-GPU speedups.</p>
+</div>
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
+Nov 2024
+</div>
+</div>
+</div>
+</div></a>
+</div>
+</div>
+<div class="listing-no-matching d-none">No matching items</div>
+</div>
 <blockquote class="blockquote">
-<p>Discover 20+ <a href="./research/index.html">research projects</a> or view the full list of <a href="./news/#category=Publication">publications</a></p>
+<p>Discover all 20+ <a href="./research/index.html">research projects</a> or view the full list of <a href="./news/#category=Publication">publications</a></p>
 </blockquote>
+<!-- * [Amazon AWS Internship 2025: Developed Differentiable GPU Kernel Autotuner.](/research/systems/gpu-tuner-amazon/index.qmd) 
+* [MLSys 2025 Paper: Generalized 10 KGE model training using faster sparse-dense matrix multiplication kernel.](/research/systems/sptransx/index.qmd)
+* [SC24 best poster finalist (top-6): Expressed TransE Knowledge Graph Embedding (KGE) training using faster sparse-dense matrix multiplication kernel.](/research/systems/efficient-kge/index.qmd)
+ -->
 </section>
 <section id="leadership-roles" class="level2">
 <h2 data-anchor-id="leadership-roles">Leadership Roles</h2>
@@ -517,12 +613,13 @@ Currently, I am collaborating with <strong>Oak Ridge National Lab</strong> on a 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
   const section = document.getElementById('recent-news');
+  // const section = document.getElementById('highlights');
   const targetDiv = document.querySelector('.about-entity');
   if (section && targetDiv) {
     section.remove();
     targetDiv.appendChild(section);
     section.style.textAlign = 'left';
-    section.style.fontSize = '0.9em';
+    section.style.fontSize = '0.95em';
     const table = section.querySelector('table');
     if (table) {
       const thead = table.querySelector('thead');
@@ -532,6 +629,51 @@ Currently, I am collaborating with <strong>Oak Ridge National Lab</strong> on a 
     }
     table.insertAdjacentHTML('afterend', '<div style="text-align: right;"><a href="/news/">See All ⟶ </a></div>');
   }
+  document.querySelectorAll('.quarto-grid-item.card').forEach(function(card) {
+    const imgP = card.querySelector('p.card-img-top');
+    if (!imgP) return;
+    const img = imgP.querySelector('img');
+    const body = card.querySelector('.card-body');
+    if (!img || !body) return;
+    // Remove original image paragraph and extract img
+    card.removeChild(imgP);
+    // Use flexbox for reliable horizontal layout
+    card.style.display = 'flex';
+    card.style.flexDirection = 'row';
+    card.style.overflow = 'hidden';
+    // card.style.alignItems = 'center';
+    // Create a square container for the image
+    const imgContainer = document.createElement('div');
+    imgContainer.style.width = '150px'; // Fixed side length for square; adjust as needed
+    imgContainer.style.height = '150px';
+    imgContainer.style.flexShrink = '0'; 
+    imgContainer.style.overflow = 'hidden';
+    imgContainer.style.marginLeft = '0.5rem'; 
+    imgContainer.style.marginRight = '0.5rem'; 
+    imgContainer.style.display = 'flex';
+    imgContainer.style.alignItems = 'center'; // Vertical centering
+    imgContainer.style.justifyContent = 'center'; // Horizontal centering
+    // imgContainer.style.backgroundColor = '#f8f9fa'; // Optional: light bg for letterboxing
+    // Style image to fit container entirely without cropping
+    img.style.maxWidth = '100%';
+    img.style.maxHeight = '100%';
+    img.style.width = 'auto';
+    img.style.height = 'auto';
+    img.style.objectFit = 'contain'; // Scale to fit within container, preserving aspect ratio
+    img.style.display = 'block';
+    // Append img to container, then container to card
+    imgContainer.appendChild(img);
+    card.insertBefore(imgContainer, body);
+    // Body takes remaining space
+    body.style.flex = '1';
+    body.style.display = 'flex';
+    body.style.flexDirection = 'column';
+    body.style.justifyContent = 'space-between';
+    body.style.padding = '10px';
+    // Zero out margin-bottom on the description p
+    const descP = body.querySelector('.listing-description p');
+    if (descP) descP.style.marginBottom = '0';
+  });  
 });
 </script>
 

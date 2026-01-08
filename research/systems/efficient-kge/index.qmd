@@ -1,9 +1,10 @@
 ---
 title: "A Sparse Approach for Translation-based Training of Knowledge Graph Embeddings"
 categories: ["TransE", "Knowledge Graph", "SpMM", "Sparse Linear Algebra"]
-description: "SC24 Best poster finalist. This work accelerates knowledge-graph embedding training by replacing traditional scatter/gather operations with sparse–dense matrix multiplication, reducing memory usage and achieving significant CPU, GPU, and multi-GPU speedups."
+description: "[**SC24 Best Poster Finalist**] In this work, I accelerated knowledge-graph embedding training by replacing traditional scatter/gather operations with sparse–dense matrix multiplication, reducing memory usage and achieving significant CPU, GPU, and multi-GPU speedups."
 date: "11/25/2024"
 image: sc24.png
+featured: "true"
 ---
 
 > The continuation of this work was later published in MLSys 2025. [[See]](/research/systems/sptransx/index.qmd)

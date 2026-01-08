@@ -10,14 +10,30 @@ listing:
     sort-ui: false
     filter-ui: false
     date-format: "MM/YY"
-    contents:
+    contents: 
     - news/news.yaml
     type: table
     sort: "date desc"
     fields: [date, caption]
     field-links: [caption]
     include:
-      recent: "true"
+      highlight: "true"
+  - id: listings-research
+    sort-ui: false
+    filter-ui: false
+    grid-columns: 1
+    max-description-length: 300
+    date-format: "MMM YYYY" 
+    contents: 
+    - research/systems
+    type: grid
+    sort: "date desc" 
+    # grid-item-border: false
+    # table-hover: true 
+    fields: [image, title, description, date]
+    # field-links: [caption]
+    include:
+      featured: "true"
 about:
   template: trestles
   image: images/propic2.png 
@@ -31,14 +47,16 @@ about:
       href: https://www.linkedin.com/in/onixhoque/
 
 ---
- 
+
 #### Recent News
-::: {#listings-news}
+::: {#listings-news} 
 :::
 
-## About Me 
+## About Me
 
-I am a PhD candidate in Computer Science & Engineering at Texas A&M University, focusing on **high-performance and distributed machine learning systems**. I specialize in optimizing **sparse linear algebra** for efficient ML pipelines. Previously, I interned at **Amazon AWS**, where I built a differentiable GPU kernel autotuner that reduced LLM kernel-tuning time from **days to hours** using transfer learning. After completing my PhD (tentatively in **Fall 2027**), I plan to pursue **industry roles** as an ML systems engineer or researcher, focusing on building high-performance and scalable machine learning infrastructure.  
+I am a PhD candidate in Computer Science & Engineering at Texas A&M University, focusing on **high-performance and distributed machine learning systems**. I specialize in optimizing **sparse linear algebra** for efficient ML pipelines. Previously, I interned at **Amazon AWS**, where I built a differentiable GPU kernel autotuner that reduced LLM kernel-tuning time from **days to hours** using transfer learning. 
+
+After completing my PhD (tentatively in **Fall 2027**), I plan to pursue **industry roles** as an ML systems engineer or researcher, focusing on building high-performance and scalable machine learning infrastructure.   
 
 > I can:
 >
@@ -61,11 +79,16 @@ Currently, I am collaborating with **Oak Ridge National Lab** on a distributed, 
 <!-- :::{.column-margin} -->
 ## Featured Research 
 
-* [Amazon AWS Internship 2025: Developed Differentiable GPU Kernel Autotuner.](/research/systems/gpu-tuner-amazon/index.qmd) 
+::: {#listings-research} 
+::: 
+
+> Discover all 20+ [research projects](/research/index.qmd) or view the full list of [publications](/news/#category=Publication)
+
+
+<!-- * [Amazon AWS Internship 2025: Developed Differentiable GPU Kernel Autotuner.](/research/systems/gpu-tuner-amazon/index.qmd) 
 * [MLSys 2025 Paper: Generalized 10 KGE model training using faster sparse-dense matrix multiplication kernel.](/research/systems/sptransx/index.qmd)
 * [SC24 best poster finalist (top-6): Expressed TransE Knowledge Graph Embedding (KGE) training using faster sparse-dense matrix multiplication kernel.](/research/systems/efficient-kge/index.qmd)
-
-> Discover 20+ [research projects](/research/index.qmd) or view the full list of [publications](/news/#category=Publication)
+ -->
 
 ## Leadership Roles
  
@@ -76,17 +99,18 @@ I **led** and **coordinated** various academic and technical initiatives, includ
 I deepen my **ML systems** expertise by solving [LeetGPU](/leetgpu/) problems across **PyTorch**, **CUDA**, and **Triton**, building intuition for low-level **kernel design** and **performance trade-offs**. I stay current with **ML infrastructure** and **systems trends** by developing small experimental tools and continuously expanding my [software](/software/) skill set, with **12+ open-source** and commercial projects in **Python**, **C++**, and **Java**. I also regularly read and distill recent **ML systems papers**, sharing relevant hands-on tutorials and technical walkthroughs on my [blog](/blog/) to communicate systems concepts clearly and effectively.
 
 <!-- I deepen my ML systems expertise by solving [LeetGPU](/blog/#category=LeetGPU) problems across PyTorch, CUDA, and Triton, developing intuition for performance trade-offs and low-level kernel design. I stay current with ML infrastructure and systems trends by building small experimental tools and continuously expanding my [software](/blog/#category=LeetGPU) skill set. -->
-<!-- ::: -->
- 
+<!-- ::: --> 
+  
 <script>
   document.addEventListener('DOMContentLoaded', () => {
   const section = document.getElementById('recent-news');
+  // const section = document.getElementById('highlights');
   const targetDiv = document.querySelector('.about-entity');
   if (section && targetDiv) {
     section.remove();
     targetDiv.appendChild(section);
     section.style.textAlign = 'left';
-    section.style.fontSize = '0.9em';
+    section.style.fontSize = '0.95em';
     const table = section.querySelector('table');
     if (table) {
       const thead = table.querySelector('thead');
@@ -96,6 +120,60 @@ I deepen my **ML systems** expertise by solving [LeetGPU](/leetgpu/) problems ac
     }
     table.insertAdjacentHTML('afterend', '<div style="text-align: right;"><a href="/news/">See All ⟶ </a></div>');
   }
+
+  document.querySelectorAll('.quarto-grid-item.card').forEach(function(card) {
+    const imgP = card.querySelector('p.card-img-top');
+    if (!imgP) return;
+    
+    const img = imgP.querySelector('img');
+    const body = card.querySelector('.card-body');
+    if (!img || !body) return;
+    
+    // Remove original image paragraph and extract img
+    card.removeChild(imgP);
+    
+    // Use flexbox for reliable horizontal layout
+    card.style.display = 'flex';
+    card.style.flexDirection = 'row';
+    card.style.overflow = 'hidden';
+    // card.style.alignItems = 'center';
+    
+    // Create a square container for the image
+    const imgContainer = document.createElement('div');
+    imgContainer.style.width = '150px'; // Fixed side length for square; adjust as needed
+    imgContainer.style.height = '150px';
+    imgContainer.style.flexShrink = '0'; 
+    imgContainer.style.overflow = 'hidden';
+    imgContainer.style.marginLeft = '0.5rem'; 
+    imgContainer.style.marginRight = '0.5rem'; 
+    imgContainer.style.display = 'flex';
+    imgContainer.style.alignItems = 'center'; // Vertical centering
+    imgContainer.style.justifyContent = 'center'; // Horizontal centering
+    // imgContainer.style.backgroundColor = '#f8f9fa'; // Optional: light bg for letterboxing
+    
+    // Style image to fit container entirely without cropping
+    img.style.maxWidth = '100%';
+    img.style.maxHeight = '100%';
+    img.style.width = 'auto';
+    img.style.height = 'auto';
+    img.style.objectFit = 'contain'; // Scale to fit within container, preserving aspect ratio
+    img.style.display = 'block';
+    
+    // Append img to container, then container to card
+    imgContainer.appendChild(img);
+    card.insertBefore(imgContainer, body);
+    
+    // Body takes remaining space
+    body.style.flex = '1';
+    body.style.display = 'flex';
+    body.style.flexDirection = 'column';
+    body.style.justifyContent = 'space-between';
+    body.style.padding = '10px';
+
+    // Zero out margin-bottom on the description p
+    const descP = body.querySelector('.listing-description p');
+    if (descP) descP.style.marginBottom = '0';
+  });  
 });
 </script> 
   
