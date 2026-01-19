@@ -543,7 +543,7 @@
     "href": "blog/simd-add/index.html#summary",
     "title": "SIMD Intrinsics in Practice: Measuring Scalar vs SSE2 vs AVX2 Performance",
     "section": "Summary",
-    "text": "Summary\nThe following table summarizes the execution time of various implementations—AVX2, SSE2, aligned AVX2, and scalar—and reports their corresponding speedups relative to the scalar baseline. All experiments were conducted on an Intel® Core™ Ultra 9 Processor 285H with 24 MB cache and a maximum turbo frequency of 5.40 GHz.\n\n\nBenchmarking\n\n\nMethod\nTime (µs)\nSpeedup\n\n\n\n\nScalar\n\\(964.0 \\pm 319\\)\n\\(1\\times\\)\n\n\nAVX2\n\\(517.4 \\pm 61.7\\)\n\\(1.863\\times\\)\n\n\nAVX2+Align\n\\(499.9 \\pm 50.5\\)\n\\(1.928\\times\\)\n\n\nSSE2+Loop Unrolled\n\\(511.1 \\pm 50.0\\)\n\\(1.886\\times\\)"
+    "text": "Summary\nThe following table summarizes the execution time of various implementations—AVX2, SSE2, aligned AVX2, and scalar—and reports their corresponding speedups relative to the scalar baseline. All experiments were conducted on an Intel® Core™ Ultra 9 Processor 285H with 24 MB cache and a maximum turbo frequency of 5.40 GHz.\n\nBenchmarking\n\n\nMethod\nTime (µs)\nSpeedup\n\n\n\n\nScalar\n\\(964.0 \\pm 319\\)\n\\(1\\times\\)\n\n\nAVX2\n\\(517.4 \\pm 61.7\\)\n\\(1.863\\times\\)\n\n\nAVX2+Align\n\\(499.9 \\pm 50.5\\)\n\\(1.928\\times\\)\n\n\nSSE2+Loop Unrolled\n\\(511.1 \\pm 50.0\\)\n\\(1.886\\times\\)"
   },
   {
     "objectID": "blog/isplib-story/index.html",

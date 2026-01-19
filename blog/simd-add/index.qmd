@@ -4,17 +4,53 @@ description: "A simple 8-element vector add benchmark shows that AVX2 with prope
 categories: ["Hands-on"] 
 author: "Md Saidul Hoque Anik"
 date: "01/19/2026"
+image: images/paste-1.png
 ---
 
 I ran a small benchmark to demonstrate the use of various SIMD intrinsics and to compare their performance. The test measured the speedup of a simple 8-element vector addition implemented in four ways: scalar code, SSE2 intrinsics, AVX2 intrinsics, and AVX2 with explicit alignas memory alignment.
 
 The results showed a clear performance hierarchy. The AVX2 implementation with aligned data performed best, followed by SSE2, then unaligned AVX2, with the scalar version being the slowest. This highlights how both wider vector units and proper data alignment can have a measurable impact on SIMD performance, even for small workloads.
 
-Unaligned AVX2 can be slower than SSE2 because the overhead of wider 256-bit operations outweighs their benefits for very small workloads. Unaligned AVX2 loads may require extra micro-operations or split memory accesses, and on many CPUs they can also trigger a lower core frequency when AVX instructions are used. For an 8-element vector add, these costs dominate, while SSE2 avoids AVX downclocking and moves less data per instruction, making it more efficient in this case. Once data is properly aligned or the workload grows, AVX2’s wider vectors regain their advantage.
+<!-- ![](images/paste-1.png) -->
+
+
+```{python}
+#| echo: false
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Data
+methods = ["Scalar", "AVX2", "AVX2+Align", "SSE2+Loop Unrolled"]
+times = [964.0, 517.4, 499.9, 511.1]  # in µs
+errors = [319, 61.7, 50.5, 50.0]      # standard deviation
+speedups = [1.0, 1.863, 1.928, 1.886]
+
+# Figure setup
+fig, ax1 = plt.subplots(figsize=(7,3)) 
+
+# Horizontal bar plot with error bars
+bar_height = 0.4
+bars = ax1.barh(methods, times, xerr=errors, height=bar_height, color='skyblue', capsize=5, label='Time (µs)')
+
+ax1.set_xlabel('Time (µs)', fontsize=12)
+ax1.set_title('SIMD Performance Comparison', fontsize=14)
+ax1.set_xlim(0, max(times)*1.4)  # leave space for annotations
+
+# Annotate bars with speedup
+for bar, speed in zip(bars, speedups):
+    width = bar.get_width()
+    ax1.text(width + max(errors)*0.05, bar.get_y() + bar.get_height()/2 + 0.25,
+             f"{speed:.2f}×", va='center', ha='left', fontsize=10, fontweight='bold')
+
+plt.tight_layout()
+plt.show()
+```
+
+Unaligned AVX2 can be slower than SSE2 because the overhead of wider 256-bit operations outweighs their benefits for very small workloads. Unaligned AVX2 loads may require extra micro-operations or split memory accesses, and on many CPUs they can also trigger a lower core frequency when AVX instructions are used. For an 8-element vector add, these costs dominate, while SSE2 avoids AVX downclocking and moves less data per instruction, making it more efficient in this case. Once data is properly aligned or the workload grows, AVX2's wider vectors regain their advantage.
 
 ## Scalar
 
-```C
+``` c
 #include <stdio.h>
 
 int main() {
@@ -33,7 +69,7 @@ int main() {
 
 ### Run and Profile
 
-```bash
+``` bash
 gcc -O3 0_scalar_add.c
 perf stat -r 5 -- ./a.out
 ```
@@ -42,7 +78,7 @@ Time taken: $0.000964 \pm 0.000319$ seconds
 
 ## AVX2 Intrinsics
 
-```C
+``` c
 
 #include <immintrin.h>  // AVX2 intrinsics
 #include <stdio.h>
@@ -69,7 +105,7 @@ int main() {
 
 ### Run and Profile
 
-```bash
+``` bash
 gcc -O3 -mavx2 1_vector_add.c
 perf stat -r 5 -- ./a.out
 ```
@@ -78,7 +114,7 @@ Time taken: $0.0005174 \pm 0.0000617$ seconds
 
 ## AVX2 Intrinsics + Align
 
-```C
+``` c
 #include <immintrin.h>
 #include <stdio.h>
 #include <stdalign.h>
@@ -99,7 +135,7 @@ int main() {
 
 ### Run and Profile
 
-```bash
+``` bash
 gcc -O3 -mavx2 2_vector_add.c
 perf stat -r 5 -- ./a.out
 ```
@@ -108,7 +144,7 @@ Time taken: $0.0004999 \pm 0.0000505$ seconds
 
 ## SSE2 Intrinsics
 
-```C
+``` c
 #include <emmintrin.h>  // SSE2
 #include <stdio.h>
 
@@ -137,31 +173,23 @@ int main() {
 
 ### Run and Profile
 
-```bash
+``` bash
 gcc -O3 -msse2 3_vector_add.c
 perf stat -r 5 -- ./a.out
 ```
 
-Time taken: $0.0005111 \pm 0.0000500$ seconds  
+Time taken: $0.0005111 \pm 0.0000500$ seconds
 
-## Summary 
+## Summary
 
 The following table summarizes the execution time of various implementations—AVX2, SSE2, aligned AVX2, and scalar—and reports their corresponding speedups relative to the scalar baseline. All experiments were conducted on an Intel® Core™ Ultra 9 Processor 285H with 24 MB cache and a maximum turbo frequency of 5.40 GHz.
 
-<!-- 
-|       Method       |      Time (seconds)       |    Speedup    |
-|:------------------:|:-------------------------:|:-------------:|
-|       Scalar       |  $0.000964 \pm 0.000319$  |   $1\times$   |
-|        AVX2        | $0.0005174 \pm 0.0000617$ | $1.863\times$ |
-|     AVX2+Align     | $0.0004999 \pm 0.0000505$ | $1.928\times$ |
-| SSE2+Loop Unrolled | $0.0005111 \pm 0.0000500$ | $1.886\times$ | -->
 
-|       Method       |     Time (µs)    |    Speedup    |
-| :----------------: | :--------------: | :-----------: |
-|       Scalar       |   $964.0 \pm 319$  |   $1\times$   |
+|       Method       |    Time (µs)     |    Speedup    |
+|:------------------:|:----------------:|:-------------:|
+|       Scalar       | $964.0 \pm 319$  |   $1\times$   |
 |        AVX2        | $517.4 \pm 61.7$ | $1.863\times$ |
 |     AVX2+Align     | $499.9 \pm 50.5$ | $1.928\times$ |
 | SSE2+Loop Unrolled | $511.1 \pm 50.0$ | $1.886\times$ |
-
 
 : Benchmarking
