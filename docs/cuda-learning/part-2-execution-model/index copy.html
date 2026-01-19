@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Md Saidul Hoque Anik">
+<meta name="description" content="Notes from Chapter-3 of the book Professional CUDA C Programming">
 
-<title>Blogs and Notes – Md Saidul Hoque Anik</title>
+<title>Part-2: CUDA Execution Model – Md Saidul Hoque Anik</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,33 +22,66 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<script src="../site_libs/quarto-listing/list.min.js"></script>
-<script src="../site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b758ccaa5987ceb1b75504551e579abf.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-69585d0cb7eb4d91e1e9639bd63741e7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-435edb4a015d21cda02749244a61383a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-69585d0cb7eb4d91e1e9639bd63741e7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b758ccaa5987ceb1b75504551e579abf.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-69585d0cb7eb4d91e1e9639bd63741e7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-435edb4a015d21cda02749244a61383a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-69585d0cb7eb4d91e1e9639bd63741e7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -74,39 +109,10 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-date','listing-categories','listing-title','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-date-modified-sort'] },{ data: ['listing-file-modified-sort'] },{ data: ['listing-reading-time-sort'] },{ data: ['listing-word-count-sort'] }],
-      
-      searchColumns: ["listing-project","listing-website","listing-format","listing-execute","listing-reference-location","listing-citation-location","listing-language","listing-title","listing-description","listing-categories","listing-author","listing-date","listing-path","listing-outputHref","listing-date-modified","listing-filename","listing-file-modified","listing-reading-time","listing-word-count"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
 <link href="https://cdn.jsdelivr.net/npm/charter-webfont@4.1.0/charter.min.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&amp;family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&amp;family=Open+Sans:ital,wght@0,300..800;1,300..800&amp;display=swap" rel="stylesheet">
 <link href="https://fonts.cdnfonts.com/css/palatino" rel="stylesheet">
-<script src="../script.js"></script>
+<script src="../../script.js"></script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -138,7 +144,7 @@ window.Quarto = {
 };
 </script>
 
-<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
 <body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
@@ -310,7 +316,7 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Md Saidul Hoque Anik</span>
     </a>
   </div>
@@ -321,19 +327,19 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../index.html"> 
+    <a class="nav-link" href="../../index.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../research"> 
+    <a class="nav-link" href="../../research"> 
 <span class="menu-text">Research</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../news"> 
+    <a class="nav-link" href="../../news"> 
 <span class="menu-text">News</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../teaching"> 
+    <a class="nav-link" href="../../teaching"> 
 <span class="menu-text">Teaching</span></a>
   </li>  
   <li class="nav-item dropdown ">
@@ -342,23 +348,23 @@ window.Quarto = {
     </a>
     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-more">    
         <li>
-    <a class="dropdown-item" href="../leetgpu">
+    <a class="dropdown-item" href="../../leetgpu">
  <span class="dropdown-text">LeetGPU</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../leadership/">
+    <a class="dropdown-item" href="../../leadership/">
  <span class="dropdown-text">Leadership</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../software">
+    <a class="dropdown-item" href="../../software">
  <span class="dropdown-text">Software</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../news/#category=Publication">
+    <a class="dropdown-item" href="../../news/#category=Publication">
  <span class="dropdown-text">Publications</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../blog">
+    <a class="dropdown-item" href="../../blog">
  <span class="dropdown-text">Blog</span></a>
   </li>  
     </ul>
@@ -372,25 +378,53 @@ window.Quarto = {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(4)</span></div><div class="category" data-category="SGFuZHMtb24=">Hands-on <span class="quarto-category-count">(1)</span></div><div class="category" data-category="UGFwZXIlMjBSZWFkaW5n">Paper Reading <span class="quarto-category-count">(1)</span></div><div class="category" data-category="UHJvamVjdA==">Project <span class="quarto-category-count">(2)</span></div></div></div>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#warps-and-block-size" id="toc-warps-and-block-size" class="nav-link active" data-scroll-target="#warps-and-block-size">Warps and Block Size</a></li>
+  <li><a href="#warp-divergence-test" id="toc-warp-divergence-test" class="nav-link" data-scroll-target="#warp-divergence-test">Warp Divergence Test</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
-<main class="content column-page-left" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
 
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Blogs and Notes</h1>
+<h1 class="title">Part-2: CUDA Execution Model</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">LeetGPU</div>
+  </div>
+  </div>
+
+<div>
+  <div class="description">
+    Notes from Chapter-3 of the book Professional CUDA C Programming
+  </div>
 </div>
 
 
+<div class="quarto-title-meta">
 
-<div class="quarto-title-meta column-page-left">
-
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Md Saidul Hoque Anik </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">December 2025</p>
+    </div>
+  </div>
   
     
   </div>
@@ -400,100 +434,52 @@ window.Quarto = {
 </header>
 
 
-
-
-
-
-<div class="quarto-listing quarto-listing-container-custom" id="listing-listing">
-<div class="listing-actions-group">
-   <div class="input-group input-group-sm quarto-listing-sort">
-    <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
-    <select id="listing-listing-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-listing'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
-      <option value="" disabled="" selected="" hidden="">Order By</option>
-      <option value="index" data-direction="asc">Default</option>
-      <option value="listing-title" data-direction="asc">
-        Title
-      </option>
-      <option value="listing-description" data-direction="asc">
-        Description
-      </option>
-      <option value="listing-categories" data-direction="asc">
-        Categories
-      </option>
-      <option value="listing-date-sort" data-direction="asc">
-        Date - Oldest
-      </option>
-      <option value="listing-date-sort" data-direction="desc">
-        Date - Newest
-      </option>
-    </select>
-  </div>
-    <div class="input-group input-group-sm quarto-listing-filter">
-      <span class="input-group-text"><i class="bi bi-search"></i></span>
-      <input type="text" class="search form-control" placeholder="Filter">
-    </div>
-</div>
-<ul class="list">
-<li data-index="0" data-categories="SGFuZHMtb24=" data-listing-date-sort="1768802400000" data-listing-file-modified-sort="1768811635613" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="939">
-<h3 class="no-anchor listing-title">
-<a href="../blog/simd-add/index.html" class="no-external delink">SIMD Intrinsics in Practice: Measuring Scalar vs SSE2 vs AVX2 Performance</a>
-</h3>
-<span class="listing-description"> A simple 8-element vector add benchmark shows that AVX2 with proper alignment is fastest, followed by SSE2, unaligned AVX2, and finally scalar code. </span><br> <small class="listing-date">Jan 19, 2026</small> <span class="listing-categories"> <span class="listing-category"> <a href="../blog/#category=Hands-on" class="category-link badge rounded-pill bg-light">Hands-on</a> </span> </span>
-</li>
-<li data-index="1" data-categories="UHJvamVjdA==" data-listing-date-sort="1766728800000" data-listing-file-modified-sort="1766976001363" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="925">
-<h3 class="no-anchor listing-title">
-<a href="../blog/tinycuda-release/index.html" class="no-external delink">Getting Started with TinyCUDA</a>
-</h3>
-<span class="listing-description"> TinyCUDA is a header-only C++17 wrapper that eliminates CUDA boilerplate—auto-handles cudaMalloc/cudaMemcpy via Buffer, kernel errors with CUDA_CHECK, and timings via KernelProfiler. Ideal for rapid 1D buffer prototyping without full-framework overhead (no autograd or multi-D tensors). </span><br> <small class="listing-date">Dec 26, 2025</small> <span class="listing-categories"> <span class="listing-category"> <a href="../blog/#category=Project" class="category-link badge rounded-pill bg-light">Project</a> </span> </span>
-</li>
-<li data-index="2" data-categories="UGFwZXIlMjBSZWFkaW5n" data-listing-date-sort="1761282000000" data-listing-file-modified-sort="1767666484585" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="798">
-<h3 class="no-anchor listing-title">
-<a href="../blog/paper-refrag/index.html" class="no-external delink">[Paper Summary] REFRAG: Rethinking RAG based Decoding</a>
-</h3>
-<span class="listing-description"> This paper from Meta Superintelligence Labs proposes an efficient decoding framework that optimizes Retrieval-Augmented Generation (RAG) by addressing latency and memory bottlenecks associated with long-context inputs. It achieves this through a novel approach involving compressed chunk embeddings and a reinforcement learning-based selective expansion policy, exploiting attention sparsity. The framework demonstrates substantial improvements in time-to-first-token (TTFT) acceleration and effective context window extension while maintaining perplexity and downstream task accuracy. </span><br> <small class="listing-date">Oct 24, 2025</small> <span class="listing-categories"> <span class="listing-category"> <a href="../blog/#category=Paper Reading" class="category-link badge rounded-pill bg-light">Paper Reading</a> </span> </span>
-</li>
-<li data-index="3" data-categories="UHJvamVjdA==" data-listing-date-sort="1726290000000" data-listing-file-modified-sort="1766873935726" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="651">
-<h3 class="no-anchor listing-title">
-<a href="../blog/isplib-story/index.html" class="no-external delink">iSpLib: An Auto-tuned GNN Accelerator for PyTorch</a>
-</h3>
-<span class="listing-description"> [Published in WebConf 2024] iSpLib is a PyTorch library that accelerates Graph Neural Network (GNN) training by integrating auto-tuned sparse matrix operations from FusedMM, delivering up to 93× speedup on large graphs like Reddit and OGBN-Proteins. It features plug-and-play patching for PyTorch Geometric, backpropagation support for semirings, and caching for fixed adjacency matrices, boosting models like GCN (54×), GraphSAGE (23-32×), and GIN (51×). </span><br> <small class="listing-date">Sep 14, 2024</small> <span class="listing-categories"> <span class="listing-category"> <a href="../blog/#category=Project" class="category-link badge rounded-pill bg-light">Project</a> </span> </span>
-</li>
+<blockquote class="blockquote">
+<p>Note: This is part of a learning series on CUDA from the book wrox Professional CUDA C Programming</p>
+</blockquote>
+<section id="warps-and-block-size" class="level2">
+<h2 class="anchored" data-anchor-id="warps-and-block-size">Warps and Block Size</h2>
+<ul>
+<li>Warps per block can be determined by the following formula <span class="math display">\[
+WarpsPerBlock = ceil\left(\frac{ThreadsPerBlock}{warpSize}\right)
+  \]</span></li>
 </ul>
-<style>
-  /* Remove bullet points and reset padding for the list */
-  .list {
-    list-style-type: none;
-    padding: 0;
-  }
+</section>
+<section id="warp-divergence-test" class="level2">
+<h2 class="anchored" data-anchor-id="warp-divergence-test">Warp Divergence Test</h2>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>nvprof Transition
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The book extensively used nvprof for profiling. Unfortunately it is no longer available in newer GPUs. I am sharing the ncu equivalent profiling metrics for each code snippet.</p>
+<ul>
+<li>nvprof has <code>branch_efficiency</code>, for ncu it is <code>smsp__sass_average_branch_targets_threads_uniform.pct</code></li>
+</ul>
+</div>
+</div>
+<section id="compile-and-profile" class="level4">
+<h4 class="anchored" data-anchor-id="compile-and-profile">Compile and Profile</h4>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">nvcc</span> <span class="at">-O3</span> <span class="at">-G</span> <span class="at">-g</span> <span class="at">-I</span><span class="st">"../tinyCUDA/include"</span> <span class="at">-lineinfo</span> 1_warp_divergence.cu <span class="at">-o</span> 1_warp_divergence</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">ncu</span> <span class="at">--metrics</span> <span class="st">"regex:.*branch.*"</span> <span class="at">-o</span> ./prof/branch_all ./1_warp_divergence</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">(</span><span class="ex">full</span> perf<span class="kw">)</span> <span class="ex">ncu</span> <span class="at">--set</span> full <span class="at">--import-source</span> yes <span class="at">--section</span> SourceCounters <span class="at">-o</span> ./prof/1_warp_divergence ./1_warp_divergence</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ul>
+<li><p>Open the file in NSight NCU</p></li>
+<li><p>Open Raw tab</p></li>
+<li><p>Filter: “Function Name|uniform”</p></li>
+</ul>
+<p><img src="images/paste-6.png" class="img-fluid"></p>
 
-  /* Style each list item */
-  .list li {
-    margin-bottom: 20px;
-    padding-bottom: 10px;
-    margin-left: 10px;
-  }
 
-  /* Style the title */
-  .listing-title h3 {
-    margin: 0;
-    font-size: 1.5em;
-  }
+</section>
+</section>
 
-  /* Style the date and categories */
-  .listing-date, .listing-categories {
-    font-size: 0.8em;
-    margin-right: 20px;
-  }
-
-  /* Style the description */
-  .listing-description {
-    margin-top: 10px;
-    font-size: 1em;
-  }
-  
-</style>
-<div class="listing-no-matching d-none">No matching items</div>
-</div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right

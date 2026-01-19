@@ -1,0 +1,42 @@
+---
+title: "Part-2: CUDA Execution Model"
+description: "Notes from Chapter-3 of the book Professional CUDA C Programming"
+statement: Developing kernels with profile driven approach.
+categories: ["LeetGPU"]
+author: "Md Saidul Hoque Anik"
+date: "12/14/2025"
+---
+
+> Note: This is part of a learning series on CUDA from the book wrox Professional CUDA C Programming
+
+## Warps and Block Size
+
+-   Warps per block can be determined by the following formula $$
+    WarpsPerBlock = ceil\left(\frac{ThreadsPerBlock}{warpSize}\right)
+      $$
+
+## Warp Divergence Test
+
+::: callout-note
+## nvprof Transition
+
+The book extensively used nvprof for profiling. Unfortunately it is no longer available in newer GPUs. I am sharing the ncu equivalent profiling metrics for each code snippet.
+
+-   nvprof has `branch_efficiency`, for ncu it is `smsp__sass_average_branch_targets_threads_uniform.pct`
+:::
+
+#### Compile and Profile
+
+``` bash
+nvcc -O3 -G -g -I"../tinyCUDA/include" -lineinfo 1_warp_divergence.cu -o 1_warp_divergence
+ncu --metrics "regex:.*branch.*" -o ./prof/branch_all ./1_warp_divergence
+(full perf) ncu --set full --import-source yes --section SourceCounters -o ./prof/1_warp_divergence ./1_warp_divergence
+```
+
+-   Open the file in NSight NCU
+
+-   Open Raw tab
+
+-   Filter: "Function Name\|uniform"
+
+![](images/paste-6.png)

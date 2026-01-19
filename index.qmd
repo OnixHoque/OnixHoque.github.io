@@ -156,7 +156,7 @@ I deepen my **ML systems** expertise by solving [LeetGPU](/leetgpu/) problems ac
       imgContainer.style.flexShrink = '0'; 
       imgContainer.style.overflow = 'hidden';
       imgContainer.style.marginLeft = '0.5rem'; 
-      imgContainer.style.marginRight = '0.5rem'; 
+      // imgContainer.style.marginRight = '0.5rem'; 
       imgContainer.style.display = 'flex';
       imgContainer.style.alignItems = 'center'; // Vertical centering
       imgContainer.style.justifyContent = 'center'; // Horizontal centering

@@ -39,9 +39,17 @@
   {
     "listing": "/blog/index.html",
     "items": [
+      "/blog/simd-add/index.html",
       "/blog/tinycuda-release/index.html",
       "/blog/paper-refrag/index.html",
       "/blog/isplib-story/index.html"
+    ]
+  },
+  {
+    "listing": "/cuda-learning/index.html",
+    "items": [
+      "/cuda-learning/part-2-execution-model/index copy.html",
+      "/cuda-learning/part-2-execution-model/index.html"
     ]
   },
   {

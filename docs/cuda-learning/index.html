@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Blogs and Notes – Md Saidul Hoque Anik</title>
+<title>LeetGPU Solutions and Notes – Md Saidul Hoque Anik</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -77,20 +77,20 @@ ul.task-list li input[type="checkbox"] {
 <script>
 
   window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
+    const listingTargetEl = window.document.querySelector('#listing-listings-leetgpu .list');
     if (!listingTargetEl) {
       // No listing discovered, do not attach.
       return; 
     }
 
     const options = {
-      valueNames: ['listing-date','listing-categories','listing-title','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-date-modified-sort'] },{ data: ['listing-file-modified-sort'] },{ data: ['listing-reading-time-sort'] },{ data: ['listing-word-count-sort'] }],
+      valueNames: ['listing-date','listing-title','listing-statement',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-date-modified-sort'] },{ data: ['listing-file-modified-sort'] },{ data: ['listing-reading-time-sort'] },{ data: ['listing-word-count-sort'] }],
       
-      searchColumns: ["listing-project","listing-website","listing-format","listing-execute","listing-reference-location","listing-citation-location","listing-language","listing-title","listing-description","listing-categories","listing-author","listing-date","listing-path","listing-outputHref","listing-date-modified","listing-filename","listing-file-modified","listing-reading-time","listing-word-count"],
+      searchColumns: ["listing-project","listing-website","listing-format","listing-execute","listing-reference-location","listing-citation-location","listing-language","listing-title","listing-description","listing-statement","listing-categories","listing-author","listing-date","listing-path","listing-outputHref","listing-date-modified","listing-filename","listing-file-modified","listing-reading-time","listing-word-count"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
+    window['quarto-listings']['listing-listings-leetgpu'] = new List('listing-listings-leetgpu', options);
 
     if (window['quarto-listing-loaded']) {
       window['quarto-listing-loaded']();
@@ -141,7 +141,7 @@ window.Quarto = {
 <link rel="stylesheet" href="../styles.css">
 </head>
 
-<body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+<body class="nav-fixed fullcontent quarto-light"><script id="quarto-html-before-body" type="application/javascript">
     const toggleBodyColorMode = (bsSheetEl) => {
       const mode = bsSheetEl.getAttribute("data-mode");
       const bodyEl = window.document.querySelector("body");
@@ -372,23 +372,22 @@ window.Quarto = {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(4)</span></div><div class="category" data-category="SGFuZHMtb24=">Hands-on <span class="quarto-category-count">(1)</span></div><div class="category" data-category="UGFwZXIlMjBSZWFkaW5n">Paper Reading <span class="quarto-category-count">(1)</span></div><div class="category" data-category="UHJvamVjdA==">Project <span class="quarto-category-count">(2)</span></div></div></div>
+    
 <!-- main -->
-<main class="content column-page-left" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
 
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Blogs and Notes</h1>
+<h1 class="title">LeetGPU Solutions and Notes</h1>
 </div>
 
 
 
-<div class="quarto-title-meta column-page-left">
+<div class="quarto-title-meta">
 
     
   
@@ -400,63 +399,22 @@ window.Quarto = {
 </header>
 
 
-
-
-
-
-<div class="quarto-listing quarto-listing-container-custom" id="listing-listing">
-<div class="listing-actions-group">
-   <div class="input-group input-group-sm quarto-listing-sort">
-    <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
-    <select id="listing-listing-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-listing'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
-      <option value="" disabled="" selected="" hidden="">Order By</option>
-      <option value="index" data-direction="asc">Default</option>
-      <option value="listing-title" data-direction="asc">
-        Title
-      </option>
-      <option value="listing-description" data-direction="asc">
-        Description
-      </option>
-      <option value="listing-categories" data-direction="asc">
-        Categories
-      </option>
-      <option value="listing-date-sort" data-direction="asc">
-        Date - Oldest
-      </option>
-      <option value="listing-date-sort" data-direction="desc">
-        Date - Newest
-      </option>
-    </select>
-  </div>
-    <div class="input-group input-group-sm quarto-listing-filter">
-      <span class="input-group-text"><i class="bi bi-search"></i></span>
-      <input type="text" class="search form-control" placeholder="Filter">
-    </div>
-</div>
+<p>Notes and solutions in PyTorch, Triton, and CUDA. Runtime shown for T4 GPU.</p>
+<div id="listing-listings-leetgpu" class="quarto-listing quarto-listing-container-custom">
 <ul class="list">
-<li data-index="0" data-categories="SGFuZHMtb24=" data-listing-date-sort="1768802400000" data-listing-file-modified-sort="1768811635613" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="939">
+<li data-index="0" data-categories="TGVldEdQVQ==" data-listing-date-sort="1765692000000" data-listing-file-modified-sort="1768249017934" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="133">
+<span class="listing-header">
 <h3 class="no-anchor listing-title">
-<a href="../blog/simd-add/index.html" class="no-external delink">SIMD Intrinsics in Practice: Measuring Scalar vs SSE2 vs AVX2 Performance</a>
+<a href="../cuda-learning/part-2-execution-model/index copy.html" class="no-external delink"> Part-2: CUDA Execution Model </a>
 </h3>
-<span class="listing-description"> A simple 8-element vector add benchmark shows that AVX2 with proper alignment is fastest, followed by SSE2, unaligned AVX2, and finally scalar code. </span><br> <small class="listing-date">Jan 19, 2026</small> <span class="listing-categories"> <span class="listing-category"> <a href="../blog/#category=Hands-on" class="category-link badge rounded-pill bg-light">Hands-on</a> </span> </span>
+<small class="listing-date">Dec 14, 2025</small> </span> <span class="listing-description"> Developing kernels with profile driven approach. </span><br>
 </li>
-<li data-index="1" data-categories="UHJvamVjdA==" data-listing-date-sort="1766728800000" data-listing-file-modified-sort="1766976001363" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="925">
+<li data-index="1" data-categories="TGVldEdQVQ==" data-listing-date-sort="1765692000000" data-listing-file-modified-sort="1768268481659" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="145">
+<span class="listing-header">
 <h3 class="no-anchor listing-title">
-<a href="../blog/tinycuda-release/index.html" class="no-external delink">Getting Started with TinyCUDA</a>
+<a href="../cuda-learning/part-2-execution-model/index.html" class="no-external delink"> Part-2: CUDA Execution Model </a>
 </h3>
-<span class="listing-description"> TinyCUDA is a header-only C++17 wrapper that eliminates CUDA boilerplate—auto-handles cudaMalloc/cudaMemcpy via Buffer, kernel errors with CUDA_CHECK, and timings via KernelProfiler. Ideal for rapid 1D buffer prototyping without full-framework overhead (no autograd or multi-D tensors). </span><br> <small class="listing-date">Dec 26, 2025</small> <span class="listing-categories"> <span class="listing-category"> <a href="../blog/#category=Project" class="category-link badge rounded-pill bg-light">Project</a> </span> </span>
-</li>
-<li data-index="2" data-categories="UGFwZXIlMjBSZWFkaW5n" data-listing-date-sort="1761282000000" data-listing-file-modified-sort="1767666484585" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="798">
-<h3 class="no-anchor listing-title">
-<a href="../blog/paper-refrag/index.html" class="no-external delink">[Paper Summary] REFRAG: Rethinking RAG based Decoding</a>
-</h3>
-<span class="listing-description"> This paper from Meta Superintelligence Labs proposes an efficient decoding framework that optimizes Retrieval-Augmented Generation (RAG) by addressing latency and memory bottlenecks associated with long-context inputs. It achieves this through a novel approach involving compressed chunk embeddings and a reinforcement learning-based selective expansion policy, exploiting attention sparsity. The framework demonstrates substantial improvements in time-to-first-token (TTFT) acceleration and effective context window extension while maintaining perplexity and downstream task accuracy. </span><br> <small class="listing-date">Oct 24, 2025</small> <span class="listing-categories"> <span class="listing-category"> <a href="../blog/#category=Paper Reading" class="category-link badge rounded-pill bg-light">Paper Reading</a> </span> </span>
-</li>
-<li data-index="3" data-categories="UHJvamVjdA==" data-listing-date-sort="1726290000000" data-listing-file-modified-sort="1766873935726" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="651">
-<h3 class="no-anchor listing-title">
-<a href="../blog/isplib-story/index.html" class="no-external delink">iSpLib: An Auto-tuned GNN Accelerator for PyTorch</a>
-</h3>
-<span class="listing-description"> [Published in WebConf 2024] iSpLib is a PyTorch library that accelerates Graph Neural Network (GNN) training by integrating auto-tuned sparse matrix operations from FusedMM, delivering up to 93× speedup on large graphs like Reddit and OGBN-Proteins. It features plug-and-play patching for PyTorch Geometric, backpropagation support for semirings, and caching for fixed adjacency matrices, boosting models like GCN (54×), GraphSAGE (23-32×), and GIN (51×). </span><br> <small class="listing-date">Sep 14, 2024</small> <span class="listing-categories"> <span class="listing-category"> <a href="../blog/#category=Project" class="category-link badge rounded-pill bg-light">Project</a> </span> </span>
+<small class="listing-date">Dec 14, 2025</small> </span> <span class="listing-description"> Developing kernels with profile driven approach. </span><br>
 </li>
 </ul>
 <style>
@@ -490,10 +448,30 @@ window.Quarto = {
     margin-top: 10px;
     font-size: 1em;
   }
+
+  .listing-header {
+    display: flex;              /* span becomes a flex container */
+    align-items: baseline;
+    justify-content: space-between;
+    width: 100%;                /* important so date can reach right */
+  }
+
+  .listing-title {
+    margin: 0;
+  }
+
+  .listing-date {
+    white-space: nowrap;
+  }
   
 </style>
 <div class="listing-no-matching d-none">No matching items</div>
-</div></main> <!-- /main -->
+</div>
+
+
+
+
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right

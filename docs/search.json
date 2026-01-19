@@ -476,46 +476,74 @@
     "text": "Exploration\nI deepen my ML systems expertise by solving LeetGPU problems across PyTorch, CUDA, and Triton, building intuition for low-level kernel design and performance trade-offs. I stay current with ML infrastructure and systems trends by developing small experimental tools and continuously expanding my software skill set, with 12+ open-source and commercial projects in Python, C++, and Java. I also regularly read and distill recent ML systems papers, sharing relevant hands-on tutorials and technical walkthroughs on my blog to communicate systems concepts clearly and effectively."
   },
   {
-    "objectID": "blog/tinycuda-release/index.html",
-    "href": "blog/tinycuda-release/index.html",
-    "title": "Getting Started with TinyCUDA",
+    "objectID": "cuda-learning/part-2-execution-model/index copy.html",
+    "href": "cuda-learning/part-2-execution-model/index copy.html",
+    "title": "Part-2: CUDA Execution Model",
     "section": "",
-    "text": "📌 GitHub Link: https://github.com/OnixHoque/tinyCUDA. 🌟 Please leave a star if you like it!"
+    "text": "Note: This is part of a learning series on CUDA from the book wrox Professional CUDA C Programming"
   },
   {
-    "objectID": "blog/tinycuda-release/index.html#why-tinycuda",
-    "href": "blog/tinycuda-release/index.html#why-tinycuda",
-    "title": "Getting Started with TinyCUDA",
-    "section": "Why TinyCUDA?",
-    "text": "Why TinyCUDA?\nCUDA lets you speed up heavy computations on your GPU, but it often means dealing with a lot of setup code for things like memory copies, error checks, and timing. TinyCUDA is a simple, header-only C++17 library that handles this boilerplate (memory management, profiling, error checking) for you. It lets you focus on writing your kernels, making it great for quick prototypes or learning."
+    "objectID": "cuda-learning/part-2-execution-model/index copy.html#warps-and-block-size",
+    "href": "cuda-learning/part-2-execution-model/index copy.html#warps-and-block-size",
+    "title": "Part-2: CUDA Execution Model",
+    "section": "Warps and Block Size",
+    "text": "Warps and Block Size\n\nWarps per block can be determined by the following formula \\[\nWarpsPerBlock = ceil\\left(\\frac{ThreadsPerBlock}{warpSize}\\right)\n  \\]"
   },
   {
-    "objectID": "blog/tinycuda-release/index.html#what-you-need",
-    "href": "blog/tinycuda-release/index.html#what-you-need",
-    "title": "Getting Started with TinyCUDA",
-    "section": "What You Need",
-    "text": "What You Need\n\nCUDA Toolkit 11.0+ with nvcc.\nA C++17 compiler.\nAn NVIDIA GPU."
+    "objectID": "cuda-learning/part-2-execution-model/index copy.html#warp-divergence-test",
+    "href": "cuda-learning/part-2-execution-model/index copy.html#warp-divergence-test",
+    "title": "Part-2: CUDA Execution Model",
+    "section": "Warp Divergence Test",
+    "text": "Warp Divergence Test\n\n\n\n\n\n\nNotenvprof Transition\n\n\n\nThe book extensively used nvprof for profiling. Unfortunately it is no longer available in newer GPUs. I am sharing the ncu equivalent profiling metrics for each code snippet.\n\nnvprof has branch_efficiency, for ncu it is smsp__sass_average_branch_targets_threads_uniform.pct\n\n\n\n\nCompile and Profile\nnvcc -O3 -G -g -I\"../tinyCUDA/include\" -lineinfo 1_warp_divergence.cu -o 1_warp_divergence\nncu --metrics \"regex:.*branch.*\" -o ./prof/branch_all ./1_warp_divergence\n(full perf) ncu --set full --import-source yes --section SourceCounters -o ./prof/1_warp_divergence ./1_warp_divergence\n\nOpen the file in NSight NCU\nOpen Raw tab\nFilter: “Function Name|uniform”"
   },
   {
-    "objectID": "blog/tinycuda-release/index.html#setup",
-    "href": "blog/tinycuda-release/index.html#setup",
-    "title": "Getting Started with TinyCUDA",
-    "section": "Setup",
-    "text": "Setup\nNo building required—it’s just headers!\n\nGrab the repo:\ngit clone https://github.com/OnixHoque/tinyCUDA.git\nAdd include/tinycuda/ to your project’s includes (like in a third_party/ folder).\nIn your .cu file:\n#include \"tinycuda/tinycuda.hpp\"  // Gets everything\n// Or pick what you need:\n// #include \"tinycuda/memory.hpp\"\n// #include \"tinycuda/profiler.hpp\"\n// #include \"tinycuda/error.hpp\"\nBuild with nvcc:\nnvcc -std=c++17 -I/path/to/tinycuda/include your_file.cu -o your_output\n\nTest it out with the repo’s scripts:\ncd tinyCUDA\n./scripts/build_and_run.sh  # Tries the vector add example\n./scripts/run_tests.sh      # Runs the tests"
+    "objectID": "community/index.html",
+    "href": "community/index.html",
+    "title": "Community",
+    "section": "",
+    "text": "Contents"
   },
   {
-    "objectID": "blog/tinycuda-release/index.html#quick-examples",
-    "href": "blog/tinycuda-release/index.html#quick-examples",
-    "title": "Getting Started with TinyCUDA",
-    "section": "Quick Examples",
-    "text": "Quick Examples\nTinyCUDA has three main helpers: Buffer for memory stuff, KernelProfiler for timing kernels, and CUDA_CHECK for catching errors. We use this simple vector addition kernel across all examples: c[i] = a[i] + b[i] for N elements.\n__global__ void vector_add(const float* a, const float* b, float* c, int N) {\n    int idx = blockIdx.x * blockDim.x + threadIdx.x;\n    if (idx &lt; N) {\n        c[idx] = a[idx] + b[idx];\n    }\n}\n\nHandling Memory with Buffer\nBuffer makes a GPU copy of your host data—easy allocation, copies, and cleanup. Full vector add.\n#include \"tinycuda/tinycuda.hpp\"\n#include &lt;vector&gt;\n#include &lt;cstdio&gt;\n#include &lt;cmath&gt;\n \nint main() {\n    const int N = 1024;\n    const int threads = 256;\n    const int blocks = (N + threads - 1) / threads;\n\n    std::vector&lt;float&gt; h_a(N, 1.0f), h_b(N, 2.0f), h_out(N, 0.0f);\n\n    tinycuda::Buffer&lt;float&gt; buf_a(h_a.data(), N);\n    tinycuda::Buffer&lt;float&gt; buf_b(h_b.data(), N);\n    tinycuda::Buffer&lt;float&gt; buf_out(h_out.data(), N);\n\n    buf_a.to_gpu(); buf_b.to_gpu(); buf_out.to_gpu();\n\n    vector_add&lt;&lt;&lt;blocks, threads&gt;&gt;&gt;(buf_a.gpu_data(), buf_b.gpu_data(), buf_out.gpu_data(), N);\n\n    buf_out.to_cpu();\n\n    // Quick check\n    bool passed = true;\n    for (int i = 0; i &lt; N; ++i) {\n        if (std::abs(h_out[i] - 3.0f) &gt; 1e-5f) { passed = false; break; }\n    }\n    printf(\"%s\\n\", passed ? \"Verified!\" : \"Failed.\");\n\n    return 0;\n}\n\n\nTiming Kernels with KernelProfiler\nTime your kernels with warmups to skip JIT delays, then average a bunch of runs. Full vector add (buffers set up as above).\n#include \"tinycuda/tinycuda.hpp\"\n#include &lt;vector&gt;\n#include &lt;cstdio&gt;\n#include &lt;cmath&gt;\n\nint main() {\n    const int N = 1024;\n    const int threads = 256;\n    const int blocks = (N + threads - 1) / threads;\n\n    std::vector&lt;float&gt; h_a(N, 1.0f), h_b(N, 2.0f), h_out(N, 0.0f);\n\n    tinycuda::Buffer&lt;float&gt; buf_a(h_a.data(), N);\n    tinycuda::Buffer&lt;float&gt; buf_b(h_b.data(), N);\n    tinycuda::Buffer&lt;float&gt; buf_out(h_out.data(), N);\n\n    buf_a.to_gpu(); buf_b.to_gpu(); buf_out.to_gpu();\n\n    // Time kernel (5 warmups, 50 runs)\n    tinycuda::KernelProfiler prof(5, 50);\n    float ms = prof([&] { vector_add&lt;&lt;&lt;blocks, threads&gt;&gt;&gt;(buf_a.gpu_data(), buf_b.gpu_data(), buf_out.gpu_data(), N); });\n\n    buf_out.to_cpu();\n\n    // Quick check (as above)\n    bool passed = true;\n    for (int i = 0; i &lt; N; ++i) {\n        if (std::abs(h_out[i] - 3.0f) &gt; 1e-5f) { passed = false; break; }\n    }\n    printf(\"Avg time: %.4f ms | %s\\n\", ms, passed ? \"Verified!\" : \"Failed.\");\n\n    return 0;\n}\n\n\nCatching Errors with CUDA_CHECK\nJust include the header—it defines CUDA_CHECK for you. Wrap your CUDA calls to auto-check and bail on errors with a nice message. Vector add using raw calls (to demo CUDA_CHECK; Buffer hides these).\n#include \"tinycuda/error.hpp\"  // Brings in CUDA_CHECK\n#include &lt;vector&gt;\n#include &lt;cstdio&gt;\n#include &lt;cmath&gt;\n\nint main() {\n    const int N = 1024;\n    const int threads = 256;\n    const int blocks = (N + threads - 1) / threads;\n\n    std::vector&lt;float&gt; h_a(N, 1.0f), h_b(N, 2.0f), h_out(N, 0.0f);\n\n    float *d_a, *d_b, *d_out;\n    CUDA_CHECK(cudaMalloc(&d_a, N * sizeof(float)));\n    CUDA_CHECK(cudaMalloc(&d_b, N * sizeof(float)));\n    CUDA_CHECK(cudaMalloc(&d_out, N * sizeof(float)));\n\n    CUDA_CHECK(cudaMemcpy(d_a, h_a.data(), N * sizeof(float), cudaMemcpyHostToDevice));\n    CUDA_CHECK(cudaMemcpy(d_b, h_b.data(), N * sizeof(float), cudaMemcpyHostToDevice));\n    CUDA_CHECK(cudaMemset(d_out, 0, N * sizeof(float)));\n\n    vector_add&lt;&lt;&lt;blocks, threads&gt;&gt;&gt;(d_a, d_b, d_out, N);\n    CUDA_CHECK(cudaGetLastError());\n    CUDA_CHECK(cudaDeviceSynchronize());\n\n    CUDA_CHECK(cudaMemcpy(h_out.data(), d_out, N * sizeof(float), cudaMemcpyDeviceToHost));\n\n    CUDA_CHECK(cudaFree(d_a)); CUDA_CHECK(cudaFree(d_b)); CUDA_CHECK(cudaFree(d_out));\n\n    // Quick check (as above)\n    bool passed = true;\n    for (int i = 0; i &lt; N; ++i) {\n        if (std::abs(h_out[i] - 3.0f) &gt; 1e-5f) { passed = false; break; }\n    }\n    printf(\"%s\\n\", passed ? \"Verified!\" : \"Failed.\");\n\n    return 0;\n}"
+    "objectID": "blog/simd-add/index.html",
+    "href": "blog/simd-add/index.html",
+    "title": "SIMD Intrinsics in Practice: Measuring Scalar vs SSE2 vs AVX2 Performance",
+    "section": "",
+    "text": "I ran a small benchmark to demonstrate the use of various SIMD intrinsics and to compare their performance. The test measured the speedup of a simple 8-element vector addition implemented in four ways: scalar code, SSE2 intrinsics, AVX2 intrinsics, and AVX2 with explicit alignas memory alignment.\nThe results showed a clear performance hierarchy. The AVX2 implementation with aligned data performed best, followed by SSE2, then unaligned AVX2, with the scalar version being the slowest. This highlights how both wider vector units and proper data alignment can have a measurable impact on SIMD performance, even for small workloads.\nUnaligned AVX2 can be slower than SSE2 because the overhead of wider 256-bit operations outweighs their benefits for very small workloads. Unaligned AVX2 loads may require extra micro-operations or split memory accesses, and on many CPUs they can also trigger a lower core frequency when AVX instructions are used. For an 8-element vector add, these costs dominate, while SSE2 avoids AVX downclocking and moves less data per instruction, making it more efficient in this case. Once data is properly aligned or the workload grows, AVX2’s wider vectors regain their advantage."
   },
   {
-    "objectID": "blog/tinycuda-release/index.html#whats-next",
-    "href": "blog/tinycuda-release/index.html#whats-next",
-    "title": "Getting Started with TinyCUDA",
-    "section": "What’s Next?",
-    "text": "What’s Next?\nCheck the examples like vector_add.cu and matmul.cu in the repo for full runs with checks and timings. It fits right into bigger projects with almost no extra weight. Dive into the headers for more details!"
+    "objectID": "blog/simd-add/index.html#scalar",
+    "href": "blog/simd-add/index.html#scalar",
+    "title": "SIMD Intrinsics in Practice: Measuring Scalar vs SSE2 vs AVX2 Performance",
+    "section": "Scalar",
+    "text": "Scalar\n#include &lt;stdio.h&gt;\n\nint main() {\n    float a[8] = {1, 2, 3, 4, 5, 6, 7, 8};\n    float b[8] = {10, 20, 30, 40, 50, 60, 70, 80};\n    float result[8];\n\n    // Plain old scalar addition - one element at a time\n    for (int i = 0; i &lt; 8; i++) {\n        result[i] = a[i] + b[i];\n    }\n\n    return 0;\n}\n\nRun and Profile\ngcc -O3 0_scalar_add.c\nperf stat -r 5 -- ./a.out\nTime taken: \\(0.000964 \\pm 0.000319\\) seconds"
+  },
+  {
+    "objectID": "blog/simd-add/index.html#avx2-intrinsics",
+    "href": "blog/simd-add/index.html#avx2-intrinsics",
+    "title": "SIMD Intrinsics in Practice: Measuring Scalar vs SSE2 vs AVX2 Performance",
+    "section": "AVX2 Intrinsics",
+    "text": "AVX2 Intrinsics\n\n#include &lt;immintrin.h&gt;  // AVX2 intrinsics\n#include &lt;stdio.h&gt;\n\nint main() {\n    // Two input arrays of 8 floats each\n    float a[8] = {1, 2, 3, 4, 5, 6, 7, 8};\n    float b[8] = {10, 20, 30, 40, 50, 60, 70, 80};\n    float result[8];\n\n    // Load into 256-bit SIMD registers (ymm)\n    __m256 va = _mm256_loadu_ps(a);\n    __m256 vb = _mm256_loadu_ps(b);\n\n    // Add them in one SIMD instruction\n    __m256 vresult = _mm256_add_ps(va, vb);\n\n    // Store result back to memory\n    _mm256_storeu_ps(result, vresult);\n\n    return 0;\n}\n\nRun and Profile\ngcc -O3 -mavx2 1_vector_add.c\nperf stat -r 5 -- ./a.out\nTime taken: \\(0.0005174 \\pm 0.0000617\\) seconds"
+  },
+  {
+    "objectID": "blog/simd-add/index.html#avx2-intrinsics-align",
+    "href": "blog/simd-add/index.html#avx2-intrinsics-align",
+    "title": "SIMD Intrinsics in Practice: Measuring Scalar vs SSE2 vs AVX2 Performance",
+    "section": "AVX2 Intrinsics + Align",
+    "text": "AVX2 Intrinsics + Align\n#include &lt;immintrin.h&gt;\n#include &lt;stdio.h&gt;\n#include &lt;stdalign.h&gt;\n\nint main() {\n    alignas(32) float a[8] = {1,2,3,4,5,6,7,9};\n    alignas(32) float b[8] = {10,20,30,40,50,60,70,90};\n    alignas(32) float result[8];\n\n    _mm256_store_ps(result, _mm256_add_ps(\n        _mm256_load_ps(a),\n        _mm256_load_ps(b)\n    ));\n\n    return 0;\n}\n\nRun and Profile\ngcc -O3 -mavx2 2_vector_add.c\nperf stat -r 5 -- ./a.out\nTime taken: \\(0.0004999 \\pm 0.0000505\\) seconds"
+  },
+  {
+    "objectID": "blog/simd-add/index.html#sse2-intrinsics",
+    "href": "blog/simd-add/index.html#sse2-intrinsics",
+    "title": "SIMD Intrinsics in Practice: Measuring Scalar vs SSE2 vs AVX2 Performance",
+    "section": "SSE2 Intrinsics",
+    "text": "SSE2 Intrinsics\n#include &lt;emmintrin.h&gt;  // SSE2\n#include &lt;stdio.h&gt;\n\nint main() {\n    float a[8] = {1, 2, 3, 4, 5, 6, 7, 8};\n    float b[8] = {10,20,30,40,50,60,70,80};\n    float result[8];\n\n    // First half (elements 0–3)\n    _mm_storeu_ps(result + 0,\n        _mm_add_ps(\n            _mm_loadu_ps(a + 0),\n            _mm_loadu_ps(b + 0)\n        ));\n\n    // Second half (elements 4–7)\n    _mm_storeu_ps(result + 4,\n        _mm_add_ps(\n            _mm_loadu_ps(a + 4),\n            _mm_loadu_ps(b + 4)\n        ));\n\n    return 0;\n}\n\nRun and Profile\ngcc -O3 -msse2 3_vector_add.c\nperf stat -r 5 -- ./a.out\nTime taken: \\(0.0005111 \\pm 0.0000500\\) seconds"
+  },
+  {
+    "objectID": "blog/simd-add/index.html#summary",
+    "href": "blog/simd-add/index.html#summary",
+    "title": "SIMD Intrinsics in Practice: Measuring Scalar vs SSE2 vs AVX2 Performance",
+    "section": "Summary",
+    "text": "Summary\nThe following table summarizes the execution time of various implementations—AVX2, SSE2, aligned AVX2, and scalar—and reports their corresponding speedups relative to the scalar baseline. All experiments were conducted on an Intel® Core™ Ultra 9 Processor 285H with 24 MB cache and a maximum turbo frequency of 5.40 GHz.\n\n\nBenchmarking\n\n\nMethod\nTime (µs)\nSpeedup\n\n\n\n\nScalar\n\\(964.0 \\pm 319\\)\n\\(1\\times\\)\n\n\nAVX2\n\\(517.4 \\pm 61.7\\)\n\\(1.863\\times\\)\n\n\nAVX2+Align\n\\(499.9 \\pm 50.5\\)\n\\(1.928\\times\\)\n\n\nSSE2+Loop Unrolled\n\\(511.1 \\pm 50.0\\)\n\\(1.886\\times\\)"
   },
   {
     "objectID": "blog/isplib-story/index.html",
@@ -557,7 +585,7 @@
     "href": "blog/index.html",
     "title": "Blogs and Notes",
     "section": "",
-    "text": "Order By\n      Default\n      \n        Title\n      \n      \n        Description\n      \n      \n        Categories\n      \n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\nGetting Started with TinyCUDA\n\n TinyCUDA is a header-only C++17 wrapper that eliminates CUDA boilerplate—auto-handles cudaMalloc/cudaMemcpy via Buffer, kernel errors with CUDA_CHECK, and timings via KernelProfiler. Ideal for rapid 1D buffer prototyping without full-framework overhead (no autograd or multi-D tensors).  Dec 26, 2025   Project  \n\n\n\n[Paper Summary] REFRAG: Rethinking RAG based Decoding\n\n This paper from Meta Superintelligence Labs proposes an efficient decoding framework that optimizes Retrieval-Augmented Generation (RAG) by addressing latency and memory bottlenecks associated with long-context inputs. It achieves this through a novel approach involving compressed chunk embeddings and a reinforcement learning-based selective expansion policy, exploiting attention sparsity. The framework demonstrates substantial improvements in time-to-first-token (TTFT) acceleration and effective context window extension while maintaining perplexity and downstream task accuracy.  Oct 24, 2025   Paper Reading  \n\n\n\niSpLib: An Auto-tuned GNN Accelerator for PyTorch\n\n [Published in WebConf 2024] iSpLib is a PyTorch library that accelerates Graph Neural Network (GNN) training by integrating auto-tuned sparse matrix operations from FusedMM, delivering up to 93× speedup on large graphs like Reddit and OGBN-Proteins. It features plug-and-play patching for PyTorch Geometric, backpropagation support for semirings, and caching for fixed adjacency matrices, boosting models like GCN (54×), GraphSAGE (23-32×), and GIN (51×).  Sep 14, 2024   Project  \n\n\n\nNo matching items"
+    "text": "Order By\n      Default\n      \n        Title\n      \n      \n        Description\n      \n      \n        Categories\n      \n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\nSIMD Intrinsics in Practice: Measuring Scalar vs SSE2 vs AVX2 Performance\n\n A simple 8-element vector add benchmark shows that AVX2 with proper alignment is fastest, followed by SSE2, unaligned AVX2, and finally scalar code.  Jan 19, 2026   Hands-on  \n\n\n\nGetting Started with TinyCUDA\n\n TinyCUDA is a header-only C++17 wrapper that eliminates CUDA boilerplate—auto-handles cudaMalloc/cudaMemcpy via Buffer, kernel errors with CUDA_CHECK, and timings via KernelProfiler. Ideal for rapid 1D buffer prototyping without full-framework overhead (no autograd or multi-D tensors).  Dec 26, 2025   Project  \n\n\n\n[Paper Summary] REFRAG: Rethinking RAG based Decoding\n\n This paper from Meta Superintelligence Labs proposes an efficient decoding framework that optimizes Retrieval-Augmented Generation (RAG) by addressing latency and memory bottlenecks associated with long-context inputs. It achieves this through a novel approach involving compressed chunk embeddings and a reinforcement learning-based selective expansion policy, exploiting attention sparsity. The framework demonstrates substantial improvements in time-to-first-token (TTFT) acceleration and effective context window extension while maintaining perplexity and downstream task accuracy.  Oct 24, 2025   Paper Reading  \n\n\n\niSpLib: An Auto-tuned GNN Accelerator for PyTorch\n\n [Published in WebConf 2024] iSpLib is a PyTorch library that accelerates Graph Neural Network (GNN) training by integrating auto-tuned sparse matrix operations from FusedMM, delivering up to 93× speedup on large graphs like Reddit and OGBN-Proteins. It features plug-and-play patching for PyTorch Geometric, backpropagation support for semirings, and caching for fixed adjacency matrices, boosting models like GCN (54×), GraphSAGE (23-32×), and GIN (51×).  Sep 14, 2024   Project  \n\n\n\nNo matching items"
   },
   {
     "objectID": "blog/paper-refrag/index.html",
@@ -609,11 +637,74 @@
     "text": "Appendix\n\nRetrieval-Augmented Generation (RAG): A system where a language model retrieves relevant information from external sources to improve its generation.\nKey-Value (KV) Cache: Memory used in transformer models to store previously computed keys and values, accelerating decoding but increasing memory usage with context length.\nTime-to-First-Token (TTFT): The latency experienced from the input prompt being received to the first output token being generated.\nTime-to-Iterative-Token (TTIT): The latency for generating each subsequent token after the first token.\nChunk Embedding: A compact vector representation of a segment (chunk) of input text, used to reduce the effective input length for the decoder.\nAttention Sparsity: A property of attention mechanisms where most interactions between tokens or chunks are zero or negligible, allowing for computational optimizations.\nPerplexity: A measure of how well a probability model predicts a sample; lower perplexity indicates better performance in language models.\nContinual Pre-training (CPT): The process of further training a pre-trained language model on new data or tasks to adapt it to specific requirements.\nReinforcement Learning (RL) Policy: An algorithm trained to make sequential decisions, in this context, to selectively determine which context chunks to expand.\nAutoregressive Nature: The property of a model where each output token is generated based on the preceding tokens in the sequence."
   },
   {
-    "objectID": "community/index.html",
-    "href": "community/index.html",
-    "title": "Community",
+    "objectID": "blog/tinycuda-release/index.html",
+    "href": "blog/tinycuda-release/index.html",
+    "title": "Getting Started with TinyCUDA",
     "section": "",
-    "text": "Contents"
+    "text": "📌 GitHub Link: https://github.com/OnixHoque/tinyCUDA. 🌟 Please leave a star if you like it!"
+  },
+  {
+    "objectID": "blog/tinycuda-release/index.html#why-tinycuda",
+    "href": "blog/tinycuda-release/index.html#why-tinycuda",
+    "title": "Getting Started with TinyCUDA",
+    "section": "Why TinyCUDA?",
+    "text": "Why TinyCUDA?\nCUDA lets you speed up heavy computations on your GPU, but it often means dealing with a lot of setup code for things like memory copies, error checks, and timing. TinyCUDA is a simple, header-only C++17 library that handles this boilerplate (memory management, profiling, error checking) for you. It lets you focus on writing your kernels, making it great for quick prototypes or learning."
+  },
+  {
+    "objectID": "blog/tinycuda-release/index.html#what-you-need",
+    "href": "blog/tinycuda-release/index.html#what-you-need",
+    "title": "Getting Started with TinyCUDA",
+    "section": "What You Need",
+    "text": "What You Need\n\nCUDA Toolkit 11.0+ with nvcc.\nA C++17 compiler.\nAn NVIDIA GPU."
+  },
+  {
+    "objectID": "blog/tinycuda-release/index.html#setup",
+    "href": "blog/tinycuda-release/index.html#setup",
+    "title": "Getting Started with TinyCUDA",
+    "section": "Setup",
+    "text": "Setup\nNo building required—it’s just headers!\n\nGrab the repo:\ngit clone https://github.com/OnixHoque/tinyCUDA.git\nAdd include/tinycuda/ to your project’s includes (like in a third_party/ folder).\nIn your .cu file:\n#include \"tinycuda/tinycuda.hpp\"  // Gets everything\n// Or pick what you need:\n// #include \"tinycuda/memory.hpp\"\n// #include \"tinycuda/profiler.hpp\"\n// #include \"tinycuda/error.hpp\"\nBuild with nvcc:\nnvcc -std=c++17 -I/path/to/tinycuda/include your_file.cu -o your_output\n\nTest it out with the repo’s scripts:\ncd tinyCUDA\n./scripts/build_and_run.sh  # Tries the vector add example\n./scripts/run_tests.sh      # Runs the tests"
+  },
+  {
+    "objectID": "blog/tinycuda-release/index.html#quick-examples",
+    "href": "blog/tinycuda-release/index.html#quick-examples",
+    "title": "Getting Started with TinyCUDA",
+    "section": "Quick Examples",
+    "text": "Quick Examples\nTinyCUDA has three main helpers: Buffer for memory stuff, KernelProfiler for timing kernels, and CUDA_CHECK for catching errors. We use this simple vector addition kernel across all examples: c[i] = a[i] + b[i] for N elements.\n__global__ void vector_add(const float* a, const float* b, float* c, int N) {\n    int idx = blockIdx.x * blockDim.x + threadIdx.x;\n    if (idx &lt; N) {\n        c[idx] = a[idx] + b[idx];\n    }\n}\n\nHandling Memory with Buffer\nBuffer makes a GPU copy of your host data—easy allocation, copies, and cleanup. Full vector add.\n#include \"tinycuda/tinycuda.hpp\"\n#include &lt;vector&gt;\n#include &lt;cstdio&gt;\n#include &lt;cmath&gt;\n \nint main() {\n    const int N = 1024;\n    const int threads = 256;\n    const int blocks = (N + threads - 1) / threads;\n\n    std::vector&lt;float&gt; h_a(N, 1.0f), h_b(N, 2.0f), h_out(N, 0.0f);\n\n    tinycuda::Buffer&lt;float&gt; buf_a(h_a.data(), N);\n    tinycuda::Buffer&lt;float&gt; buf_b(h_b.data(), N);\n    tinycuda::Buffer&lt;float&gt; buf_out(h_out.data(), N);\n\n    buf_a.to_gpu(); buf_b.to_gpu(); buf_out.to_gpu();\n\n    vector_add&lt;&lt;&lt;blocks, threads&gt;&gt;&gt;(buf_a.gpu_data(), buf_b.gpu_data(), buf_out.gpu_data(), N);\n\n    buf_out.to_cpu();\n\n    // Quick check\n    bool passed = true;\n    for (int i = 0; i &lt; N; ++i) {\n        if (std::abs(h_out[i] - 3.0f) &gt; 1e-5f) { passed = false; break; }\n    }\n    printf(\"%s\\n\", passed ? \"Verified!\" : \"Failed.\");\n\n    return 0;\n}\n\n\nTiming Kernels with KernelProfiler\nTime your kernels with warmups to skip JIT delays, then average a bunch of runs. Full vector add (buffers set up as above).\n#include \"tinycuda/tinycuda.hpp\"\n#include &lt;vector&gt;\n#include &lt;cstdio&gt;\n#include &lt;cmath&gt;\n\nint main() {\n    const int N = 1024;\n    const int threads = 256;\n    const int blocks = (N + threads - 1) / threads;\n\n    std::vector&lt;float&gt; h_a(N, 1.0f), h_b(N, 2.0f), h_out(N, 0.0f);\n\n    tinycuda::Buffer&lt;float&gt; buf_a(h_a.data(), N);\n    tinycuda::Buffer&lt;float&gt; buf_b(h_b.data(), N);\n    tinycuda::Buffer&lt;float&gt; buf_out(h_out.data(), N);\n\n    buf_a.to_gpu(); buf_b.to_gpu(); buf_out.to_gpu();\n\n    // Time kernel (5 warmups, 50 runs)\n    tinycuda::KernelProfiler prof(5, 50);\n    float ms = prof([&] { vector_add&lt;&lt;&lt;blocks, threads&gt;&gt;&gt;(buf_a.gpu_data(), buf_b.gpu_data(), buf_out.gpu_data(), N); });\n\n    buf_out.to_cpu();\n\n    // Quick check (as above)\n    bool passed = true;\n    for (int i = 0; i &lt; N; ++i) {\n        if (std::abs(h_out[i] - 3.0f) &gt; 1e-5f) { passed = false; break; }\n    }\n    printf(\"Avg time: %.4f ms | %s\\n\", ms, passed ? \"Verified!\" : \"Failed.\");\n\n    return 0;\n}\n\n\nCatching Errors with CUDA_CHECK\nJust include the header—it defines CUDA_CHECK for you. Wrap your CUDA calls to auto-check and bail on errors with a nice message. Vector add using raw calls (to demo CUDA_CHECK; Buffer hides these).\n#include \"tinycuda/error.hpp\"  // Brings in CUDA_CHECK\n#include &lt;vector&gt;\n#include &lt;cstdio&gt;\n#include &lt;cmath&gt;\n\nint main() {\n    const int N = 1024;\n    const int threads = 256;\n    const int blocks = (N + threads - 1) / threads;\n\n    std::vector&lt;float&gt; h_a(N, 1.0f), h_b(N, 2.0f), h_out(N, 0.0f);\n\n    float *d_a, *d_b, *d_out;\n    CUDA_CHECK(cudaMalloc(&d_a, N * sizeof(float)));\n    CUDA_CHECK(cudaMalloc(&d_b, N * sizeof(float)));\n    CUDA_CHECK(cudaMalloc(&d_out, N * sizeof(float)));\n\n    CUDA_CHECK(cudaMemcpy(d_a, h_a.data(), N * sizeof(float), cudaMemcpyHostToDevice));\n    CUDA_CHECK(cudaMemcpy(d_b, h_b.data(), N * sizeof(float), cudaMemcpyHostToDevice));\n    CUDA_CHECK(cudaMemset(d_out, 0, N * sizeof(float)));\n\n    vector_add&lt;&lt;&lt;blocks, threads&gt;&gt;&gt;(d_a, d_b, d_out, N);\n    CUDA_CHECK(cudaGetLastError());\n    CUDA_CHECK(cudaDeviceSynchronize());\n\n    CUDA_CHECK(cudaMemcpy(h_out.data(), d_out, N * sizeof(float), cudaMemcpyDeviceToHost));\n\n    CUDA_CHECK(cudaFree(d_a)); CUDA_CHECK(cudaFree(d_b)); CUDA_CHECK(cudaFree(d_out));\n\n    // Quick check (as above)\n    bool passed = true;\n    for (int i = 0; i &lt; N; ++i) {\n        if (std::abs(h_out[i] - 3.0f) &gt; 1e-5f) { passed = false; break; }\n    }\n    printf(\"%s\\n\", passed ? \"Verified!\" : \"Failed.\");\n\n    return 0;\n}"
+  },
+  {
+    "objectID": "blog/tinycuda-release/index.html#whats-next",
+    "href": "blog/tinycuda-release/index.html#whats-next",
+    "title": "Getting Started with TinyCUDA",
+    "section": "What’s Next?",
+    "text": "What’s Next?\nCheck the examples like vector_add.cu and matmul.cu in the repo for full runs with checks and timings. It fits right into bigger projects with almost no extra weight. Dive into the headers for more details!"
+  },
+  {
+    "objectID": "cuda-learning/index.html",
+    "href": "cuda-learning/index.html",
+    "title": "LeetGPU Solutions and Notes",
+    "section": "",
+    "text": "Notes and solutions in PyTorch, Triton, and CUDA. Runtime shown for T4 GPU.\n\n\n\n\n\n Part-2: CUDA Execution Model \n\nDec 14, 2025   Developing kernels with profile driven approach. \n\n\n\n\n Part-2: CUDA Execution Model \n\nDec 14, 2025   Developing kernels with profile driven approach. \n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "cuda-learning/part-2-execution-model/index.html",
+    "href": "cuda-learning/part-2-execution-model/index.html",
+    "title": "Part-2: CUDA Execution Model",
+    "section": "",
+    "text": "Note: This is part of a learning series on CUDA from the book wrox Professional CUDA C Programming"
+  },
+  {
+    "objectID": "cuda-learning/part-2-execution-model/index.html#warps-and-block-size",
+    "href": "cuda-learning/part-2-execution-model/index.html#warps-and-block-size",
+    "title": "Part-2: CUDA Execution Model",
+    "section": "Warps and Block Size",
+    "text": "Warps and Block Size\n\nWarps per block can be determined by the following formula \\[\nWarpsPerBlock = ceil\\left(\\frac{ThreadsPerBlock}{warpSize}\\right)\n  \\]"
+  },
+  {
+    "objectID": "cuda-learning/part-2-execution-model/index.html#warp-divergence-test",
+    "href": "cuda-learning/part-2-execution-model/index.html#warp-divergence-test",
+    "title": "Part-2: CUDA Execution Model",
+    "section": "Warp Divergence Test",
+    "text": "Warp Divergence Test\n\n\n\n\n\n\nNotenvprof Transition\n\n\n\nThe book extensively used nvprof for profiling. Unfortunately it is no longer available in newer GPUs. I am sharing the ncu equivalent profiling metrics for each code snippet.\n\nnvprof has branch_efficiency, for ncu it is smsp__sass_average_branch_targets_threads_uniform.pct\n\n\n\n\nCompile and Profile\nnvcc -O3 -G -g -I\"../tinyCUDA/include\" -lineinfo 1_warp_divergence.cu -o 1_warp_divergence\ndcgmi profile --pause\nncu --set full --import-source yes --section SourceCounters -o ./prof/1_specialized_warp ./bin/1_specialized_warp 1000\n\nncu --metrics \"regex:.*branch.*\" -o ./prof/1_specialized_warp ./bin/1_specialized_warp\n(full perf) ncu --set full --import-source yes --section SourceCounters -o ./prof/1_warp_divergence ./1_warp_divergence\n\nOpen the file in NSight NCU\nOpen Raw tab\nFilter: “Function Name|uniform”"
   },
   {
     "objectID": "leadership/index.html",
