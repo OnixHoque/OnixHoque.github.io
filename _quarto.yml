@@ -1,7 +1,9 @@
 project:
   type: website
   output-dir: docs
-
+  
+execute: 
+  freeze: true
 
 website:
   title: "Md Saidul Hoque Anik"
@@ -47,9 +49,6 @@ format:
     css: styles.css
     toc: true
     # fontsize: 1.1em
-
-execute: 
-  freeze: auto
 
 reference-location: margin
 citation-location: margin

@@ -1,14 +1,14 @@
 ---
-title: "Understanding the roofline model without the roof!"
-description: "A gentle introduction to roofline model"
+title: "Understanding the roofline model without the roof"
+description: "A gentle introduction to the roofline model"
 categories: ["Hands-on"] 
 author: "Md Saidul Hoque Anik"
 date: "01/21/2026"
 ---
 
-## Preface 
+## Preface
 
-Any computing system consists of memory and a processor, like the diagram below. During a program execution, we fetch some data from the memory into the processor, and perform operations in it.
+Any typical computing system consists of memory and a processor, like the diagram below. During a program execution, we fetch some data from the memory into the processor, and perform operations in it.
 
 The speed at which data can be transferred through the bus can be denoted using the unit: Byte/s. **This is a property of the memory unit.**
 
