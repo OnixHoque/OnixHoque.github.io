@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Md Saidul Hoque Anik">
-<meta name="description" content="A gentle introduction to the roofline model">
+<meta name="description" content="A blog post explaining the Roofline model by starting from basic Processor–memory interaction to motivate the X-axis (arithmetic intensity) and Y-axis (performance), then showing how optimizations move a kernel right or up on the plot, and finally introducing the memory-bandwidth and compute roofs that bound achievable performance.">
 
-<title>Understanding the roofline model without the roof – Md Saidul Hoque Anik</title>
+<title>Understanding the Roofline Model without the Roof (First) – Md Saidul Hoque Anik</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -364,8 +364,8 @@ window.Quarto = {
   </ul></li>
   <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">Summary</a>
   <ul class="collapse">
-  <li><a href="#going-up-higher-ops-better-compute-utilization" id="toc-going-up-higher-ops-better-compute-utilization" class="nav-link" data-scroll-target="#going-up-higher-ops-better-compute-utilization">Going up (higher OP/s, better compute utilization)</a></li>
   <li><a href="#going-right-higher-arithmetic-intensity-lower-bytes-per-op" id="toc-going-right-higher-arithmetic-intensity-lower-bytes-per-op" class="nav-link" data-scroll-target="#going-right-higher-arithmetic-intensity-lower-bytes-per-op">Going Right (higher arithmetic intensity, lower bytes per OP)</a></li>
+  <li><a href="#going-up-higher-ops-better-compute-utilization" id="toc-going-up-higher-ops-better-compute-utilization" class="nav-link" data-scroll-target="#going-up-higher-ops-better-compute-utilization">Going up (higher OP/s, better compute utilization)</a></li>
   <li><a href="#dual-impact-techniques-move-both-right-and-up" id="toc-dual-impact-techniques-move-both-right-and-up" class="nav-link" data-scroll-target="#dual-impact-techniques-move-both-right-and-up">Dual-impact techniques (move both right <strong>and</strong> up)</a></li>
   </ul></li>
   </ul>
@@ -377,7 +377,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Understanding the roofline model without the roof</h1>
+<h1 class="title">Understanding the Roofline Model without the Roof (First)</h1>
   <div class="quarto-categories">
     <div class="quarto-category">Hands-on</div>
   </div>
@@ -385,7 +385,7 @@ window.Quarto = {
 
 <div>
   <div class="description">
-    A gentle introduction to the roofline model
+    A blog post explaining the Roofline model by starting from basic Processor–memory interaction to motivate the X-axis (arithmetic intensity) and Y-axis (performance), then showing how optimizations move a kernel right or up on the plot, and finally introducing the memory-bandwidth and compute roofs that bound achievable performance.
   </div>
 </div>
 
@@ -416,141 +416,186 @@ window.Quarto = {
 
 <section id="preface" class="level2">
 <h2 class="anchored" data-anchor-id="preface">Preface</h2>
-<p>Any typical computing system consists of memory and a processor, like the diagram below. During a program execution, we fetch some data from the memory into the processor, and perform operations in it.</p>
-<p>The speed at which data can be transferred through the bus can be denoted using the unit: Byte/s. <strong>This is a property of the memory unit.</strong></p>
-<p>The speed at which a processor can execute the ops can be denoted using unit: op/s. <strong>This is a property of the processor (CPU/GPU).</strong></p>
+<p>A typical computing system consists of two main components: <strong>memory</strong> and a <strong>processor</strong>, as illustrated below. During program execution, data is fetched from memory into the processor, where computations are performed.</p>
+<p>The rate at which data can be transferred between memory and the processor over the bus is measured in <strong>bytes per second (Byte/s)</strong>. <strong>This is a property of the memory subsystem.</strong></p>
+<p>The rate at which the processor can execute operations is measured in <strong>operations per second (op/s)</strong>. <strong>This is a property of the processor (CPU or GPU).</strong></p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/paste-20.png" class="img-fluid figure-img" width="468"></p>
+<p><img src="images/paste-20.png" class="img-fluid figure-img"></p>
 <figcaption>A typical computing system</figcaption>
 </figure>
 </div>
-<p>An example of a program would be a vector addition. We bring two float element from memory, add them (the actual op), and store them back into another memory location. <u>Let’s omit the store for now</u>, since storing may not use the bandwidth immediately (may be stored in cache for later write).</p>
-<p>This means we take two float (4 + 4 = 8 bytes), and perform a single op in it.</p>
-<p>We say that this program has an <strong>arithmetic intensity</strong> (AI) of 1 op per 8 byte = 1/8 op/byte. Per 1 byte it fetches, it does 1/8 operations. This performance metric measures how well the program is utilizing the data it fetches. <strong>This is the property of the program/implementation.</strong></p>
-<p>Another type of performance metric is how fast the CPU/GPU is executing these ops: Op/s. We call this computational performance (or sometimes throughput).</p>
+<p>As a concrete example, consider a <strong>vector addition</strong>. For each element, we load two floating-point values from memory, add them together (the actual computation), and store the result back to memory. We will omit the store for now, since writes may not immediately consume memory bandwidth (they may first go to cache and be written back later).</p>
+<p>In this operation, we load two floats: 4 + 4 = 8 bytes total, and perform a single arithmetic operation.</p>
+<p>We therefore say that this program has an <strong>arithmetic intensity (AI)</strong> of:</p>
+<div style="text-align: center">
+<p>AI = 1 op / 8 bytes = 1/8 op/byte</p>
+</div>
+<p>In other words, for every byte fetched from memory, the program performs 1/8 of an operation. This metric captures how effectively a program uses the data it moves. <strong>Arithmetic intensity is a property of the program (or its implementation).</strong></p>
+<p>A different performance metric describes how fast the CPU or GPU is actually executing these operations, measured in <strong>op/s</strong>. This is commonly referred to as <strong>computational performance</strong> or <strong>throughput</strong>.</p>
 <blockquote class="blockquote">
-<p>AI = op/byte; how many operations we are getting out of a byte; also called <strong>Operational Intensity</strong> <strong>(OI)</strong> sometimes</p>
-<p>Performance = op/s; tells you how fast your processor is crunching these operations; also called throughput</p>
-<p><strong>Note: op is typically called FLOP since we mostly care about floating points operations. But we will keep it simple and call it op throughout the article.</strong></p>
+<p><strong>Arithmetic Intensity (AI)</strong> = op/byte<br>
+How many operations are performed per byte of data moved. Also called <strong>Operational Intensity (OI)</strong>.</p>
+<p><strong>Performance</strong> = op/s<br>
+How fast the processor is executing operations. Also called <strong>throughput</strong> (when the pipeline is full and steady) .</p>
+<p><strong>Note:</strong> Operations are often referred to as <strong>FLOPs</strong> (floating-point operations), since performance analysis usually focuses on floating-point workloads. For simplicity, we will use the term <strong>op</strong> throughout this article.</p>
 </blockquote>
 </section>
 <section id="the-plot" class="level2">
 <h2 class="anchored" data-anchor-id="the-plot">The Plot</h2>
-<p>Let’s plot them in a X-Y axis. X is op/byte - how well we are utilizing a byte we are getting. Y is op/s - how fast are we running these ops.</p>
+<p>We can visualize these two metrics on an X–Y plot.</p>
+<ul>
+<li>The <strong>X-axis</strong> is <strong>op/byte</strong>, which measures how well we utilize the data we fetch.</li>
+<li>The <strong>Y-axis</strong> is <strong>op/s</strong>, which measures how fast we are executing operations.</li>
+</ul>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/paste-14.png" class="img-fluid figure-img" width="512"></p>
 <figcaption>The Roofline plot without the roofs!</figcaption>
 </figure>
 </div>
-<p>As we go right, we gain more performance by better utilizing the data we have in hand.</p>
-<p>As we go up, we gain more performance by squeezing more operations into each cycle (second).</p>
-<p>In many cases, we actually move diagonally (up-right) since the improvement impacts both axis.</p>
+<p>Moving <strong>to the right</strong> means we are extracting more work from each byte of data.</p>
+<p>Moving <strong>upward</strong> means we are executing more operations per second.</p>
+<p>In practice, many optimizations improve both metrics at once, causing the point to move <strong>diagonally up and to the right</strong>.</p>
 <section id="improvement-strategies" class="level3">
 <h3 class="anchored" data-anchor-id="improvement-strategies">Improvement Strategies</h3>
-<p>Let’s consider a single points on this plot first. The blue point (1, 1).</p>
-<p>This tells us, our implementation is executing 1 op per byte it receives (x coordinate). And it is executing speed is 1 op/s (the y coordinate).</p>
-<p>This information by itself doesn’t say much about how good the implementation is. But following the theme of this article (memory or processor), we can do two things to gain more performance.</p>
+<p>Let us first focus on a single point in this plot: the blue point at <strong>(1, 1)</strong>.</p>
+<p>This point tells us that:</p>
 <ul>
-<li><p>Either we can try to better utilize the bytes we have in hand. I.e. we can increase the amount of ops we can do per byte (try to move right horizontally).</p>
+<li>The implementation performs <strong>1 operation per byte</strong> of data fetched (X coordinate).</li>
+<li>The implementation runs at <strong>1 op/s</strong> (Y coordinate).</li>
+</ul>
+<p>By itself, this does not say whether the implementation is <em>good</em> or <em>bad</em>. However, following the theme of this article - <strong>memory vs.&nbsp;processor limitations</strong>, there are two orthogonal ways to improve performance.</p>
+<hr>
+<section id="increase-arithmetic-intensity-move-right" class="level4">
+<h4 class="anchored" data-anchor-id="increase-arithmetic-intensity-move-right">1. Increase arithmetic intensity (move right)</h4>
+<p>We can try to <strong>do more work per byte</strong>, i.e., increase <strong>op/byte</strong>, which moves the point <strong>horizontally to the right</strong>.</p>
 <ul>
-<li><p>That’s going from blue (1, 1) point to red (2, 1) point looks like. How can we do more work per byte?</p></li>
-<li><p>An example would be a matmul operation where the B matrix is also in row major order. Since we need to access elements across the columns, during each load the system will bring a cache, use only one element from it, and throw the rest away.</p>
+<li>This corresponds to moving from the blue point <strong>(1, 1)</strong> to the red point <strong>(2, 1)</strong>.</li>
+</ul>
+<p>How can we do more work with the same data? How about by reducing memory wastage?</p>
+<p>A common example comes from <strong>matrix multiplication</strong>. Suppose matrix <strong>B</strong> is stored in row-major order, but the algorithm accesses it column-wise. Each load brings an entire cache line, yet only one element is used before the rest are evicted.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/paste-15.png" class="img-fluid figure-img" width="629"></p>
 <figcaption>Accessing an element of each row means we will invalidate cache line every single time</figcaption>
 </figure>
-</div></li>
-<li><p>Instead, if we use the transposed B matrix, this will result in better cache utilization. Meaning that we are doing more work with the available bytes. This implementation will increase AI, depicting the point moving right horizontally (blue to red point).</p></li>
-</ul></li>
-<li><p>Or, we can try to increase the number of ops per sec.</p>
+</div>
+<p>If we instead use a <strong>transposed B matrix</strong>, accesses become contiguous in memory. This improves cache reuse and allows us to perform more operations with the same bytes fetched.</p>
+<p>As a result, <strong>arithmetic intensity increases</strong>, and the point moves <strong>to the right</strong> on the plot.</p>
+<hr>
+</section>
+<section id="increase-computational-performance-move-up" class="level4">
+<h4 class="anchored" data-anchor-id="increase-computational-performance-move-up">2. Increase computational performance (move up)</h4>
+<p>Alternatively, we can try to <strong>execute more operations per second</strong>, increasing <strong>op/s</strong>, which moves the point <strong>vertically upward</strong>.</p>
 <ul>
-<li><p>That’s going from blue (1, 1) point to green point (1, 2).</p></li>
-<li><p>How do we increase ops/s in an implementation given the same byte fetched? I.e. how do we improve performance (or throughput)? Using some sort of instruction level parallelism.</p>
+<li>This corresponds to moving from the blue point <strong>(1, 1)</strong> to the green point <strong>(1, 2)</strong>.</li>
+</ul>
+<p>How can we increase op/s without changing the amount of data fetched?</p>
+<p>This is typically achieved through <strong>instruction-level parallelism</strong>.</p>
 <ul>
-<li><p>An example could be vectorizing. Instead of 1 op consuming scalar bytes, we let it consume wider bytes.</p>
+<li><strong>Vectorization</strong> is a classic example. Instead of performing a single scalar operation on narrow data, we operate on wider vectors, allowing multiple operations to be executed simultaneously.</li>
+</ul>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/paste-6.png" class="img-fluid figure-img" width="370"></p>
 <figcaption>Vectorizing the operation means more data is processed by a single operation</figcaption>
 </figure>
-</div></li>
-<li><p>Another example is to reduce warp divergence in GPU. If half of the warp is idle, then essentially it is taking twice the amount cycle to process the same amount of data. If we rewrite the code so that each warp is doing the same thing (e.g.: wrap specialization), the implementation becomes more efficient in terms of performance (ops/s) - thus moves upwards vertically.</p></li>
-</ul></li>
-</ul></li>
+</div>
+<ul>
+<li>On GPUs, another example is <strong>reducing warp divergence</strong>. If only half the threads in a warp are active, the hardware effectively wastes cycles. By restructuring the code so that all threads in a warp follow the same execution path (e.g., via warp specialization), we improve utilization of the processing units.</li>
 </ul>
-<p>What prevents us from moving upward vertically by indefinite amount?</p>
+<p>These techniques increase <strong>throughput (op/s)</strong> and move the point <strong>upward</strong> on the plot.</p>
+<p>What prevents us from moving upward indefinitely along the vertical axis?</p>
+</section>
 </section>
 </section>
 <section id="the-rooflines" class="level2">
 <h2 class="anchored" data-anchor-id="the-rooflines">The Rooflines</h2>
 <section id="memory-roof" class="level3">
 <h3 class="anchored" data-anchor-id="memory-roof">Memory Roof</h3>
-<p>Let’s look at the bandwidth we will need for each of the points. The bandwidth means how fast memory needs to move in order to accommodate that implementation. We can compute the bandwidth by computing the slope, <span class="math inline">\(y \div x = ops/s \div ops/byte = byte/s\)</span>.</p>
-<p><img src="images/paste-16.png" class="img-fluid" alt="Dividing the y value by x for each point gives us the required bandwidth we need for that implementation" width="420"></p>
+<p>Let us now look at the <strong>memory bandwidth</strong> required by each point on the plot.<br>
+Bandwidth describes how fast data must move from memory to sustain a given implementation.</p>
+<p>We can compute the required bandwidth from the slope of the line connecting the point to the origin:</p>
+<p><span class="math display">\[
+\text{BW} = \frac{y}{x} = \frac{\text{op/s}}{\text{op/byte}} = \text{byte/s}.
+\]</span></p>
+<blockquote class="blockquote">
+<p>This is because each point represents a specific pairing of arithmetic intensity and performance. For the blue point, executing 1 op/s at an arithmetic intensity of 1 op/byte implies that the memory system must supply data at 1 byte/s, i.e., the required bandwidth is 1 byte/s.</p>
+</blockquote>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/paste-16.png" class="img-fluid figure-img" width="420"></p>
+<figcaption>Dividing the y value by x for each point gives us the required bandwidth we need for that implementation (point)</figcaption>
+</figure>
+</div>
 <ul>
-<li><p>For the blue point (1,1): BW = 1/1 = 1 byte/s</p></li>
-<li><p>For the red point (2,1): BW = 1/2 = 0.5 byte/s</p></li>
-<li><p>For the green point (1, 2): BW = 2/1 = 2 byte/s</p></li>
+<li><p><strong>Blue point (1, 1):</strong><br>
+BW = 1 / 1 = <strong>1 byte/s</strong></p></li>
+<li><p><strong>Red point (2, 1):</strong><br>
+BW = 1 / 2 = <strong>0.5 byte/s</strong></p></li>
+<li><p><strong>Green point (1, 2):</strong><br>
+BW = 2 / 1 = <strong>2 byte/s</strong></p></li>
 </ul>
-<p>We say the green point is more memory intensive than blue and red. The order of memory intensity is green &gt; blue &gt; red (given by the slopes).</p>
-<p>This means, the green implementation is more <strong>memory-bound</strong>. i.e.&nbsp;in order to keep that performance, we need to have that high bandwidth in that system.</p>
-<p>What if we don’t have that much BW in the system? If the max BW is 1.5B/s? This means that implementation (green dot) is not supported by that system.</p>
+<p>We can see that the green point requires the highest bandwidth, followed by blue, then red:</p>
+<div style="text-align: center">
+<p><strong>Green &gt; Blue &gt; Red</strong> (ordered by slope)</p>
+</div>
+<p>This means the green implementation is the most <strong>memory-intensive</strong>. In other words, to sustain that level of performance, the system must be able to deliver a very high memory bandwidth.</p>
+<p>Now suppose the system’s <strong>peak memory bandwidth</strong> is only <strong>1.5 byte/s</strong>. In that case, the green implementation is no longer feasible. The memory subsystem simply cannot supply data fast enough.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/paste-17.png" class="img-fluid figure-img" width="518"></p>
 <figcaption>For an implementation, bandwidth must be lower than the system capacity</figcaption>
 </figure>
 </div>
-<p>We hit a wall! A roof to be specific. A slanted roof. The memory bandwidth roof. This roof tells us that our implementation cannot arbitrarily improve performance by vectorization and eventually hit a point where it will simply not be able to receive enough bytes to process.</p>
+<p>At this point, we hit a wall. Or more precisely, a <strong>roof</strong>.</p>
+<p>This slanted line is called the <strong>memory bandwidth roof</strong>. It tells us that performance cannot increase indefinitely through techniques such as vectorization or parallelism: eventually, the implementation will be limited by how fast memory can deliver data.</p>
+<hr>
 </section>
 <section id="compute-roof" class="level3">
 <h3 class="anchored" data-anchor-id="compute-roof">Compute Roof</h3>
-<p>Okay great! That means we are probably not using up the bytes we have at hand. Lets go right (red point) and try to go up. We adjust our implementation so that it now requires less memory and do more work with it. In that case what might be preventing us to go up?</p>
+<p>So far, this suggests that we may not be fully utilizing the data we already have. Suppose we improve arithmetic intensity (move right, toward the red point) and then try to increase performance by moving upward.</p>
+<p>What stops us now?</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/paste-18.png" class="img-fluid figure-img" width="516"></p>
+<p><img src="images/paste-21.png" class="img-fluid figure-img" width="516"></p>
 <figcaption>For an implementation, computed performance (op/s) must also be lower than the system capacity</figcaption>
 </figure>
 </div>
-<p>Let’s imagine an orange dot (2, 2). The BW is 2/2 = 1 bytes/s which is below the peak BW of the system (1.5 bytes/s). However, the processor itself also has its max capacity - the highest op it can crank per second - the peak performance.</p>
-<p>If the peak performance is 1.5 Ops/s, this means even we have the right amount of data, we cannot process it faster than 1.5 ops/s. This makes any point on the horizontal line (peak perf line) compute bound. This line is called the <strong>compute roof</strong>.</p>
+<p>Consider an orange point at <strong>(2, 2)</strong>.</p>
+<ul>
+<li>Required bandwidth = 2 / 2 = <strong>1 byte/s</strong>, which is below the system’s peak bandwidth (1.5 byte/s).</li>
+</ul>
+<p>So memory is no longer the bottleneck. However, the processor itself has a maximum rate at which it can execute operations - its <strong>peak computational performance</strong>.</p>
+<p>If the processor’s peak performance is <strong>1.5 op/s</strong>, then even with sufficient data, it cannot execute operations faster than that. Any point that lies on or above this horizontal limit is therefore <strong>compute-bound</strong>.</p>
+<p>This horizontal line is called the <strong>compute roof</strong>.</p>
+<hr>
 </section>
 <section id="the-roof-equation" class="level3">
 <h3 class="anchored" data-anchor-id="the-roof-equation">The Roof Equation</h3>
-<p>Let’s end the discussion with the equation of the roof.</p>
+<p>We can summarize the entire Roofline model with a single equation:</p>
 <p><span class="math display">\[
-Performance = min(BW_{peak} \times AI, Performance_{peak})
+\text{Performance} = \min\left( BW_{\text{peak}} \times AI, \text{Performance}_{\text{peak}} \right)
 \]</span></p>
-<p>This equation generates <span class="math inline">\(y\)</span> for every possible value of AI (<span class="math inline">\(x\)</span>).</p>
+<p>This equation defines the achievable performance (y) for every possible value of arithmetic intensity (x).</p>
 <ul>
-<li><p>The first part is where the operation is memory bound. For this, the equation is <span class="math inline">\(y = slope \times x\)</span> where y = Performance, x = AI, and slope is max possible BW (<span class="math inline">\(BW_{peak}\)</span>).</p></li>
-<li><p>The second part, the compute bound roof is straightforward, <span class="math inline">\(Performance_{peak}\)</span>. It already has the right unit (op/s).</p></li>
+<li>The <strong>memory-bound region</strong> corresponds to the simple line equation <span class="math inline">\(y = \text{slope} \times x\)</span><br>
+<span class="math display">\[
+\text{Performance} = BW_{\text{peak}} \times AI
+\]</span> where the slope is the system’s peak memory bandwidth.</li>
+<li>The <strong>compute-bound region</strong> is limited by<br>
+<span class="math display">\[
+\text{Performance} = \text{Performance}_{\text{peak}}
+\]</span> which already has the correct unit of op/s.</li>
 </ul>
+<p>Together, these two limits form the characteristic “roofline” shape.</p>
 </section>
 </section>
 <section id="summary" class="level2">
 <h2 class="anchored" data-anchor-id="summary">Summary</h2>
 <p>Let’s recap the whole idea and devise a solid strategy. Given an implementation (blue dot) our goal is to move it as right (higher arithmetic intensity = more FLOPs per byte transferred) and up (higher achieved FLOP/s = better utilization of the compute units) as possible.</p>
 <p><img src="images/paste-19.png" class="img-fluid" alt="The goal is to move the point as far right-up as possible" width="462"></p>
-<section id="going-up-higher-ops-better-compute-utilization" class="level3">
-<h3 class="anchored" data-anchor-id="going-up-higher-ops-better-compute-utilization">Going up (higher OP/s, better compute utilization)</h3>
-<p>These techniques primarily improve how efficiently the processor/GPU uses its floating-point units, vector lanes, tensor cores, etc.:</p>
-<ol type="1">
-<li><strong>SIMD/Vectorization</strong> (use wider vectors: AVX, AVX-512, NEON, CUDA warps with vector types)</li>
-<li><strong>Loop Unrolling</strong> (reduce loop overhead, expose more independent operations)</li>
-<li><strong>Kernel/Operator Fusion</strong> (e.g.&nbsp;Fused Multiply-Add → FMA, fused conv+bn+relu, elementwise + reduction chains)</li>
-<li><strong>Warp Specialization</strong> (GPU) / <strong>Thread divergence minimization</strong></li>
-<li><strong>Prefetching</strong> (software prefetch or hardware auto-prefetch tuning — hides latency → higher issue rate)</li>
-<li><strong>Better instruction mix / throughput-bound fixes</strong> (reduce divides → use reciprocals, minimize expensive math functions)</li>
-<li><strong>Multi-threading/Occupancy</strong> (more concurrent warps/threads to hide latency and saturate functional units)</li>
-<li><strong>Use of specialized units</strong> (tensor cores, DP4A/INT8/FP16/bfloat16 paths, AMX on x86, etc.)</li>
-<li><strong>Reduce thread predication/control divergence</strong> (branchless code, mask-based ops)</li>
-<li><strong>Instruction-level parallelism (ILP)</strong> within a thread (reorder code, expose more independent ops)</li>
-</ol>
-</section>
 <section id="going-right-higher-arithmetic-intensity-lower-bytes-per-op" class="level3">
 <h3 class="anchored" data-anchor-id="going-right-higher-arithmetic-intensity-lower-bytes-per-op">Going Right (higher arithmetic intensity, lower bytes per OP)</h3>
 <p>These focus on reducing memory traffic relative to computation (more reuse, less movement):</p>
@@ -568,6 +613,22 @@ Performance = min(BW_{peak} \times AI, Performance_{peak})
 <li><strong>Data compression or lossless compression</strong> in memory (sometimes used in scientific codes)</li>
 </ol>
 </section>
+<section id="going-up-higher-ops-better-compute-utilization" class="level3">
+<h3 class="anchored" data-anchor-id="going-up-higher-ops-better-compute-utilization">Going up (higher OP/s, better compute utilization)</h3>
+<p>These techniques primarily improve how efficiently the processor/GPU uses its floating-point units, vector lanes, tensor cores, etc.:</p>
+<ol type="1">
+<li><strong>SIMD/Vectorization</strong> (use wider vectors: AVX, AVX-512, NEON, CUDA warps with vector types)</li>
+<li><strong>Loop Unrolling</strong> (reduce loop overhead, expose more independent operations)</li>
+<li><strong>Kernel/Operator Fusion</strong> (e.g.&nbsp;Fused Multiply-Add → FMA, fused conv+bn+relu, elementwise + reduction chains)</li>
+<li><strong>Warp Specialization</strong> (GPU) / <strong>Thread divergence minimization</strong></li>
+<li><strong>Prefetching</strong> (software prefetch or hardware auto-prefetch tuning — hides latency → higher issue rate)</li>
+<li><strong>Better instruction mix / throughput-bound fixes</strong> (reduce divides → use reciprocals, minimize expensive math functions)</li>
+<li><strong>Multi-threading/Occupancy</strong> (more concurrent warps/threads to hide latency and saturate functional units)</li>
+<li><strong>Use of specialized units</strong> (tensor cores, DP4A/INT8/FP16/bfloat16 paths, AMX on x86, etc.)</li>
+<li><strong>Reduce thread predication/control divergence</strong> (branchless code, mask-based ops)</li>
+<li><strong>Instruction-level parallelism (ILP)</strong> within a thread (reorder code, expose more independent ops)</li>
+</ol>
+</section>
 <section id="dual-impact-techniques-move-both-right-and-up" class="level3">
 <h3 class="anchored" data-anchor-id="dual-impact-techniques-move-both-right-and-up">Dual-impact techniques (move both right <strong>and</strong> up)</h3>
 <p>These are especially powerful because they simultaneously reduce memory pressure <strong>and</strong> improve compute efficiency:</p>
@@ -579,7 +640,7 @@ Performance = min(BW_{peak} \times AI, Performance_{peak})
 <li><strong>Register blocking + unrolling</strong> (CPU classic)</li>
 </ol>
 <blockquote class="blockquote">
-<p>A good mental model is: first get the point right of the ridge point (out of the memory-bound regime), then push up toward the flat compute roof. Many real optimizations alternate between these two goals as you iterate.</p>
+<p>A good mental model is: first get the point right of the ridge point (out of the green marked memory-bound regime), then push up toward the flat compute roof. Many real optimizations alternate between these two goals as you iterate.</p>
 </blockquote>
 
 

@@ -1,147 +1,204 @@
 ---
-title: "Understanding the roofline model without the roof"
-description: "A gentle introduction to the roofline model"
+title: "Understanding the Roofline Model without the Roof (First)"
+description: "A blog post explaining the Roofline model by starting from basic Processor–memory interaction to motivate the X-axis (arithmetic intensity) and Y-axis (performance), then showing how optimizations move a kernel right or up on the plot, and finally introducing the memory-bandwidth and compute roofs that bound achievable performance."
 categories: ["Hands-on"] 
 author: "Md Saidul Hoque Anik"
 date: "01/21/2026"
 ---
 
-## Preface
+## Preface 
 
-Any typical computing system consists of memory and a processor, like the diagram below. During a program execution, we fetch some data from the memory into the processor, and perform operations in it.
+A typical computing system consists of two main components: **memory** and a **processor**, as illustrated below. During program execution, data is fetched from memory into the processor, where computations are performed.
 
-The speed at which data can be transferred through the bus can be denoted using the unit: Byte/s. **This is a property of the memory unit.**
+The rate at which data can be transferred between memory and the processor over the bus is measured in **bytes per second (Byte/s)**. **This is a property of the memory subsystem.**
 
-The speed at which a processor can execute the ops can be denoted using unit: op/s. **This is a property of the processor (CPU/GPU).**
+The rate at which the processor can execute operations is measured in **operations per second (op/s)**. **This is a property of the processor (CPU or GPU).**
 
-![A typical computing system](images/paste-20.png){width="468"}
+![A typical computing system](images/paste-20.png)
 
-An example of a program would be a vector addition. We bring two float element from memory, add them (the actual op), and store them back into another memory location. [Let's omit the store for now]{.underline}, since storing may not use the bandwidth immediately (may be stored in cache for later write).
+As a concrete example, consider a **vector addition**. For each element, we load two floating-point values from memory, add them together (the actual computation), and store the result back to memory. We will omit the store for now, since writes may not immediately consume memory bandwidth (they may first go to cache and be written back later).
 
-This means we take two float (4 + 4 = 8 bytes), and perform a single op in it.
+In this operation, we load two floats: 4 + 4 = 8 bytes total, and perform a single arithmetic operation.
 
-We say that this program has an **arithmetic intensity** (AI) of 1 op per 8 byte = 1/8 op/byte. Per 1 byte it fetches, it does 1/8 operations. This performance metric measures how well the program is utilizing the data it fetches. **This is the property of the program/implementation.**
+We therefore say that this program has an **arithmetic intensity (AI)** of:
 
-Another type of performance metric is how fast the CPU/GPU is executing these ops: Op/s. We call this computational performance (or sometimes throughput).
+<div style="text-align: center">
 
-> AI = op/byte; how many operations we are getting out of a byte; also called **Operational Intensity** **(OI)** sometimes
+AI = 1 op / 8 bytes = 1/8 op/byte
+ 
+</div>
+
+In other words, for every byte fetched from memory, the program performs 1/8 of an operation. This metric captures how effectively a program uses the data it moves. **Arithmetic intensity is a property of the program (or its implementation).**
+
+A different performance metric describes how fast the CPU or GPU is actually executing these operations, measured in **op/s**. This is commonly referred to as **computational performance** or **throughput**.
+
+> **Arithmetic Intensity (AI)** = op/byte\
+> How many operations are performed per byte of data moved. Also called **Operational Intensity (OI)**.
 >
-> Performance = op/s; tells you how fast your processor is crunching these operations; also called throughput
+> **Performance** = op/s\
+> How fast the processor is executing operations. Also called **throughput** (when the pipeline is full and steady) .
 >
-> **Note: op is typically called FLOP since we mostly care about floating points operations. But we will keep it simple and call it op throughout the article.**
+> **Note:** Operations are often referred to as **FLOPs** (floating-point operations), since performance analysis usually focuses on floating-point workloads. For simplicity, we will use the term **op** throughout this article.
 
 ## The Plot
 
-Let's plot them in a X-Y axis. X is op/byte - how well we are utilizing a byte we are getting. Y is op/s - how fast are we running these ops.
+We can visualize these two metrics on an X–Y plot.
+
+-   The **X-axis** is **op/byte**, which measures how well we utilize the data we fetch.
+-   The **Y-axis** is **op/s**, which measures how fast we are executing operations.
 
 ![The Roofline plot without the roofs!](images/paste-14.png){width="512"}
 
-As we go right, we gain more performance by better utilizing the data we have in hand.
+Moving **to the right** means we are extracting more work from each byte of data.
 
-As we go up, we gain more performance by squeezing more operations into each cycle (second).
+Moving **upward** means we are executing more operations per second.
 
-In many cases, we actually move diagonally (up-right) since the improvement impacts both axis.
+In practice, many optimizations improve both metrics at once, causing the point to move **diagonally up and to the right**.
 
 ### Improvement Strategies
 
-Let's consider a single points on this plot first. The blue point (1, 1).
+Let us first focus on a single point in this plot: the blue point at **(1, 1)**.
 
-This tells us, our implementation is executing 1 op per byte it receives (x coordinate). And it is executing speed is 1 op/s (the y coordinate).
+This point tells us that:
 
-This information by itself doesn't say much about how good the implementation is. But following the theme of this article (memory or processor), we can do two things to gain more performance.
+-   The implementation performs **1 operation per byte** of data fetched (X coordinate).
+-   The implementation runs at **1 op/s** (Y coordinate).
 
--   Either we can try to better utilize the bytes we have in hand. I.e. we can increase the amount of ops we can do per byte (try to move right horizontally).
+By itself, this does not say whether the implementation is *good* or *bad*. However, following the theme of this article - **memory vs. processor limitations**, there are two orthogonal ways to improve performance.
 
-    -   That's going from blue (1, 1) point to red (2, 1) point looks like. How can we do more work per byte?
+------------------------------------------------------------------------
 
-    -   An example would be a matmul operation where the B matrix is also in row major order. Since we need to access elements across the columns, during each load the system will bring a cache, use only one element from it, and throw the rest away.
+#### 1. Increase arithmetic intensity (move right)
 
-        ![Accessing an element of each row means we will invalidate cache line every single time](images/paste-15.png){width="629"}
+We can try to **do more work per byte**, i.e., increase **op/byte**, which moves the point **horizontally to the right**.
 
-    -   Instead, if we use the transposed B matrix, this will result in better cache utilization. Meaning that we are doing more work with the available bytes. This implementation will increase AI, depicting the point moving right horizontally (blue to red point).
+-   This corresponds to moving from the blue point **(1, 1)** to the red point **(2, 1)**.
 
--   Or, we can try to increase the number of ops per sec.
+How can we do more work with the same data? How about by reducing memory wastage?
 
-    -   That's going from blue (1, 1) point to green point (1, 2).
+A common example comes from **matrix multiplication**. Suppose matrix **B** is stored in row-major order, but the algorithm accesses it column-wise. Each load brings an entire cache line, yet only one element is used before the rest are evicted.
 
-    -   How do we increase ops/s in an implementation given the same byte fetched? I.e. how do we improve performance (or throughput)? Using some sort of instruction level parallelism.
+![Accessing an element of each row means we will invalidate cache line every single time](images/paste-15.png){width="629"}
 
-        -   An example could be vectorizing. Instead of 1 op consuming scalar bytes, we let it consume wider bytes.
+If we instead use a **transposed B matrix**, accesses become contiguous in memory. This improves cache reuse and allows us to perform more operations with the same bytes fetched.
 
-            ![Vectorizing the operation means more data is processed by a single operation](images/paste-6.png){width="370"}
+As a result, **arithmetic intensity increases**, and the point moves **to the right** on the plot.
 
-        -   Another example is to reduce warp divergence in GPU. If half of the warp is idle, then essentially it is taking twice the amount cycle to process the same amount of data. If we rewrite the code so that each warp is doing the same thing (e.g.: wrap specialization), the implementation becomes more efficient in terms of performance (ops/s) - thus moves upwards vertically.
+------------------------------------------------------------------------
 
-What prevents us from moving upward vertically by indefinite amount?
+#### 2. Increase computational performance (move up)
+
+Alternatively, we can try to **execute more operations per second**, increasing **op/s**, which moves the point **vertically upward**.
+
+-   This corresponds to moving from the blue point **(1, 1)** to the green point **(1, 2)**.
+
+How can we increase op/s without changing the amount of data fetched?
+
+This is typically achieved through **instruction-level parallelism**.
+
+-   **Vectorization** is a classic example. Instead of performing a single scalar operation on narrow data, we operate on wider vectors, allowing multiple operations to be executed simultaneously.
+
+![Vectorizing the operation means more data is processed by a single operation](images/paste-6.png){width="370"}
+
+-   On GPUs, another example is **reducing warp divergence**. If only half the threads in a warp are active, the hardware effectively wastes cycles. By restructuring the code so that all threads in a warp follow the same execution path (e.g., via warp specialization), we improve utilization of the processing units.
+
+These techniques increase **throughput (op/s)** and move the point **upward** on the plot.
+
+What prevents us from moving upward indefinitely along the vertical axis?
 
 ## The Rooflines
 
 ### Memory Roof
 
-Let's look at the bandwidth we will need for each of the points. The bandwidth means how fast memory needs to move in order to accommodate that implementation. We can compute the bandwidth by computing the slope, $y \div x = ops/s \div ops/byte = byte/s$.
+Let us now look at the **memory bandwidth** required by each point on the plot.\
+Bandwidth describes how fast data must move from memory to sustain a given implementation.
 
-![](images/paste-16.png){fig-alt="Dividing the y value by x for each point gives us the required bandwidth we need for that implementation" width="420"}
+We can compute the required bandwidth from the slope of the line connecting the point to the origin: 
 
--   For the blue point (1,1): BW = 1/1 = 1 byte/s
+$$
+\text{BW} = \frac{y}{x} = \frac{\text{op/s}}{\text{op/byte}} = \text{byte/s}.
+$$
 
--   For the red point (2,1): BW = 1/2 = 0.5 byte/s
+> This is because each point represents a specific pairing of arithmetic intensity and performance. For the blue point, executing 1 op/s at an arithmetic intensity of 1 op/byte implies that the memory system must supply data at 1 byte/s, i.e., the required bandwidth is 1 byte/s.
 
--   For the green point (1, 2): BW = 2/1 = 2 byte/s
+![Dividing the y value by x for each point gives us the required bandwidth we need for that implementation (point)](images/paste-16.png){width="420"}
 
-We say the green point is more memory intensive than blue and red. The order of memory intensity is green \> blue \> red (given by the slopes).
+-   **Blue point (1, 1):**\
+    BW = 1 / 1 = **1 byte/s**
 
-This means, the green implementation is more **memory-bound**. i.e. in order to keep that performance, we need to have that high bandwidth in that system.
+-   **Red point (2, 1):**\
+    BW = 1 / 2 = **0.5 byte/s**
 
-What if we don't have that much BW in the system? If the max BW is 1.5B/s? This means that implementation (green dot) is not supported by that system.
+-   **Green point (1, 2):**\
+    BW = 2 / 1 = **2 byte/s**
+
+We can see that the green point requires the highest bandwidth, followed by blue, then red:
+
+<div style="text-align: center">
+
+**Green \> Blue \> Red** (ordered by slope)
+
+</div> 
+
+
+This means the green implementation is the most **memory-intensive**. In other words, to sustain that level of performance, the system must be able to deliver a very high memory bandwidth.
+
+Now suppose the system’s **peak memory bandwidth** is only **1.5 byte/s**. In that case, the green implementation is no longer feasible. The memory subsystem simply cannot supply data fast enough.
 
 ![For an implementation, bandwidth must be lower than the system capacity](images/paste-17.png){width="518"}
 
-We hit a wall! A roof to be specific. A slanted roof. The memory bandwidth roof. This roof tells us that our implementation cannot arbitrarily improve performance by vectorization and eventually hit a point where it will simply not be able to receive enough bytes to process.
+At this point, we hit a wall. Or more precisely, a **roof**.
+
+This slanted line is called the **memory bandwidth roof**. It tells us that performance cannot increase indefinitely through techniques such as vectorization or parallelism: eventually, the implementation will be limited by how fast memory can deliver data.
+
+------------------------------------------------------------------------
 
 ### Compute Roof
 
-Okay great! That means we are probably not using up the bytes we have at hand. Lets go right (red point) and try to go up. We adjust our implementation so that it now requires less memory and do more work with it. In that case what might be preventing us to go up?
+So far, this suggests that we may not be fully utilizing the data we already have. Suppose we improve arithmetic intensity (move right, toward the red point) and then try to increase performance by moving upward.
 
-![For an implementation, computed performance (op/s) must also be lower than the system capacity](images/paste-18.png){width="516"}
+What stops us now?
 
-Let's imagine an orange dot (2, 2). The BW is 2/2 = 1 bytes/s which is below the peak BW of the system (1.5 bytes/s). However, the processor itself also has its max capacity - the highest op it can crank per second - the peak performance.
+![For an implementation, computed performance (op/s) must also be lower than the system capacity](images/paste-21.png){width="516"}
 
-If the peak performance is 1.5 Ops/s, this means even we have the right amount of data, we cannot process it faster than 1.5 ops/s. This makes any point on the horizontal line (peak perf line) compute bound. This line is called the **compute roof**.
+Consider an orange point at **(2, 2)**.
+
+-   Required bandwidth = 2 / 2 = **1 byte/s**, which is below the system’s peak bandwidth (1.5 byte/s).
+
+So memory is no longer the bottleneck. However, the processor itself has a maximum rate at which it can execute operations - its **peak computational performance**.
+
+If the processor’s peak performance is **1.5 op/s**, then even with sufficient data, it cannot execute operations faster than that. Any point that lies on or above this horizontal limit is therefore **compute-bound**.
+
+This horizontal line is called the **compute roof**.
+
+------------------------------------------------------------------------
 
 ### The Roof Equation
 
-Let's end the discussion with the equation of the roof.
+We can summarize the entire Roofline model with a single equation:
 
 $$
-Performance = min(BW_{peak} \times AI, Performance_{peak})
+\text{Performance} = \min\left( BW_{\text{peak}} \times AI, \text{Performance}_{\text{peak}} \right) 
 $$
 
-This equation generates $y$ for every possible value of AI ($x$).
+This equation defines the achievable performance (y) for every possible value of arithmetic intensity (x).
 
--   The first part is where the operation is memory bound. For this, the equation is $y = slope \times x$ where y = Performance, x = AI, and slope is max possible BW ($BW_{peak}$).
+-   The **memory-bound region** corresponds to the simple line equation $y = \text{slope} \times x$\
+    $$
+    \text{Performance} = BW_{\text{peak}} \times AI
+    $$ where the slope is the system’s peak memory bandwidth.
+-   The **compute-bound region** is limited by\
+    $$
+    \text{Performance} = \text{Performance}_{\text{peak}}
+    $$ which already has the correct unit of op/s.
 
--   The second part, the compute bound roof is straightforward, $Performance_{peak}$. It already has the right unit (op/s).
-
+Together, these two limits form the characteristic “roofline” shape.
+ 
 ## Summary
 
 Let's recap the whole idea and devise a solid strategy. Given an implementation (blue dot) our goal is to move it as right (higher arithmetic intensity = more FLOPs per byte transferred) and up (higher achieved FLOP/s = better utilization of the compute units) as possible.
 
 ![](images/paste-19.png){fig-alt="The goal is to move the point as far right-up as possible" width="462"}
-
-### Going up (higher OP/s, better compute utilization)
-
-These techniques primarily improve how efficiently the processor/GPU uses its floating-point units, vector lanes, tensor cores, etc.:
-
-1.  **SIMD/Vectorization** (use wider vectors: AVX, AVX-512, NEON, CUDA warps with vector types)
-2.  **Loop Unrolling** (reduce loop overhead, expose more independent operations)
-3.  **Kernel/Operator Fusion** (e.g. Fused Multiply-Add → FMA, fused conv+bn+relu, elementwise + reduction chains)
-4.  **Warp Specialization** (GPU) / **Thread divergence minimization**
-5.  **Prefetching** (software prefetch or hardware auto-prefetch tuning — hides latency → higher issue rate)
-6.  **Better instruction mix / throughput-bound fixes** (reduce divides → use reciprocals, minimize expensive math functions)
-7.  **Multi-threading/Occupancy** (more concurrent warps/threads to hide latency and saturate functional units)
-8.  **Use of specialized units** (tensor cores, DP4A/INT8/FP16/bfloat16 paths, AMX on x86, etc.)
-9.  **Reduce thread predication/control divergence** (branchless code, mask-based ops)
-10. **Instruction-level parallelism (ILP)** within a thread (reorder code, expose more independent ops)
 
 ### Going Right (higher arithmetic intensity, lower bytes per OP)
 
@@ -159,6 +216,21 @@ These focus on reducing memory traffic relative to computation (more reuse, less
 10. **Sparsity exploitation** (structured/unstructured sparsity, pruning + sparse formats → skip loading/storing zeros)
 11. **Data compression or lossless compression** in memory (sometimes used in scientific codes)
 
+### Going up (higher OP/s, better compute utilization)
+
+These techniques primarily improve how efficiently the processor/GPU uses its floating-point units, vector lanes, tensor cores, etc.:
+
+1.  **SIMD/Vectorization** (use wider vectors: AVX, AVX-512, NEON, CUDA warps with vector types)
+2.  **Loop Unrolling** (reduce loop overhead, expose more independent operations)
+3.  **Kernel/Operator Fusion** (e.g. Fused Multiply-Add → FMA, fused conv+bn+relu, elementwise + reduction chains)
+4.  **Warp Specialization** (GPU) / **Thread divergence minimization**
+5.  **Prefetching** (software prefetch or hardware auto-prefetch tuning — hides latency → higher issue rate)
+6.  **Better instruction mix / throughput-bound fixes** (reduce divides → use reciprocals, minimize expensive math functions)
+7.  **Multi-threading/Occupancy** (more concurrent warps/threads to hide latency and saturate functional units)
+8.  **Use of specialized units** (tensor cores, DP4A/INT8/FP16/bfloat16 paths, AMX on x86, etc.)
+9.  **Reduce thread predication/control divergence** (branchless code, mask-based ops)
+10. **Instruction-level parallelism (ILP)** within a thread (reorder code, expose more independent ops)
+
 ### Dual-impact techniques (move both right **and** up)
 
 These are especially powerful because they simultaneously reduce memory pressure **and** improve compute efficiency:
@@ -169,4 +241,4 @@ These are especially powerful because they simultaneously reduce memory pressure
 4.  **Shared memory + warp-level tiling** (GPU classic)
 5.  **Register blocking + unrolling** (CPU classic)
 
-> A good mental model is: first get the point right of the ridge point (out of the memory-bound regime), then push up toward the flat compute roof. Many real optimizations alternate between these two goals as you iterate.
+> A good mental model is: first get the point right of the ridge point (out of the green marked memory-bound regime), then push up toward the flat compute roof. Many real optimizations alternate between these two goals as you iterate.
