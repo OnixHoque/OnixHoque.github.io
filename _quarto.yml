@@ -2,6 +2,7 @@ project:
   type: website
   output-dir: docs
 
+
 website:
   title: "Md Saidul Hoque Anik"
   description: "Md Saidul Hoque Anik is a graduate student working at the intersection of high performance computing and graph neural networks."
@@ -48,7 +49,7 @@ format:
     # fontsize: 1.1em
 
 execute: 
-  enabled: true
+  freeze: auto
 
 reference-location: margin
 citation-location: margin

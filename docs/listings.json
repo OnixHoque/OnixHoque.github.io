@@ -39,6 +39,7 @@
   {
     "listing": "/blog/index.html",
     "items": [
+      "/blog/roofline-analysis/index.html",
       "/blog/simd-add/index.html",
       "/blog/tinycuda-release/index.html",
       "/blog/paper-refrag/index.html",
