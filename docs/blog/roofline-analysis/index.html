@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Md Saidul Hoque Anik">
-<meta name="description" content="A blog post explaining the Roofline model by starting from basic Processor–memory interaction to motivate the X-axis (arithmetic intensity) and Y-axis (performance), then showing how optimizations move a kernel right or up on the plot, and finally introducing the memory-bandwidth and compute roofs that bound achievable performance.">
+<meta name="description" content="A blog post explaining the Roofline model by starting from basic processor–memory interaction to motivate the X-axis (arithmetic intensity) and Y-axis (performance), then showing how optimizations move a kernel right or up on the plot, and finally introducing the memory-bandwidth and compute roofs that bound achievable performance.">
 
 <title>Understanding the Roofline Model without the Roof (First) – Md Saidul Hoque Anik</title>
 <style>
@@ -385,7 +385,7 @@ window.Quarto = {
 
 <div>
   <div class="description">
-    A blog post explaining the Roofline model by starting from basic Processor–memory interaction to motivate the X-axis (arithmetic intensity) and Y-axis (performance), then showing how optimizations move a kernel right or up on the plot, and finally introducing the memory-bandwidth and compute roofs that bound achievable performance.
+    A blog post explaining the Roofline model by starting from basic processor–memory interaction to motivate the X-axis (arithmetic intensity) and Y-axis (performance), then showing how optimizations move a kernel right or up on the plot, and finally introducing the memory-bandwidth and compute roofs that bound achievable performance.
   </div>
 </div>
 
@@ -431,7 +431,7 @@ window.Quarto = {
 <div style="text-align: center">
 <p>AI = 1 op / 8 bytes = 1/8 op/byte</p>
 </div>
-<p>In other words, for every byte fetched from memory, the program performs 1/8 of an operation. This metric captures how effectively a program uses the data it moves. <strong>Arithmetic intensity is a property of the program (or its implementation).</strong></p>
+<p>In other words, for every byte fetched from memory, the program performs 1/8 of an operation. This metric captures how effectively a program uses the data it moves. <strong>Arithmetic intensity is a property of the program (or its implementation/kernel).</strong></p>
 <p>A different performance metric describes how fast the CPU or GPU is actually executing these operations, measured in <strong>op/s</strong>. This is commonly referred to as <strong>computational performance</strong> or <strong>throughput</strong>.</p>
 <blockquote class="blockquote">
 <p><strong>Arithmetic Intensity (AI)</strong> = op/byte<br>
@@ -640,7 +640,7 @@ BW = 2 / 1 = <strong>2 byte/s</strong></p></li>
 <li><strong>Register blocking + unrolling</strong> (CPU classic)</li>
 </ol>
 <blockquote class="blockquote">
-<p>A good mental model is: first get the point right of the ridge point (out of the green marked memory-bound regime), then push up toward the flat compute roof. Many real optimizations alternate between these two goals as you iterate.</p>
+<p>A good mental model is: first get the point right of the ridge point (out of the green marked memory-bound regime), then push up toward the flat compute roof. Many real optimizations alternate between these two goals as we iterate.</p>
 </blockquote>
 
 

@@ -1,9 +1,9 @@
 ---
 title: "Understanding the Roofline Model without the Roof (First)"
-description: "A blog post explaining the Roofline model by starting from basic Processor–memory interaction to motivate the X-axis (arithmetic intensity) and Y-axis (performance), then showing how optimizations move a kernel right or up on the plot, and finally introducing the memory-bandwidth and compute roofs that bound achievable performance."
+description: "A blog post explaining the Roofline model by starting from basic processor–memory interaction to motivate the X-axis (arithmetic intensity) and Y-axis (performance), then showing how optimizations move a kernel right or up on the plot, and finally introducing the memory-bandwidth and compute roofs that bound achievable performance."
 categories: ["Hands-on"] 
 author: "Md Saidul Hoque Anik"
-date: "01/21/2026"
+date: "01/25/2026"
 ---
 
 ## Preface 
@@ -28,7 +28,7 @@ AI = 1 op / 8 bytes = 1/8 op/byte
  
 </div>
 
-In other words, for every byte fetched from memory, the program performs 1/8 of an operation. This metric captures how effectively a program uses the data it moves. **Arithmetic intensity is a property of the program (or its implementation).**
+In other words, for every byte fetched from memory, the program performs 1/8 of an operation. This metric captures how effectively a program uses the data it moves. **Arithmetic intensity is a property of the program (or its implementation/kernel).**
 
 A different performance metric describes how fast the CPU or GPU is actually executing these operations, measured in **op/s**. This is commonly referred to as **computational performance** or **throughput**.
 
@@ -241,4 +241,4 @@ These are especially powerful because they simultaneously reduce memory pressure
 4.  **Shared memory + warp-level tiling** (GPU classic)
 5.  **Register blocking + unrolling** (CPU classic)
 
-> A good mental model is: first get the point right of the ridge point (out of the green marked memory-bound regime), then push up toward the flat compute roof. Many real optimizations alternate between these two goals as you iterate.
+> A good mental model is: first get the point right of the ridge point (out of the green marked memory-bound regime), then push up toward the flat compute roof. Many real optimizations alternate between these two goals as we iterate.
