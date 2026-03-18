@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="[Amazon AWS Internship 2025] I developed a robust, end-to-end differentiable GPU kernel autotuner for vLLM that achieves up to 1.6× higher accuracy using only 1% ground-truth data and enables transfer learning with up to 12.7% accuracy gains, reducing kernel tuning time from days to hours.">
+<meta name="description" content="[Amazon AWS Internship 2025] I developed a robust, end-to-end GPU kernel autotuner that achieves significantly higher accuracy with little ground-truth data and enables transfer learning reducing kernel tuning time from days to hours.">
 
-<title>Differentiable GPU kernel autotuner with Transfer Learning – Md Saidul Hoque Anik</title>
+<title>Differentiable GPU kernel autotuner – Md Saidul Hoque Anik</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -325,7 +325,6 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
-  <li><a href="#findings" id="toc-findings" class="nav-link" data-scroll-target="#findings">Findings</a></li>
   </ul>
 </nav>
     </div>
@@ -335,7 +334,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Differentiable GPU kernel autotuner with Transfer Learning</h1>
+<h1 class="title">Differentiable GPU kernel autotuner</h1>
   <div class="quarto-categories">
     <div class="quarto-category">Autotuner</div>
     <div class="quarto-category">CUDA</div>
@@ -352,7 +351,7 @@ ul.task-list li input[type="checkbox"] {
 
 <div>
   <div class="description">
-    [<strong>Amazon AWS Internship 2025</strong>] I developed a robust, end-to-end differentiable GPU kernel autotuner for vLLM that achieves up to 1.6× higher accuracy using only 1% ground-truth data and enables transfer learning with up to 12.7% accuracy gains, reducing kernel tuning time from days to hours.
+    [<strong>Amazon AWS Internship 2025</strong>] I developed a robust, end-to-end GPU kernel autotuner that achieves significantly higher accuracy with little ground-truth data and enables transfer learning reducing kernel tuning time from days to hours.
   </div>
 </div>
 
@@ -399,14 +398,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 <section id="overview" class="level2">
 <h2 class="anchored" data-anchor-id="overview">Overview</h2>
-<p>Developed a robust, end-to-end differentiable GPU kernel autotuner for vLLM that works well with as low as 1% ground truth of the total search space. The solution also performs transfer learning and can leverage cheaper kernel tuning data to reduce new kernel tuning time from days to hours.</p>
-</section>
-<section id="findings" class="level2">
-<h2 class="anchored" data-anchor-id="findings">Findings</h2>
-<ul>
-<li><p>Across six datasets, our auto-tuner obtained an improvement in cross-validation accuracy of 0.85× − 1.60× compared to 16 other ML and tabular transformer models (commonly used for performance modeling) on 1% ground truth. Accuracy continued to improve and outperformed all baselines as the training data increased.</p></li>
-<li><p>In transfer learning, up to 12.7% accuracy improvement was observed when an expensive CUDA kernel was tuned using only 100 config-perf pairs and leveraged with similar and cheaper Triton kernel’s tuning data.</p></li>
-</ul>
+<p>Developed a robust, end-to-end differentiable GPU kernel autotuner LLM inference.</p>
 
 
 </section>
