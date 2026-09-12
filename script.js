@@ -1,4 +1,4 @@
-  function createBreadcrumb(slug, maxTitleLength = 50, slugTitle='') {
+  function createBreadcrumb(slug, maxTitleLength = 50, slugTitle='', slug_target='') {
     const urlPath = window.location.pathname;
 
     if (new RegExp(`^\/${slug}\/(?!index\\.html$|$)`).test(urlPath)) {
@@ -19,12 +19,14 @@
       breadcrumbDiv.classList.add("breadcrumb-container");  // Optional: Add a class for styling
 
       let final_slugTitle = slugTitle == '' ? slug.charAt(0).toUpperCase() + slug.slice(1) : slugTitle;
+      // let final_slug = slug.contains('/') ? slug.split('/')[0] : slug;
+      let final_slug = slug_target == '' ? slug : slug_target;
 
       breadcrumbDiv.innerHTML = `
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="/">Home</a></li>
-            <li class="breadcrumb-item"><a href="/${slug}">${final_slugTitle}</a></li>
+            <li class="breadcrumb-item"><a href="/${final_slug}">${final_slugTitle}</a></li>
             <li class="breadcrumb-item active" aria-current="page">${pageTitle}</li>
           </ol>
         </nav>
@@ -81,6 +83,7 @@ document.addEventListener("DOMContentLoaded", function() {
   createBreadcrumb('blog', charLimit);
   createBreadcrumb('research', charLimit);
   createBreadcrumb('leetgpu', charLimit, 'LeetGPU');
+  createBreadcrumb('news/posts', charLimit, 'News', 'news');
   
   createCategoryNotice('blog');
   createCategoryNotice('news');

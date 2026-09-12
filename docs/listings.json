@@ -1,39 +1,27 @@
 [
   {
-    "listing": "/research/others/index.html",
+    "listing": "/research/index.html",
     "items": [
-      "/research/others/nlp-deep-learning/twitter-sentiment/index.html",
-      "/research/others/nlp-deep-learning/workplace-bullying/index.html",
-      "/research/others/nlp-deep-learning/rbmt/index.html",
-      "/research/others/nlp-deep-learning/delicate/index.html",
-      "/research/others/nlp-deep-learning/mt-heuristic/index.html",
-      "/research/others/nlp-deep-learning/polyglot/index.html",
-      "/research/others/nlp-deep-learning/ft-nmt/index.html",
-      "/research/others/sensors/smoothing-time-series/index.html",
-      "/research/others/sensors/noise-supression/index.html",
-      "/research/others/sensors/automated-traffic-jam/index.html"
-    ]
-  },
-  {
-    "listing": "/news/index.html",
-    "items": []
-  },
-  {
-    "listing": "/leetgpu/index.html",
-    "items": [
-      "/leetgpu/leet-gpu-5/index.html",
-      "/leetgpu/leet-gpu-3/index.html",
-      "/leetgpu/leet-gpu-12/index.html",
-      "/leetgpu/leet-gpu-2/index.html",
-      "/leetgpu/leet-gpu-1/index.html"
-    ]
-  },
-  {
-    "listing": "/index.html",
-    "items": [
+      "/research/systems/nvidia-flashinfer-2026/index.html",
+      "/research/systems/graph-mp/index.html",
       "/research/systems/gpu-tuner-amazon/index.html",
       "/research/systems/sptransx/index.html",
-      "/research/systems/efficient-kge/index.html"
+      "/research/systems/wmd/index.html",
+      "/research/systems/efficient-kge/index.html",
+      "/research/systems/isplib/index.html",
+      "/research/systems/gc-lstm/index.html",
+      "/research/systems/kge-profile/index.html",
+      "/research/systems/fastgraph/index.html",
+      "/research/systems/gpu-code-gen-cpp/index.html",
+      "/research/systems/sp-mat-lib-c/index.html",
+      "/research/systems/concurrency-python/index.html"
+    ]
+  },
+  {
+    "listing": "/cuda-learning/index.html",
+    "items": [
+      "/cuda-learning/part-2-execution-model/index copy.html",
+      "/cuda-learning/part-2-execution-model/index.html"
     ]
   },
   {
@@ -47,27 +35,46 @@
     ]
   },
   {
-    "listing": "/cuda-learning/index.html",
+    "listing": "/index.html",
     "items": [
-      "/cuda-learning/part-2-execution-model/index copy.html",
-      "/cuda-learning/part-2-execution-model/index.html"
+      "/news/posts/nvidia-intern-2026/index.html",
+      "/news/posts/google-intern-2026/index.html",
+      "/research/systems/nvidia-flashinfer-2026/index.html",
+      "/research/systems/gpu-tuner-amazon/index.html",
+      "/research/systems/sptransx/index.html",
+      "/research/systems/efficient-kge/index.html"
     ]
   },
   {
-    "listing": "/research/index.html",
+    "listing": "/leetgpu/index.html",
     "items": [
-      "/research/systems/graph-mp/index.html",
-      "/research/systems/gpu-tuner-amazon/index.html",
-      "/research/systems/sptransx/index.html",
-      "/research/systems/wmd/index.html",
-      "/research/systems/efficient-kge/index.html",
-      "/research/systems/isplib/index.html",
-      "/research/systems/gc-lstm/index.html",
-      "/research/systems/kge-profile/index.html",
-      "/research/systems/fastgraph/index.html",
-      "/research/systems/gpu-code-gen-cpp/index.html",
-      "/research/systems/sp-mat-lib-c/index.html",
-      "/research/systems/concurrency-python/index.html"
+      "/leetgpu/leet-gpu-5/index.html",
+      "/leetgpu/leet-gpu-3/index.html",
+      "/leetgpu/leet-gpu-12/index.html",
+      "/leetgpu/leet-gpu-2/index.html",
+      "/leetgpu/leet-gpu-1/index.html"
+    ]
+  },
+  {
+    "listing": "/news/index.html",
+    "items": [
+      "/news/posts/nvidia-intern-2026/index.html",
+      "/news/posts/google-intern-2026/index.html"
+    ]
+  },
+  {
+    "listing": "/research/others/index.html",
+    "items": [
+      "/research/others/nlp-deep-learning/twitter-sentiment/index.html",
+      "/research/others/nlp-deep-learning/workplace-bullying/index.html",
+      "/research/others/nlp-deep-learning/rbmt/index.html",
+      "/research/others/nlp-deep-learning/delicate/index.html",
+      "/research/others/nlp-deep-learning/mt-heuristic/index.html",
+      "/research/others/nlp-deep-learning/polyglot/index.html",
+      "/research/others/nlp-deep-learning/ft-nmt/index.html",
+      "/research/others/sensors/smoothing-time-series/index.html",
+      "/research/others/sensors/noise-supression/index.html",
+      "/research/others/sensors/automated-traffic-jam/index.html"
     ]
   },
   {

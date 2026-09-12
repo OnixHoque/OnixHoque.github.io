@@ -9,13 +9,13 @@ image: cn-book.png
 ::: {.callout-note appearance="minimal" title="Note" icon="false" collapse="false"}
 PhD collaboration work
 
-* Book chapter
-* Published as the second author
+-   Book chapter
+-   Published as the second author
 
 [Complex Networks 2024](https://link.springer.com/chapter/10.1007/978-3-031-82439-5_18){.badge .bg-danger .rounded-pill}
 :::
 
-![The framework for Neo4j interfacing I designed](wmd.png){.lightbox width="70%" }
+![The framework for Neo4j interfacing I designed](wmd.png){.lightbox width="70%"}
 
 ## Overview
 

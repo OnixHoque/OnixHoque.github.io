@@ -1,0 +1,15 @@
+---
+News: "Received internship offer from Google"
+caption: "Received internship offer from Google"
+title: Happy to receive internship offer from Google after team matching phase
+categories: ["Internship"]
+highlight: "true"
+author: "Md Saidul Hoque Anik"
+date: "03/29/2026"
+---
+
+![](Google-Logo.wine.png){.lightbox fig-align="center" width="50%"}
+
+I was happy to receive a Software Engineering (SWE) internship offer from Google’s **Tech Infrastructure Development** team for Summer 2026. I received the offer after successfully completing two technical interviews and passing the team-matching round.
+
+I’m grateful for the opportunity and for everyone who supported me throughout the interview and recruiting process. It was a great experience that challenged me technically and gave me the chance to learn more about engineering at Google.

@@ -1,3 +1,20 @@
+# News -> news page caption
+# caption -> homepage short caption
+
+- categories: ["Service"]
+  News: "Honored to be invited to serve on the MLSys 2027 Program Committee"
+  caption: "Honored to be invited to serve on the MLSys 2027 Program Committee"
+  highlight: "true"
+  date: "08/29/2026"
+  path: ""
+
+- categories: ["Award"]
+  News: "Happy to receive $1,000 in Modal compute credits to experiment with NVIDIA Blackwell GPUs and kernel optimization through the MLSys 2026 NVIDIA Track"
+  caption: "Happy to receive $1,000 in Modal credits to experiment with NVIDIA Blackwell GPUs and kernel optimization"
+  highlight: "false"
+  date: "02/01/2026"
+  path: ""
+
 - categories: ["Talk"]
   News: "Two-Day Session on Distributed Data Parallel (DDP) for TAMU CSCE-654: Supercomputing Course"
   caption: "DDP Lecture Session for TAMU Graduate Supercomputing Course"
@@ -13,7 +30,7 @@
   path: "/research/systems/graph-mp/"
 
 - categories: ["Internship", "Job"]
-  News: "Summer Internship at **Amazon Sagemaker** on vLLM Systems. Designed a differentiable kernel tuner with transfer learning feature."
+  News: "Summer Internship at **Amazon Sagemaker**. Designed a differentiable kernel tuner with transfer learning feature for Mixture-of-Expert Kernels."
   caption: "Summer Intern at Amazon SageMaker"
   highlight: "true"  
   date: "05/01/2025"
@@ -22,7 +39,7 @@
 - categories: ["Publication", "Conference"]
   News: "Paper accepted on **MLSys 2025**! Expressed 10 KGE models using sparse-dense matrix multiplication."
   caption: "Paper accepted at MLSys 2025"
-  highlight: "true"
+  highlight: "false"
   date: "02/01/2025"
   path: "/research/systems/sptransx/"
 
@@ -53,7 +70,7 @@
   path: ""
 
 - categories: ["Service"]
-  News: "Paper Reviewer, **Asian CHI Symposium** 2020"
+  News: "Reviewer, **Asian CHI Symposium** 2020"
   date: "05/01/2020"
   path: "https://asian-chi.github.io/2020/organizing/"
 
@@ -181,7 +198,7 @@
   path: ""
 
 - categories: ["Publication", "Journal"]
-  News: "Journal Published at **Nature Scientific Report**! Master's thesis work. I performed bi-modal user activity analysis from pre- and post- COVID and showed that they express different sentiment in Image and Text tweets except during the outbreak."
+  News: "Published in **Nature Scientific Reports**! Master's thesis work on bi-modal user activity and sentiment analysis before and after COVID-19."
   date: "12/01/2025"
   path: "/research/others/nlp-deep-learning/twitter-sentiment/"
 

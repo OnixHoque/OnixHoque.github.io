@@ -1,0 +1,44 @@
+---
+title: "A Unified MoE-EP First-Class Layer in FlashInfer"
+categories: ["MoE", "Expert Parallelism", "LLM Inference", "FlashInfer", "CUDA", "GPU", "cuDNN", "Mega-MoE", "NCCL_EP", "NIXL_EP", "NVIDIA Internship"]
+description: "**[NVIDIA Internship 2026]** I extended FlashInfer’s MoEEPLayer into a unified, extensible first-class layer supporting both split and Mega-MoE execution paths, enabling flexible backend integration, offline tuning, and efficient MoE-EP inference across GPU architectures and serving frameworks."
+date: "08/29/2026"
+image: nvidia.png
+featured: "true"
+---
+
+::: {.callout-note appearance="minimal" title="Note" icon="false" collapse="false"}
+NVIDIA cuDNN/FlashInfer Internship Summer 2026
+:::
+
+![with cuDNN/FlashInfer team](nvidia-2.jpg "Title: An elephant"){.lightbox}
+
+![Happy to meet Dr. Aydin Buluc, my PhD supervisor's Postdoc supervisor; along with many of my friends](nvidia-1.jpg "Title: An elephant"){.lightbox}
+
+## Overview
+
+Alhamdulillah, I had the opportunity to spend this summer interning at NVIDIA with the cuDNN/FlashInfer team. During my internship, I worked on extending MoEEPLayer in FlashInfer to enable efficient inference for DeepSeek v4 and other LLMs that heavily rely on Expert Parallelism (EP) within their Mixture-of-Experts (MoE) layers, including MoE-EP forward propagation (fprop) paths targeted for cuDNN integration.
+
+Before MoEEPLayer, the Mega-MoE path was primarily built around DeepSeek’s kernel, which supported only the SM100 FP4/FP8 configuration. Inference frameworks such as vLLM and SGLang had their Mega-MoE integrations tightly coupled to this specific kernel, making it difficult to add support for new kernels, GPU architectures, or data type combinations. My goal was to address this by introducing a unified abstraction that could support multiple MoE-EP execution paths and allow new kernels to be integrated without changing the higher-level inference framework.
+
+## Design & Implementation
+
+I redesigned MoEEPLayer into a unified, multi-paradigm API supporting both FlashInfer’s existing **split-path execution**—dispatch → compute → combine, with NCCL/NIXL-EP communication and FlashInfer’s MoE kernels—and a newer **Mega-MoE execution** path. The underlying Mega-MoE and communication kernels were developed by NVIDIA’s NCCL and Fast Kernel teams, as well as FlashInfer open-source contributors. My work focused on designing the abstraction and integration layer that brings these diverse kernels together within FlashInfer.
+
+The redesigned API introduces a **plugin-style backend architecture** with standardized interfaces, allowing new split and Mega-MoE kernel variants—including Pull/Push-style designs—and future execution strategies to be integrated as interchangeable backends. I also introduced cuDNN-style offline tuning mechanisms, CuTeDSL/CUDA Mega-MoE kernel integration harnesses, and integration guidelines to simplify the adoption of new Mega-MoE kernels across GPU architectures and data types.
+
+A key part of the design was making the backend abstraction expressive enough to accommodate a wide range of kernel implementations without coupling the higher-level MoEEPLayer API to any particular kernel. This allows different execution strategies, communication mechanisms, and compute kernels to evolve independently while remaining accessible through a common interface.
+
+The final MoEEPLayer supports **18 backend configurations**: **12 Mega-MoE kernels** spanning SM90, SM100, SM107, and SM120 architectures, with combinations of BF16, MXFP8, and NVFP4 across activation, weight, and output data types, as well as both Pull- and Push-style Mega-MoE execution. It also supports **6 split-path configurations**, covering NCCL-EP and NIXL-EP communication combined with three local MoE compute paths.
+
+In other words, the work took a diverse collection of independently developed kernels and provided a single abstraction through which they could be integrated, tuned, selected, and shipped as part of FlashInfer. Rather than requiring each kernel implementation to have its own integration path, the MoEEPLayer architecture provides a common production interface for the entire set of execution strategies.
+
+## Integration
+
+Beyond the core FlashInfer implementation, an important part of the project was making the new abstraction usable by downstream inference frameworks. The unified MoEEPLayer provides a simpler integration surface for frameworks such as **vLLM and SGLang** to leverage MoE-EP, while allowing the underlying execution strategies and backends to evolve independently.
+
+I authored the **vLLM PR (**[#49636](https://github.com/vllm-project/vllm/pull/49636)) **integrating FlashInfer’s Mega-MoE backend** and oversaw its integration into **SGLang**, extending the impact of the work beyond FlashInfer itself. The new MoEEPLayer ultimately became part of **FlashInfer v0.6.16**, bringing the unified abstraction and its collection of MoE-EP backends into the production FlashInfer stack.
+
+I’m very grateful to have had the opportunity to work on this project and to learn from so many talented engineers and researchers at NVIDIA. A huge thank you to my mentor **Anerudhan Gopal**, my manager **Yang XU**, and the many collaborators across NVIDIA for their guidance, support, and for making this experience possible.
+
+Alhamdulillah for the experience, and I’m excited to see where this work goes next!

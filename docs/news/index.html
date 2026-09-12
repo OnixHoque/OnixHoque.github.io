@@ -84,10 +84,10 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-date','listing-categories','listing-News',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-News-sort'] },{ data: ['listing-date-sort'] }],
+      valueNames: ['listing-date','listing-categories','listing-News',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] }],
       page: 30,
     pagination: { item: "<li class='page-item'><a class='page page-link' href='#'></a></li>" },
-      searchColumns: ["listing-categories","listing-News","listing-caption","listing-highlight","listing-date"],
+      searchColumns: ["listing-date","listing-title","listing-author"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -378,7 +378,7 @@ window.Quarto = {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(41)</span></div><div class="category" data-category="QXdhcmQ=">Award <span class="quarto-category-count">(3)</span></div><div class="category" data-category="Qm9vaw==">Book <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Qm9vayUyMENoYXB0ZXI=">Book Chapter <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Q29uZmVyZW5jZQ==">Conference <span class="quarto-category-count">(4)</span></div><div class="category" data-category="R3JhZHVhdGUlMjBTdHVkaWVz">Graduate Studies <span class="quarto-category-count">(5)</span></div><div class="category" data-category="SW50ZXJuc2hpcA==">Internship <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Sm9i">Job <span class="quarto-category-count">(6)</span></div><div class="category" data-category="Sm91cm5hbA==">Journal <span class="quarto-category-count">(4)</span></div><div class="category" data-category="TGVhZGVyc2hpcA==">Leadership <span class="quarto-category-count">(9)</span></div><div class="category" data-category="TWlsZXN0b25l">Milestone <span class="quarto-category-count">(1)</span></div><div class="category" data-category="UG9zdGVy">Poster <span class="quarto-category-count">(2)</span></div><div class="category" data-category="UHJvamVjdA==">Project <span class="quarto-category-count">(1)</span></div><div class="category" data-category="UHVibGljYXRpb24=">Publication <span class="quarto-category-count">(9)</span></div><div class="category" data-category="UmVjb2duaXRpb24=">Recognition <span class="quarto-category-count">(2)</span></div><div class="category" data-category="U2VydmljZQ==">Service <span class="quarto-category-count">(1)</span></div><div class="category" data-category="VGFsaw==">Talk <span class="quarto-category-count">(3)</span></div><div class="category" data-category="VmlkZW8lMjBUdXRvcmlhbA==">Video Tutorial <span class="quarto-category-count">(2)</span></div><div class="category" data-category="V29ya3Nob3A=">Workshop <span class="quarto-category-count">(2)</span></div></div></div>
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(45)</span></div><div class="category" data-category="QXdhcmQ=">Award <span class="quarto-category-count">(4)</span></div><div class="category" data-category="Qm9vaw==">Book <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Qm9vayUyMENoYXB0ZXI=">Book Chapter <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Q29uZmVyZW5jZQ==">Conference <span class="quarto-category-count">(4)</span></div><div class="category" data-category="R3JhZHVhdGUlMjBTdHVkaWVz">Graduate Studies <span class="quarto-category-count">(5)</span></div><div class="category" data-category="SW50ZXJuc2hpcA==">Internship <span class="quarto-category-count">(3)</span></div><div class="category" data-category="Sm9i">Job <span class="quarto-category-count">(7)</span></div><div class="category" data-category="Sm91cm5hbA==">Journal <span class="quarto-category-count">(4)</span></div><div class="category" data-category="TGVhZGVyc2hpcA==">Leadership <span class="quarto-category-count">(9)</span></div><div class="category" data-category="TWlsZXN0b25l">Milestone <span class="quarto-category-count">(1)</span></div><div class="category" data-category="UG9zdGVy">Poster <span class="quarto-category-count">(2)</span></div><div class="category" data-category="UHJvamVjdA==">Project <span class="quarto-category-count">(1)</span></div><div class="category" data-category="UHVibGljYXRpb24=">Publication <span class="quarto-category-count">(9)</span></div><div class="category" data-category="UmVjb2duaXRpb24=">Recognition <span class="quarto-category-count">(2)</span></div><div class="category" data-category="U2VydmljZQ==">Service <span class="quarto-category-count">(2)</span></div><div class="category" data-category="VGFsaw==">Talk <span class="quarto-category-count">(3)</span></div><div class="category" data-category="VmlkZW8lMjBUdXRvcmlhbA==">Video Tutorial <span class="quarto-category-count">(2)</span></div><div class="category" data-category="V29ya3Nob3A=">Workshop <span class="quarto-category-count">(2)</span></div></div></div>
 <!-- main -->
 <main class="content column-page-left" id="quarto-document-content">
 
@@ -410,12 +410,6 @@ window.Quarto = {
     <select id="listing-sample-listings-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-sample-listings'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
       <option value="" disabled="" selected="" hidden="">Order By</option>
       <option value="index" data-direction="asc">Default</option>
-      <option value="listing-categories" data-direction="asc">
-        Categories
-      </option>
-      <option value="listing-News-sort" data-direction="asc">
-        News
-      </option>
       <option value="listing-date-sort" data-direction="asc">
         Date - Oldest
       </option>
@@ -438,20 +432,72 @@ window.Quarto = {
 </th>
 
 <th>
-<a class="sort" data-sort="listing-categories" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Categories</a>
+Categories
 </th>
 
 <th>
-<a class="sort" data-sort="listing-News-sort" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">News</a>
+News
 </th>
 
 </tr>
 </thead>
 <tbody class="list">
 
-<tr data-index="0" data-categories="UHJvamVjdA==" data-listing-date-sort="1766728800000" data-listing-news-sort="tinyCUDA released! I wrote a small CUDA wrapper in C++ for automatic memory management (follows RAII principles and uses C++17 move semantics), kernel timing, and error handling.">
+<tr data-index="0" data-categories="U2VydmljZQ==" data-listing-date-sort="1787979600000" data-listing-news-sort="Honored to be invited to serve on the MLSys 2027 Program Committee">
 <td>
-<span class="listing-date">Dec 2025</span>
+<span class="listing-date">08/26</span>
+</td>
+<td>
+<span class="listing-categories">Service</span>
+</td>
+<td>
+<span class="listing-News">Honored to be invited to serve on the MLSys 2027 Program Committee</span>
+</td>
+
+</tr>
+
+<tr data-index="1" data-categories="SW50ZXJuc2hpcCUyQ0pvYg==" data-listing-date-sort="1775451600000" data-listing-file-modified-sort="1789242267945" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="68" data-listing-news-sort="Received and accepted internship offer from NVIDIA">
+<td>
+<span class="listing-date">04/26</span>
+</td>
+<td>
+<span class="listing-categories">Internship, Job</span>
+</td>
+<td>
+<a href="../news/posts/nvidia-intern-2026/index.html" class="News listing-News">Received and accepted internship offer from NVIDIA</a>
+</td>
+
+</tr>
+
+<tr data-index="2" data-categories="SW50ZXJuc2hpcA==" data-listing-date-sort="1774760400000" data-listing-file-modified-sort="1789188347288" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="74" data-listing-news-sort="Received internship offer from Google">
+<td>
+<span class="listing-date">03/26</span>
+</td>
+<td>
+<span class="listing-categories">Internship</span>
+</td>
+<td>
+<a href="../news/posts/google-intern-2026/index.html" class="News listing-News">Received internship offer from Google</a>
+</td>
+
+</tr>
+
+<tr data-index="3" data-categories="QXdhcmQ=" data-listing-date-sort="1769925600000" data-listing-news-sort="Happy to receive $1,000 in Modal compute credits to experiment with NVIDIA Blackwell GPUs and kernel optimization through the MLSys 2026 NVIDIA Track">
+<td>
+<span class="listing-date">02/26</span>
+</td>
+<td>
+<span class="listing-categories">Award</span>
+</td>
+<td>
+<span class="listing-News">Happy to receive $1,000 in Modal compute credits to experiment with NVIDIA Blackwell GPUs and kernel optimization through the MLSys 2026 NVIDIA Track</span>
+</td>
+
+</tr>
+
+<tr data-index="4" data-categories="UHJvamVjdA==" data-listing-date-sort="1766728800000" data-listing-news-sort="tinyCUDA released! I wrote a small CUDA wrapper in C++ for automatic memory management (follows RAII principles and uses C++17 move semantics), kernel timing, and error handling.">
+<td>
+<span class="listing-date">12/25</span>
 </td>
 <td>
 <span class="listing-categories">Project</span>
@@ -462,22 +508,22 @@ window.Quarto = {
 
 </tr>
 
-<tr data-index="1" data-categories="UHVibGljYXRpb24lMkNKb3VybmFs" data-listing-date-sort="1764568800000" data-listing-news-sort="Journal Published at **Nature Scientific Report**! Master's thesis work. I performed bi-modal user activity analysis from pre- and post- COVID and showed that they express different sentiment in Image and Text tweets except during the outbreak.">
+<tr data-index="5" data-categories="UHVibGljYXRpb24lMkNKb3VybmFs" data-listing-date-sort="1764568800000" data-listing-news-sort="Published in **Nature Scientific Reports**! Master's thesis work on bi-modal user activity and sentiment analysis before and after COVID-19.">
 <td>
-<span class="listing-date">Dec 2025</span>
+<span class="listing-date">12/25</span>
 </td>
 <td>
 <span class="listing-categories">Publication, Journal</span>
 </td>
 <td>
-<a href="../research/others/nlp-deep-learning/twitter-sentiment/" class="News listing-News">Journal Published at <strong>Nature Scientific Report</strong>! Master’s thesis work. I performed bi-modal user activity analysis from pre- and post- COVID and showed that they express different sentiment in Image and Text tweets except during the outbreak.</a>
+<a href="../research/others/nlp-deep-learning/twitter-sentiment/" class="News listing-News">Published in <strong>Nature Scientific Reports</strong>! Master’s thesis work on bi-modal user activity and sentiment analysis before and after COVID-19.</a>
 </td>
 
 </tr>
 
-<tr data-index="2" data-categories="VGFsayUyQ1Bvc3Rlcg==" data-listing-date-sort="1761973200000" data-listing-news-sort="Presented ongoing systems research on GNN model parallelism at the Sparstitute meeting in Berkeley.">
+<tr data-index="6" data-categories="VGFsayUyQ1Bvc3Rlcg==" data-listing-date-sort="1761973200000" data-listing-news-sort="Presented ongoing systems research on GNN model parallelism at the Sparstitute meeting in Berkeley.">
 <td>
-<span class="listing-date">Nov 2025</span>
+<span class="listing-date">11/25</span>
 </td>
 <td>
 <span class="listing-categories">Talk, Poster</span>
@@ -488,9 +534,9 @@ window.Quarto = {
 
 </tr>
 
-<tr data-index="3" data-categories="VGFsaw==" data-listing-date-sort="1759294800000" data-listing-news-sort="Two-Day Session on Distributed Data Parallel (DDP) for TAMU CSCE-654: Supercomputing Course">
+<tr data-index="7" data-categories="VGFsaw==" data-listing-date-sort="1759294800000" data-listing-news-sort="Two-Day Session on Distributed Data Parallel (DDP) for TAMU CSCE-654: Supercomputing Course">
 <td>
-<span class="listing-date">Oct 2025</span>
+<span class="listing-date">10/25</span>
 </td>
 <td>
 <span class="listing-categories">Talk</span>
@@ -501,22 +547,22 @@ window.Quarto = {
 
 </tr>
 
-<tr data-index="4" data-categories="SW50ZXJuc2hpcCUyQ0pvYg==" data-listing-date-sort="1746075600000" data-listing-news-sort="Summer Internship at **Amazon Sagemaker** on vLLM Systems. Designed a differentiable kernel tuner with transfer learning feature.">
+<tr data-index="8" data-categories="SW50ZXJuc2hpcCUyQ0pvYg==" data-listing-date-sort="1746075600000" data-listing-news-sort="Summer Internship at **Amazon Sagemaker**. Designed a differentiable kernel tuner with transfer learning feature for Mixture-of-Expert Kernels.">
 <td>
-<span class="listing-date">May 2025</span>
+<span class="listing-date">05/25</span>
 </td>
 <td>
 <span class="listing-categories">Internship, Job</span>
 </td>
 <td>
-<a href="../research/systems/gpu-tuner-amazon/" class="News listing-News">Summer Internship at <strong>Amazon Sagemaker</strong> on vLLM Systems. Designed a differentiable kernel tuner with transfer learning feature.</a>
+<a href="../research/systems/gpu-tuner-amazon/" class="News listing-News">Summer Internship at <strong>Amazon Sagemaker</strong>. Designed a differentiable kernel tuner with transfer learning feature for Mixture-of-Expert Kernels.</a>
 </td>
 
 </tr>
 
-<tr data-index="5" data-categories="TWlsZXN0b25l" data-listing-date-sort="1743483600000" data-listing-news-sort="aayatun.com has reached **100K+** monthly users! Made it open-source!">
+<tr data-index="9" data-categories="TWlsZXN0b25l" data-listing-date-sort="1743483600000" data-listing-news-sort="aayatun.com has reached **100K+** monthly users! Made it open-source!">
 <td>
-<span class="listing-date">Apr 2025</span>
+<span class="listing-date">04/25</span>
 </td>
 <td>
 <span class="listing-categories">Milestone</span>
@@ -527,9 +573,9 @@ window.Quarto = {
 
 </tr>
 
-<tr data-index="6" data-categories="UHVibGljYXRpb24lMkNDb25mZXJlbmNl" data-listing-date-sort="1738389600000" data-listing-news-sort="Paper accepted on **MLSys 2025**! Expressed 10 KGE models using sparse-dense matrix multiplication.">
+<tr data-index="10" data-categories="UHVibGljYXRpb24lMkNDb25mZXJlbmNl" data-listing-date-sort="1738389600000" data-listing-news-sort="Paper accepted on **MLSys 2025**! Expressed 10 KGE models using sparse-dense matrix multiplication.">
 <td>
-<span class="listing-date">Feb 2025</span>
+<span class="listing-date">02/25</span>
 </td>
 <td>
 <span class="listing-categories">Publication, Conference</span>
@@ -540,9 +586,9 @@ window.Quarto = {
 
 </tr>
 
-<tr data-index="7" data-categories="R3JhZHVhdGUlMjBTdHVkaWVzJTJDSm9i" data-listing-date-sort="1735711200000" data-listing-news-sort="Started PhD in Computer Science and Engineering at Texas A&amp;M University">
+<tr data-index="11" data-categories="R3JhZHVhdGUlMjBTdHVkaWVzJTJDSm9i" data-listing-date-sort="1735711200000" data-listing-news-sort="Started PhD in Computer Science and Engineering at Texas A&amp;M University">
 <td>
-<span class="listing-date">Jan 2025</span>
+<span class="listing-date">01/25</span>
 </td>
 <td>
 <span class="listing-categories">Graduate Studies, Job</span>
@@ -553,9 +599,9 @@ window.Quarto = {
 
 </tr>
 
-<tr data-index="8" data-categories="UHVibGljYXRpb24lMkNCb29rJTIwQ2hhcHRlcg==" data-listing-date-sort="1733032800000" data-listing-news-sort="Book Chapter on **Complex Networks 2024**! Collaboration work. Developed Neo4j interface for KGE application.">
+<tr data-index="12" data-categories="UHVibGljYXRpb24lMkNCb29rJTIwQ2hhcHRlcg==" data-listing-date-sort="1733032800000" data-listing-news-sort="Book Chapter on **Complex Networks 2024**! Collaboration work. Developed Neo4j interface for KGE application.">
 <td>
-<span class="listing-date">Dec 2024</span>
+<span class="listing-date">12/24</span>
 </td>
 <td>
 <span class="listing-categories">Publication, Book Chapter</span>
@@ -566,9 +612,9 @@ window.Quarto = {
 
 </tr>
 
-<tr data-index="9" data-categories="UG9zdGVyJTJDUmVjb2duaXRpb24=" data-listing-date-sort="1730437200000" data-listing-news-sort="Best poster finalist (top-6) at **SC24**! Expressed TransE KGE model using sparse-dense matrix multiplication.">
+<tr data-index="13" data-categories="UG9zdGVyJTJDUmVjb2duaXRpb24=" data-listing-date-sort="1730437200000" data-listing-news-sort="Best poster finalist (top-6) at **SC24**! Expressed TransE KGE model using sparse-dense matrix multiplication.">
 <td>
-<span class="listing-date">Nov 2024</span>
+<span class="listing-date">11/24</span>
 </td>
 <td>
 <span class="listing-categories">Poster, Recognition</span>
@@ -579,9 +625,9 @@ window.Quarto = {
 
 </tr>
 
-<tr data-index="10" data-categories="R3JhZHVhdGUlMjBTdHVkaWVzJTJDSm9i" data-listing-date-sort="1722488400000" data-listing-news-sort="Completed graduate studies in Indiana University Bloomington (IUB) with a CGPA of 4.00/4.00">
+<tr data-index="14" data-categories="R3JhZHVhdGUlMjBTdHVkaWVzJTJDSm9i" data-listing-date-sort="1722488400000" data-listing-news-sort="Completed graduate studies in Indiana University Bloomington (IUB) with a CGPA of 4.00/4.00">
 <td>
-<span class="listing-date">Aug 2024</span>
+<span class="listing-date">08/24</span>
 </td>
 <td>
 <span class="listing-categories">Graduate Studies, Job</span>
@@ -592,9 +638,9 @@ window.Quarto = {
 
 </tr>
 
-<tr data-index="11" data-categories="UHVibGljYXRpb24lMkNDb25mZXJlbmNl" data-listing-date-sort="1711947600000" data-listing-news-sort="Paper accepted at **WebConf 2024**! Developed CPU PyTorch SpMM operator for GNN training with auto-tuner backend.">
+<tr data-index="15" data-categories="UHVibGljYXRpb24lMkNDb25mZXJlbmNl" data-listing-date-sort="1711947600000" data-listing-news-sort="Paper accepted at **WebConf 2024**! Developed CPU PyTorch SpMM operator for GNN training with auto-tuner backend.">
 <td>
-<span class="listing-date">Apr 2024</span>
+<span class="listing-date">04/24</span>
 </td>
 <td>
 <span class="listing-categories">Publication, Conference</span>
@@ -605,9 +651,9 @@ window.Quarto = {
 
 </tr>
 
-<tr data-index="12" data-categories="UHVibGljYXRpb24lMkNKb3VybmFs" data-listing-date-sort="1696136400000" data-listing-news-sort="Collaboration research work published as Journal! This study examined the prevalence and impact of workplace bullying on stress levels among physicians. My contribution was developing an automated pipeline to generate Google Forms for efficient survey distribution.">
+<tr data-index="16" data-categories="UHVibGljYXRpb24lMkNKb3VybmFs" data-listing-date-sort="1696136400000" data-listing-news-sort="Collaboration research work published as Journal! This study examined the prevalence and impact of workplace bullying on stress levels among physicians. My contribution was developing an automated pipeline to generate Google Forms for efficient survey distribution.">
 <td>
-<span class="listing-date">Oct 2023</span>
+<span class="listing-date">10/23</span>
 </td>
 <td>
 <span class="listing-categories">Publication, Journal</span>
@@ -618,9 +664,9 @@ window.Quarto = {
 
 </tr>
 
-<tr data-index="13" data-categories="UmVjb2duaXRpb24=" data-listing-date-sort="1680325200000" data-listing-news-sort="Received **Google Foobar** Challenge!">
+<tr data-index="17" data-categories="UmVjb2duaXRpb24=" data-listing-date-sort="1680325200000" data-listing-news-sort="Received **Google Foobar** Challenge!">
 <td>
-<span class="listing-date">Apr 2023</span>
+<span class="listing-date">04/23</span>
 </td>
 <td>
 <span class="listing-categories">Recognition</span>
@@ -631,9 +677,9 @@ window.Quarto = {
 
 </tr>
 
-<tr data-index="14" data-categories="QXdhcmQ=" data-listing-date-sort="1659330000000" data-listing-news-sort="Received Luddy Summer Fellowship ($8,400)!">
+<tr data-index="18" data-categories="QXdhcmQ=" data-listing-date-sort="1659330000000" data-listing-news-sort="Received Luddy Summer Fellowship ($8,400)!">
 <td>
-<span class="listing-date">Aug 2022</span>
+<span class="listing-date">08/22</span>
 </td>
 <td>
 <span class="listing-categories">Award</span>
@@ -644,9 +690,9 @@ window.Quarto = {
 
 </tr>
 
-<tr data-index="15" data-categories="R3JhZHVhdGUlMjBTdHVkaWVzJTJDSm9i" data-listing-date-sort="1659330000000" data-listing-news-sort="Started graduate studies in Computer Science at Indiana University Bloomington (IUB)">
+<tr data-index="19" data-categories="R3JhZHVhdGUlMjBTdHVkaWVzJTJDSm9i" data-listing-date-sort="1659330000000" data-listing-news-sort="Started graduate studies in Computer Science at Indiana University Bloomington (IUB)">
 <td>
-<span class="listing-date">Aug 2022</span>
+<span class="listing-date">08/22</span>
 </td>
 <td>
 <span class="listing-categories">Graduate Studies, Job</span>
@@ -657,9 +703,9 @@ window.Quarto = {
 
 </tr>
 
-<tr data-index="16" data-categories="R3JhZHVhdGUlMjBTdHVkaWVz" data-listing-date-sort="1659330000000" data-listing-news-sort="Completed part-time graduate studies in Computer Science at Bangladesh University of Engineering and Technology (BUET)">
+<tr data-index="20" data-categories="R3JhZHVhdGUlMjBTdHVkaWVz" data-listing-date-sort="1659330000000" data-listing-news-sort="Completed part-time graduate studies in Computer Science at Bangladesh University of Engineering and Technology (BUET)">
 <td>
-<span class="listing-date">Aug 2022</span>
+<span class="listing-date">08/22</span>
 </td>
 <td>
 <span class="listing-categories">Graduate Studies</span>
@@ -670,9 +716,9 @@ window.Quarto = {
 
 </tr>
 
-<tr data-index="17" data-categories="UHVibGljYXRpb24lMkNKb3VybmFs" data-listing-date-sort="1643695200000" data-listing-news-sort="Collaboration research work published in **IETE Technical Review** as second author! A hybrid approach to machine translation combining both RNN-based and rule-based translators. My key contribution to this work was designing a novel heuristic for verb root detection that improved both accuracy and space efficiency.">
+<tr data-index="21" data-categories="UHVibGljYXRpb24lMkNKb3VybmFs" data-listing-date-sort="1643695200000" data-listing-news-sort="Collaboration research work published in **IETE Technical Review** as second author! A hybrid approach to machine translation combining both RNN-based and rule-based translators. My key contribution to this work was designing a novel heuristic for verb root detection that improved both accuracy and space efficiency.">
 <td>
-<span class="listing-date">Feb 2022</span>
+<span class="listing-date">02/22</span>
 </td>
 <td>
 <span class="listing-categories">Publication, Journal</span>
@@ -683,9 +729,9 @@ window.Quarto = {
 
 </tr>
 
-<tr data-index="18" data-categories="TGVhZGVyc2hpcA==" data-listing-date-sort="1635742800000" data-listing-news-sort="External Supervisor, CSE Dept FYDP-II Summer 2021, UIU">
+<tr data-index="22" data-categories="TGVhZGVyc2hpcA==" data-listing-date-sort="1635742800000" data-listing-news-sort="External Supervisor, CSE Dept FYDP-II Summer 2021, UIU">
 <td>
-<span class="listing-date">Nov 2021</span>
+<span class="listing-date">11/21</span>
 </td>
 <td>
 <span class="listing-categories">Leadership</span>
@@ -696,9 +742,9 @@ window.Quarto = {
 
 </tr>
 
-<tr data-index="19" data-categories="UHVibGljYXRpb24lMkNKb3VybmFs" data-listing-date-sort="1614578400000" data-listing-news-sort="Collaboration research work published in **Neural Computing and Applications** as second author! This study aims to improve Bengali-to-English translation quality by examining rule-based, SMT-based, and NMT-based approaches individually and in various hybrid configurations. My primary contribution was the design and implementation of the RNN-based seq2seq NMT training pipeline.">
+<tr data-index="23" data-categories="UHVibGljYXRpb24lMkNKb3VybmFs" data-listing-date-sort="1614578400000" data-listing-news-sort="Collaboration research work published in **Neural Computing and Applications** as second author! This study aims to improve Bengali-to-English translation quality by examining rule-based, SMT-based, and NMT-based approaches individually and in various hybrid configurations. My primary contribution was the design and implementation of the RNN-based seq2seq NMT training pipeline.">
 <td>
-<span class="listing-date">Mar 2021</span>
+<span class="listing-date">03/21</span>
 </td>
 <td>
 <span class="listing-categories">Publication, Journal</span>
@@ -709,9 +755,9 @@ window.Quarto = {
 
 </tr>
 
-<tr data-index="20" data-categories="TGVhZGVyc2hpcA==" data-listing-date-sort="1609480800000" data-listing-news-sort="Member, Outcome-Based Education (OBE) Revision Team, UIU">
+<tr data-index="24" data-categories="TGVhZGVyc2hpcA==" data-listing-date-sort="1609480800000" data-listing-news-sort="Member, Outcome-Based Education (OBE) Revision Team, UIU">
 <td>
-<span class="listing-date">Jan 2021</span>
+<span class="listing-date">01/21</span>
 </td>
 <td>
 <span class="listing-categories">Leadership</span>
@@ -722,22 +768,22 @@ window.Quarto = {
 
 </tr>
 
-<tr data-index="21" data-categories="U2VydmljZQ==" data-listing-date-sort="1588309200000" data-listing-news-sort="Paper Reviewer, **Asian CHI Symposium** 2020">
+<tr data-index="25" data-categories="U2VydmljZQ==" data-listing-date-sort="1588309200000" data-listing-news-sort="Reviewer, **Asian CHI Symposium** 2020">
 <td>
-<span class="listing-date">May 2020</span>
+<span class="listing-date">05/20</span>
 </td>
 <td>
 <span class="listing-categories">Service</span>
 </td>
 <td>
-<a href="https://asian-chi.github.io/2020/organizing/" class="News listing-News">Paper Reviewer, <strong>Asian CHI Symposium</strong> 2020</a>
+<a href="https://asian-chi.github.io/2020/organizing/" class="News listing-News">Reviewer, <strong>Asian CHI Symposium</strong> 2020</a>
 </td>
 
 </tr>
 
-<tr data-index="22" data-categories="TGVhZGVyc2hpcA==" data-listing-date-sort="1580536800000" data-listing-news-sort="Assistant Technical Coordinator, UIU Innobotics">
+<tr data-index="26" data-categories="TGVhZGVyc2hpcA==" data-listing-date-sort="1580536800000" data-listing-news-sort="Assistant Technical Coordinator, UIU Innobotics">
 <td>
-<span class="listing-date">Feb 2020</span>
+<span class="listing-date">02/20</span>
 </td>
 <td>
 <span class="listing-categories">Leadership</span>
@@ -748,9 +794,9 @@ window.Quarto = {
 
 </tr>
 
-<tr data-index="23" data-categories="Sm9i" data-listing-date-sort="1577858400000" data-listing-news-sort="Joined United International University (UIU) as a Faculty in Department of CSE">
+<tr data-index="27" data-categories="Sm9i" data-listing-date-sort="1577858400000" data-listing-news-sort="Joined United International University (UIU) as a Faculty in Department of CSE">
 <td>
-<span class="listing-date">Jan 2020</span>
+<span class="listing-date">01/20</span>
 </td>
 <td>
 <span class="listing-categories">Job</span>
@@ -761,9 +807,9 @@ window.Quarto = {
 
 </tr>
 
-<tr data-index="24" data-categories="VGFsaw==" data-listing-date-sort="1561957200000" data-listing-news-sort="Speaker at Cyber Security Training Program 2019, MIST. Talked about web-security and cross-site scripting attacks.">
+<tr data-index="28" data-categories="VGFsaw==" data-listing-date-sort="1561957200000" data-listing-news-sort="Speaker at Cyber Security Training Program 2019, MIST. Talked about web-security and cross-site scripting attacks.">
 <td>
-<span class="listing-date">Jul 2019</span>
+<span class="listing-date">07/19</span>
 </td>
 <td>
 <span class="listing-categories">Talk</span>
@@ -774,9 +820,9 @@ window.Quarto = {
 
 </tr>
 
-<tr data-index="25" data-categories="TGVhZGVyc2hpcA==" data-listing-date-sort="1546322400000" data-listing-news-sort="Postgraduate Coordinator at CSE Deptartment, MIST">
+<tr data-index="29" data-categories="TGVhZGVyc2hpcA==" data-listing-date-sort="1546322400000" data-listing-news-sort="Postgraduate Coordinator at CSE Deptartment, MIST">
 <td>
-<span class="listing-date">Jan 2019</span>
+<span class="listing-date">01/19</span>
 </td>
 <td>
 <span class="listing-categories">Leadership</span>
@@ -787,9 +833,9 @@ window.Quarto = {
 
 </tr>
 
-<tr data-index="26" data-categories="TGVhZGVyc2hpcA==" data-listing-date-sort="1546322400000" data-listing-news-sort="Coordinator, CSE Postgraduate Programs, MIST">
+<tr data-index="30" data-categories="TGVhZGVyc2hpcA==" data-listing-date-sort="1546322400000" data-listing-news-sort="Coordinator, CSE Postgraduate Programs, MIST">
 <td>
-<span class="listing-date">Jan 2019</span>
+<span class="listing-date">01/19</span>
 </td>
 <td>
 <span class="listing-categories">Leadership</span>
@@ -800,9 +846,9 @@ window.Quarto = {
 
 </tr>
 
-<tr data-index="27" data-categories="TGVhZGVyc2hpcA==" data-listing-date-sort="1546322400000" data-listing-news-sort="Technical Coordinator, Inter-University Programming Contest (IUPC) 2019, MIST">
+<tr data-index="31" data-categories="TGVhZGVyc2hpcA==" data-listing-date-sort="1546322400000" data-listing-news-sort="Technical Coordinator, Inter-University Programming Contest (IUPC) 2019, MIST">
 <td>
-<span class="listing-date">Jan 2019</span>
+<span class="listing-date">01/19</span>
 </td>
 <td>
 <span class="listing-categories">Leadership</span>
@@ -813,9 +859,9 @@ window.Quarto = {
 
 </tr>
 
-<tr data-index="28" data-categories="TGVhZGVyc2hpcA==" data-listing-date-sort="1543644000000" data-listing-news-sort="Member Secretary, Syllabus Review Committee for OBE Implementation, MIST">
+<tr data-index="32" data-categories="TGVhZGVyc2hpcA==" data-listing-date-sort="1543644000000" data-listing-news-sort="Member Secretary, Syllabus Review Committee for OBE Implementation, MIST">
 <td>
-<span class="listing-date">Dec 2018</span>
+<span class="listing-date">12/18</span>
 </td>
 <td>
 <span class="listing-categories">Leadership</span>
@@ -826,9 +872,9 @@ window.Quarto = {
 
 </tr>
 
-<tr data-index="29" data-categories="UHVibGljYXRpb24lMkNDb25mZXJlbmNl" data-listing-date-sort="1543644000000" data-listing-news-sort="Research work published in **NSysS** 2018! This study explores a generalized machine translation system for low-resource languages like Bengali, proposing semantic-based verb identification and root word detection algorithms that outperform Google Translator">
+<tr data-index="33" data-categories="UHVibGljYXRpb24lMkNDb25mZXJlbmNl" data-listing-date-sort="1543644000000" data-listing-news-sort="Research work published in **NSysS** 2018! This study explores a generalized machine translation system for low-resource languages like Bengali, proposing semantic-based verb identification and root word detection algorithms that outperform Google Translator">
 <td>
-<span class="listing-date">Dec 2018</span>
+<span class="listing-date">12/18</span>
 </td>
 <td>
 <span class="listing-categories">Publication, Conference</span>
@@ -839,9 +885,9 @@ window.Quarto = {
 
 </tr>
 
-<tr data-index="30" data-categories="V29ya3Nob3A=" data-listing-date-sort="1538370000000" data-listing-news-sort="Workshop Instructor, Unicode Typing Training Program 2018, MIST">
+<tr data-index="34" data-categories="V29ya3Nob3A=" data-listing-date-sort="1538370000000" data-listing-news-sort="Workshop Instructor, Unicode Typing Training Program 2018, MIST">
 <td>
-<span class="listing-date">Oct 2018</span>
+<span class="listing-date">10/18</span>
 </td>
 <td>
 <span class="listing-categories">Workshop</span>
@@ -852,9 +898,9 @@ window.Quarto = {
 
 </tr>
 
-<tr data-index="31" data-categories="TGVhZGVyc2hpcA==" data-listing-date-sort="1530421200000" data-listing-news-sort="Steering Committee Member, Outcome-Based Education (OBE) Initiative at MIST">
+<tr data-index="35" data-categories="TGVhZGVyc2hpcA==" data-listing-date-sort="1530421200000" data-listing-news-sort="Steering Committee Member, Outcome-Based Education (OBE) Initiative at MIST">
 <td>
-<span class="listing-date">Jul 2018</span>
+<span class="listing-date">07/18</span>
 </td>
 <td>
 <span class="listing-categories">Leadership</span>
@@ -865,9 +911,9 @@ window.Quarto = {
 
 </tr>
 
-<tr data-index="32" data-categories="Qm9vaw==" data-listing-date-sort="1522558800000" data-listing-news-sort="Author, 42-Page Guide on Java for C++ Programmers (Self-Published). Shared online as a free resource for programmers transitioning from C++ to Java.">
+<tr data-index="36" data-categories="Qm9vaw==" data-listing-date-sort="1522558800000" data-listing-news-sort="Author, 42-Page Guide on Java for C++ Programmers (Self-Published). Shared online as a free resource for programmers transitioning from C++ to Java.">
 <td>
-<span class="listing-date">Apr 2018</span>
+<span class="listing-date">04/18</span>
 </td>
 <td>
 <span class="listing-categories">Book</span>
@@ -878,9 +924,9 @@ window.Quarto = {
 
 </tr>
 
-<tr data-index="33" data-categories="UHVibGljYXRpb24lMkNDb25mZXJlbmNl" data-listing-date-sort="1512108000000" data-listing-news-sort="Research work published in **NSysS** 2017! This study explores a rule-based approach for name identification in Bengali Language.">
+<tr data-index="37" data-categories="UHVibGljYXRpb24lMkNDb25mZXJlbmNl" data-listing-date-sort="1512108000000" data-listing-news-sort="Research work published in **NSysS** 2017! This study explores a rule-based approach for name identification in Bengali Language.">
 <td>
-<span class="listing-date">Dec 2017</span>
+<span class="listing-date">12/17</span>
 </td>
 <td>
 <span class="listing-categories">Publication, Conference</span>
@@ -891,9 +937,9 @@ window.Quarto = {
 
 </tr>
 
-<tr data-index="34" data-categories="R3JhZHVhdGUlMjBTdHVkaWVz" data-listing-date-sort="1491022800000" data-listing-news-sort="Started part-time graduate studies in Computer Science at Bangladesh University of Engineering and Technology (BUET)">
+<tr data-index="38" data-categories="R3JhZHVhdGUlMjBTdHVkaWVz" data-listing-date-sort="1491022800000" data-listing-news-sort="Started part-time graduate studies in Computer Science at Bangladesh University of Engineering and Technology (BUET)">
 <td>
-<span class="listing-date">Apr 2017</span>
+<span class="listing-date">04/17</span>
 </td>
 <td>
 <span class="listing-categories">Graduate Studies</span>
@@ -904,9 +950,9 @@ window.Quarto = {
 
 </tr>
 
-<tr data-index="35" data-categories="Sm9i" data-listing-date-sort="1485928800000" data-listing-news-sort="Started first job as adjunt Faculty in Department of CSE, MIST">
+<tr data-index="39" data-categories="Sm9i" data-listing-date-sort="1485928800000" data-listing-news-sort="Started first job as adjunt Faculty in Department of CSE, MIST">
 <td>
-<span class="listing-date">Feb 2017</span>
+<span class="listing-date">02/17</span>
 </td>
 <td>
 <span class="listing-categories">Job</span>
@@ -917,9 +963,9 @@ window.Quarto = {
 
 </tr>
 
-<tr data-index="36" data-categories="V29ya3Nob3AlMkNWaWRlbyUyMFR1dG9yaWFs" data-listing-date-sort="1456812000000" data-listing-news-sort="Organizer &amp; Instructor, 5-Day Android Workshop at Samsung R&amp;D Lab, BUET for System Analysis, Design, and Development (BSADD). Conducted tutorial classes and made full workshop content available online for free.">
+<tr data-index="40" data-categories="V29ya3Nob3AlMkNWaWRlbyUyMFR1dG9yaWFs" data-listing-date-sort="1456812000000" data-listing-news-sort="Organizer &amp; Instructor, 5-Day Android Workshop at Samsung R&amp;D Lab, BUET for System Analysis, Design, and Development (BSADD). Conducted tutorial classes and made full workshop content available online for free.">
 <td>
-<span class="listing-date">Mar 2016</span>
+<span class="listing-date">03/16</span>
 </td>
 <td>
 <span class="listing-categories">Workshop, Video Tutorial</span>
@@ -930,9 +976,9 @@ window.Quarto = {
 
 </tr>
 
-<tr data-index="37" data-categories="QXdhcmQ=" data-listing-date-sort="1448949600000" data-listing-news-sort="Champion at BRAC Hackathon 2015 Android App Development ($2,500)! Featured in leading newspapers in Bangladesh">
+<tr data-index="41" data-categories="QXdhcmQ=" data-listing-date-sort="1448949600000" data-listing-news-sort="Champion at BRAC Hackathon 2015 Android App Development ($2,500)! Featured in leading newspapers in Bangladesh">
 <td>
-<span class="listing-date">Dec 2015</span>
+<span class="listing-date">12/15</span>
 </td>
 <td>
 <span class="listing-categories">Award</span>
@@ -943,9 +989,9 @@ window.Quarto = {
 
 </tr>
 
-<tr data-index="38" data-categories="TGVhZGVyc2hpcA==" data-listing-date-sort="1448949600000" data-listing-news-sort="Coordinator, BUET System Analysis, Design, and Development Community">
+<tr data-index="42" data-categories="TGVhZGVyc2hpcA==" data-listing-date-sort="1448949600000" data-listing-news-sort="Coordinator, BUET System Analysis, Design, and Development Community">
 <td>
-<span class="listing-date">Dec 2015</span>
+<span class="listing-date">12/15</span>
 </td>
 <td>
 <span class="listing-categories">Leadership</span>
@@ -956,9 +1002,9 @@ window.Quarto = {
 
 </tr>
 
-<tr data-index="39" data-categories="VmlkZW8lMjBUdXRvcmlhbA==" data-listing-date-sort="1414818000000" data-listing-news-sort="Started YouTube Content Creation. Mostly make video tutorials on programming concepts, data structures &amp; algorithms. Notable video on C++ STL reached 10K views.">
+<tr data-index="43" data-categories="VmlkZW8lMjBUdXRvcmlhbA==" data-listing-date-sort="1414818000000" data-listing-news-sort="Started YouTube Content Creation. Mostly make video tutorials on programming concepts, data structures &amp; algorithms. Notable video on C++ STL reached 10K views.">
 <td>
-<span class="listing-date">Nov 2014</span>
+<span class="listing-date">11/14</span>
 </td>
 <td>
 <span class="listing-categories">Video Tutorial</span>
@@ -969,9 +1015,9 @@ window.Quarto = {
 
 </tr>
 
-<tr data-index="40" data-categories="QXdhcmQ=" data-listing-date-sort="1364792400000" data-listing-news-sort="Received BUET Undergraduate Scholarship">
+<tr data-index="44" data-categories="QXdhcmQ=" data-listing-date-sort="1364792400000" data-listing-news-sort="Received BUET Undergraduate Scholarship">
 <td>
-<span class="listing-date">Apr 2013</span>
+<span class="listing-date">04/13</span>
 </td>
 <td>
 <span class="listing-categories">Award</span>

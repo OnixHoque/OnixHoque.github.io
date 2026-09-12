@@ -15,5 +15,3 @@ listing:
   sort: "date desc"
   fields: [date, categories, title, description] 
 ---
-
- 

@@ -325,6 +325,7 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
+  <li><a href="#findings" id="toc-findings" class="nav-link" data-scroll-target="#findings">Findings</a></li>
   </ul>
 </nav>
     </div>
@@ -398,7 +399,14 @@ ul.task-list li input[type="checkbox"] {
 </div>
 <section id="overview" class="level2">
 <h2 class="anchored" data-anchor-id="overview">Overview</h2>
-<p>Developed a robust, end-to-end differentiable GPU kernel autotuner LLM inference.</p>
+<p>Developed a robust, end-to-end differentiable GPU kernel autotuner for Mixture of Experts (MoE) kernels that works well with as low as 1% ground truth of the total search space (around 50k possible candidates). The solution also performs transfer learning and can leverage cheaper kernel tuning data to reduce new kernel tuning time fro</p>
+</section>
+<section id="findings" class="level2">
+<h2 class="anchored" data-anchor-id="findings">Findings</h2>
+<ul>
+<li><p>Across six datasets, our auto-tuner obtained an improvement in cross-validation accuracy of 0.85× − 1.60× compared to 16 other ML and tabular transformer models (commonly used for performance modeling) on 1% ground truth. Accuracy continued to improve and outperformed all baselines as the training data increased.</p></li>
+<li><p>In transfer learning, up to 12.7% accuracy improvement was observed when an expensive CUDA MoE kernel was tuned using only 100 config-perf pairs and leveraged with similar and cheaper Triton kernel’s tuning data.</p></li>
+</ul>
 
 
 </section>

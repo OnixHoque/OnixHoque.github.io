@@ -12,6 +12,7 @@ listing:
     date-format: "MM/YY"
     contents: 
     - news/news.yaml
+    - news/posts/**/*.qmd
     type: table
     sort: "date desc"
     fields: [date, caption]

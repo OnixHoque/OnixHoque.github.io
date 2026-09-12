@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="PhD Candidate at Texas A&amp;M | ML Systems &amp; Performance Optimization | Scalable and Differentiable Sparse Kernels for Graph Learning Contact: anik[at]tamu[dot]edu">
+<meta name="description" content="[NVIDIA Internship 2026] I extended FlashInfer’s MoEEPLayer into a unified, extensible first-class layer supporting both split and Mega-MoE execution paths, enabling flexible backend integration, offline tuning, and efficient MoE-EP inference across GPU architectures and serving frameworks.">
 
-<title>Md Saidul Hoque Anik</title>
+<title>A Unified MoE-EP First-Class Layer in FlashInfer – Md Saidul Hoque Anik</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -24,29 +24,31 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-b758ccaa5987ceb1b75504551e579abf.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-69585d0cb7eb4d91e1e9639bd63741e7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-435edb4a015d21cda02749244a61383a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-69585d0cb7eb4d91e1e9639bd63741e7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<script src="../../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b758ccaa5987ceb1b75504551e579abf.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap-69585d0cb7eb4d91e1e9639bd63741e7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-dark-435edb4a015d21cda02749244a61383a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../../site_libs/bootstrap/bootstrap-69585d0cb7eb4d91e1e9639bd63741e7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -74,99 +76,13 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listings-news .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-date','listing-caption',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listings-news'] = new List('listing-listings-news', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listings-research .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-image','listing-title','listing-description','listing-date',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listings-research'] = new List('listing-listings-research', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
 <link href="https://cdn.jsdelivr.net/npm/charter-webfont@4.1.0/charter.min.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&amp;family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&amp;family=Open+Sans:ital,wght@0,300..800;1,300..800&amp;display=swap" rel="stylesheet">
 <link href="https://fonts.cdnfonts.com/css/palatino" rel="stylesheet">
-<script src="./script.js"></script>
+<script src="../../../script.js"></script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../../../styles.css">
 </head>
 
 <body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
@@ -338,7 +254,7 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../../index.html">
     <span class="navbar-title">Md Saidul Hoque Anik</span>
     </a>
   </div>
@@ -349,19 +265,19 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
+    <a class="nav-link" href="../../../index.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./research"> 
+    <a class="nav-link" href="../../../research"> 
 <span class="menu-text">Research</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./news"> 
+    <a class="nav-link" href="../../../news"> 
 <span class="menu-text">News</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./teaching"> 
+    <a class="nav-link" href="../../../teaching"> 
 <span class="menu-text">Teaching</span></a>
   </li>  
   <li class="nav-item dropdown ">
@@ -370,23 +286,23 @@ window.Quarto = {
     </a>
     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-more">    
         <li>
-    <a class="dropdown-item" href="./leetgpu">
+    <a class="dropdown-item" href="../../../leetgpu">
  <span class="dropdown-text">LeetGPU</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./leadership/">
+    <a class="dropdown-item" href="../../../leadership/">
  <span class="dropdown-text">Leadership</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./software">
+    <a class="dropdown-item" href="../../../software">
  <span class="dropdown-text">Software</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./news/#category=Publication">
+    <a class="dropdown-item" href="../../../news/#category=Publication">
  <span class="dropdown-text">Publications</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./blog">
+    <a class="dropdown-item" href="../../../blog">
  <span class="dropdown-text">Blog</span></a>
   </li>  
     </ul>
@@ -400,338 +316,119 @@ window.Quarto = {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
+  <li><a href="#design-implementation" id="toc-design-implementation" class="nav-link" data-scroll-target="#design-implementation">Design &amp; Implementation</a></li>
+  <li><a href="#integration" id="toc-integration" class="nav-link" data-scroll-target="#integration">Integration</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
-<div class="quarto-about-trestles column-page">
-  <div class="about-entity">
-    <img src="images/propic2.png" class="about-image
-  rounded " style="width: 20em;" title="At MLSys 2025">
+<main class="content" id="quarto-document-content">
+
+
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Md Saidul Hoque Anik</h1>
-</div>
+<h1 class="title">A Unified MoE-EP First-Class Layer in FlashInfer</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">MoE</div>
+    <div class="quarto-category">Expert Parallelism</div>
+    <div class="quarto-category">LLM Inference</div>
+    <div class="quarto-category">FlashInfer</div>
+    <div class="quarto-category">CUDA</div>
+    <div class="quarto-category">GPU</div>
+    <div class="quarto-category">cuDNN</div>
+    <div class="quarto-category">Mega-MoE</div>
+    <div class="quarto-category">NCCL_EP</div>
+    <div class="quarto-category">NIXL_EP</div>
+    <div class="quarto-category">NVIDIA Internship</div>
+  </div>
+  </div>
+
 <div>
   <div class="description">
-    PhD Candidate at Texas A&amp;M | ML Systems &amp; Performance Optimization | Scalable and Differentiable Sparse Kernels for Graph Learning<br><br>Contact: anik[at]tamu[dot]edu
+    <strong>[NVIDIA Internship 2026]</strong> I extended FlashInfer’s MoEEPLayer into a unified, extensible first-class layer supporting both split and Mega-MoE execution paths, enabling flexible backend integration, offline tuning, and efficient MoE-EP inference across GPU architectures and serving frameworks.
   </div>
 </div>
-<div class="quarto-title-meta column-page">
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">August 2026</p>
+    </div>
   </div>
+  
+    
+  </div>
+  
+
+
 </header>
-    <div class="about-links">
-  <a href="https://github.com/OnixHoque" class="about-link" rel="" target="">
-    <i class="bi bi-github"></i>
-     <span class="about-link-text">Github</span>
-  </a>
-  <a href="https://www.linkedin.com/in/onixhoque/" class="about-link" rel="" target="">
-    <i class="bi bi-linkedin"></i>
-     <span class="about-link-text">LinkedIn</span>
-  </a>
-</div>
-  </div>
-  <div class="about-contents"><main class="content column-page" id="quarto-document-content">
 
-<section id="recent-news" class="level4">
-<h4 data-anchor-id="recent-news">Recent News</h4>
-<div id="listing-listings-news" class="quarto-listing quarto-listing-container-table">
-<table class="quarto-listing-table table">
-<thead>
-<tr>
-<th>
-Date
-</th>
-<th>
-caption
-</th>
-</tr>
-</thead>
-<tbody class="list">
-<tr data-index="0" data-categories="U2VydmljZQ==" data-listing-date-sort="1787979600000" data-listing-caption-sort="Honored to be invited to serve on the MLSys 2027 Program Committee">
-<td>
-<span class="listing-date">08/26</span>
-</td>
-<td>
-<span class="listing-caption">Honored to be invited to serve on the MLSys 2027 Program Committee</span>
-</td>
-</tr>
-<tr data-index="1" data-categories="SW50ZXJuc2hpcCUyQ0pvYg==" data-listing-date-sort="1775451600000" data-listing-file-modified-sort="1789242267945" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="68" data-listing-caption-sort="Received and accepted internship offer from NVIDIA">
-<td>
-<span class="listing-date">04/26</span>
-</td>
-<td>
-<a href="./news/posts/nvidia-intern-2026/index.html" class="caption listing-caption">Received and accepted internship offer from NVIDIA</a>
-</td>
-</tr>
-<tr data-index="2" data-categories="SW50ZXJuc2hpcA==" data-listing-date-sort="1774760400000" data-listing-file-modified-sort="1789188347288" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="74" data-listing-caption-sort="Received internship offer from Google">
-<td>
-<span class="listing-date">03/26</span>
-</td>
-<td>
-<a href="./news/posts/google-intern-2026/index.html" class="caption listing-caption">Received internship offer from Google</a>
-</td>
-</tr>
-<tr data-index="3" data-categories="UHJvamVjdA==" data-listing-date-sort="1766728800000" data-listing-caption-sort="Released tinyCUDA, a lightweight C++ CUDA memory management and profiling library">
-<td>
-<span class="listing-date">12/25</span>
-</td>
-<td>
-<a href="./blog/tinycuda-release" class="caption listing-caption">Released tinyCUDA, a lightweight C++ CUDA memory management and profiling library</a>
-</td>
-</tr>
-<tr data-index="4" data-categories="VGFsayUyQ1Bvc3Rlcg==" data-listing-date-sort="1761973200000" data-listing-caption-sort="Sparstitute project debrief (Berkeley) on GNN model-parallel systems">
-<td>
-<span class="listing-date">11/25</span>
-</td>
-<td>
-<a href="./research/systems/graph-mp/" class="caption listing-caption">Sparstitute project debrief (Berkeley) on GNN model-parallel systems</a>
-</td>
-</tr>
-<tr data-index="5" data-categories="VGFsaw==" data-listing-date-sort="1759294800000" data-listing-caption-sort="DDP Lecture Session for TAMU Graduate Supercomputing Course">
-<td>
-<span class="listing-date">10/25</span>
-</td>
-<td>
-<a href="./teaching/#guest-lecture-at-texas-am" class="caption listing-caption">DDP Lecture Session for TAMU Graduate Supercomputing Course</a>
-</td>
-</tr>
-<tr data-index="6" data-categories="SW50ZXJuc2hpcCUyQ0pvYg==" data-listing-date-sort="1746075600000" data-listing-caption-sort="Summer Intern at Amazon SageMaker">
-<td>
-<span class="listing-date">05/25</span>
-</td>
-<td>
-<a href="./research/systems/gpu-tuner-amazon/" class="caption listing-caption">Summer Intern at Amazon SageMaker</a>
-</td>
-</tr>
-</tbody>
-</table>
-<div class="listing-no-matching d-none">No matching items</div>
+
+<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Note">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
 </div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Note
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<p>NVIDIA cuDNN/FlashInfer Internship Summer 2026</p>
+</div>
+</div>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="nvidia-2.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="with cuDNN/FlashInfer team"><img src="nvidia-2.jpg" title="Title: An elephant" class="img-fluid figure-img" alt="with cuDNN/FlashInfer team"></a></p>
+<figcaption>with cuDNN/FlashInfer team</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="nvidia-1.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Happy to meet Dr.&nbsp;Aydin Buluc, my PhD supervisor’s Postdoc supervisor; along with many of my friends"><img src="nvidia-1.jpg" title="Title: An elephant" class="img-fluid figure-img" alt="Happy to meet Dr.&nbsp;Aydin Buluc, my PhD supervisor’s Postdoc supervisor; along with many of my friends"></a></p>
+<figcaption>Happy to meet Dr.&nbsp;Aydin Buluc, my PhD supervisor’s Postdoc supervisor; along with many of my friends</figcaption>
+</figure>
+</div>
+<section id="overview" class="level2">
+<h2 class="anchored" data-anchor-id="overview">Overview</h2>
+<p>Alhamdulillah, I had the opportunity to spend this summer interning at NVIDIA with the cuDNN/FlashInfer team. During my internship, I worked on extending MoEEPLayer in FlashInfer to enable efficient inference for DeepSeek v4 and other LLMs that heavily rely on Expert Parallelism (EP) within their Mixture-of-Experts (MoE) layers, including MoE-EP forward propagation (fprop) paths targeted for cuDNN integration.</p>
+<p>Before MoEEPLayer, the Mega-MoE path was primarily built around DeepSeek’s kernel, which supported only the SM100 FP4/FP8 configuration. Inference frameworks such as vLLM and SGLang had their Mega-MoE integrations tightly coupled to this specific kernel, making it difficult to add support for new kernels, GPU architectures, or data type combinations. My goal was to address this by introducing a unified abstraction that could support multiple MoE-EP execution paths and allow new kernels to be integrated without changing the higher-level inference framework.</p>
 </section>
-<section id="about-me" class="level2">
-<h2 data-anchor-id="about-me">About Me</h2>
-<p>I am a PhD candidate in Computer Science &amp; Engineering at Texas A&amp;M University, focusing on <strong>high-performance and distributed machine learning systems</strong>. I specialize in optimizing <strong>sparse linear algebra</strong> for efficient ML pipelines. Previously, I interned at <strong>Amazon AWS</strong>, where I built a differentiable GPU kernel autotuner that reduced LLM kernel-tuning time from <strong>days to hours</strong>.</p>
-<p>After completing my PhD (tentatively in <strong>Fall 2027</strong>), I plan to pursue <strong>industry roles</strong> as an ML systems engineer or researcher, focusing on building high-performance and scalable machine learning infrastructure.</p>
-<blockquote class="blockquote">
-<p>I can:</p>
-<ul>
-<li>Build custom <strong>PyTorch GNN</strong> training pipelines backed by optimized sparse linear algebra.<br>
-</li>
-<li>Integrate custom <strong>C++/CUDA</strong> kernels into PyTorch with LibTorch &amp; PyBind11.<br>
-</li>
-<li>Develop <strong>distributed training systems</strong> with PyTorch Distributed and efficient disk-based data streaming.<br>
-</li>
-<li>Profile and optimize Python/C++ pipelines for <strong>performance bottlenecks</strong>.<br>
-</li>
-<li>Apply ML for <strong>systems optimization</strong> (e.g., developed neural <strong>GPU kernel autotuner</strong> with <strong>transfer-learning</strong> support).</li>
-</ul>
-</blockquote>
-<p>Prior to my PhD, I <a href="./teaching/">taught</a> undergraduate courses for over <strong>5 years</strong>, including in tenure-track roles, spanning computer systems, theory, and core programming, such as Web Programming, <strong>Computer Architecture</strong>, Theory of Computation, <strong>Programming Languages (C/C++/Java)</strong>, and Data Structures &amp; Algorithms.</p>
+<section id="design-implementation" class="level2">
+<h2 class="anchored" data-anchor-id="design-implementation">Design &amp; Implementation</h2>
+<p>I redesigned MoEEPLayer into a unified, multi-paradigm API supporting both FlashInfer’s existing <strong>split-path execution</strong>—dispatch → compute → combine, with NCCL/NIXL-EP communication and FlashInfer’s MoE kernels—and a newer <strong>Mega-MoE execution</strong> path. The underlying Mega-MoE and communication kernels were developed by NVIDIA’s NCCL and Fast Kernel teams, as well as FlashInfer open-source contributors. My work focused on designing the abstraction and integration layer that brings these diverse kernels together within FlashInfer.</p>
+<p>The redesigned API introduces a <strong>plugin-style backend architecture</strong> with standardized interfaces, allowing new split and Mega-MoE kernel variants—including Pull/Push-style designs—and future execution strategies to be integrated as interchangeable backends. I also introduced cuDNN-style offline tuning mechanisms, CuTeDSL/CUDA Mega-MoE kernel integration harnesses, and integration guidelines to simplify the adoption of new Mega-MoE kernels across GPU architectures and data types.</p>
+<p>A key part of the design was making the backend abstraction expressive enough to accommodate a wide range of kernel implementations without coupling the higher-level MoEEPLayer API to any particular kernel. This allows different execution strategies, communication mechanisms, and compute kernels to evolve independently while remaining accessible through a common interface.</p>
+<p>The final MoEEPLayer supports <strong>18 backend configurations</strong>: <strong>12 Mega-MoE kernels</strong> spanning SM90, SM100, SM107, and SM120 architectures, with combinations of BF16, MXFP8, and NVFP4 across activation, weight, and output data types, as well as both Pull- and Push-style Mega-MoE execution. It also supports <strong>6 split-path configurations</strong>, covering NCCL-EP and NIXL-EP communication combined with three local MoE compute paths.</p>
+<p>In other words, the work took a diverse collection of independently developed kernels and provided a single abstraction through which they could be integrated, tuned, selected, and shipped as part of FlashInfer. Rather than requiring each kernel implementation to have its own integration path, the MoEEPLayer architecture provides a common production interface for the entire set of execution strategies.</p>
 </section>
-<section id="research-background" class="level2">
-<h2 data-anchor-id="research-background">Research Background</h2>
-<p>My PhD research centers on <strong>scalable graph learning systems</strong> (GNNs, KGEs, GraphRAG) and custom sparse linear algebra.<br>
-At <strong>MLSys 2025</strong>, I presented a generalized method for expressing KGE training models through sparse matrix multiplication to improve large-scale efficiency. This led to model training speedup of up to <strong>5.3×</strong> in CPU, <strong>4.2×</strong> in GPU, and an improvement of up to <strong>11.1×</strong> in CUDA memory efficiency.<br>
-I also built a <strong>high-performance CPU SpMM library</strong> (ACM WebConf 2024) that accelerates PyTorch GNN training by <strong>up to 93×</strong> across Intel, AMD, and ARM CPUs.<br>
-Additionally, during my <strong>Amazon Summer Internship</strong> 2025, I developed a Differentiable GPU Kernel Autotuner, which achieved significantly <strong>higher</strong> <strong>accuracy</strong> in predicting optimal configurations compared to other baseline tuning models.<br>
-Currently, I am collaborating with <strong>Oak Ridge National Lab</strong> on a distributed, differentiable framework for large-scale KGE training across hybrid compute tiers.</p>
-<!-- :::{.column-margin} -->
-</section>
-<section id="featured-research" class="level2">
-<h2 data-anchor-id="featured-research">Featured Research</h2>
-<div id="listing-listings-research" class="quarto-listing quarto-listing-container-grid">
-<div class="list grid quarto-listing-cols-1">
-<div class="g-col-1" data-index="0" data-categories="TW9FJTJDRXhwZXJ0JTIwUGFyYWxsZWxpc20lMkNMTE0lMjBJbmZlcmVuY2UlMkNGbGFzaEluZmVyJTJDQ1VEQSUyQ0dQVSUyQ2N1RE5OJTJDTWVnYS1Nb0UlMkNOQ0NMX0VQJTJDTklYTF9FUCUyQ05WSURJQSUyMEludGVybnNoaXA=" data-listing-date-sort="1787979600000" data-listing-file-modified-sort="1789247832038" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="628">
-<a href="./research/systems/nvidia-flashinfer-2026/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="./research/systems/nvidia-flashinfer-2026/nvidia.png" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-A Unified MoE-EP First-Class Layer in FlashInfer
-</h5>
-<div class="card-text listing-description delink">
-<p><strong>[NVIDIA Internship 2026]</strong> I extended FlashInfer’s MoEEPLayer into a unified, extensible first-class layer supporting both split and Mega-MoE execution paths, enabling flexible backend integration, offline tuning, and efficient MoE-EP inference across GPU architectures and serving frameworks.</p>
-</div>
-<div class="card-attribution card-text-small end">
-<div class="listing-date">
-Aug 2026
-</div>
-</div>
-</div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="1" data-categories="QXV0b3R1bmVyJTJDQ1VEQSUyQ0tlcm5lbCUyQ0RpZmZlcmVudGlhYmxlJTJDdkxMTSUyQ1RyYW5zZmVyJTIwTGVhcm5pbmclMkNBbWF6b24lMjBJbnRlcm5zaGlwJTJDUHlUb3JjaCUyQ1NjaVB5JTJDR1BV" data-listing-date-sort="1754024400000" data-listing-file-modified-sort="1789244727854" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="157">
-<a href="./research/systems/gpu-tuner-amazon/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="./research/systems/gpu-tuner-amazon/amazon.jpg" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Differentiable GPU kernel autotuner
-</h5>
-<div class="card-text listing-description delink">
-<p>[<strong>Amazon AWS Internship 2025</strong>] I developed a robust, end-to-end GPU kernel autotuner that achieves significantly higher accuracy with little ground-truth data and enables transfer learning reducing kernel tuning time from days to hours.</p>
-</div>
-<div class="card-attribution card-text-small end">
-<div class="listing-date">
-Aug 2025
-</div>
-</div>
-</div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="2" data-categories="S25vd2xlZGdlJTIwR3JhcGglMkNTcE1NJTJDUHVibGljYXRpb24lMkNQYXBlciUyQ0NQVSUyQ0dQVSUyQ1B5VG9yY2glMkNEaXN0cmlidXRlZCUyQ0REUCUyQ0ZTRFA=" data-listing-date-sort="1746075600000" data-listing-file-modified-sort="1767852726116" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="352">
-<a href="./research/systems/sptransx/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="./research/systems/sptransx/mlsys.png" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-SparseTransX: Efficient Training of Translation-Based Knowledge Graph Embeddings Using Sparse Matrix Operations
-</h5>
-<div class="card-text listing-description delink">
-<p>[<strong>MLSys 2025</strong>] I expressed and reformulated 10 KG embedding models using sparse–dense matrix multiplication (SpMM), achieving up to 5.3× CPU speedup, 4.2× GPU speedup, and up to 11.1× reduction in GPU memory footprint.</p>
-</div>
-<div class="card-attribution card-text-small end">
-<div class="listing-date">
-May 2025
-</div>
-</div>
-</div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="3" data-categories="VHJhbnNFJTJDS25vd2xlZGdlJTIwR3JhcGglMkNTcE1NJTJDU3BhcnNlJTIwTGluZWFyJTIwQWxnZWJyYQ==" data-listing-date-sort="1732514400000" data-listing-file-modified-sort="1767850278291" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="251">
-<a href="./research/systems/efficient-kge/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="./research/systems/efficient-kge/sc24.png" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-A Sparse Approach for Translation-based Training of Knowledge Graph Embeddings
-</h5>
-<div class="card-text listing-description delink">
-<p>[<strong>SC24 Best Poster Finalist</strong>] In this work, I accelerated knowledge-graph embedding training by replacing traditional scatter/gather operations with sparse–dense matrix multiplication, reducing memory usage and achieving significant CPU, GPU, and multi-GPU speedups.</p>
-</div>
-<div class="card-attribution card-text-small end">
-<div class="listing-date">
-Nov 2024
-</div>
-</div>
-</div>
-</div></a>
-</div>
-</div>
-<div class="listing-no-matching d-none">No matching items</div>
-</div>
-<blockquote class="blockquote">
-<p>Discover all 20+ <a href="./research/index.html">research projects</a> or view the full list of <a href="./news/#category=Publication">publications</a></p>
-</blockquote>
-<!-- * [Amazon AWS Internship 2025: Developed Differentiable GPU Kernel Autotuner.](/research/systems/gpu-tuner-amazon/index.qmd) 
-* [MLSys 2025 Paper: Generalized 10 KGE model training using faster sparse-dense matrix multiplication kernel.](/research/systems/sptransx/index.qmd)
-* [SC24 best poster finalist (top-6): Expressed TransE Knowledge Graph Embedding (KGE) training using faster sparse-dense matrix multiplication kernel.](/research/systems/efficient-kge/index.qmd)
- -->
-</section>
-<section id="leadership-roles" class="level2">
-<h2 data-anchor-id="leadership-roles">Leadership Roles</h2>
-<p>I <strong>led</strong> and <strong>coordinated</strong> various academic and technical initiatives, including <strong>curriculum revisions</strong>, <strong>postgraduate programs</strong>, and <strong>programming contests</strong> at UIU, MIST, and BUET, fostering a culture of <strong>innovation</strong> and academic excellence across departments. See all my leadership roles and initiatives <a href="./leadership/">here</a>.</p>
-</section>
-<section id="exploration" class="level2">
-<h2 data-anchor-id="exploration">Exploration</h2>
-<p>I deepen my <strong>ML systems</strong> expertise by solving <a href="./leetgpu/">LeetGPU</a> problems across <strong>PyTorch</strong>, <strong>CUDA</strong>, and <strong>Triton</strong>, building intuition for low-level <strong>kernel design</strong> and <strong>performance trade-offs</strong>. I stay current with <strong>ML infrastructure</strong> and <strong>systems trends</strong> by developing small experimental tools and continuously expanding my <a href="./software/">software</a> skill set, with <strong>12+ open-source</strong> and commercial projects in <strong>Python</strong>, <strong>C++</strong>, and <strong>Java</strong>. I also regularly read and distill recent <strong>ML systems papers</strong>, sharing relevant hands-on tutorials and technical walkthroughs on my <a href="./blog/">blog</a> to communicate systems concepts clearly and effectively.</p>
-<!-- I deepen my ML systems expertise by solving [LeetGPU](/blog/#category=LeetGPU) problems across PyTorch, CUDA, and Triton, developing intuition for performance trade-offs and low-level kernel design. I stay current with ML infrastructure and systems trends by building small experimental tools and continuously expanding my [software](/blog/#category=LeetGPU) skill set. -->
-<!-- ::: -->
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-  const section = document.getElementById('recent-news');
-  // const section = document.getElementById('highlights');
-  const targetDiv = document.querySelector('.about-entity');
-  if (section && targetDiv) {
-    section.remove();
-    targetDiv.appendChild(section);
-    section.style.textAlign = 'left';
-    section.style.fontSize = '0.95em';
-    const table = section.querySelector('table');
-    if (table) {
-      const thead = table.querySelector('thead');
-      if (thead) {
-        thead.remove();
-      }
-    }
-    table.insertAdjacentHTML('afterend', '<div style="text-align: right;"><a href="/news/">See All ⟶ </a></div>');
-  }
-  function applyLayout() {
-    document.querySelectorAll('.quarto-grid-item.card').forEach(function(card) {
-      const imgP = card.querySelector('p.card-img-top');
-      if (!imgP) return;
-      const img = imgP.querySelector('img');
-      const body = card.querySelector('.card-body');
-      if (!img || !body) return;
-      // Style image to fit container entirely without cropping
-      img.style.maxWidth = '100%';
-      img.style.maxHeight = '100%';
-      img.style.width = 'auto';
-      img.style.height = 'auto';
-      img.style.objectFit = 'contain'; // Scale to fit within container, preserving aspect ratio
-      img.style.display = 'block';
-      if (window.innerWidth < 768) return; // Skip on mobile (< md breakpoint)
-      // Remove original image paragraph and extract img
-      card.removeChild(imgP);
-      // Use flexbox for reliable horizontal layout
-      card.style.display = 'flex';
-      card.style.flexDirection = 'row';
-      card.style.overflow = 'hidden';
-      // card.style.alignItems = 'center';
-      // Create a square container for the image
-      const imgContainer = document.createElement('div');
-      imgContainer.style.width = '150px'; // Fixed side length for square; adjust as needed
-      imgContainer.style.height = '150px';
-      imgContainer.style.flexShrink = '0'; 
-      imgContainer.style.overflow = 'hidden';
-      imgContainer.style.marginLeft = '0.5rem'; 
-      // imgContainer.style.marginRight = '0.5rem'; 
-      imgContainer.style.display = 'flex';
-      imgContainer.style.alignItems = 'center'; // Vertical centering
-      imgContainer.style.justifyContent = 'center'; // Horizontal centering
-      // imgContainer.style.backgroundColor = '#f8f9fa'; // Optional: light bg for letterboxing
-      // Append img to container, then container to card
-      imgContainer.appendChild(img);
-      card.insertBefore(imgContainer, body);
-      // Body takes remaining space
-      body.style.flex = '1';
-      body.style.display = 'flex';
-      body.style.flexDirection = 'column';
-      body.style.justifyContent = 'space-between';
-      body.style.padding = '10px';
-      // Zero out margin-bottom on the description p
-      const descP = body.querySelector('.listing-description p');
-      if (descP) descP.style.marginBottom = '0';
-    }); 
-  }
-  applyLayout(); // Initial apply on load
-  // Re-apply on resize (debounced for performance)
-  let resizeTimeout;
-  window.addEventListener('resize', function() {
-    clearTimeout(resizeTimeout);
-    resizeTimeout = setTimeout(applyLayout, 250);
-  });
-  // Optional: Listen to media query changes for more precision
-  const mediaQuery = window.matchMedia('(min-width: 768px)');
-  mediaQuery.addEventListener('change', applyLayout);
-});
-</script>
+<section id="integration" class="level2">
+<h2 class="anchored" data-anchor-id="integration">Integration</h2>
+<p>Beyond the core FlashInfer implementation, an important part of the project was making the new abstraction usable by downstream inference frameworks. The unified MoEEPLayer provides a simpler integration surface for frameworks such as <strong>vLLM and SGLang</strong> to leverage MoE-EP, while allowing the underlying execution strategies and backends to evolve independently.</p>
+<p>I authored the <strong>vLLM PR (</strong><a href="https://github.com/vllm-project/vllm/pull/49636">#49636</a>) <strong>integrating FlashInfer’s Mega-MoE backend</strong> and oversaw its integration into <strong>SGLang</strong>, extending the impact of the work beyond FlashInfer itself. The new MoEEPLayer ultimately became part of <strong>FlashInfer v0.6.16</strong>, bringing the unified abstraction and its collection of MoE-EP backends into the production FlashInfer stack.</p>
+<p>I’m very grateful to have had the opportunity to work on this project and to learn from so many talented engineers and researchers at NVIDIA. A huge thank you to my mentor <strong>Anerudhan Gopal</strong>, my manager <strong>Yang XU</strong>, and the many collaborators across NVIDIA for their guidance, support, and for making this experience possible.</p>
+<p>Alhamdulillah for the experience, and I’m excited to see where this work goes next!</p>
 
 
 </section>
-</main></div>
-</div>
- <!-- /main -->
+
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right
@@ -747,6 +444,13 @@ Nov 2024
       window.document.body.appendChild(a);
     }
     setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
     const isCodeAnnotation = (el) => {
       for (const clz of el.classList) {
         if (clz.startsWith('code-annotation-')) {                     
@@ -1139,6 +843,38 @@ Nov 2024
   });
   </script>
 </div> <!-- /content -->
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 
