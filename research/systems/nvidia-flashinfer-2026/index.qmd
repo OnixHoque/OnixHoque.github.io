@@ -37,7 +37,7 @@ In other words, the work took a diverse collection of independently developed ke
 
 Beyond the core FlashInfer implementation, an important part of the project was making the new abstraction usable by downstream inference frameworks. The unified MoEEPLayer provides a simpler integration surface for frameworks such as **vLLM and SGLang** to leverage MoE-EP, while allowing the underlying execution strategies and backends to evolve independently.
 
-I authored the **vLLM PR (**[#49636](https://github.com/vllm-project/vllm/pull/49636)) **integrating FlashInfer’s Mega-MoE backend** and oversaw its integration into **SGLang**, extending the impact of the work beyond FlashInfer itself. The new MoEEPLayer ultimately became part of **FlashInfer v0.6.16**, bringing the unified abstraction and its collection of MoE-EP backends into the production FlashInfer stack.
+The new MoEEPLayer ultimately became part of **FlashInfer [v0.6.16](https://flashinfer.ai/releases/#v0-6-16)**, bringing the unified abstraction and its collection of MoE-EP backends into the production FlashInfer stack. I also authored the **vLLM PR (**[#49636](https://github.com/vllm-project/vllm/pull/49636)) **integrating FlashInfer’s MoEEPLayer** as a new MegaMoE backend; and separately oversaw **MoEEPLayer** integration into **SGLang**, extending the impact of the work beyond FlashInfer itself.
 
 I’m very grateful to have had the opportunity to work on this project and to learn from so many talented engineers and researchers at NVIDIA. A huge thank you to my mentor **Anerudhan Gopal**, my manager **Yang XU**, and the many collaborators across NVIDIA for their guidance, support, and for making this experience possible.
 
