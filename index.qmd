@@ -46,6 +46,8 @@ about:
     - icon: linkedin
       text: LinkedIn 
       href: https://www.linkedin.com/in/onixhoque/
+    - text: "{{< ai google-scholar >}} Google Scholar"
+      href: https://scholar.google.com/citations?user=teERpisAAAAJ&hl=en
 ---
 
 #### Recent News
