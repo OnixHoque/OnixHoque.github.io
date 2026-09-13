@@ -12,6 +12,6 @@ date: "04/06/2026"
 
 > Check out my post about the project I worked on during my internship [here](/research/systems/nvidia-flashinfer-2026)
 
-I was happy to receive a Deep Leaning Software Engineering internship offer from NVDIA’s **cuDNN/FlashInfer** team for Summer 2026. I received the offer after successfully completing two technical interviews.
+I was happy to receive and accept a Deep Leaning Software Engineering internship offer from NVDIA’s **cuDNN/FlashInfer** team for Summer 2026. I received the offer after successfully completing two technical interviews.
 
-I’m grateful for the opportunity and for everyone who supported me throughout the interview and recruiting process. It was a great experience that challenged me technically and gave me the chance to learn more about engineering at Google.
+I’m grateful for the opportunity and for everyone who supported me throughout the interview and recruiting process. It was a great experience that challenged me technically and gave me the chance to learn more about engineering at NVIDIA.
